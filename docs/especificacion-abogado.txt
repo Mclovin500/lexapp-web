@@ -1,0 +1,1540 @@
+# ESPECIFICACIÓN DE PANTALLAS Y FLUJO DEL ABOGADO — LEXAPP
+
+## 1. Objetivo del documento
+
+El presente documento define la estructura funcional, navegación y comportamiento de la **plataforma web de LexApp destinada exclusivamente a abogados**.
+
+Su objetivo es servir como guía para la persona encargada del desarrollo, explicando qué función cumple cada pantalla, desde dónde se accede, qué información debe mostrar y hacia dónde debe continuar cada flujo.
+
+La plataforma del abogado funciona de manera independiente de la aplicación móvil del cliente.
+
+> **Importante:** este documento corresponde únicamente al entorno del abogado. Las funciones, pantallas y flujos exclusivos del cliente no forman parte de esta especificación.
+
+---
+
+# 2. Alcance de la plataforma web del abogado
+
+La plataforma permite al abogado:
+
+- Crear y administrar su cuenta profesional.
+- Verificar su correo electrónico.
+- Proporcionar sus credenciales profesionales.
+- Consultar el estado de validación de su perfil.
+- Iniciar sesión de manera segura.
+- Recuperar su contraseña.
+- Consultar su Dashboard.
+- Recibir solicitudes de clientes.
+- Revisar solicitudes y necesidades legales.
+- Crear propuestas de servicios.
+- Dar seguimiento a las propuestas.
+- Administrar expedientes.
+- Consultar documentos de expedientes.
+- Consultar información de clientes.
+- Comunicarse mediante chat.
+- Administrar reuniones virtuales.
+- Realizar videollamadas.
+- Administrar honorarios y cobros.
+- Crear cobros adicionales relacionados con expedientes.
+- Consultar movimientos y estados de pago.
+- Configurar la cuenta donde recibirá sus honorarios.
+- Administrar su perfil profesional.
+- Configurar opciones de seguridad y preferencias.
+- Recibir notificaciones relacionadas con su actividad.
+
+---
+
+# 3. Separación entre plataformas
+
+LexApp utiliza dos entornos diferentes:
+
+### Plataforma web — Abogado
+
+Es el entorno definido en este documento.
+
+El abogado utiliza una computadora o dispositivo de escritorio para administrar su actividad profesional.
+
+### Aplicación móvil — Cliente
+
+El cliente utiliza la aplicación móvil para buscar abogados, contratar servicios, realizar pagos, consultar sus casos y comunicarse con el abogado.
+
+**No se deben mezclar las funciones de ambos perfiles.**
+
+En particular:
+
+- El abogado no utiliza la aplicación móvil para administrar sus expedientes.
+- El abogado no recibe pagos mediante una pantalla de tarjeta del cliente.
+- El abogado no busca abogados.
+- El cliente no utiliza el Dashboard del abogado.
+- El cliente no administra cobros profesionales.
+- El cliente no configura la cuenta bancaria del abogado.
+
+---
+
+# 4. Estructura general de navegación
+
+La plataforma del abogado se divide en:
+
+### Acceso y registro
+
+- A1 — Bienvenida.
+- A2 — Inicio de sesión.
+- A2A — Verificación de código de seguridad.
+- A2B — Recuperar contraseña.
+- A2C — Código de recuperación.
+- A2D — Nueva contraseña.
+- A3 — Registro básico.
+- A3A — Verificación de correo.
+- A4 — Credenciales profesionales.
+- A5 — Área de práctica y perfil.
+- A5A — Estado de validación profesional.
+
+### Panel principal
+
+- B1 — Dashboard.
+- B1A — Centro de notificaciones.
+
+### Solicitudes
+
+- C1 — Solicitudes recibidas.
+- C2 — Detalle de solicitud.
+
+### Propuestas y servicios
+
+- D1 — Crear propuesta de servicio.
+- D2 — Seguimiento de propuestas.
+- D3 — Honorarios y cobros.
+- D4 — Crear cobro adicional.
+- D5 — Detalle de pago y movimientos.
+
+### Expedientes
+
+- E1 — Mis expedientes.
+- E2 — Detalle del expediente.
+- E3 — Documentos del expediente.
+
+### Clientes
+
+- F1 — Directorio de clientes.
+- F2 — Detalle del cliente.
+
+### Agenda y comunicación
+
+- G1 — Agenda de citas virtuales.
+- G1A — Sala de videollamada.
+- H1 — Chat con clientes.
+
+### Perfil y configuración
+
+- I1 — Perfil profesional.
+- J1 — Configuración.
+- J1A — Cuenta de depósito / honorarios.
+
+Esto representa **31 pantallas/vistas internas identificadas para el entorno del abogado**.
+
+---
+
+# 5. ESPECIFICACIÓN DE LAS 31 PANTALLAS DEL ABOGADO
+
+## A1 — Bienvenida
+
+### Objetivo
+
+Presentar la plataforma LexApp y proporcionar el acceso inicial al entorno del abogado.
+
+### Elementos
+
+- Logotipo de LexApp.
+- Nombre de la plataforma.
+- Mensaje introductorio.
+- Botón para iniciar sesión.
+- Acceso al registro.
+
+### Navegación
+
+- Iniciar sesión → A2.
+- Crear cuenta → A3.
+
+### Consideraciones
+
+Es una pantalla pública de acceso. No debe mostrar información privada del abogado.
+
+---
+
+# A2 — Inicio de sesión
+
+### Objetivo
+
+Permitir que un abogado registrado acceda a su cuenta.
+
+### Elementos
+
+- Correo electrónico.
+- Contraseña.
+- Mostrar/ocultar contraseña.
+- Botón "Iniciar sesión".
+- Enlace "¿Olvidaste tu contraseña?".
+- Opción para crear una cuenta.
+
+### Navegación
+
+Credenciales correctas:
+
+**A2 → A2A**
+
+Recuperación de contraseña:
+
+**A2 → A2B**
+
+Registro:
+
+**A2 → A3**
+
+### Consideraciones
+
+Las credenciales deben validarse mediante el sistema de autenticación.
+
+No se debe enviar directamente al Dashboard hasta completar el mecanismo de seguridad establecido.
+
+---
+
+# A2A — Verificación de código de seguridad
+
+### Objetivo
+
+Confirmar la identidad del abogado después de introducir correctamente sus credenciales.
+
+### Elementos
+
+- Título "Verifica tu identidad".
+- Correo parcialmente oculto.
+- Seis campos para el código.
+- Botón "Verificar código".
+- "Reenviar código".
+- Temporizador.
+- Opción para regresar.
+
+### Navegación
+
+Código correcto:
+
+**A2A → B1**
+
+Código incorrecto:
+
+Permanecer en A2.
+
+Código vencido:
+
+Solicitar un nuevo código.
+
+### Consideraciones
+
+El código debe:
+
+- Ser temporal.
+- Tener un tiempo de expiración.
+- Ser de un solo uso.
+- Invalidarse cuando se genere uno nuevo.
+- Tener un límite de intentos.
+
+No mostrar el código real en pantalla.
+
+---
+
+# A2B — Recuperar contraseña
+
+### Objetivo
+
+Permitir al abogado iniciar el proceso para recuperar su contraseña.
+
+### Elementos
+
+- Título "Recuperar contraseña".
+- Campo de correo.
+- Botón "Enviar código de recuperación".
+- Enlace para regresar al inicio de sesión.
+
+### Navegación
+
+Solicitud enviada:
+
+**A2B → A2C**
+
+Regresar:
+
+**A2B → A2**
+
+### Consideraciones
+
+El sistema no debe revelar información sensible sobre la existencia de cuentas.
+
+---
+
+# A2C — Código de recuperación
+
+### Objetivo
+
+Verificar que el abogado tiene acceso al correo utilizado para recuperar su cuenta.
+
+### Elementos
+
+- Correo parcialmente oculto.
+- Seis campos de código.
+- Botón "Verificar código".
+- "Reenviar código".
+- Temporizador.
+- Opción para regresar.
+
+### Navegación
+
+Código correcto:
+
+**A2C → A2D**
+
+Código incorrecto:
+
+Permanecer en A2C.
+
+Código vencido:
+
+Solicitar otro código.
+
+---
+
+# A2D — Nueva contraseña
+
+### Objetivo
+
+Permitir al abogado establecer una nueva contraseña.
+
+### Elementos
+
+- Nueva contraseña.
+- Confirmar contraseña.
+- Mostrar/ocultar contraseña.
+- Requisitos de seguridad.
+- Botón "Guardar nueva contraseña".
+
+### Navegación
+
+Cambio exitoso:
+
+**A2D → A2**
+
+### Consideraciones
+
+Validar que ambas contraseñas coincidan y cumplan los requisitos establecidos.
+
+---
+
+# A3 — Registro básico
+
+### Objetivo
+
+Registrar los datos básicos de un nuevo abogado.
+
+### Elementos
+
+- Nombre.
+- Apellidos.
+- Correo electrónico.
+- Teléfono, si corresponde.
+- Contraseña.
+- Confirmación de contraseña.
+- Aceptación de términos y condiciones.
+
+### Navegación
+
+Registro:
+
+**A3 → A3A**
+
+### Consideraciones
+
+Validar todos los datos antes de crear el registro.
+
+---
+
+# A3A — Verificación de correo electrónico
+
+### Objetivo
+
+Confirmar que el abogado tiene acceso al correo utilizado durante el registro.
+
+### Elementos
+
+- Correo parcialmente oculto.
+- Código de seis dígitos.
+- Botón "Verificar correo".
+- Reenvío de código.
+- Temporizador.
+
+### Navegación
+
+Código correcto:
+
+**A3A → A4**
+
+Código incorrecto:
+
+Permanecer en A3A.
+
+### Consideraciones
+
+Esta pantalla es diferente de A2A.
+
+- **A3A:** verifica el correo durante el registro.
+- **A2A:** verifica la identidad durante el inicio de sesión.
+
+---
+
+# A4 — Credenciales profesionales
+
+### Objetivo
+
+Recopilar la información profesional del abogado.
+
+### Elementos
+
+- Número de cédula profesional.
+- Formación académica.
+- Universidad.
+- Información profesional solicitada.
+- Documentación requerida, cuando corresponda.
+- Botón para continuar.
+
+### Navegación
+
+**A4 → A5**
+
+### Consideraciones
+
+La información profesional debe validarse de acuerdo con el mecanismo que se implemente.
+
+No mostrar una credencial como "verificada" si el sistema todavía no ha realizado la validación.
+
+---
+
+# A5 — Área de práctica y perfil
+
+### Objetivo
+
+Permitir al abogado definir su información profesional visible para los clientes.
+
+### Elementos
+
+- Áreas de práctica.
+- Especialidades.
+- Experiencia.
+- Descripción profesional.
+- Servicios ofrecidos.
+- Honorarios o información relacionada.
+- Disponibilidad.
+- Fotografía profesional, si corresponde.
+
+### Navegación
+
+Después de completar el registro:
+
+**A5 → A5A**
+
+### Consideraciones
+
+La información aquí registrada será utilizada para construir el perfil profesional que podrá consultar el cliente.
+
+---
+
+# A5A — Estado de validación profesional
+
+### Objetivo
+
+Informar al abogado sobre el estado de revisión de sus credenciales profesionales.
+
+### Estados
+
+- Pendiente de revisión.
+- Validado.
+- Requiere corrección.
+- Rechazado.
+
+### Elementos
+
+- Nombre.
+- Cédula profesional.
+- Área de especialidad.
+- Estado.
+- Fecha de envío.
+- Mensaje explicativo.
+- Acciones disponibles.
+
+### Navegación
+
+Cuando el perfil esté habilitado:
+
+**A5A → B1**
+
+Si requiere corrección:
+
+**A5A → A4/A5**
+
+### Consideraciones
+
+El estado debe corresponder a la validación real realizada por el sistema.
+
+---
+
+# B1 — Dashboard
+
+### Objetivo
+
+Ser la pantalla principal de trabajo del abogado.
+
+### Elementos
+
+- Resumen de solicitudes.
+- Expedientes activos.
+- Propuestas pendientes.
+- Próximas reuniones.
+- Pagos o cobros relevantes.
+- Actividad reciente.
+- Accesos rápidos.
+- Header.
+- Sidebar.
+- Icono de notificaciones.
+
+### Navegación
+
+Desde el Dashboard se puede acceder a:
+
+- C1 — Solicitudes.
+- D2 — Propuestas.
+- D3 — Honorarios y Cobros.
+- E1 — Expedientes.
+- F1 — Clientes.
+- G1 — Agenda.
+- H1 — Chat.
+- I1 — Perfil.
+- J1 — Configuración.
+- B1A — Notificaciones.
+
+---
+
+# B1A — Centro de notificaciones
+
+### Objetivo
+
+Mostrar las notificaciones relacionadas con la actividad del abogado.
+
+### Tipos
+
+- Nueva solicitud.
+- Nuevo mensaje.
+- Propuesta aceptada o rechazada.
+- Documento recibido.
+- Documento pendiente.
+- Nuevo cobro.
+- Pago realizado.
+- Actualización de expediente.
+- Próxima videollamada.
+
+### Navegación
+
+Según la notificación:
+
+- Solicitud → C1/C2.
+- Mensaje → H1.
+- Propuesta → D2.
+- Documento → E3.
+- Cobro → D5.
+- Expediente → E2.
+- Videollamada → G1A.
+
+### Consideraciones
+
+Se accede desde el Header mediante el icono de notificaciones.
+
+No agregar esta función como una nueva opción del Sidebar.
+
+---
+
+# C1 — Solicitudes recibidas
+
+### Objetivo
+
+Mostrar las solicitudes de servicios legales enviadas por clientes.
+
+### Elementos
+
+- Lista de solicitudes.
+- Nombre del cliente.
+- Necesidad o asunto.
+- Fecha.
+- Estado.
+- Prioridad, si corresponde.
+- Filtros.
+
+### Navegación
+
+Seleccionar solicitud:
+
+**C1 → C2**
+
+---
+
+# C2 — Detalle de solicitud
+
+### Objetivo
+
+Permitir al abogado analizar una solicitud antes de presentar una propuesta.
+
+### Elementos
+
+- Información del cliente.
+- Descripción de la necesidad.
+- Área jurídica.
+- Información proporcionada por el cliente.
+- Documentos disponibles, cuando corresponda.
+- Fecha de solicitud.
+- Estado.
+
+### Acciones
+
+- Crear propuesta.
+- Revisar información.
+- Rechazar solicitud, cuando corresponda.
+
+### Navegación
+
+Crear propuesta:
+
+**C2 → D1**
+
+---
+
+# D1 — Crear propuesta de servicio
+
+### Objetivo
+
+Permitir al abogado preparar una propuesta para el cliente.
+
+### Elementos
+
+- Cliente.
+- Solicitud relacionada.
+- Servicio.
+- Descripción.
+- Honorarios.
+- Condiciones.
+- Tiempo estimado.
+- Conceptos de cobro, cuando corresponda.
+- Botón "Enviar propuesta".
+
+### Navegación
+
+Enviar:
+
+**D1 → D2**
+
+---
+
+# D2 — Seguimiento de propuestas
+
+### Objetivo
+
+Permitir al abogado consultar las propuestas enviadas.
+
+### Estados
+
+- Borrador.
+- Enviada.
+- Pendiente de respuesta.
+- Aceptada.
+- Rechazada.
+- Cancelada.
+
+### Elementos
+
+- Cliente.
+- Servicio.
+- Importe.
+- Fecha.
+- Estado.
+
+### Navegación
+
+Desde una propuesta se puede consultar el expediente o los movimientos relacionados cuando existan.
+
+---
+
+# D3 — Honorarios y Cobros
+
+### Objetivo
+
+Centralizar la administración económica del abogado.
+
+### Elementos
+
+- Resumen de ingresos.
+- Pagos pendientes.
+- Pagos recibidos.
+- Fondos retenidos, si corresponde.
+- Fondos liberados, si corresponde.
+- Historial de cobros.
+- Cliente.
+- Expediente.
+- Concepto.
+- Importe.
+- Estado.
+
+### Filtros
+
+- Todos.
+- Pendientes.
+- Pagados.
+- En proceso.
+- Rechazados.
+- Retenidos.
+- Liberados.
+
+### Navegación
+
+- Crear cobro → D4.
+- Movimiento → D5.
+- Cuenta de depósito → J1A.
+
+### Importante
+
+El abogado **no introduce ni administra las tarjetas bancarias del cliente**.
+
+---
+
+# D4 — Crear cobro adicional
+
+### Objetivo
+
+Permitir al abogado generar un cobro adicional relacionado con un expediente.
+
+### Elementos
+
+- Cliente.
+- Expediente.
+- Concepto.
+- Descripción.
+- Importe.
+- Fecha.
+- Fecha límite, si corresponde.
+- Resumen.
+- Botón "Enviar cobro al cliente".
+
+### Navegación
+
+Después de crear:
+
+**D4 → D5/D3**
+
+### Funcionamiento
+
+El cobro generado debe:
+
+1. Asociarse al expediente.
+2. Registrarse en el sistema.
+3. Generar una notificación al cliente.
+4. Permitir que el cliente lo pague desde su aplicación móvil.
+5. Actualizar posteriormente el estado del pago para el abogado.
+
+El abogado no realiza el pago desde esta pantalla.
+
+---
+
+# D5 — Detalle de pago y movimientos
+
+### Objetivo
+
+Mostrar información detallada de una operación económica.
+
+### Elementos
+
+- Identificador.
+- Cliente.
+- Expediente.
+- Concepto.
+- Importe.
+- Fecha.
+- Estado.
+- Historial de estados.
+- Referencia de la transacción, cuando corresponda.
+
+### Estados posibles
+
+- Pendiente de pago.
+- Pagado por el cliente.
+- En procesamiento.
+- Rechazado.
+- Fondos retenidos, si corresponde.
+- Fondos liberados, si corresponde.
+
+### Navegación
+
+- Expediente → E2.
+- Cliente → F2.
+- Regresar → D3.
+
+---
+
+# E1 — Mis expedientes
+
+### Objetivo
+
+Mostrar todos los expedientes administrados por el abogado.
+
+### Elementos
+
+- Identificador.
+- Cliente.
+- Asunto.
+- Área jurídica.
+- Estado.
+- Fecha.
+- Última actualización.
+- Filtros.
+
+### Navegación
+
+Seleccionar expediente:
+
+**E1 → E2**
+
+---
+
+# E2 — Detalle del expediente
+
+### Objetivo
+
+Ser el centro de información y seguimiento de un caso.
+
+### Elementos
+
+- Información del cliente.
+- Asunto.
+- Área jurídica.
+- Estado.
+- Historial.
+- Actualizaciones.
+- Documentos.
+- Pagos relacionados.
+- Acceso al chat.
+- Próximas reuniones.
+- Acciones disponibles para el abogado.
+
+### Navegación
+
+- Documentos → E3.
+- Cliente → F2.
+- Chat → H1.
+- Reunión → G1/G1A.
+- Cobro adicional → D4.
+- Pago → D5.
+
+### Consideraciones
+
+El expediente debe concentrar la información relacionada con el caso.
+
+---
+
+# E3 — Documentos del expediente
+
+### Objetivo
+
+Permitir al abogado consultar y administrar los documentos relacionados con un expediente.
+
+### Elementos
+
+- Nombre del documento.
+- Categoría.
+- Fecha.
+- Autor o usuario que lo cargó.
+- Estado.
+- Vista previa.
+- Descargar.
+- Cargar documento.
+- Historial cuando corresponda.
+
+### Consideraciones
+
+Los documentos deben permanecer asociados al expediente correspondiente.
+
+Debe existir control de acceso para evitar que usuarios no autorizados consulten documentos.
+
+---
+
+# F1 — Directorio de clientes
+
+### Objetivo
+
+Mostrar los clientes relacionados con el abogado.
+
+### Elementos
+
+- Nombre.
+- Correo.
+- Teléfono, cuando corresponda.
+- Número de expedientes.
+- Última actividad.
+- Estado.
+
+### Navegación
+
+Seleccionar cliente:
+
+**F1 → F2**
+
+---
+
+# F2 — Detalle del cliente
+
+### Objetivo
+
+Mostrar la información del cliente a la que el abogado tiene autorización de acceso.
+
+### Elementos
+
+- Información básica.
+- Datos de contacto.
+- Expedientes relacionados.
+- Historial de interacción permitido.
+- Documentos relacionados, cuando corresponda.
+- Pagos relacionados.
+
+### Navegación
+
+- Expediente → E2.
+- Pago → D5.
+- Chat → H1.
+
+### Consideraciones
+
+El abogado únicamente debe visualizar información autorizada y necesaria para la prestación del servicio.
+
+---
+
+# G1 — Agenda de citas virtuales
+
+### Objetivo
+
+Permitir al abogado administrar sus reuniones virtuales con clientes.
+
+### Elementos
+
+- Calendario.
+- Día.
+- Hora.
+- Cliente.
+- Expediente.
+- Estado de la reunión.
+- Próximas reuniones.
+- Historial.
+
+### Acciones
+
+- Crear disponibilidad.
+- Programar reunión.
+- Consultar reunión.
+- Unirse a videollamada.
+
+### Navegación
+
+Unirse:
+
+**G1 → G1A**
+
+### Importante
+
+Las reuniones son exclusivamente virtuales.
+
+No incluir:
+
+- Dirección.
+- Oficina.
+- Mapa.
+- Reunión presencial.
+
+---
+
+# G1A — Sala de videollamada
+
+### Objetivo
+
+Permitir al abogado realizar una videollamada con su cliente.
+
+### Elementos
+
+- Video del cliente.
+- Vista propia.
+- Nombre del cliente.
+- Expediente relacionado.
+- Duración.
+- Micrófono.
+- Cámara.
+- Compartir pantalla, si está disponible.
+- Estado de conexión.
+- Finalizar llamada.
+
+### Estados
+
+- Preparando dispositivo.
+- Esperando al cliente.
+- Conectando.
+- Activa.
+- Conexión interrumpida.
+- Finalizada.
+
+### Navegación
+
+Al finalizar:
+
+**G1A → G1**
+
+Si se abrió desde el chat:
+
+**G1A → H1**
+
+---
+
+# H1 — Chat con clientes
+
+### Objetivo
+
+Permitir al abogado comunicarse directamente con sus clientes.
+
+### Elementos
+
+- Lista de conversaciones.
+- Cliente.
+- Expediente relacionado.
+- Historial de mensajes.
+- Campo para escribir.
+- Adjuntar archivo.
+- Videollamada.
+
+### Navegación
+
+Videollamada:
+
+**H1 → G1A**
+
+Expediente:
+
+**H1 → E2**
+
+Cliente:
+
+**H1 → F2**
+
+### Consideraciones
+
+Los mensajes deben estar protegidos y asociados al cliente y expediente correspondiente.
+
+---
+
+# I1 — Perfil profesional
+
+### Objetivo
+
+Permitir al abogado consultar y administrar la información que forma parte de su perfil profesional.
+
+### Elementos
+
+- Fotografía.
+- Nombre.
+- Cédula profesional.
+- Formación.
+- Experiencia.
+- Áreas de práctica.
+- Especialidades.
+- Descripción.
+- Servicios.
+- Honorarios.
+- Disponibilidad.
+- Estado de validación.
+
+### Navegación
+
+Editar información dentro del mismo módulo.
+
+### Consideraciones
+
+La información mostrada al cliente debe corresponder a los datos profesionales registrados y al estado de validación del abogado.
+
+---
+
+# J1 — Configuración
+
+### Objetivo
+
+Centralizar las opciones de configuración de la cuenta del abogado.
+
+### Elementos
+
+- Datos personales.
+- Seguridad.
+- Contraseña.
+- Sesiones activas.
+- Preferencias de notificaciones.
+- Privacidad.
+- Datos profesionales.
+- Información financiera.
+- Cuenta de depósito.
+- Cerrar sesión.
+
+### Navegación
+
+Cuenta de depósito:
+
+**J1 → J1A**
+
+Cerrar sesión:
+
+**J1 → A2**
+
+---
+
+# J1A — Cuenta de depósito / honorarios
+
+### Objetivo
+
+Permitir al abogado configurar la cuenta bancaria donde recibirá los fondos correspondientes a sus honorarios.
+
+### Elementos
+
+- Titular.
+- Banco.
+- CLABE para cuentas mexicanas.
+- Tipo de cuenta.
+- País.
+- Moneda.
+- Estado de verificación.
+- Guardar cambios.
+
+### Estados
+
+- Sin cuenta registrada.
+- Pendiente de verificación.
+- Verificada.
+- Rechazada.
+
+### Navegación
+
+Guardar:
+
+**J1A → J1**
+
+### Importante
+
+Esta pantalla **no es para registrar tarjetas**.
+
+Su finalidad es configurar la cuenta bancaria destinada a recibir los honorarios del abogado.
+
+---
+
+# 6. FLUJOS COMPLETOS DEL ABOGADO
+
+## 6.1. Primer acceso
+
+**A1 → A2**
+
+El abogado llega a la pantalla de inicio de sesión.
+
+---
+
+## 6.2. Inicio de sesión
+
+**A2 → A2A → B1**
+
+1. El abogado introduce sus credenciales.
+2. El sistema valida usuario y contraseña.
+3. Se envía el código de seguridad.
+4. El abogado introduce el código.
+5. Si es correcto, accede al Dashboard.
+
+---
+
+## 6.3. Recuperación de contraseña
+
+**A2 → A2B → A2C → A2D → A2**
+
+1. Selecciona "¿Olvidaste tu contraseña?".
+2. Introduce su correo.
+3. Recibe el código.
+4. Introduce el código.
+5. Define una nueva contraseña.
+6. Regresa al inicio de sesión.
+
+---
+
+## 6.4. Registro del abogado
+
+**A3 → A3A → A4 → A5 → A5A**
+
+1. Introduce sus datos básicos.
+2. Verifica su correo.
+3. Introduce sus credenciales profesionales.
+4. Define sus áreas de práctica y perfil.
+5. Envía la información para validación.
+6. Consulta el estado de la validación.
+
+Cuando corresponda:
+
+**A5A → B1**
+
+---
+
+## 6.5. Solicitud de cliente
+
+**B1 → C1 → C2 → D1 → D2**
+
+1. El abogado recibe una solicitud.
+2. Consulta las solicitudes.
+3. Abre el detalle.
+4. Analiza la necesidad.
+5. Prepara una propuesta.
+6. La envía al cliente.
+7. Consulta posteriormente el estado de la propuesta.
+
+---
+
+## 6.6. Propuesta aceptada
+
+**D2 → E1/E2**
+
+Cuando una propuesta es aceptada y el caso queda establecido:
+
+1. Se registra la relación profesional.
+2. Se crea o habilita el expediente correspondiente.
+3. El abogado puede administrarlo desde E1.
+4. El detalle se consulta desde E2.
+
+---
+
+## 6.7. Administración del expediente
+
+**E1 → E2 → E3**
+
+El abogado:
+
+- Consulta el expediente.
+- Revisa información del cliente.
+- Consulta documentos.
+- Carga documentos.
+- Actualiza el seguimiento.
+- Accede al chat.
+- Consulta pagos.
+- Programa reuniones.
+
+---
+
+## 6.8. Comunicación
+
+**H1 → G1A**
+
+El abogado puede comunicarse con el cliente mediante chat.
+
+Si necesita realizar una videollamada:
+
+**H1 → G1A**
+
+---
+
+## 6.9. Agenda
+
+**G1 → G1A**
+
+1. El abogado consulta sus reuniones.
+2. Selecciona una reunión.
+3. Ingresa a la sala virtual.
+4. Espera al cliente.
+5. Realiza la videollamada.
+6. Finaliza la reunión.
+7. Regresa a la agenda.
+
+---
+
+## 6.10. Crear cobro adicional
+
+**E2 → D4 → D5/D3**
+
+o
+
+**D3 → D4 → D5/D3**
+
+1. El abogado selecciona un expediente.
+2. Selecciona crear cobro adicional.
+3. Introduce concepto e importe.
+4. Confirma el cobro.
+5. El sistema registra el movimiento.
+6. El cliente recibe la notificación en su aplicación.
+7. El cliente realiza el pago desde su aplicación.
+8. El estado del movimiento se actualiza.
+9. El abogado puede consultarlo desde D3/D5.
+
+---
+
+## 6.11. Consultar pagos
+
+**D3 → D5**
+
+El abogado puede consultar:
+
+- Qué cobros están pendientes.
+- Qué pagos fueron realizados.
+- Qué pagos están procesándose.
+- Qué pagos fueron rechazados.
+- Qué fondos están retenidos, cuando corresponda.
+- Qué fondos fueron liberados, cuando corresponda.
+
+---
+
+## 6.12. Configurar cuenta de honorarios
+
+**J1 → J1A → J1**
+
+1. El abogado abre Configuración.
+2. Selecciona Cuenta de depósito / honorarios.
+3. Introduce sus datos bancarios.
+4. Guarda la información.
+5. El sistema registra el estado de verificación.
+
+---
+
+# 7. NAVEGACIÓN DEL SIDEBAR
+
+El Sidebar del abogado debe mantenerse único y consistente.
+
+Se recomienda la siguiente estructura:
+
+1. **Dashboard**
+2. **Solicitudes**
+3. **Propuestas**
+4. **Mis Expedientes**
+5. **Clientes**
+6. **Honorarios y Cobros**
+7. **Agenda**
+8. **Chat**
+9. **Perfil Profesional**
+10. **Configuración**
+
+El icono de notificaciones debe permanecer en el Header y abrir B1A.
+
+No crear otro Sidebar para las pantallas internas.
+
+---
+
+# 8. ESTADOS IMPORTANTES DEL SISTEMA
+
+## Solicitudes
+
+- Nueva.
+- En revisión.
+- Atendida.
+- Rechazada.
+- Convertida en propuesta.
+
+## Propuestas
+
+- Borrador.
+- Enviada.
+- Pendiente de respuesta.
+- Aceptada.
+- Rechazada.
+- Cancelada.
+
+## Expedientes
+
+Los estados exactos deben definirse de acuerdo con las reglas del proyecto, pero deben permitir distinguir al menos entre casos activos y finalizados.
+
+## Pagos
+
+- Pendiente de pago.
+- Pagado por el cliente.
+- En procesamiento.
+- Rechazado.
+- Fondos retenidos, si corresponde.
+- Fondos liberados, si corresponde.
+
+## Validación profesional
+
+- Pendiente.
+- Validada.
+- Requiere corrección.
+- Rechazada.
+
+---
+
+# 9. REGLAS QUE DEBEN RESPETARSE
+
+### 9.1. El abogado no administra tarjetas del cliente
+
+El cliente realiza sus pagos desde la aplicación móvil.
+
+El abogado solamente:
+
+- Crea cobros.
+- Consulta pagos.
+- Consulta estados.
+- Administra la información relacionada con sus honorarios.
+
+### 9.2. Las reuniones son virtuales
+
+No incluir:
+
+- Oficinas.
+- Direcciones.
+- Mapas.
+- Citas presenciales.
+
+### 9.3. Los documentos pertenecen a expedientes
+
+No crear un módulo independiente de documentos sin relación con un caso.
+
+### 9.4. El abogado solamente accede a información autorizada
+
+Los datos del cliente, documentos, mensajes y expedientes deben estar protegidos mediante permisos.
+
+### 9.5. La validación profesional debe ser real
+
+No mostrar "Cédula verificada" o "Abogado validado" únicamente porque el abogado introdujo un número.
+
+Debe existir un mecanismo real de validación antes de mostrar ese estado.
+
+---
+
+# 10. LANDING PAGE E INICIO PÚBLICO
+
+La Landing Page y el Inicio Público forman parte del sitio web de LexApp, pero **no son pantallas internas del panel del abogado**.
+
+Su función es presentar la plataforma antes del acceso.
+
+### Landing Page
+
+Debe explicar:
+
+- Qué es LexApp.
+- Beneficios para abogados.
+- Beneficios de la plataforma.
+- Cómo funciona.
+- Acceso a registro.
+- Acceso a inicio de sesión.
+
+### Inicio público
+
+Debe permitir al visitante:
+
+- Conocer LexApp.
+- Acceder al registro.
+- Iniciar sesión.
+- Consultar información general.
+
+Desde el acceso para abogados:
+
+**Landing/Inicio público → A2**
+
+Desde el registro:
+
+**Landing/Inicio público → A3**
+
+Estas páginas no deben duplicar las funciones del Dashboard.
+
+---
+
+# 11. CRITERIOS DE ACEPTACIÓN
+
+La plataforma web del abogado podrá considerarse funcionalmente completa cuando pueda comprobarse que:
+
+1. El abogado puede registrarse.
+2. Puede verificar su correo.
+3. Puede proporcionar sus credenciales profesionales.
+4. Puede consultar el estado de validación.
+5. Puede iniciar sesión.
+6. Puede completar el código de seguridad.
+7. Puede recuperar su contraseña.
+8. Puede establecer una nueva contraseña.
+9. Puede acceder al Dashboard.
+10. Puede recibir y consultar solicitudes.
+11. Puede crear propuestas.
+12. Puede consultar el estado de sus propuestas.
+13. Puede administrar expedientes.
+14. Puede administrar documentos de expedientes.
+15. Puede consultar clientes.
+16. Puede comunicarse mediante chat.
+17. Puede administrar reuniones virtuales.
+18. Puede realizar videollamadas.
+19. Puede crear cobros adicionales.
+20. Puede consultar pagos y movimientos.
+21. Puede configurar su cuenta de depósito para honorarios.
+22. Puede administrar su perfil profesional.
+23. Puede configurar la seguridad y preferencias de su cuenta.
+24. Puede recibir notificaciones.
+25. La navegación entre módulos funciona correctamente.
+26. Los permisos impiden el acceso no autorizado.
+27. Los errores y estados de carga son manejados correctamente.
+
+---
+
+# 12. RESUMEN FINAL DE LAS 31 PANTALLAS
+
+| ID | Pantalla |
+|---|---|
+| A1 | Bienvenida |
+| A2 | Inicio de sesión |
+| A2A | Verificación de código de seguridad |
+| A2B | Recuperar contraseña |
+| A2C | Código de recuperación |
+| A2D | Nueva contraseña |
+| A3 | Registro básico |
+| A3A | Verificación de correo electrónico |
+| A4 | Credenciales profesionales |
+| A5 | Área de práctica y perfil |
+| A5A | Estado de validación profesional |
+| B1 | Dashboard |
+| B1A | Centro de notificaciones |
+| C1 | Solicitudes recibidas |
+| C2 | Detalle de solicitud |
+| D1 | Crear propuesta de servicio |
+| D2 | Seguimiento de propuestas |
+| D3 | Honorarios y Cobros |
+| D4 | Crear cobro adicional |
+| D5 | Detalle de pago y movimientos |
+| E1 | Mis expedientes |
+| E2 | Detalle del expediente |
+| E3 | Documentos del expediente |
+| F1 | Directorio de clientes |
+| F2 | Detalle del cliente |
+| G1 | Agenda de citas virtuales |
+| G1A | Sala de videollamada |
+| H1 | Chat con clientes |
+| I1 | Perfil profesional |
+| J1 | Configuración |
+| J1A | Cuenta de depósito / honorarios |
+
+**TOTAL: 31 pantallas/vistas internas del abogado.**
+
+Las páginas públicas de **Landing Page** e **Inicio Público** se consideran parte del sitio web de acceso, pero no se cuentan dentro de estas 31 pantallas internas.
+
+---
+
+# 13. INDICACIÓN FINAL PARA LA PERSONA ENCARGADA
+
+La implementación debe utilizar este documento como referencia funcional y los diseños de Google Stitch como referencia visual.
+
+Se deben conservar los identificadores y relaciones establecidas.
+
+No se deben eliminar ni duplicar pantallas sin revisar previamente el flujo.
+
+La plataforma web debe mantenerse enfocada exclusivamente en las necesidades del abogado.
+
+El cliente utiliza su propia aplicación móvil.
+
+La plataforma web del abogado debe permitirle gestionar su actividad profesional de principio a fin: **acceso → validación profesional → solicitudes → propuestas → expedientes → clientes → documentos → comunicación → reuniones virtuales → honorarios y cobros → cuenta de depósito → configuración.**
+
+Los diseños visuales no implican que las funciones ya estén implementadas. La autenticación, envío de códigos, validación profesional, notificaciones, almacenamiento de documentos, pagos, videollamadas y demás servicios deberán conectarse posteriormente con el backend y los proveedores correspondientes.
+
+**Fin de la especificación del abogado — LexApp.**
