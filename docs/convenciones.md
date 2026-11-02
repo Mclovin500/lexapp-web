@@ -18,3 +18,4 @@
 
 ## Regla Arquitectónica
 La lógica de cada pantalla vive en su módulo dentro de `features/`; lo compartido va en `components/` o `lib/`.
+
