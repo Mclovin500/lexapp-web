@@ -353,3 +353,4 @@ export const footerContent = {
     '© 2025 LexApp Legal Suite. Plataforma de servicios jurídicos digitales en español. Todos los derechos reservados.',
   securityLabel: 'Cifrado y seguridad fiduciaria',
 }
+
