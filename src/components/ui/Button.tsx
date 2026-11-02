@@ -35,7 +35,7 @@ export type ButtonProps =
         to?: undefined
       })
   | (BaseProps &
-      Omit<LinkProps, keyof BaseProps> & {
+      Omit<LinkProps, keyof BaseProps | 'to'> & {
         to: string
       })
 
@@ -51,7 +51,7 @@ export function Button({
 
   if (to) {
     return (
-      <Link to={to} className={combinedClasses} {...(props as Omit<LinkProps, keyof BaseProps>)}>
+      <Link to={to} className={combinedClasses} {...(props as Omit<LinkProps, keyof BaseProps | 'to'>)}>
         {children}
       </Link>
     )
