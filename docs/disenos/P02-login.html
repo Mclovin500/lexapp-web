@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><title>LexApp Legal OS</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-surface":"#213145","surface":"#f8f9ff","inverse-primary":"#4cdf9e","on-surface":"#0b1c30","on-tertiary-container":"#003b5c","tertiary-fixed-dim":"#93ccff","on-tertiary":"#ffffff","tertiary-container":"#48a8ed","error":"#ba1a1a","on-tertiary-fixed-variant":"#004b73","tertiary":"#006398","surface-container-highest":"#d3e4fe","on-tertiary-fixed":"#001d31","primary-container":"#00b87b","on-error-container":"#93000a","on-error":"#ffffff","error-container":"#ffdad6","surface-variant":"#d3e4fe","surface-tint":"#006c47","surface-container-low":"#eff4ff","inverse-on-surface":"#eaf1ff","on-primary-fixed-variant":"#005234","secondary":"#565e74","primary-fixed-dim":"#4cdf9e","primary":"#006c47","on-background":"#0b1c30","outline-variant":"#bbcabf","tertiary-fixed":"#cce5ff","primary-fixed":"#6dfcb8","on-secondary":"#ffffff","background":"#f8f9ff","secondary-fixed-dim":"#bec6e0","surface-bright":"#f8f9ff","on-surface-variant":"#3c4a41","on-primary":"#ffffff","on-secondary-fixed-variant":"#3f465c","secondary-container":"#dae2fd","surface-dim":"#cbdbf5","surface-container-high":"#dce9ff","surface-container-lowest":"#ffffff","surface-container":"#e5eeff","on-secondary-fixed":"#131b2e","outline":"#6c7a71","on-primary-fixed":"#002112","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem","gutter-compact":"1rem","space-xl":"2rem",margin:"2rem","margin-compact":"1.25rem","space-xs":"0.25rem","space-lg":"1.5rem","space-sm":"0.5rem",gutter:"1.5rem","space-2xl":"3rem"},fontFamily:{"headline-sm":["Inter"],"label-md":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"],"body-md":["Inter"],"label-sm":["Inter"],"headline-md":["Inter"],"label-lg":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"]},fontSize:{"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.025em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.005em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"0",fontWeight:"400"}]}}}};</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><main class="w-full min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full min-h-[1024px] grid grid-cols-1 lg:grid-cols-2 bg-surface text-on-surface">
+<!-- PANEL IZQUIERDO: Formulario de Acceso y Selección de Rol -->
+<section class="flex flex-col justify-between px-8 sm:px-14 lg:px-20 py-10 bg-surface-container-lowest relative z-10">
+<!-- Navegación Superior y Logo -->
+<div>
+<div class="flex items-center justify-between mb-8">
+<a class="inline-flex items-center gap-2 text-secondary hover:text-on-surface transition-colors font-label-md text-label-md" href="#p01-inicio">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Volver al inicio</span>
+</a>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+            SISTEMA OPERATIVO v4.2
+          </span>
+</div>
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 rounded-xl bg-inverse-surface flex items-center justify-center text-primary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[24px]">balance</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">LexApp</span>
+<span class="font-label-sm text-label-sm tracking-widest text-primary font-bold uppercase mt-1">LEGAL SUITE</span>
+</div>
+</div>
+<!-- Títulos de Bienvenida -->
+<div class="mb-8">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight mb-2">Bienvenido de nuevo</h1>
+<p class="font-body-md text-body-md text-secondary">Inicia sesión para continuar utilizando LexApp en tu entorno jurídico.</p>
+</div>
+<!-- Selector de Tipo de Cuenta -->
+<div class="mb-6">
+<span class="block font-label-md text-label-md text-on-surface font-semibold mb-3">Selecciona tu tipo de cuenta:</span>
+<div class="grid grid-cols-2 gap-3" id="role-selector-group">
+<!-- Opción Abogado -->
+<button class="group relative flex flex-col p-4 rounded-xl text-left transition-all duration-200 bg-surface-container-low shadow-sm" id="role-lawyer-btn" type="button">
+<div class="flex items-center justify-between w-full mb-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center role-lawyer-check">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Soy Abogado</span>
+<span class="font-label-sm text-label-sm text-secondary mt-1">Plataforma web de gestión jurídica y despacho</span>
+</button>
+<!-- Opción Cliente -->
+<button class="group relative flex flex-col p-4 rounded-xl text-left transition-all duration-200 bg-surface-container-lowest hover:bg-surface-container-low shadow-sm" id="role-client-btn" type="button">
+<div class="flex items-center justify-between w-full mb-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">person_outline</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-container-highest text-transparent flex items-center justify-center role-client-check">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Soy Cliente</span>
+<span class="font-label-sm text-label-sm text-secondary mt-1">Acceso a seguimiento y consultas legales</span>
+</button>
+</div>
+</div>
+<!-- Banner Informativo Condicional -->
+<div class="p-3.5 mb-6 rounded-lg bg-surface-container-low flex items-start gap-3" id="role-info-lawyer">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
+<p class="font-label-sm text-label-sm text-on-surface">
+            Acceso directo a la plataforma web <strong class="font-semibold text-primary">LexApp Suite</strong> para abogados y asesores colegiados.
+          </p>
+</div>
+<div class="hidden p-3.5 mb-6 rounded-lg bg-secondary-container/40 flex items-start gap-3" id="role-info-client">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5">smartphone</span>
+<div class="font-label-sm text-label-sm text-on-surface">
+            ¿Eres cliente particular o empresarial? Tu seguimiento procesal sincronizado está optimizado para dispositivos móviles.
+            <a class="block font-semibold text-primary hover:underline mt-1" href="#p04-experiencia-movil">Ir a experiencia móvil P04 →</a>
+</div>
+</div>
+<!-- Formulario -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1.5" for="email-input">
+              Correo electrónico profesional
+            </label>
+<div class="relative flex items-center">
+<span class="absolute left-3.5 text-secondary material-symbols-outlined text-[20px]">mail</span>
+<input class="w-full h-11 pl-11 pr-4 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg shadow-sm placeholder:text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary-container" id="email-input" placeholder="licenciado@despacho.com" type="email"/>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="password-input">
+                Contraseña
+              </label>
+<a class="font-label-sm text-label-sm font-semibold text-primary hover:underline" href="#recuperar">
+                ¿Olvidaste tu contraseña?
+              </a>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-3.5 text-secondary material-symbols-outlined text-[20px]">lock</span>
+<input class="w-full h-11 pl-11 pr-11 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg shadow-sm placeholder:text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary-container" id="password-input" placeholder="••••••••••••" type="password"/>
+<button class="absolute right-3.5 text-secondary hover:text-on-surface transition-colors p-0.5" id="toggle-password" type="button">
+<span class="material-symbols-outlined text-[20px]" id="password-eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Opciones adicionales -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary-container focus:ring-0 bg-surface-container accent-primary-container cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-secondary">Recordar este equipo por 30 días</span>
+</label>
+</div>
+<!-- Botón de Envío -->
+<button class="w-full h-11 mt-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2" id="submit-login-btn" type="submit">
+<span>Iniciar sesión</span>
+<span class="material-symbols-outlined text-[18px]">login</span>
+</button>
+</form>
+<!-- Registro Link -->
+<div class="mt-6 text-center">
+<p class="font-body-md text-body-md text-secondary">
+            ¿No tienes una cuenta colegiada? 
+            <a class="font-bold text-primary hover:underline ml-1" href="#p03-registro">Regístrate en LexApp</a>
+</p>
+</div>
+</div>
+<!-- Pie de página fiduciario y normativo -->
+<div class="pt-8 border-t-0 text-center">
+<div class="inline-flex items-center justify-center gap-2 py-1.5 px-3 rounded-full bg-surface-container-low text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>Conexión cifrada TLS 1.3 • Protocolo de secreto fiduciario NOM-151</span>
+</div>
+<div class="mt-2 text-secondary/70 font-label-sm text-label-sm">
+          LexApp Technologies Inc. © 2025. Todos los derechos reservados.
+        </div>
+</div>
+</section>
+<!-- PANEL DERECHO: Propuesta de Valor Visual Institucional -->
+<section class="hidden lg:flex flex-col justify-between p-16 bg-inverse-surface text-inverse-on-surface relative overflow-hidden">
+<!-- Fondo decorativo con gradiente y formas sutiles -->
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-tertiary/10 blur-3xl pointer-events-none"></div>
+<!-- Cabecera de propuesta -->
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/10 text-primary-fixed font-label-sm text-label-sm font-semibold tracking-wider uppercase mb-6">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+          PLATAFORMA INTEGRAL DE SERVICIOS JURÍDICOS
+        </div>
+<h2 class="font-display-lg text-display-lg font-bold text-white tracking-tight leading-snug mb-4 max-w-xl">
+          Tu práctica jurídica, organizada con rigor milimétrico.
+        </h2>
+<p class="font-body-lg text-body-lg text-inverse-on-surface/80 max-w-lg leading-relaxed">
+          Administra solicitudes procesales, cartera de clientes, convenios y expedientes judiciales mediante una infraestructura segura creada para despachos de alto impacto.
+        </p>
+</div>
+<!-- Composición Gráfica Central: Interfaz Legal Simulada (Bento/Card Mosaics) -->
+<div class="relative z-10 my-10 space-y-4">
+<!-- Tarjeta Flotante 1: Expediente Activo -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest/10 backdrop-blur-md shadow-xl text-white">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[20px]">folder_special</span>
+</div>
+<div>
+<span class="block font-label-lg text-label-lg font-bold text-white">Expediente 402/2024-CIV</span>
+<span class="block font-label-sm text-label-sm text-inverse-on-surface/70">Juzgado Séptimo de Distrito en Materia Civil</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed/20 text-primary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Cotejado DGP
+            </span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-inverse-on-surface/70">Fase: Audiencia Constitucional</span>
+<span class="text-primary-fixed font-semibold">Término en 48 hrs</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+</div>
+<!-- Mosaico Inferior de 2 Tarjetas -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Tarjeta 2: Notificaciones y Citas -->
+<div class="p-4 rounded-xl bg-surface-container-lowest/10 backdrop-blur-sm shadow-md">
+<div class="flex items-center gap-2 mb-2 text-primary-fixed font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[18px]">notifications_active</span>
+<span>Alerta de Términos</span>
+</div>
+<p class="font-label-sm text-label-sm text-white font-medium">Auto de Admisión Notificado</p>
+<p class="font-body-sm text-body-sm text-inverse-on-surface/60 mt-1">Cédula electrónica recibida vía buzón judicial seguro.</p>
+</div>
+<!-- Tarjeta 3: Canal Cifrado -->
+<div class="p-4 rounded-xl bg-surface-container-lowest/10 backdrop-blur-sm shadow-md">
+<div class="flex items-center gap-2 mb-2 text-primary-fixed font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+<span>Canal Cifrado E2E</span>
+</div>
+<p class="font-label-sm text-label-sm text-white font-medium">Bóveda de Evidencia Activa</p>
+<p class="font-body-sm text-body-sm text-inverse-on-surface/60 mt-1">Metadatos con sello de tiempo criptográfico NOM-151.</p>
+</div>
+</div>
+</div>
+<!-- Métricas Institucionales al Pie -->
+<div class="relative z-10 pt-6 border-t-0 flex items-center justify-between">
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-white tracking-tight">+1,200</div>
+<div class="font-label-sm text-label-sm text-inverse-on-surface/60">Asuntos gestionados</div>
+</div>
+<div class="h-8 w-px bg-white/20"></div>
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-primary-fixed tracking-tight">100%</div>
+<div class="font-label-sm text-label-sm text-inverse-on-surface/60">Cifrado fiduciario</div>
+</div>
+<div class="h-8 w-px bg-white/20"></div>
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-white tracking-tight">DGP</div>
+<div class="font-label-sm text-label-sm text-inverse-on-surface/60">Cotejo oficial de cédulas</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  (function initLoginPage() {
+    const roleLawyerBtn = document.getElementById('role-lawyer-btn');
+    const roleClientBtn = document.getElementById('role-client-btn');
+    const roleInfoLawyer = document.getElementById('role-info-lawyer');
+    const roleInfoClient = document.getElementById('role-info-client');
+    const togglePasswordBtn = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password-input');
+    const passwordEyeIcon = document.getElementById('password-eye-icon');
+    const submitBtn = document.getElementById('submit-login-btn');
+
+    let currentRole = 'lawyer';
+
+    function setRole(role) {
+      currentRole = role;
+      if (role === 'lawyer') {
+        roleLawyerBtn.classList.remove('bg-surface-container-lowest');
+        roleLawyerBtn.classList.add('bg-surface-container-low', 'shadow-md');
+        roleLawyerBtn.querySelector('.role-lawyer-check').classList.remove('text-transparent', 'bg-surface-container-highest');
+        roleLawyerBtn.querySelector('.role-lawyer-check').classList.add('bg-primary-container', 'text-on-primary-container');
+
+        roleClientBtn.classList.remove('bg-surface-container-low', 'shadow-md');
+        roleClientBtn.classList.add('bg-surface-container-lowest');
+        roleClientBtn.querySelector('.role-client-check').classList.add('text-transparent', 'bg-surface-container-highest');
+        roleClientBtn.querySelector('.role-client-check').classList.remove('bg-primary-container', 'text-on-primary-container');
+
+        roleInfoLawyer.classList.remove('hidden');
+        roleInfoClient.classList.add('hidden');
+        submitBtn.querySelector('span:first-child').textContent = 'Iniciar sesión (Despacho)';
+      } else {
+        roleClientBtn.classList.remove('bg-surface-container-lowest');
+        roleClientBtn.classList.add('bg-surface-container-low', 'shadow-md');
+        roleClientBtn.querySelector('.role-client-check').classList.remove('text-transparent', 'bg-surface-container-highest');
+        roleClientBtn.querySelector('.role-client-check').classList.add('bg-primary-container', 'text-on-primary-container');
+
+        roleLawyerBtn.classList.remove('bg-surface-container-low', 'shadow-md');
+        roleLawyerBtn.classList.add('bg-surface-container-lowest');
+        roleLawyerBtn.querySelector('.role-lawyer-check').classList.add('text-transparent', 'bg-surface-container-highest');
+        roleLawyerBtn.querySelector('.role-lawyer-check').classList.remove('bg-primary-container', 'text-on-primary-container');
+
+        roleInfoClient.classList.remove('hidden');
+        roleInfoLawyer.classList.add('hidden');
+        submitBtn.querySelector('span:first-child').textContent = 'Continuar a portal cliente';
+      }
+    }
+
+    if (roleLawyerBtn && roleClientBtn) {
+      roleLawyerBtn.addEventListener('click', () => setRole('lawyer'));
+      roleClientBtn.addEventListener('click', () => setRole('client'));
+    }
+
+    if (togglePasswordBtn && passwordInput && passwordEyeIcon) {
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        passwordEyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    }
+  })();
+</script></main></body></html>

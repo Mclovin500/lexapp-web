@@ -2,18 +2,23 @@ import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { Icon } from '@/components/ui/Icon'
 
-export function RegisterPlaceholder() {
+export interface PlaceholderPageProps {
+  id: string
+  title: string
+}
+
+export function PlaceholderPage({ id, title }: PlaceholderPageProps) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-surface px-gutter text-on-surface">
-      <div className="flex w-full max-w-md flex-col items-center gap-space-md rounded-2xl bg-surface-container-lowest p-space-xl shadow-lg">
+      <div className="flex w-full max-w-md flex-col items-center gap-space-md rounded-2xl bg-surface-container-lowest p-space-xl shadow-lg text-center">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-container-low text-primary">
-          <Icon name="person_add" size={28} />
+          <Icon name="construction" size={28} />
         </div>
         <h1 className="text-headline-sm font-semibold tracking-tight text-center">
-          A3 — Registro (pendiente)
+          {id} — {title} (pendiente)
         </h1>
         <p className="text-body-md text-on-surface-variant text-center">
-          El módulo de registro de abogados se encuentra en preparación.
+          Esta pantalla se encuentra en preparación y estará disponible próximamente.
         </p>
         <Link
           to={ROUTES.home}

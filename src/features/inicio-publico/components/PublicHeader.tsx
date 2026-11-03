@@ -56,14 +56,14 @@ export function PublicHeader() {
           <Button variant="ghost" size="md" to={ROUTES.login}>
             Iniciar sesión
           </Button>
-          <Button variant="primary" size="md" to={ROUTES.register}>
+          <Button variant="primary" size="md" to={ROUTES.profileSelection}>
             Comenzar
           </Button>
         </div>
 
         {/* Botón Móvil Hamburguesa */}
         <div className="flex shrink-0 items-center gap-1.5 sm:hidden">
-          <Button variant="primary" size="sm" to={ROUTES.register}>
+          <Button variant="primary" size="sm" to={ROUTES.profileSelection}>
             Comenzar
           </Button>
           <button
@@ -112,7 +112,7 @@ export function PublicHeader() {
               <Button variant="ghost" size="md" to={ROUTES.login} onClick={closeMobileMenu}>
                 Iniciar sesión
               </Button>
-              <Button variant="primary" size="md" to={ROUTES.register} onClick={closeMobileMenu}>
+              <Button variant="primary" size="md" to={ROUTES.profileSelection} onClick={closeMobileMenu}>
                 Comenzar
               </Button>
             </div>

@@ -37,7 +37,7 @@ export function ClosingBanner() {
             <Button
               variant="primary"
               size="md"
-              to={ROUTES.register}
+              to={ROUTES.profileSelection}
               className="group h-11 px-7 shadow-md shadow-primary-container/20"
             >
               <span>{closingBannerContent.registerCta}</span>

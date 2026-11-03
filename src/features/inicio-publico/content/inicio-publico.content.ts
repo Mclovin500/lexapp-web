@@ -1,3 +1,4 @@
+// Contenido institucional de P01 — Landing page
 export interface NavItem {
   label: string
   href: string
@@ -350,7 +351,7 @@ export const footerContent = {
     items: ['Centro de ayuda', 'Contacto'],
   },
   copyright:
-    '© 2025 LexApp Legal Suite. Plataforma de servicios jurídicos digitales en español. Todos los derechos reservados.',
+    `© ${new Date().getFullYear()} LexApp Legal Suite. Plataforma de servicios jurídicos digitales en español. Todos los derechos reservados.`,
   securityLabel: 'Cifrado y seguridad fiduciaria',
 }
 

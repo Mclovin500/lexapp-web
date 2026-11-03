@@ -145,7 +145,7 @@ export function ForClientsSection() {
               <Button
                 variant="secondary"
                 size="md"
-                to={ROUTES.register}
+                to={ROUTES.profileSelection}
                 className="h-11 px-6 bg-surface-container-lowest hover:bg-surface-container text-on-surface"
               >
                 <Icon

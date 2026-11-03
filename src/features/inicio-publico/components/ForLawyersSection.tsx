@@ -147,7 +147,7 @@ export function ForLawyersSection() {
               <Button
                 variant="primary"
                 size="lg"
-                to={ROUTES.register}
+                to={ROUTES.profileSelection}
                 className="group shadow-md shadow-primary-container/20"
               >
                 <span>{forLawyersContent.cta.text}</span>

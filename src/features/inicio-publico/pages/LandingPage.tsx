@@ -5,7 +5,8 @@ import { ForLawyersSection } from '../components/ForLawyersSection'
 import { FeaturesSection } from '../components/FeaturesSection'
 import { ClosingBanner } from '../components/ClosingBanner'
 
-export function BienvenidaPage() {
+// P01 — Landing page
+export function LandingPage() {
   return (
     <div className="flex w-full flex-col">
       <HeroSection />
