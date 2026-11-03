@@ -4,6 +4,7 @@ import { PublicLayout } from '@/components/layouts/PublicLayout'
 import { LandingPage } from '@/features/inicio-publico/pages/LandingPage'
 import { LoginPage } from '@/features/auth/pages/LoginPage'
 import { SeleccionPerfilPage } from '@/features/auth/pages/SeleccionPerfilPage'
+import { AppMovilPage } from '@/features/app-movil/pages/AppMovilPage'
 import { PlaceholderPage } from '@/components/ui/PlaceholderPage'
 
 export const router = createBrowserRouter([
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.mobileApp,
-    element: <PlaceholderPage id="P04" title="App móvil para clientes" />,
+    element: <AppMovilPage />,
   },
   {
     path: ROUTES.verifyCode,

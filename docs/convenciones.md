@@ -2,7 +2,7 @@
 
 ## Nomenclatura
 - **Técnico (inglés)**: `app`, `components`, `features`, `lib`, `hooks`, `types`, `api`, `assets`, `auth`, `ui`, `layouts`, `pages`, `content`, `services`.
-- **Negocio (español)**: `clientes`, `expedientes`, `solicitudes`, `propuestas`, `pagos`, `agenda`, `perfil`, `inicio-publico` (`dashboard` y `chat` por especificación).
+- **Negocio (español)**: `clientes`, `expedientes`, `solicitudes`, `propuestas`, `pagos`, `agenda`, `perfil`, `inicio-publico`, `app-movil` (`dashboard` y `chat` por especificación).
 - **Archivos/Carpetas**: minúsculas, sin acentos ni ñ, guiones si son varias palabras (`inicio-publico`).
 - **Componentes React**: PascalCase. Dominio en español (`ExpedienteCard.tsx`), genéricos en inglés (`Button.tsx`).
 - **Identificadores de Pantalla**: P01 Landing page (previamente referenciada como A1 Bienvenida), P02 Inicio de sesión (reemplaza A2), P03 Selección de perfil, P04 App móvil para clientes, B1 Dashboard.
@@ -12,7 +12,7 @@
 - `app/`: Configuración global de la aplicación (enrutador y proveedores).
 - `assets/`: Recursos estáticos (imágenes, fuentes, íconos).
 - `components/`: Componentes compartidos (`ui/` genéricos y `layouts/` estructurales).
-- `features/`: Módulos verticales de negocio (`agenda`, `auth`, `chat`, `clientes`, `dashboard`, `expedientes`, `inicio-publico`, `pagos`, `perfil`, `propuestas`, `solicitudes`).
+- `features/`: Módulos verticales de negocio (`agenda`, `app-movil`, `auth`, `chat`, `clientes`, `dashboard`, `expedientes`, `inicio-publico`, `pagos`, `perfil`, `propuestas`, `solicitudes`).
 - `hooks/`: Custom hooks de React transversales y reutilizables.
 - `lib/`: Utilidades generales, constantes y configuraciones de librerías.
 - `types/`: Tipos e interfaces globales de TypeScript.

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><title>LexApp Legal OS</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-surface":"#213145","surface":"#f8f9ff","inverse-primary":"#4cdf9e","on-surface":"#0b1c30","on-tertiary-container":"#003b5c","tertiary-fixed-dim":"#93ccff","on-tertiary":"#ffffff","tertiary-container":"#48a8ed","error":"#ba1a1a","on-tertiary-fixed-variant":"#004b73","tertiary":"#006398","surface-container-highest":"#d3e4fe","on-tertiary-fixed":"#001d31","primary-container":"#00b87b","on-error-container":"#93000a","on-error":"#ffffff","error-container":"#ffdad6","surface-variant":"#d3e4fe","surface-tint":"#006c47","surface-container-low":"#eff4ff","inverse-on-surface":"#eaf1ff","on-primary-fixed-variant":"#005234","secondary":"#565e74","primary-fixed-dim":"#4cdf9e","primary":"#006c47","on-background":"#0b1c30","outline-variant":"#bbcabf","tertiary-fixed":"#cce5ff","primary-fixed":"#6dfcb8","on-secondary":"#ffffff","background":"#f8f9ff","secondary-fixed-dim":"#bec6e0","surface-bright":"#f8f9ff","on-surface-variant":"#3c4a41","on-primary":"#ffffff","on-secondary-fixed-variant":"#3f465c","secondary-container":"#dae2fd","surface-dim":"#cbdbf5","surface-container-high":"#dce9ff","surface-container-lowest":"#ffffff","surface-container":"#e5eeff","on-secondary-fixed":"#131b2e","outline":"#6c7a71","on-primary-fixed":"#002112","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem","gutter-compact":"1rem","space-xl":"2rem",margin:"2rem","margin-compact":"1.25rem","space-xs":"0.25rem","space-lg":"1.5rem","space-sm":"0.5rem",gutter:"1.5rem","space-2xl":"3rem"},fontFamily:{"headline-sm":["Inter"],"label-md":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"],"body-md":["Inter"],"label-sm":["Inter"],"headline-md":["Inter"],"label-lg":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"]},fontSize:{"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.025em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.005em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"0",fontWeight:"400"}]}}}};</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><main class="w-full min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Global Bar (Public Shell Minimalist) -->
+<header class="w-full bg-surface-container-lowest shadow-sm">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<!-- Return Link -->
+<a class="group inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#" onclick="window.history.back(); return false;">
+<span class="material-symbols-outlined text-lg group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+<span>Volver a selección de perfil</span>
+</a>
+<!-- Brand Identity -->
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-2xl font-bold">balance</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">LexApp</span>
+<span class="bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase">Legal OS</span>
+</div>
+<span class="text-on-surface-variant text-[11px] font-label-sm leading-tight">Plataforma de Gestión Jurídica Digital</span>
+</div>
+</div>
+<!-- Trust Badges & System Version -->
+<div class="flex items-center gap-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-sm font-semibold">shield_lock</span>
+<span class="tracking-wide">ACCESO PROTEGIDO TLS 1.3</span>
+</div>
+<div class="h-3 w-px bg-outline-variant"></div>
+<span class="font-label-sm text-label-sm text-secondary tracking-wide">v4.2.0</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<div class="relative w-full max-w-7xl mx-auto px-6 py-8 lg:py-12 flex-1">
+<!-- Ambient subtle background light effects -->
+<div class="pointer-events-none absolute -top-12 right-1/4 w-96 h-96 bg-primary-fixed/30 rounded-full blur-3xl opacity-60"></div>
+<div class="pointer-events-none absolute bottom-10 right-10 w-80 h-80 bg-surface-container-highest/50 rounded-full blur-3xl opacity-50"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+<!-- Columna Izquierda: Información, Beneficios y Tiendas (7 Columnas en Desktop) -->
+<div class="lg:col-span-7 flex flex-col items-start space-y-6">
+<!-- Category Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold tracking-wider uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+          EXPERIENCIA MÓVIL PARA CLIENTES
+        </div>
+<!-- Headline & Editorial Narrative -->
+<div class="space-y-3">
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight font-bold tracking-tight">
+            LexApp para Clientes está disponible en la App Móvil
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface font-medium leading-relaxed">
+            Para gestionar tus trámites, comunicarte con tu abogado y dar seguimiento a tus casos en tiempo real, descarga nuestra aplicación oficial.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Disfruta de una experiencia diseñada exclusivamente para simplificar la consulta de expedientes judiciales, recibir notificaciones procesales al instante y mantener una línea fiduciaria directa y protegida.
+          </p>
+</div>
+<!-- Bento Value Pillars (Feature Cards) -->
+<div class="w-full grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-2">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined text-xl">notifications_active</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-[15px] font-semibold text-on-surface leading-snug mb-1">Notificaciones Instantáneas</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Alertas de acuerdos judiciales y términos procesales en tiempo real.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-[15px] font-semibold text-on-surface leading-snug mb-1">Chat Fiduciario Cifrado</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Canal confidencial punto a punto con tu abogado titular asignado.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined text-xl">folder_zip</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-[15px] font-semibold text-on-surface leading-snug mb-1">Bóveda Digital Portátil</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Expedientes, resoluciones y contratos resguardados en tu bolsillo.</p>
+</div>
+</div>
+</div>
+<!-- Store Download Badges -->
+<div class="w-full pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-3 font-semibold">Enlaces oficiales de instalación</span>
+<div class="flex flex-wrap items-center gap-3">
+<!-- Google Play Store Button -->
+<a class="inline-flex items-center gap-3 bg-inverse-surface hover:bg-black text-white px-5 py-3 rounded-xl transition-all shadow-md hover:shadow-lg" href="#" onclick="alert('Descarga de Google Play: Aplicación oficial de clientes en fase de sincronización móvil.'); return false;" title="Descargar LexApp Clientes para Android">
+<!-- Official Play Icon SVG -->
+<svg class="w-7 h-7 flex-shrink-0" fill="none" viewbox="0 0 24 24">
+<path d="M3.6 1.4A1.6 1.6 0 0 0 3 2.8v18.4a1.6 1.6 0 0 0 .6 1.4l9.7-9.8L3.6 1.4z" fill="#00E676"></path>
+<path d="M16.9 8.9L13.3 12.8l3.6 3.9 4.1-2.3a1.5 1.5 0 0 0 0-2.6l-4.1-2.9z" fill="#FFD600"></path>
+<path d="M3.6 1.4L13.3 12.8 16.9 8.9 5.8 2.6c-.7-.4-1.5-.5-2.2-.2z" fill="#00B0FF"></path>
+<path d="M3.6 22.6c.7.3 1.5.2 2.2-.2l11.1-6.3-3.6-3.3L3.6 22.6z" fill="#FF3D00"></path>
+</svg>
+<div class="text-left flex flex-col">
+<span class="text-[10px] font-label-sm tracking-wider uppercase opacity-80 leading-none">DISPONIBLE EN</span>
+<span class="font-headline-sm text-[16px] font-bold tracking-tight text-white leading-tight">Google Play</span>
+</div>
+</a>
+<!-- Apple App Store Button -->
+<a class="inline-flex items-center gap-3 bg-inverse-surface hover:bg-black text-white px-5 py-3 rounded-xl transition-all shadow-md hover:shadow-lg" href="#" onclick="alert('Descarga de App Store: Aplicación oficial de clientes en fase de sincronización móvil.'); return false;" title="Descargar LexApp Clientes para iOS">
+<!-- Official Apple Logo SVG -->
+<svg class="w-7 h-7 flex-shrink-0 fill-current" viewbox="0 0 24 24">
+<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.42c.64-.81 1.08-1.92.96-3.05-.98.04-2.12.67-2.79 1.48-.59.71-1.11 1.87-.97 2.98 1.09.08 2.16-.58 2.8-1.41z"></path>
+</svg>
+<div class="text-left flex flex-col">
+<span class="text-[10px] font-label-sm tracking-wider uppercase opacity-80 leading-none">Consíguelo en el</span>
+<span class="font-headline-sm text-[16px] font-bold tracking-tight text-white leading-tight">App Store</span>
+</div>
+</a>
+</div>
+<!-- Secondary discreet action: Continue in browser -->
+<div class="mt-4 flex items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">¿Ya cuentas con credenciales o prefieres el portal ligero?</span>
+<a class="font-label-md text-label-md font-semibold text-secondary hover:text-on-surface transition-colors underline decoration-dotted underline-offset-4" href="#" onclick="alert('Acceso condicionado para clientes: Redirigiendo a vista reducida de expediente.'); return false;">
+              Continuar en navegador
+            </a>
+</div>
+</div>
+<!-- Fiduciary Trust Box & Security Endorsement -->
+<div class="w-full mt-2 p-4 rounded-xl bg-surface-container-low shadow-sm flex items-start gap-4">
+<div class="p-2 bg-primary/10 text-primary rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold text-sm">LexApp facilita la comunicación y organización de tus servicios jurídicos.</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Cifrado fiduciario de grado bancario • Protección integral de datos personales conforme a los lineamientos de la LFPDPPP y secreto profesional garantizado.
+            </p>
+</div>
+</div>
+</div>
+<!-- Columna Derecha: Smartphone Mockup Ultra-Fiel (5 Columnas en Desktop) -->
+<div class="lg:col-span-5 flex justify-center items-center relative py-6">
+<!-- Ambient Decorative Halo Rings -->
+<div class="absolute -inset-4 bg-gradient-to-tr from-primary-fixed/20 via-primary-container/10 to-transparent rounded-full filter blur-2xl -z-10"></div>
+<!-- Floating Interactive Badge (Simulating live push event) -->
+<div class="absolute -top-3 -right-2 lg:-right-6 z-30 bg-surface-container-lowest/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl max-w-xs transition-transform hover:-translate-y-1 duration-300">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">gavel</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-label-sm font-bold text-primary uppercase">Nueva Notificación</span>
+<span class="font-label-sm text-[10px] text-secondary">Hace 4m</span>
+</div>
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Se admitió prueba testimonial</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Juzgado 14º de lo Civil • Exp. 402/2024</p>
+</div>
+</div>
+</div>
+<!-- Floating Security Chip -->
+<div class="absolute bottom-12 -left-4 lg:-left-8 z-30 bg-surface-container-lowest/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-lg flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Canal Seguro Verificado</span>
+</div>
+<!-- SMARTPHONE DEVICE CHASSIS -->
+<div class="relative w-[320px] h-[650px] bg-slate-900 rounded-[48px] p-3 shadow-2xl shadow-slate-950/20 ring-1 ring-slate-800/80">
+<!-- Outer Chassis Edge Gleam -->
+<div class="absolute inset-0 rounded-[48px] pointer-events-none ring-1 ring-white/15"></div>
+<!-- Smartphone Screen Interior (Cliente Nativo View) -->
+<div class="w-full h-full bg-surface-container-lowest rounded-[38px] overflow-hidden flex flex-col relative select-none">
+<!-- Dynamic Island / Status Bar -->
+<div class="h-10 w-full bg-surface-container-lowest pt-2.5 px-6 flex items-center justify-between z-20">
+<span class="font-label-sm text-[12px] font-bold text-on-surface">09:41</span>
+<!-- Dynamic Island Notch Pill -->
+<div class="w-20 h-4 bg-slate-950 rounded-full flex items-center justify-end px-1.5">
+<div class="w-2 h-2 rounded-full bg-primary-container/80 mr-1 animate-pulse"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-slate-800"></div>
+</div>
+<!-- System Status Icons -->
+<div class="flex items-center gap-1.5 text-on-surface text-[12px]">
+<span class="material-symbols-outlined text-[14px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[16px]">battery_full</span>
+</div>
+</div>
+<!-- Mobile App Screen Content (Scrollable simulation) -->
+<div class="flex-1 overflow-y-auto px-4 py-2 space-y-3.5">
+<!-- Client Mobile Header -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2.5">
+<div class="relative w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-bold text-sm shadow-sm overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up professional portrait of Carlos Mendoza, a corporate client dressed in smart business attire against a neutral soft-lit office backdrop, warm friendly demeanor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAxhXiscU8dcs073T54zAq4295aormrPAsY9goCLrdr1XfevnA8xG-lE1NYsE60xNe81-75kq0T8ZLlIYKX0NyJ21evZSDD53sMnKP-yz0sTg5hwTIsWk1D7z3jAwjP-QRUkTy4Np0x3XREmjbWTLI2zDSGS2q_l2JBjY0OvcJv4nhnsitkljciVPAmmnyu_qNZwwj_5-WkOFua6udrZiMjve9umw6FVEc_UWyz7OK"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-secondary uppercase font-semibold">Bienvenido</span>
+<span class="font-headline-sm text-sm font-bold text-on-surface leading-tight">Carlos Mendoza</span>
+</div>
+</div>
+<button class="relative w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span>
+</button>
+</div>
+<!-- Banner de Caso Activo Principal -->
+<div class="p-3.5 rounded-2xl bg-surface-container-low shadow-sm space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] font-bold text-primary tracking-wider uppercase bg-primary/10 px-2 py-0.5 rounded-full">EN PROCESO</span>
+<span class="font-label-sm text-[10px] text-secondary">Exp. 402/2024</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-xs font-bold text-on-surface leading-snug">Juicio Ordinario Mercantil</h4>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Juzgado Décimo Cuarto de lo Civil CDMX</p>
+</div>
+<!-- Progress Tracker -->
+<div class="space-y-1">
+<div class="flex items-center justify-between font-label-sm text-[10px]">
+<span class="text-on-surface font-semibold">Fase procesal actual</span>
+<span class="text-primary font-bold">65%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[65%]"></div>
+</div>
+<span class="font-label-sm text-[9px] text-secondary block pt-0.5">Contestación de demanda completada</span>
+</div>
+</div>
+<!-- Tarjeta de Abogado Titular Asignado -->
+<div class="p-3 rounded-2xl bg-surface-container-lowest shadow-sm space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] uppercase font-bold text-secondary">Abogado Titular Asignado</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-[9px] text-primary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> Disponible
+                  </span>
+</div>
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex-shrink-0 overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Executive portrait photo of Licenciado Alejandro Morales Garza, high-caliber corporate trial attorney in dark tailored navy suit with confident expression in a glass-walled law office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKiQJUOJtdVvZGjIudkk2Q4FT34wDLcB2lX6FZ9vpqqQRVONbYfnKWfsj1EW4gNz7MfgoqNbAAorzNoxWdlaq4RsHonEheWtqBXaoJuWprXNdGkhz2N_Nhs4wpwfQwpPNRXh-pFIY1xuklLYBqCVrmqM0lJWYNQeR-uWYg8lUEUI0UMEt3xwz791NQhLtGy6GZA0Lnj6a5zcMz11OQ2R-JBpPsM57SVWSyYv9EKzRb"/>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-headline-sm text-[12px] font-bold text-on-surface block truncate">Lic. Alejandro Morales G.</span>
+<span class="font-body-sm text-[10px] text-on-surface-variant block">Socio Litigante Senior</span>
+</div>
+</div>
+<!-- Quick Action Buttons for Lawyer Interaction -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<button class="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg bg-primary-container text-on-primary font-label-sm text-[11px] font-semibold shadow-xs">
+<span class="material-symbols-outlined text-xs font-bold">chat</span>
+<span>Mensaje</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg bg-surface-container text-on-surface font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-xs">call</span>
+<span>Llamada</span>
+</button>
+</div>
+</div>
+<!-- Módulo de Próximo Evento / Audiencia -->
+<div class="p-3 rounded-2xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-base">event</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] font-bold text-on-surface leading-tight">Audiencia Preliminar</span>
+<span class="font-body-sm text-[10px] text-on-surface-variant">En 3 días • Sala 4 Oralidad</span>
+</div>
+</div>
+<span class="font-label-sm text-[10px] font-bold text-secondary bg-surface-container px-2 py-1 rounded-md">11:30 AM</span>
+</div>
+</div>
+<!-- Mobile Bottom Navigation Bar (Dock Nativo) -->
+<div class="h-14 bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.03)] px-4 flex items-center justify-around z-20">
+<button class="flex flex-col items-center gap-0.5 text-primary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-[9px] font-bold">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined text-xl">folder_open</span>
+<span class="font-label-sm text-[9px]">Casos</span>
+</button>
+<button class="relative flex flex-col items-center gap-0.5 text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+<span class="absolute 0 right-1 w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-[9px]">Chat</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined text-xl">person</span>
+<span class="font-label-sm text-[9px]">Perfil</span>
+</button>
+</div>
+<!-- Home Indicator Bar -->
+<div class="h-3 w-full bg-surface-container-lowest flex items-center justify-center pb-1">
+<div class="w-24 h-1 bg-slate-300 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Minimal Institutional Footer Strip -->
+<footer class="w-full bg-surface-container-lowest mt-auto py-5 shadow-sm">
+<div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-body-sm text-body-sm text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+<span>© 2025 LexApp Technologies Inc. Todos los derechos reservados.</span>
+</div>
+<div class="flex items-center gap-6 font-label-md text-label-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="return false;">Aviso de Privacidad</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="return false;">Términos de Servicio para Clientes</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="return false;">Soporte Técnico Especializado</a>
+</div>
+</div>
+</footer>
+</div></main></body></html>
