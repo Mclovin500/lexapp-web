@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LexApp - Tu Abogado al Alcance de un Clic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#e6f8f1',
+              100: '#cbf1e0',
+              500: '#00B87B',
+              600: '#009d69',
+              700: '#007f55',
+            },
+            slate: {
+              850: '#152033',
+              900: '#0F172A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.35;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.65;
+        transform: scale(1.08);
+      }
+    }
+    @keyframes progressAnim {
+      0% { width: 12%; }
+      50% { width: 68%; }
+      100% { width: 94%; }
+    }
+    .glow-bg {
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    .progress-bar-fill {
+      animation: progressAnim 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+  </style>
+</head>
+<body class="h-full bg-[#F8FAFC] text-slate-900 font-sans antialiased flex flex-col justify-between selection:bg-brand-100 selection:text-brand-700 relative overflow-hidden">
+
+  <!-- Subtle Architectural Grid & Ambient Gradient -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Subtle Background Dot Pattern -->
+    <div class="absolute inset-0 opacity-[0.035]" style="background-image: radial-gradient(#0F172A 1px, transparent 1px); background-size: 28px 28px;"></div>
+    
+    <!-- Ambient Green Glow behind center -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] bg-gradient-to-tr from-[#00B87B]/10 via-[#00B87B]/5 to-transparent rounded-full blur-3xl glow-bg"></div>
+    <div class="absolute -top-32 right-10 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-10 w-96 h-96 bg-slate-200/40 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Top Decorative Branding Tagline (Minimal header note) -->
+  <header class="relative z-10 w-full pt-10 px-12 flex justify-between items-center text-xs tracking-wider uppercase font-semibold text-slate-400 select-none">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-brand-500"></span>
+      <span class="tracking-widest">SISTEMA OPERATIVO JURÍDICO</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <span class="text-slate-400 font-medium">VERSIÓN PROFESIONAL DESKTOP</span>
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white border border-slate-200/80 text-slate-600 shadow-sm">
+        v2.4 LTS
+      </span>
+    </div>
+  </header>
+
+  <!-- Central Splash Hero Container -->
+  <main class="relative z-10 flex-1 flex flex-col items-center justify-center px-6 -mt-4">
+    <div class="max-w-md w-full flex flex-col items-center text-center">
+      
+      <!-- Logo Container with elegant backdrop card -->
+      <div class="relative mb-8 group">
+        <!-- Soft back-glow ring -->
+        <div class="absolute -inset-2 bg-gradient-to-b from-brand-500/20 to-transparent rounded-[32px] blur-md opacity-70 transition duration-500"></div>
+        
+        <!-- White Logo Platform -->
+        <div class="relative w-28 h-28 bg-white rounded-3xl p-4 shadow-[0_20px_50px_-12px_rgba(0,184,123,0.18),0_4px_16px_rgba(15,23,42,0.04)] border border-slate-100 flex items-center justify-center transform transition duration-300 hover:scale-105">
+          <img src="https://lh3.googleusercontent.com/aida/AEtjO1VmI0D1VkaTclkDMSmtgxrNYP6yA9ppjeDdq9nHhvTon0jfwhjr3pdoI6GHrY_MZReUp1P0BZNSzxzNxokNnA2DqNPQjiy8MYGW3lftJIhstOl34OwHXXpDZh7z2MHVZKUxwS82jBi21vVtdMY1avMbDLjdpJIYZCyZ0f035NP3METm3Wt4u7_pIJ-5CaL-ofsVReRMt-F4QwwsymkoJM2SPkRQ04PW-LwUqfncXyKzVg" alt="LexApp Logo" class="w-full h-full object-contain" />
+        </div>
+      </div>
+
+      <!-- App Name & Brand Typography -->
+      <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 mb-3 flex items-center gap-1.5 justify-center">
+        <span>Lex</span><span class="text-[#00B87B]">App</span>
+      </h1>
+
+      <!-- Slogan -->
+      <p class="text-lg md:text-xl font-medium text-slate-600 tracking-normal mb-8 max-w-sm">
+        Tu Abogado al Alcance de un Clic
+      </p>
+
+      <!-- Discreto Indicador de Carga y Estado -->
+      <div class="w-64 flex flex-col items-center space-y-3">
+        <!-- Barra de progreso continua minimalista -->
+        <div class="w-full h-1.5 bg-slate-200/80 rounded-full overflow-hidden p-0.5 relative">
+          <div class="h-full bg-gradient-to-r from-emerald-400 to-[#00B87B] rounded-full progress-bar-fill"></div>
+        </div>
+
+        <!-- Indicador de texto discreto con micro-spinner -->
+        <div class="flex items-center gap-2 text-xs font-medium text-slate-500">
+          <svg class="animate-spin h-3.5 w-3.5 text-brand-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span class="tracking-wide">Iniciando entorno seguro...</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Clean Footer Credentials -->
+  <footer class="relative z-10 w-full pb-8 px-12 flex justify-between items-center text-xs text-slate-400 border-t border-slate-200/50 pt-5">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1.5 text-slate-500 font-medium">
+        <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        Cifrado de grado bancario SSL 256-bit
+      </span>
+      <span class="text-slate-300">•</span>
+      <span class="hover:text-slate-600 transition-colors">Cumplimiento RGPD & Secreto Profesional</span>
+    </div>
+    <div>
+      <span>© 2025 LexApp Technologies Inc. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+</body>
+</html>

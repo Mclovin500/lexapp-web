@@ -7,10 +7,38 @@ export interface CampoContrasenaProps
   id: string
   error?: string
   describedBy?: string
+  /** Ícono de la izquierda (por defecto `lock`). */
+  icon?: string
+  /** `borde`: estilo del login (P02). `relleno`: estilo del registro (A3). */
+  variante?: 'borde' | 'relleno'
 }
 
+const varianteStyles = {
+  borde: {
+    base: 'bg-surface-container-lowest shadow-sm',
+    normal: 'border border-outline-variant/30',
+  },
+  relleno: {
+    base: 'bg-surface-container-low focus:bg-surface-container-lowest',
+    normal: 'border border-transparent',
+  },
+} as const
+
 export const CampoContrasena = forwardRef<HTMLInputElement, CampoContrasenaProps>(
-  ({ id, error, describedBy, className = '', ...props }, ref) => {
+  (
+    {
+      id,
+      error,
+      describedBy,
+      icon = 'lock',
+      variante = 'borde',
+      autoComplete = 'current-password',
+      placeholder = loginContent.form.passwordPlaceholder,
+      className = '',
+      ...props
+    },
+    ref,
+  ) => {
     const [mostrarContrasena, setMostrarContrasena] = useState(false)
 
     const toggleMostrar = () => {
@@ -21,26 +49,28 @@ export const CampoContrasena = forwardRef<HTMLInputElement, CampoContrasenaProps
       ? loginContent.form.hidePasswordAriaLabel
       : loginContent.form.showPasswordAriaLabel
 
+    const estilos = varianteStyles[variante]
+
     return (
       <div className="relative flex items-center">
         <span
           className="pointer-events-none absolute left-3.5 text-secondary flex items-center justify-center"
           aria-hidden="true"
         >
-          <Icon name="lock" size={20} />
+          <Icon name={icon} size={20} />
         </span>
         <input
           {...props}
           ref={ref}
           id={id}
           type={mostrarContrasena ? 'text' : 'password'}
-          autoComplete="current-password"
+          autoComplete={autoComplete}
           aria-invalid={Boolean(error)}
           aria-describedby={describedBy}
-          placeholder={loginContent.form.passwordPlaceholder}
-          className={`w-full h-11 pl-11 pr-11 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg shadow-sm placeholder:text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary-container transition-colors ${
-            error ? 'border border-error ring-1 ring-error' : 'border border-outline-variant/30'
-          } ${className}`}
+          placeholder={placeholder}
+          className={`w-full h-11 pl-11 pr-11 text-on-surface font-body-md text-body-md rounded-lg placeholder:text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary-container transition-colors ${
+            estilos.base
+          } ${error ? 'border border-error ring-1 ring-error' : estilos.normal} ${className}`}
         />
         <button
           type="button"
@@ -60,4 +90,3 @@ export const CampoContrasena = forwardRef<HTMLInputElement, CampoContrasenaProps
 )
 
 CampoContrasena.displayName = 'CampoContrasena'
-

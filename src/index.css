@@ -117,6 +117,21 @@
   --text-label-sm--line-height: 14px;
   --text-label-sm--letter-spacing: 0.04em;
   --text-label-sm--font-weight: 600;
+
+  /* Animaciones (A1 pantalla de carga) */
+  --animate-progreso-carga: progreso-carga 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  --animate-brillo-suave: brillo-suave 4s ease-in-out infinite;
+
+  @keyframes progreso-carga {
+    0% { width: 12%; }
+    50% { width: 68%; }
+    100% { width: 94%; }
+  }
+
+  @keyframes brillo-suave {
+    0%, 100% { opacity: 0.35; scale: 1; }
+    50% { opacity: 0.65; scale: 1.08; }
+  }
 }
 
 @layer base {

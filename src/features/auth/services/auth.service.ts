@@ -1,6 +1,7 @@
 // PROVISIONAL: endpoint y nombres de campos por confirmar con el backend
 import { isAxiosError } from 'axios'
 import { api } from '@/api/cliente'
+import { ENDPOINTS } from '@/api/endpoints'
 import {
   type CredencialesLogin,
   type RespuestaLogin,
@@ -16,7 +17,7 @@ export async function iniciarSesion(
   }
 
   try {
-    const respuesta = await api.post<RespuestaLogin>('/auth/login', credenciales)
+    const respuesta = await api.post<RespuestaLogin>(ENDPOINTS.auth.login, credenciales)
     return respuesta.data
   } catch (error: unknown) {
     if (isAxiosError(error)) {

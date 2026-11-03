@@ -1,0 +1,31 @@
+/** Cuerpo de `POST /auth/registro` (A3). La confirmación de contraseña no se envía. */
+export interface DatosRegistro {
+  nombre: string
+  apellidos: string
+  correo: string
+  telefono: string | null
+  contrasena: string
+  aceptaTerminos: true
+}
+
+/** El backend envía el código de verificación al correo y responde con él enmascarado (para A3A). */
+export interface RespuestaRegistro {
+  correoEnmascarado: string
+}
+
+export type TipoErrorRegistro =
+  | 'correo_registrado'
+  | 'datos_invalidos'
+  | 'demasiados_intentos'
+  | 'red'
+  | 'desconocido'
+
+export class ErrorRegistro extends Error {
+  readonly tipo: TipoErrorRegistro
+
+  constructor(tipo: TipoErrorRegistro, mensaje?: string) {
+    super(mensaje ?? tipo)
+    this.name = 'ErrorRegistro'
+    this.tipo = tipo
+  }
+}

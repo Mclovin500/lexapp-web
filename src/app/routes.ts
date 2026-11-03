@@ -1,5 +1,6 @@
 export const ROUTES = {
   home: '/',                               // P01
+  welcome: '/bienvenida',                  // A1 (pantalla de carga)
   login: '/login',                         // P02
   profileSelection: '/seleccion-perfil',   // P03
   mobileApp: '/app-movil',                 // P04

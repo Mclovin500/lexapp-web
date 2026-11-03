@@ -5,6 +5,8 @@ import { LandingPage } from '@/features/inicio-publico/pages/LandingPage'
 import { LoginPage } from '@/features/auth/pages/LoginPage'
 import { SeleccionPerfilPage } from '@/features/auth/pages/SeleccionPerfilPage'
 import { AppMovilPage } from '@/features/app-movil/pages/AppMovilPage'
+import { BienvenidaPage } from '@/features/auth/pages/BienvenidaPage'
+import { RegistroPage } from '@/features/auth/pages/RegistroPage'
 import { PlaceholderPage } from '@/components/ui/PlaceholderPage'
 
 export const router = createBrowserRouter([
@@ -16,6 +18,10 @@ export const router = createBrowserRouter([
         element: <LandingPage />,
       },
     ],
+  },
+  {
+    path: ROUTES.welcome,
+    element: <BienvenidaPage />,
   },
   {
     path: ROUTES.login,
@@ -47,7 +53,7 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.register,
-    element: <PlaceholderPage id="A3" title="Registro: datos básicos" />,
+    element: <RegistroPage />,
   },
   {
     path: ROUTES.verifyEmail,
