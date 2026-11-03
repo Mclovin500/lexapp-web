@@ -10,7 +10,7 @@ import {
 export async function iniciarSesion(
   credenciales: CredencialesLogin,
 ): Promise<RespuestaLogin> {
-  if (import.meta.env.VITE_USAR_MOCKS === 'true') {
+  if (import.meta.env.DEV && import.meta.env.VITE_USAR_MOCKS === 'true') {
     const { loginMock } = await import('./auth.mock')
     return loginMock(credenciales)
   }
