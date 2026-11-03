@@ -3,6 +3,7 @@ import { ROUTES } from './routes'
 import { PublicLayout } from '@/components/layouts/PublicLayout'
 import { LandingPage } from '@/features/inicio-publico/pages/LandingPage'
 import { LoginPage } from '@/features/auth/pages/LoginPage'
+import { SeleccionPerfilPage } from '@/features/auth/pages/SeleccionPerfilPage'
 import { PlaceholderPage } from '@/components/ui/PlaceholderPage'
 
 export const router = createBrowserRouter([
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.profileSelection,
-    element: <PlaceholderPage id="P03" title="Selección de perfil" />,
+    element: <SeleccionPerfilPage />,
   },
   {
     path: ROUTES.mobileApp,
