@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-primary": "#4cdf9e", "error": "#ba1a1a", "surface": "#f8f9ff", "surface-dim": "#cbdbf5", "secondary-container": "#dae2fd", "tertiary-fixed": "#cce5ff", "surface-container-high": "#dce9ff", "on-primary-fixed-variant": "#005234", "tertiary-fixed-dim": "#93ccff", "inverse-surface": "#213145", "surface-variant": "#d3e4fe", "surface-container": "#e5eeff", "on-tertiary-fixed-variant": "#004b73", "on-secondary-container": "#5c647a", "outline-variant": "#bbcabf", "on-primary-container": "#004129", "primary-fixed-dim": "#4cdf9e", "tertiary": "#006398", "surface-container-low": "#eff4ff", "on-primary-fixed": "#002112", "on-background": "#0b1c30", "on-surface-variant": "#3c4a41", "primary-fixed": "#6dfcb8", "inverse-on-surface": "#eaf1ff", "primary-container": "#00b87b", "surface-tint": "#006c47", "error-container": "#ffdad6", "on-secondary": "#ffffff", "secondary-fixed": "#dae2fd", "outline": "#6c7a71", "on-tertiary": "#ffffff", "primary": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff", "on-tertiary-fixed": "#001d31", "background": "#f8f9ff", "on-error-container": "#93000a", "on-surface": "#0b1c30", "on-primary": "#ffffff", "secondary": "#565e74", "on-tertiary-container": "#003b5c", "on-secondary-fixed-variant": "#3f465c", "surface-container-highest": "#d3e4fe", "tertiary-container": "#48a8ed", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#bec6e0", "on-error": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-compact": "1rem", "space-2xl": "3rem", "margin-compact": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-xl": "2rem", "margin": "2rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-sm": [ "Inter" ], "body-md": [ "Inter" ], "body-lg": [ "Inter" ], "headline-lg": [ "Inter" ], "label-md": [ "Inter" ], "label-sm": [ "Inter" ], "display-lg": [ "Inter" ], "body-sm": [ "Inter" ], "label-lg": [ "Inter" ], "headline-md": [ "Inter" ] }, "fontSize": { "headline-sm": [ "18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" } ], "body-lg": [ "16px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" } ], "headline-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "display-lg": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" } ], "body-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600" } ], "headline-md": [ "22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">LexApp</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Legal OS</span></div></div><span class="px-space-xs py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">v2.4</span></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-wider">Gestión Jurídica</div><nav class="flex flex-col gap-1 mt-1" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="casos-y-expedientes" href="#"><span class="material-symbols-outlined text-[20px]">folder_special</span><span>Casos y expedientes</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="clientes" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Clientes</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="propuestas-y-facturacion" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Propuestas y facturación</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="honorarios-y-cobros" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span>Honorarios y Cobros</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="calendario" href="#"><span class="material-symbols-outlined text-[20px]">event_note</span><span>Calendario</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-md text-body-md" data-path="mensajes" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">forum</span><span>Mensajes</span></div><span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">4</span></a></nav></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</div><nav class="flex flex-col gap-1 mt-1" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="configuracion" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Configuración</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="perfil-profesional" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>Perfil profesional</span></a></nav></div></div><div class="p-space-md bg-surface-container-low"><div class="p-space-sm rounded-lg bg-surface-container-lowest flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[20px]">verified_user</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-semibold">TLS 1.3 Cifrado</span><span class="font-label-sm text-label-sm text-on-surface-variant">Sovereign Vault MX</span></div></div><div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-10 pl-11 pr-space-md rounded-lg bg-surface-container-low text-on-surface placeholder:text-secondary font-body-md text-body-md outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all" placeholder="Buscar casos, clientes o cobros... ⌘K" type="text"/></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-sm text-label-sm whitespace-nowrap">Conexión Segura TLS 1.3</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">chat</span></button><button class="relative w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-outline-variant"></div><div class="flex items-center gap-space-md"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Lic. Alejandro Morales</span><div class="flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm text-primary font-medium">Colegiado Activo</span></div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-background flex-1 px-space-xl py-space-lg"><div class="flex flex-col w-full pb-16">
+<!-- Interactive Script for Status Simulation & Copy actions -->
+<script>
+    function updateMovementStatus(statusKey) {
+      const pill = document.getElementById('status-pill');
+      const text = document.getElementById('status-text');
+      const badgeIcon = document.getElementById('status-badge-icon');
+      const headerBanner = document.getElementById('escrow-notice-banner');
+
+      const statuses = {
+        'liberado': {
+          label: 'Fondos Liberados',
+          colorBg: 'bg-primary-container/15',
+          textColor: 'text-primary',
+          icon: 'verified',
+          bannerBg: 'bg-surface-container-low',
+          bannerText: 'text-on-surface'
+        },
+        'pagado': {
+          label: 'Pagado por el cliente',
+          colorBg: 'bg-tertiary-fixed',
+          textColor: 'text-tertiary',
+          icon: 'task_alt',
+          bannerBg: 'bg-surface-container-low',
+          bannerText: 'text-on-surface'
+        },
+        'procesando': {
+          label: 'En procesamiento',
+          colorBg: 'bg-secondary-container',
+          textColor: 'text-on-secondary-container',
+          icon: 'sync',
+          bannerBg: 'bg-secondary-container/40',
+          bannerText: 'text-on-surface'
+        },
+        'retenido': {
+          label: 'Fondos retenidos en Escrow',
+          colorBg: 'bg-surface-variant',
+          textColor: 'text-on-surface',
+          icon: 'lock_clock',
+          bannerBg: 'bg-surface-container',
+          bannerText: 'text-on-surface'
+        },
+        'rechazado': {
+          label: 'Rechazado',
+          colorBg: 'bg-error-container',
+          textColor: 'text-on-error-container',
+          icon: 'error',
+          bannerBg: 'bg-error-container/30',
+          bannerText: 'text-on-surface'
+        },
+        'pendiente': {
+          label: 'Pendiente de pago',
+          colorBg: 'bg-surface-container-high',
+          textColor: 'text-on-surface-variant',
+          icon: 'hourglass_empty',
+          bannerBg: 'bg-surface-container-low',
+          bannerText: 'text-on-surface-variant'
+        }
+      };
+
+      const selected = statuses[statusKey] || statuses['liberado'];
+      pill.className = `flex items-center gap-space-xs px-3 py-1 rounded-full ${selected.colorBg} transition-all duration-200`;
+      text.className = `font-label-sm text-label-sm font-semibold tracking-wide ${selected.textColor}`;
+      text.innerText = selected.label;
+      badgeIcon.className = `material-symbols-outlined text-[16px] ${selected.textColor}`;
+      badgeIcon.innerText = selected.icon;
+    }
+
+    function copyToClipboard(text, elementId) {
+      navigator.clipboard.writeText(text);
+      const icon = document.getElementById(elementId);
+      if (icon) {
+        const original = icon.innerText;
+        icon.innerText = 'check';
+        setTimeout(() => { icon.innerText = original; }, 1600);
+      }
+    }
+  </script>
+<!-- Secondary Navigation / Breadcrumbs Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-1">
+<div class="flex items-center flex-wrap gap-2 text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors" href="#">Inicio</a>
+<span class="text-outline-variant font-normal">/</span>
+<a class="hover:text-primary transition-colors" href="#">Gestión Jurídica</a>
+<span class="text-outline-variant font-normal">/</span>
+<a class="hover:text-primary transition-colors" href="#">Honorarios y Cobros</a>
+<span class="text-outline-variant font-normal">/</span>
+<span class="text-on-surface font-semibold">Detalle de Movimiento #TRX-948210</span>
+</div>
+<div class="flex items-center gap-space-sm pt-1">
+<a class="inline-flex items-center gap-1.5 font-label-lg text-label-lg text-primary hover:text-on-primary-fixed-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+<span>Volver a Honorarios y Cobros (D3)</span>
+</a>
+</div>
+</div>
+<!-- Quick External Cross-links & Document Action Buttons -->
+<div class="flex items-center flex-wrap gap-space-sm">
+<a class="inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container-low text-on-surface font-label-md text-label-md transition-all" href="#">
+<span>Ver Expediente Relacionado (E2)</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">open_in_new</span>
+</a>
+<a class="inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container-low text-on-surface font-label-md text-label-md transition-all" href="#">
+<span>Consultar Ficha del Cliente (F2)</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">open_in_new</span>
+</a>
+<div class="h-6 w-px bg-surface-container-high hidden sm:block mx-1"></div>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container text-on-surface font-label-md text-label-md transition-all" onclick="window.print()">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Imprimir Ficha</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm hover:opacity-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Descargar Comprobante CFDI</span>
+</button>
+</div>
+</div>
+<!-- Movement Header Banner (Key Financial Metrics & Status Controller) -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm p-space-lg mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg pb-space-lg">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 flex-wrap">
+<h1 class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">Detalle del movimiento</h1>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/15" id="status-pill">
+<span class="material-symbols-outlined text-[16px] text-primary" id="status-badge-icon">verified</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wide text-primary" id="status-text">Fondos Liberados</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-secondary font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="font-medium text-on-surface">Folio:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold bg-surface-container-low px-2 py-0.5 rounded">#TRX-2025-948210</span>
+<button class="hover:text-primary transition-colors" onclick="copyToClipboard('#TRX-2025-948210', 'copy-icon-folio')" title="Copiar Folio">
+<span class="material-symbols-outlined text-[15px]" id="copy-icon-folio">content_copy</span>
+</button>
+</div>
+<span class="text-surface-dim">•</span>
+<div class="flex items-center gap-1.5">
+<span class="font-medium text-on-surface">Referencia SPEI/STP:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold bg-surface-container-low px-2 py-0.5 rounded">STP-772910482910</span>
+<button class="hover:text-primary transition-colors" onclick="copyToClipboard('STP-772910482910', 'copy-icon-stp')" title="Copiar STP">
+<span class="material-symbols-outlined text-[15px]" id="copy-icon-stp">content_copy</span>
+</button>
+</div>
+<span class="text-surface-dim">•</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-sm text-label-sm">Fideicomiso STP Nivel 4 Activo</span>
+</div>
+</div>
+</div>
+<!-- Financial Highlight & Simulator -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg bg-surface-container-low p-space-md rounded-xl">
+<div class="flex flex-col text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Importe Total Liquidado</span>
+<div class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight text-primary">
+            $21,460.00 <span class="font-label-md text-label-md font-semibold text-secondary">MXN</span>
+</div>
+<div class="flex items-center justify-start sm:justify-end gap-2 text-secondary font-label-sm text-label-sm">
+<span>Subtotal: $18,500.00</span>
+<span>•</span>
+<span>IVA 16%: $2,960.00</span>
+</div>
+</div>
+<!-- Live Status Auditor Dropdown for QA/Simulation -->
+<div class="flex flex-col gap-1 w-full sm:w-auto">
+<label class="font-label-sm text-label-sm font-semibold text-secondary" for="state-simulator">Auditar Estado (Simulación)</label>
+<div class="relative">
+<select class="w-full sm:w-48 h-9 pl-2.5 pr-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md appearance-none focus:outline-none focus:bg-surface-container-high transition-all shadow-sm" id="state-simulator" onchange="updateMovementStatus(this.value)">
+<option selected="" value="liberado">Fondos liberados</option>
+<option value="pagado">Pagado por el cliente</option>
+<option value="procesando">En procesamiento</option>
+<option value="retenido">Fondos en Escrow</option>
+<option value="rechazado">Rechazado</option>
+<option value="pendiente">Pendiente de pago</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-secondary pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Legal Pipeline Summary Bar -->
+<div class="pt-space-md grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low/60">
+<div class="w-9 h-9 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Método</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">SPEI Banxico / STP</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low/60">
+<div class="w-9 h-9 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">receipt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">CFDI 4.0</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Timbrado SAT Ok</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low/60">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed-dim/30 flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Garantía Escrow</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Hito Validado</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low/60">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Constancia NOM-151</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">PSC Certificado</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Workspace 12-Column Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left & Central Columns: Detailed Metadata & Audit Trail (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Key Metadata Panel (Información Clave) -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">assignment</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Información General del Cobro</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container text-on-surface px-2.5 py-1 rounded-full font-medium">Expediente Civil Activo</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Client Card Block -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Cliente Receptor</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold mt-0.5">Grupo Inmobiliario Nexus S.A. de C.V.</span>
+<span class="font-body-sm text-body-sm text-secondary mt-0.5">RFC: <span class="font-medium text-on-surface">GIN180422K92</span> • Persona Moral</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">corporate_fare</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Representante: Ing. Roberto Garza</span>
+<a class="font-label-sm text-label-sm font-semibold text-primary hover:underline inline-flex items-center gap-0.5" href="#">
+                Ficha F2 <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Judicial Docket Block -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Expediente Judicial Vinculado</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold mt-0.5">Exp. #452/2024</span>
+<span class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-0.5">Fideicomiso Inmobiliario y Juicio Reivindicatorio</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">balance</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Juzgado 4º Civil CDMX</span>
+<a class="font-label-sm text-label-sm font-semibold text-primary hover:underline inline-flex items-center gap-0.5" href="#">
+                Expediente E2 <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Concept Details -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Concepto del Pago y Justificación Honoraria</span>
+<p class="font-body-lg text-body-lg text-on-surface font-medium">
+            Honorarios por formulación de alegatos y desahogo de prueba pericial topográfica.
+          </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Comprende comparecencia de fecha 22 de Octubre ante perito adscrito y ratificación de plano pericial topográfico con base en el hito procesal #3 del convenio de honorarios.
+          </p>
+</div>
+<!-- Interbank & Invoicing Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">sync_alt</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Detalle de Compensación SPEI</span>
+</div>
+<div class="flex flex-col gap-1 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span class="text-secondary">Emisión:</span>
+<span class="text-on-surface font-medium">24 Oct 2025 • 10:15 hrs</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">Liquidación:</span>
+<span class="text-on-surface font-medium">24 Oct 2025 • 11:42 hrs (Acreditado)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">Cuenta Ordenante:</span>
+<span class="text-on-surface font-medium">BBVA Bancomer (••• 4912)</span>
+</div>
+<div class="flex flex-col mt-1">
+<span class="text-secondary">Rastreo Banxico CEP:</span>
+<div class="flex items-center justify-between bg-surface-container-lowest px-2 py-1 rounded text-on-surface font-mono text-label-sm">
+<span class="truncate">202510244001408892101293</span>
+<button class="hover:text-primary pl-2" onclick="copyToClipboard('202510244001408892101293', 'cep-copy')">
+<span class="material-symbols-outlined text-[14px]" id="cep-copy">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Timbrado Fiscal CFDI 4.0</span>
+</div>
+<div class="flex flex-col gap-1 text-body-sm font-body-sm">
+<div class="flex items-center justify-between">
+<span class="text-secondary">Estado SAT:</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Timbrado Exitoso
+                </span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">Uso de CFDI:</span>
+<span class="text-on-surface font-medium">G03 - Gastos en general</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">Régimen Fiscal:</span>
+<span class="text-on-surface font-medium">601 - General Ley Morales</span>
+</div>
+<div class="flex flex-col mt-1">
+<span class="text-secondary">Folio Fiscal UUID:</span>
+<div class="flex items-center justify-between bg-surface-container-lowest px-2 py-1 rounded text-on-surface font-mono text-label-sm">
+<span class="truncate">3f8a42bc-9d10-4f77-8e01-12c8b74a9190</span>
+<button class="hover:text-primary pl-2" onclick="copyToClipboard('3f8a42bc-9d10-4f77-8e01-12c8b74a9190', 'uuid-copy')">
+<span class="material-symbols-outlined text-[14px]" id="uuid-copy">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Audit Timeline (Trazabilidad NOM-151) -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">history_edu</span>
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Trazabilidad Criptográfica y Auditoría</h2>
+<span class="font-label-sm text-label-sm text-secondary">Sellos de tiempo conforme a la Norma Oficial Mexicana NOM-151-SCFI-2016</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-mono text-label-sm text-on-surface font-medium">SHA-256 Validado</span>
+</div>
+<!-- Vertical Stepper Timeline -->
+<div class="relative pl-6 sm:pl-8 flex flex-col gap-6 before:absolute before:left-2 sm:before:left-3.5 before:top-2 before:bottom-3 before:w-0.5 before:bg-surface-container-high">
+<!-- Step 1 -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Cobro creado y emitido por el Lic. Alejandro Morales</span>
+<span class="font-mono text-label-sm text-secondary">24 Oct 2025 • 10:15:22 hrs</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Emisión generada desde la interfaz D4 de LexApp con instrucciones bancarias automáticas vía STP. Notificación push de alta prioridad despachada a la app móvil de la empresa titular.
+            </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-medium">Estado inicial: Pendiente de pago</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Orden consultada por el cliente</span>
+<span class="font-mono text-label-sm text-secondary">24 Oct 2025 • 10:48:04 hrs</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Lectura y verificación de factura previa efectuada desde LexApp Client iOS (Dispositivo verificado iPhone 15 Pro • IP 189.214.92.12).
+            </p>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Pago emitido por el cliente vía SPEI</span>
+<span class="font-mono text-label-sm text-secondary">24 Oct 2025 • 11:35:10 hrs</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              El cliente transfiere a través de banca electrónica empresarial BBVA con cuenta CLABE receptora STP asignada al expediente.
+            </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-medium">Estado: En procesamiento</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Recepción y conciliación fiduciaria confirmada por STP / Banxico</span>
+<span class="font-mono text-label-sm text-secondary">24 Oct 2025 • 11:42:15 hrs</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Confirmación de acreditación líquida mediante webhook institucional STP y generación de Comprobante Electrónico de Pago (CEP) del Banco de México.
+            </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-variant text-on-surface font-medium">Estado: Pagado por el cliente</span>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Custodia en cuenta de garantía fiduciaria (Escrow)</span>
+<span class="font-mono text-label-sm text-secondary">24 Oct 2025 • 11:43:00 hrs</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Fondos resguardados en subcuenta de custodia transitoria conforme a la Cláusula 5 del Contrato de Prestación de Servicios Jurídicos.
+            </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-medium">Estado: Fondos retenidos en Escrow</span>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-6 sm:-left-8 top-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-bold text-primary">Validación de hito procesal y timbrado CFDI 4.0 automático</span>
+<span class="font-mono text-label-sm text-primary font-semibold">24 Oct 2025 • 11:45:19 hrs</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+              Se acreditó el desahogo de alegatos y se emitió factura CFDI 4.0 ante el SAT. Los fondos fueron liberados automáticamente y dispersados de forma neta a la cuenta CLABE del despacho.
+            </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded bg-primary-container text-on-primary-container font-semibold">Estado Final: Fondos liberados</span>
+</div>
+</div>
+</div>
+<!-- Cryptographic NOM-151 Hash Seal Block -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md mt-2">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">fingerprint</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Constancia de Conservación NOM-151 (Prestador de Servicios de Certificación)</span>
+<span class="font-mono text-label-sm text-on-surface font-medium">SHA-256: d94a10c8f5e712a49281e8932fcba79100184b2c1592f763...</span>
+</div>
+</div>
+<button class="inline-flex items-center gap-1 text-primary hover:text-on-primary-fixed-variant font-label-md text-label-md font-semibold whitespace-nowrap" onclick="copyToClipboard('d94a10c8f5e712a49281e8932fcba79100184b2c1592f763', 'hash-copy')">
+<span class="material-symbols-outlined text-[16px]" id="hash-copy">content_copy</span>
+<span>Copiar Hash</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Financial Settlement, Integrity Notice & Actions (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Financial Breakdown Card (Desglose y Retenciones) -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Desglose Financiero</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold bg-primary-container/20 px-2 py-0.5 rounded">Conciliado 100%</span>
+</div>
+<!-- Breakdown List -->
+<div class="flex flex-col gap-3 font-body-md text-body-md">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span>Honorarios Base (Subtotal)</span>
+<span class="font-mono text-on-surface font-medium tabular-nums">$18,500.00 MXN</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span>IVA Trasladado (16%)</span>
+<span class="material-symbols-outlined text-[14px] text-secondary cursor-help" title="Tasa regular conforme al art. 1 de la Ley del IVA">info</span>
+</div>
+<span class="font-mono text-on-surface font-medium tabular-nums">+$2,960.00 MXN</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span>Retenciones ISR / IVA</span>
+<span class="font-label-sm text-label-sm bg-surface-container px-1.5 py-0.5 rounded text-secondary">N/A</span>
+</div>
+<span class="font-mono text-secondary tabular-nums">$0.00 MXN</span>
+</div>
+<div class="h-px bg-surface-container my-1"></div>
+<div class="flex justify-between items-center text-on-surface font-semibold">
+<span>Total Abonado por Cliente</span>
+<span class="font-mono text-headline-sm text-headline-sm text-primary tabular-nums">$21,460.00 MXN</span>
+</div>
+<div class="flex justify-between items-center text-secondary font-label-md text-label-md">
+<span>Comisión Operativa de Plataforma</span>
+<span class="text-primary font-medium">0.00 MXN (Modelo Colegiado)</span>
+</div>
+<div class="h-px bg-surface-container my-1"></div>
+<!-- Net Disbursed Container -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Monto Neto Dispersado</span>
+<span class="font-display-lg text-display-lg font-bold text-on-surface tabular-nums text-primary mt-0.5">
+                  $21,460.00 <span class="font-label-md text-label-md font-semibold text-secondary">MXN</span>
+</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[24px]">verified</span>
+</div>
+<div class="flex flex-col gap-0.5 pt-1 text-label-sm font-label-sm text-secondary">
+<span class="font-medium text-on-surface">Cuenta CLABE Receptora (Despacho):</span>
+<div class="flex items-center justify-between font-mono bg-surface-container-lowest px-2 py-1 rounded text-on-surface mt-0.5">
+<span>6461 8015 7044 9281 90</span>
+<span class="text-primary font-semibold">STP Directo</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Regulatory Notice of Immutability -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-sm shadow-sm" id="escrow-notice-banner">
+<div class="flex items-center gap-2 text-on-surface font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-primary text-[20px]">gavel</span>
+<span>Aviso de Integridad y Bloqueo</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Transacción auditada y formalmente liquidada. Por normativa del Banco de México, el SAT y estándares fiduciarios, este registro es inmutable y no admite modificaciones posteriores a su confirmación bancaria.
+        </p>
+<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm pt-1">
+<span class="material-symbols-outlined text-[15px] text-primary">lock</span>
+<span>Cifrado asimétrico HSM Nivel FIPS 140-2</span>
+</div>
+</div>
+<!-- Document Download Actions Panel -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Documentación y Certificados</h3>
+<div class="flex flex-col gap-2.5">
+<a class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group" href="#">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container/20 text-primary flex items-center justify-center font-bold text-label-sm">
+                XML
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">CFDI 4.0 Timbrado</span>
+<span class="font-label-sm text-label-sm text-secondary">Archivo original del SAT (.xml)</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-[20px]">download</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group" href="#">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-error-container text-on-error-container flex items-center justify-center font-bold text-label-sm">
+                PDF
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">Representación Impresa</span>
+<span class="font-label-sm text-label-sm text-secondary">Factura con sellos y código QR</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-[20px]">download</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group" href="#">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">Certificado Banxico (CEP)</span>
+<span class="font-label-sm text-label-sm text-secondary">Validación oficial del Banco de México</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-[20px]">download</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group" href="#">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">Constancia NOM-151</span>
+<span class="font-label-sm text-label-sm text-secondary">Sello digital del prestador autorizado</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-[20px]">download</span>
+</a>
+</div>
+<button class="w-full mt-2 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Compartir Ficha con el Cliente vía LexApp</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

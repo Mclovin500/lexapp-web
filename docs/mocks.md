@@ -21,10 +21,19 @@ Latencia simulada: ~700 ms (`src/api/mock-utils.ts`).
 | A4, A5 | Datos guardados | Se precargan al volver con "Anterior" (en memoria; se pierden al recargar) |
 | A5 | "Crear mi cuenta" | Responde `pendiente` y continúa a A5A |
 | A5A | `/validacion-profesional?estado=pendiente` | `?estado=` (`pendiente`, `validado`, `requiere_correccion`, `rechazado`) sobrescribe la constante |
-| B1 | `/dashboard` | 3 solicitudes nuevas, 3 reuniones virtuales, 3 cobros (pagado, pendiente, vencido) y actividad |
+| B1 | `/dashboard` | 3 solicitudes nuevas, 3 reuniones virtuales, los 3 movimientos más recientes y actividad |
 | B1A | 10 notificaciones (5 sin leer, una de cada tipo) | Marcar como leída actualiza la campana; persiste hasta recargar |
 | C1 | 12 solicitudes ficticias | Filtros por estado y área, búsqueda ("Gómez", "laboral") y paginación de 8 |
 | C2 | `sol-0842` (con 3 documentos) | "Revisar información" → En revisión; "Rechazar" pide motivo; `/solicitudes/no-existe` → 404 |
+| D1 | "Crear propuesta" desde C2 | Cliente y solicitud precargados; "Enviar" marca la solicitud como Atendida |
+| D1 | Conceptos que no suman los honorarios | Error de validación en el formulario |
+| D1 | `/propuestas/pro-086/editar` | Edita un borrador; `/propuestas/pro-089/editar` muestra "no editable" |
+| D2 | 9 propuestas (una o más por estado) | Filtros, búsqueda ("Gómez", "PRO-"), paginación de 8, detalle y cancelar |
+| D2 | `pro-081` (aceptada sin expediente) | "Crear expediente" genera `exp-330` y abre E2 (placeholder) |
+| D2 | `pro-087` | "Ver movimientos" abre D3 con `?propuesta=pro-087` (2 movimientos) |
+| D3 | 9 movimientos (uno o más por estado) | Resumen, filtros, búsqueda ("peritaje", "Exp."), paginación |
+| D4 | Cliente `cli-102` + `exp-290` | Crea `mov-561` pendiente y abre D5 con aviso; cliente y expediente ajenos → 422 |
+| D5 | `mov-560` … `mov-520` | Historial por estado; `/honorarios/movimientos/no-existe` → 404 |
 
 ## Constantes que puedes cambiar
 - `SIMULAR_ERROR_RED` (`src/api/mock-utils.ts`): `true` simula que el servidor no responde (A2A en adelante).

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-primary": "#4cdf9e", "error": "#ba1a1a", "surface": "#f8f9ff", "surface-dim": "#cbdbf5", "secondary-container": "#dae2fd", "tertiary-fixed": "#cce5ff", "surface-container-high": "#dce9ff", "on-primary-fixed-variant": "#005234", "tertiary-fixed-dim": "#93ccff", "inverse-surface": "#213145", "surface-variant": "#d3e4fe", "surface-container": "#e5eeff", "on-tertiary-fixed-variant": "#004b73", "on-secondary-container": "#5c647a", "outline-variant": "#bbcabf", "on-primary-container": "#004129", "primary-fixed-dim": "#4cdf9e", "tertiary": "#006398", "surface-container-low": "#eff4ff", "on-primary-fixed": "#002112", "on-background": "#0b1c30", "on-surface-variant": "#3c4a41", "primary-fixed": "#6dfcb8", "inverse-on-surface": "#eaf1ff", "primary-container": "#00b87b", "surface-tint": "#006c47", "error-container": "#ffdad6", "on-secondary": "#ffffff", "secondary-fixed": "#dae2fd", "outline": "#6c7a71", "on-tertiary": "#ffffff", "primary": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff", "on-tertiary-fixed": "#001d31", "background": "#f8f9ff", "on-error-container": "#93000a", "on-surface": "#0b1c30", "on-primary": "#ffffff", "secondary": "#565e74", "on-tertiary-container": "#003b5c", "on-secondary-fixed-variant": "#3f465c", "surface-container-highest": "#d3e4fe", "tertiary-container": "#48a8ed", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#bec6e0", "on-error": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-compact": "1rem", "space-2xl": "3rem", "margin-compact": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-xl": "2rem", "margin": "2rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-sm": [ "Inter" ], "body-md": [ "Inter" ], "body-lg": [ "Inter" ], "headline-lg": [ "Inter" ], "label-md": [ "Inter" ], "label-sm": [ "Inter" ], "display-lg": [ "Inter" ], "body-sm": [ "Inter" ], "label-lg": [ "Inter" ], "headline-md": [ "Inter" ] }, "fontSize": { "headline-sm": [ "18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" } ], "body-lg": [ "16px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" } ], "headline-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "display-lg": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" } ], "body-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600" } ], "headline-md": [ "22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">LexApp</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Legal OS</span></div></div><span class="px-space-xs py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">v2.4</span></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-wider">Gestión Jurídica</div><nav class="flex flex-col gap-1 mt-1" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="casos-y-expedientes" href="#"><span class="material-symbols-outlined text-[20px]">folder_special</span><span>Casos y expedientes</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="clientes" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Clientes</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="propuestas-y-facturacion" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Propuestas y facturación</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="honorarios-y-cobros" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span>Honorarios y Cobros</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="calendario" href="#"><span class="material-symbols-outlined text-[20px]">event_note</span><span>Calendario</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-md text-body-md" data-path="mensajes" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">forum</span><span>Mensajes</span></div><span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">4</span></a></nav></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</div><nav class="flex flex-col gap-1 mt-1" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="configuracion" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Configuración</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all gap-space-md font-body-md text-body-md" data-path="perfil-profesional" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>Perfil profesional</span></a></nav></div></div><div class="p-space-md bg-surface-container-low"><div class="p-space-sm rounded-lg bg-surface-container-lowest flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[20px]">verified_user</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-semibold">TLS 1.3 Cifrado</span><span class="font-label-sm text-label-sm text-on-surface-variant">Sovereign Vault MX</span></div></div><div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-10 pl-11 pr-space-md rounded-lg bg-surface-container-low text-on-surface placeholder:text-secondary font-body-md text-body-md outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container transition-all" placeholder="Buscar casos, clientes o cobros... ⌘K" type="text"/></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-sm text-label-sm whitespace-nowrap">Conexión Segura TLS 1.3</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">chat</span></button><button class="relative w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-outline-variant"></div><div class="flex items-center gap-space-md"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Lic. Alejandro Morales</span><div class="flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm text-primary font-medium">Colegiado Activo</span></div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-background flex-1 px-space-xl py-space-lg"><div class="flex flex-col w-full">
+<!-- Sub-header Breadcrumb & Back Context -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-md">
+<div class="flex items-center gap-space-sm flex-wrap text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-primary cursor-pointer transition-colors">Inicio</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary cursor-pointer transition-colors">Gestión Jurídica</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary cursor-pointer transition-colors" href="#">Honorarios y Cobros</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Crear Cobro Adicional</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold ml-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+        Nuevo Registro Fiduciario
+      </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="inline-flex items-center gap-space-xs px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all font-label-md text-label-md shadow-sm" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+        Volver a Honorarios y Cobros (D3)
+      </a>
+<span class="text-outline-variant">|</span>
+<a class="inline-flex items-center gap-space-xs px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-secondary transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+        Volver a Expediente
+      </a>
+</div>
+</div>
+<!-- Page Header Title & Subtitle -->
+<div class="mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight flex items-center gap-space-sm">
+<span>Crear cobro adicional</span>
+<span class="material-symbols-outlined text-primary text-[28px]">payments</span>
+</h1>
+<p class="font-body-md text-body-md text-secondary max-w-3xl mt-1">
+          Genera una proforma de cobro vinculada a un expediente activo. El cliente recibirá la solicitud directamente en su aplicación móvil LexApp para revisión y pago seguro vía SPEI o tarjeta bancaria.
+        </p>
+</div>
+<div class="flex items-center gap-2 self-start lg:self-center px-3.5 py-1.5 rounded-xl bg-surface-container-low text-on-surface font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>Módulo de Emisión Certificada SAT • CFDI 4.0</span>
+</div>
+</div>
+<!-- Fiduciary Informative Banner -->
+<div class="mt-space-md p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md shadow-sm">
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-[20px]">account_balance</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Resguardo de Transacciones Fiduciarias</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Protocolo STP / Banxico</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          El abogado genera y timbra la orden de cobro; el cliente efectúa el pago exclusivo y seguro desde su app móvil LexApp. Esta plataforma de despacho no procesa ni almacena números de tarjeta bancaria, garantizando cero fricción probatoria y cumplimiento de la Ley Fintech.
+        </p>
+</div>
+</div>
+</div>
+<!-- Two Column Layout (7:5 desktop proportion) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- LEFT COLUMN: Structured Capture Form (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Section 1: Vinculación Legal del Cobro -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-label-sm text-label-sm text-primary font-bold">1</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Vinculación Legal del Cobro</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Metadatos del Litigio</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Client Selector -->
+<div class="flex flex-col gap-1.5 md:col-span-2">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between" for="cliente-select">
+<span>Cliente Receptor <span class="text-error">*</span></span>
+<span class="font-label-sm text-label-sm text-primary font-normal cursor-pointer hover:underline">+ Registrar nuevo cliente</span>
+</label>
+<div class="relative">
+<select class="w-full h-11 px-3.5 pr-10 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container shadow-sm appearance-none cursor-pointer" id="cliente-select">
+<option selected="" value="nexus">Grupo Inmobiliario Nexus S.A. de C.V. — RFC: GIN180422K92</option>
+<option value="fintech">Valeria Gómez Rivas (Fintech Nova S.A.P.I.) — RFC: GORV910214MA3</option>
+<option value="torreblanca">Mariana Torreblanca S.A. — RFC: MTO160719L81</option>
+<option value="bajio">Constructora del Bajío S.A. — RFC: CBA1403058P2</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-secondary text-[20px]">expand_more</span>
+</div>
+<!-- Client Metadata Card Mini -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">domain</span>
+<span class="text-on-surface font-semibold">Persona Moral Régimen General (601)</span>
+<span class="text-secondary">• Representante: Arq. Carlos L. Mendoza</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-semibold">Validado SAT</span>
+</div>
+</div>
+<!-- Dossier Selector -->
+<div class="flex flex-col gap-1.5 md:col-span-2">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between" for="expediente-select">
+<span>Expediente Judicial / Asunto Asignado <span class="text-error">*</span></span>
+<span class="font-label-sm text-label-sm text-secondary">Filtrado por cliente</span>
+</label>
+<div class="relative">
+<select class="w-full h-11 px-3.5 pr-10 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container shadow-sm appearance-none cursor-pointer" id="expediente-select">
+<option selected="" value="452-2024">Exp. #452/2024 — Fideicomiso Inmobiliario y Juicio Reivindicatorio</option>
+<option value="312-2024">Exp. #312/2024 — Amparo Indirecto en Materia Administrativa</option>
+<option value="118-2025">Exp. #118/2025 — Auditoría de Cumplimiento Registral y Notarial</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-secondary text-[20px]">expand_more</span>
+</div>
+<div class="flex items-center gap-3 px-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">gavel</span> Juzgado 4º Civil de Proceso Oral CDMX</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> Fase: Etapa Probatoria</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Detalle Económico y Concepto -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-label-sm text-label-sm text-primary font-bold">2</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Detalle Económico y Concepto</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Cálculo en MXN</span>
+</div>
+<!-- Cobro Type Quick Selection Pills -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface">Tipo / Categoría de Cobro <span class="text-error">*</span></label>
+<div class="flex flex-wrap gap-2" id="pill-container">
+<button class="category-pill active-pill px-3 py-1.5 rounded-lg text-label-md font-label-md transition-all flex items-center gap-1.5 bg-primary-container text-on-primary-container font-semibold shadow-sm" data-category="Honorarios complementarios por hito" type="button">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+              Honorarios complementarios por hito
+            </button>
+<button class="category-pill px-3 py-1.5 rounded-lg text-label-md font-label-md transition-all flex items-center gap-1.5 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="Gastos periciales y notariales" type="button">
+<span class="material-symbols-outlined text-[16px]">engineering</span>
+              Gastos periciales y notariales
+            </button>
+<button class="category-pill px-3 py-1.5 rounded-lg text-label-md font-label-md transition-all flex items-center gap-1.5 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="Derechos y copias certificadas judiciales" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt</span>
+              Derechos y copias certificadas
+            </button>
+<button class="category-pill px-3 py-1.5 rounded-lg text-label-md font-label-md transition-all flex items-center gap-1.5 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="Anticipo adicional de litigio" type="button">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+              Anticipo litigio
+            </button>
+<button class="category-pill px-3 py-1.5 rounded-lg text-label-md font-label-md transition-all flex items-center gap-1.5 bg-surface-container-low text-on-surface-variant hover:bg-surface-container" data-category="Diligencias foráneas" type="button">
+<span class="material-symbols-outlined text-[16px]">commute</span>
+              Diligencias foráneas
+            </button>
+</div>
+</div>
+<!-- Concepto Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface" for="input-concepto">Concepto Resumido del Cobro <span class="text-error">*</span></label>
+<input class="w-full h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container shadow-sm" id="input-concepto" placeholder="Ej. Presentación de amparo adhesivo y peritaje contable" type="text" value="Honorarios por formulación de alegatos y desahogo de prueba pericial topográfica"/>
+<span class="font-body-sm text-body-sm text-secondary">Este título se muestra de forma destacada en la notificación push y encabezado de la app cliente.</span>
+</div>
+<!-- Detailed Description (Rich textarea simulation) -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface" for="input-descripcion">Descripción Detallada de la Labor Procesal <span class="text-error">*</span></label>
+<span class="font-label-sm text-label-sm text-secondary">Visible en app móvil para justificación</span>
+</div>
+<div class="rounded-lg bg-surface-container-lowest shadow-sm flex flex-col overflow-hidden">
+<div class="flex items-center gap-1 px-3 py-2 bg-surface-container-low text-secondary text-label-sm font-label-sm">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">format_bold</span></button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">format_italic</span></button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">format_list_bulleted</span></button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<span class="text-secondary text-[11px]">Plantilla jurídica cargada</span>
+</div>
+<textarea class="w-full p-3 bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container resize-none" id="input-descripcion" placeholder="Describe a detalle las gestiones realizadas..." rows="4">Se formula y presenta el escrito de alegatos finales ante el Juzgado 4º de lo Civil. Incluye la coordinación en campo con el perito agrimensor asignado en autos para la ratificación del dictamen topográfico en el inmueble objeto de la controversia reivindicatoria, conforme al acuerdo de fecha 18 de octubre.</textarea>
+</div>
+</div>
+<!-- Importe Base y Opciones Fiscales -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Importe Base -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between" for="input-importe">
+<span>Importe Base (Subtotal) <span class="text-error">*</span></span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">MXN</span>
+</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-label-lg text-label-lg text-secondary font-bold">$</span>
+<input class="w-full h-11 pl-8 pr-16 rounded-lg bg-surface-container-lowest text-on-surface font-body-lg text-body-lg font-semibold outline-none focus:ring-2 focus:ring-primary-container shadow-sm" id="input-importe" placeholder="0.00" step="100" type="number" value="18500"/>
+<span class="absolute right-3.5 top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-secondary font-semibold">MXN</span>
+</div>
+</div>
+<!-- Emission Date -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-on-surface" for="input-emision">Fecha de Emisión</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 pr-10 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md outline-none cursor-default shadow-sm" id="input-emision" readonly="" type="text" value="24 de Octubre de 2025"/>
+<span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-secondary text-[20px]">calendar_month</span>
+</div>
+</div>
+</div>
+<!-- Fiscal check/switches -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary-container accent-[#00b87b] cursor-pointer" id="check-iva" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface cursor-pointer select-none" for="check-iva">
+                Aplica IVA (16%) Trasladado
+              </label>
+</div>
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary-container accent-[#00b87b] cursor-pointer" id="check-retencion" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface cursor-pointer select-none flex items-center gap-1" for="check-retencion">
+<span>Retención ISR (10%) / IVA (10.66%) PM</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" title="Aplica si el cliente es Persona Moral y el emisor tributa como Persona Física con Actividad Profesional">info</span>
+</label>
+</div>
+</div>
+<!-- Expiration Date & Presets -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface" for="input-vencimiento">Fecha Límite de Pago <span class="text-error">*</span></label>
+<span class="font-label-sm text-label-sm text-secondary">Plazo para depósito en custodia</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-space-sm">
+<div class="sm:col-span-6 relative">
+<input class="w-full h-11 px-3.5 pr-10 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container shadow-sm" id="input-vencimiento" type="text" value="31 de Octubre de 2025"/>
+<span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-secondary text-[20px]">event_available</span>
+</div>
+<div class="sm:col-span-6 flex items-center gap-1.5 flex-wrap">
+<button class="btn-preset px-2.5 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-colors" data-days="7" type="button">7 días hábiles</button>
+<button class="btn-preset px-2.5 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-colors" data-days="15" type="button">15 días nat.</button>
+<button class="btn-preset px-2.5 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-colors" data-days="30" type="button">30 días</button>
+<button class="btn-preset px-2 py-2 rounded-lg bg-error-container text-on-error-container font-label-sm text-label-sm shadow-sm transition-colors flex items-center gap-1" data-days="3" type="button">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                  Término judicial
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Opciones de Notificación y Comprobante -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-label-sm text-label-sm text-primary font-bold">3</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Opciones de Notificación y Comprobante</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Automatización</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Switch 1 -->
+<div class="flex items-start justify-between gap-space-md p-3.5 rounded-lg bg-surface-container-low">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">mobile_friendly</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">Notificación Push y Correo Prioritario al Cliente</p>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">Envía alerta instantánea al smartphone registrado del contacto principal y copia vía correo con resumen encriptado.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" id="toggle-notif" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Switch 2 -->
+<div class="flex items-start justify-between gap-space-md p-3.5 rounded-lg bg-surface-container-low">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-[22px] mt-0.5">receipt_long</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">Emitir pre-factura (CFDI 4.0 Proforma) timbrada al conciliar</p>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">Genera el UUID y factura XML/PDF de manera automatizada en el PAC una vez que el SPEI ingrese al fideicomiso.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" id="toggle-cfdi" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Action Buttons Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-xs pb-space-lg">
+<button class="w-full sm:w-auto px-4 py-2.5 rounded-lg text-secondary hover:text-on-surface font-label-lg text-label-lg hover:bg-surface-container transition-colors order-3 sm:order-1 flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+          Cancelar y volver
+        </button>
+<div class="flex items-center gap-space-sm w-full sm:w-auto order-1 sm:order-2">
+<button class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-lg text-label-lg shadow-sm transition-all flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+            Guardar como borrador
+          </button>
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-primary-container hover:bg-[#00a36d] text-on-primary font-label-lg text-label-lg font-semibold shadow-md transition-all flex items-center justify-center gap-2 transform active:scale-95" id="btn-enviar-cobro" type="button">
+<span class="material-symbols-outlined text-[20px]">send</span>
+            Enviar cobro al cliente
+          </button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Real-Time Preview & Mobile Notification (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Card: Resumen y Proforma del Cobro -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-md flex flex-col gap-space-md sticky top-20">
+<!-- Header with State Pill & Temp Folio -->
+<div class="flex items-start justify-between pb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Vista Previa Proforma</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Resumen de Liquidación</h3>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+              Borrador de Solicitud
+            </span>
+<span class="font-label-sm text-label-sm text-secondary font-mono">Folio: CBR-2025-0982</span>
+</div>
+</div>
+<!-- Case & Client Pill Overview -->
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1.5 font-label-sm text-label-sm">
+<div class="flex items-center justify-between text-on-surface">
+<span class="text-secondary">Expediente:</span>
+<span class="font-semibold text-right" id="pv-expediente">Exp. #452/2024</span>
+</div>
+<div class="flex items-center justify-between text-on-surface">
+<span class="text-secondary">Cliente:</span>
+<span class="font-semibold text-right truncate max-w-[200px]" id="pv-cliente">Grupo Inmobiliario Nexus</span>
+</div>
+<div class="flex items-center justify-between text-on-surface">
+<span class="text-secondary">Concepto:</span>
+<span class="font-semibold text-right text-primary truncate max-w-[200px]" id="pv-concepto">Honorarios por alegatos...</span>
+</div>
+<div class="flex items-center justify-between text-on-surface">
+<span class="text-secondary">Vencimiento:</span>
+<span class="font-semibold text-error text-right" id="pv-vencimiento">31 Oct 2025 (7 días)</span>
+</div>
+</div>
+<!-- Financial Breakdown (Tabular layout) -->
+<div class="flex flex-col gap-2.5 pt-space-xs font-body-md text-body-md">
+<div class="flex items-center justify-between text-secondary">
+<span>Subtotal de honorarios / gastos:</span>
+<span class="font-semibold text-on-surface font-mono" id="pv-subtotal">$18,500.00 MXN</span>
+</div>
+<div class="flex items-center justify-between text-secondary">
+<span class="flex items-center gap-1">
+<span>IVA trasladado (+16%):</span>
+<span class="material-symbols-outlined text-[14px]">help</span>
+</span>
+<span class="font-semibold text-on-surface font-mono" id="pv-iva">+$2,960.00 MXN</span>
+</div>
+<div class="flex items-center justify-between text-secondary" id="pv-retencion-row">
+<span>Retención ISR / IVA aplicada:</span>
+<span class="font-semibold text-secondary font-mono" id="pv-retencion">-$0.00 MXN</span>
+</div>
+<!-- Total Highlight Box -->
+<div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between mt-space-xs shadow-sm">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold block">Total a pagar por el cliente</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Vía SPEI Fiduciario / Tarjeta</span>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-display-lg text-on-surface font-bold font-mono tracking-tight block text-primary" id="pv-total">
+                $21,460.00
+              </span>
+<span class="font-label-sm text-label-sm text-secondary">Pesos Mexicanos</span>
+</div>
+</div>
+</div>
+<!-- Fiduciary Stamp Badge -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span class="text-on-surface font-medium">Fideicomiso STP en espera de acreditación</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+</div>
+<!-- Simulation Card: Mobile Push Notification of the Client -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">smartphone</span>
+              Previsualización Notificación Móvil del Cliente
+            </span>
+<span class="font-label-sm text-label-sm text-primary">LexApp Móvil Client</span>
+</div>
+<!-- Phone Notification Bubble Mockup -->
+<div class="p-3.5 rounded-2xl bg-inverse-surface text-inverse-on-surface shadow-xl flex flex-col gap-2.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-surface-variant">
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[11px]">balance</span>
+</div>
+<span class="font-semibold text-white">LexApp Móvil</span>
+<span>•</span>
+<span>Ahora</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-surface-variant">notifications_active</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="font-label-lg text-label-lg text-white font-bold tracking-tight">Nuevo cobro procesal asignado</p>
+<p class="font-body-sm text-body-sm text-surface-variant leading-relaxed">
+                El <strong class="text-white">Lic. Alejandro Morales</strong> ha emitido una orden por <strong class="text-primary-fixed" id="pv-notif-amount">$21,460.00 MXN</strong> para el <span id="pv-notif-exp">Exp. #452/2024</span>. Puedes revisarlo y autorizar tu pago vía SPEI o tarjeta desde esta app.
+              </p>
+</div>
+<!-- Simulated Client CTA -->
+<div class="pt-1">
+<div class="w-full py-2 px-3 rounded-lg bg-surface-container-highest/20 hover:bg-surface-container-highest/30 text-white font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-default">
+<span>Ver detalle y pagar en app móvil</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fiduciary Security Footnote -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">security</span>
+<p class="font-body-sm text-body-sm text-secondary leading-snug">
+<strong>Cumplimiento y Protección Antilavado:</strong> Los depósitos se resguardan en cuenta fiduciaria institucional hasta la emisión del CFDI y confirmación del servicio procesal conforme a los estatutos colegiados.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Client-side Script for Instant Financial Recalculation -->
+<script>
+    (function initCobroCalculator() {
+      const inputImporte = document.getElementById('input-importe');
+      const checkIva = document.getElementById('check-iva');
+      const checkRetencion = document.getElementById('check-retencion');
+      const inputConcepto = document.getElementById('input-concepto');
+      const clientSelect = document.getElementById('cliente-select');
+      const expSelect = document.getElementById('expediente-select');
+
+      const pvSubtotal = document.getElementById('pv-subtotal');
+      const pvIva = document.getElementById('pv-iva');
+      const pvRetencion = document.getElementById('pv-retencion');
+      const pvRetencionRow = document.getElementById('pv-retencion-row');
+      const pvTotal = document.getElementById('pv-total');
+      const pvNotifAmount = document.getElementById('pv-notif-amount');
+      const pvConcepto = document.getElementById('pv-concepto');
+      const pvCliente = document.getElementById('pv-cliente');
+      const pvExp = document.getElementById('pv-expediente');
+      const pvNotifExp = document.getElementById('pv-notif-exp');
+
+      function formatMoney(amount) {
+        return '$' + amount.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' MXN';
+      }
+
+      function updateCalculations() {
+        const base = parseFloat(inputImporte.value) || 0;
+        const hasIva = checkIva.checked;
+        const hasRet = checkRetencion.checked;
+
+        const ivaVal = hasIva ? (base * 0.16) : 0;
+        // 10% ISR retencion si aplica persona moral
+        const retVal = hasRet ? (base * 0.10) : 0;
+        const totalVal = Math.max(0, base + ivaVal - retVal);
+
+        pvSubtotal.textContent = formatMoney(base);
+        pvIva.textContent = hasIva ? '+' + formatMoney(ivaVal) : '$0.00 MXN';
+        pvRetencion.textContent = hasRet ? '-' + formatMoney(retVal) : '$0.00 MXN';
+        
+        const totalStr = formatMoney(totalVal);
+        pvTotal.textContent = '$' + totalVal.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        pvNotifAmount.textContent = totalStr;
+
+        if (hasRet) {
+          pvRetencionRow.classList.remove('opacity-40');
+        } else {
+          pvRetencionRow.classList.add('opacity-40');
+        }
+      }
+
+      // Event listeners for recalculation
+      inputImporte.addEventListener('input', updateCalculations);
+      checkIva.addEventListener('change', updateCalculations);
+      checkRetencion.addEventListener('change', updateCalculations);
+
+      // Category pills selection
+      const pills = document.querySelectorAll('.category-pill');
+      pills.forEach(pill => {
+        pill.addEventListener('click', function() {
+          pills.forEach(p => {
+            p.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+            p.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+          });
+          this.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+          this.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+          
+          const cat = this.getAttribute('data-category');
+          if (cat === 'Gastos periciales y notariales') {
+            inputConcepto.value = 'Reembolso de dictamen técnico y honorarios perito topógrafo judicial';
+          } else if (cat === 'Derechos y copias certificadas') {
+            inputConcepto.value = 'Pago de derechos judiciales para expedición de testimonios notariales';
+          } else if (cat === 'Anticipo litigio') {
+            inputConcepto.value = 'Anticipo complementario para presentación de demanda en juicio';
+          } else if (cat === 'Diligencias foráneas') {
+            inputConcepto.value = 'Viáticos y gastos de traslado para emplazamiento foráneo en Edomex';
+          } else {
+            inputConcepto.value = 'Honorarios por formulación de alegatos y desahogo de prueba pericial topográfica';
+          }
+          pvConcepto.textContent = inputConcepto.value;
+        });
+      });
+
+      // Quick expiry date presets
+      const presets = document.querySelectorAll('.btn-preset');
+      const inputVencimiento = document.getElementById('input-vencimiento');
+      const pvVencimiento = document.getElementById('pv-vencimiento');
+      presets.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const days = parseInt(this.getAttribute('data-days')) || 7;
+          const targetDate = new Date();
+          targetDate.setDate(targetDate.getDate() + days);
+          const options = { day: 'numeric', month: 'short', year: 'numeric' };
+          const formatted = targetDate.toLocaleDateString('es-MX', options);
+          inputVencimiento.value = formatted;
+          pvVencimiento.textContent = formatted + ' (' + days + ' días)';
+        });
+      });
+
+      // Mirror concept input
+      inputConcepto.addEventListener('input', function() {
+        pvConcepto.textContent = this.value || 'Concepto no especificado';
+      });
+
+      // Mirror Client selection
+      clientSelect.addEventListener('change', function() {
+        const text = this.options[this.selectedIndex].text.split('—')[0].trim();
+        pvCliente.textContent = text;
+      });
+
+      // Mirror Dossier selection
+      expSelect.addEventListener('change', function() {
+        const fullText = this.options[this.selectedIndex].text.split('—')[0].trim();
+        pvExp.textContent = fullText;
+        pvNotifExp.textContent = fullText;
+      });
+
+      // Initial execution
+      updateCalculations();
+
+      // Submit feedback button
+      const btnEnviar = document.getElementById('btn-enviar-cobro');
+      btnEnviar.addEventListener('click', function() {
+        const originalText = this.innerHTML;
+        this.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span> Encriptando y transmitiendo...';
+        this.disabled = true;
+        setTimeout(() => {
+          this.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> ¡Cobro transmitido a LexApp Móvil!';
+          this.classList.remove('bg-primary-container');
+          this.classList.add('bg-primary');
+          setTimeout(() => {
+            this.innerHTML = originalText;
+            this.disabled = false;
+            this.classList.add('bg-primary-container');
+            this.classList.remove('bg-primary');
+          }, 3000);
+        }, 1200);
+      });
+    })();
+  </script>
+</div></main></div></body></html>

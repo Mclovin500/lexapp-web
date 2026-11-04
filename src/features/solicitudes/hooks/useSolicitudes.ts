@@ -3,6 +3,7 @@ import type { ErrorApi } from '@/api/errores'
 import { CLAVE_CUENTA } from '@/features/dashboard/hooks/useCuentaAbogado'
 import { CLAVE_RESUMEN_DASHBOARD } from '@/features/dashboard/hooks/useResumenDashboard'
 import {
+  listarOpcionesSolicitudes,
   listarSolicitudes,
   obtenerSolicitud,
   rechazarSolicitud,
@@ -10,6 +11,7 @@ import {
 } from '../services/solicitudes.service'
 import type {
   FiltrosSolicitudes,
+  OpcionSolicitud,
   PeticionRechazoSolicitud,
   RespuestaListadoSolicitudes,
   SolicitudDetalle,
@@ -23,6 +25,16 @@ export function useListadoSolicitudes(filtros: FiltrosSolicitudes) {
     queryKey: [...CLAVE_SOLICITUDES, 'listado', filtros],
     queryFn: () => listarSolicitudes(filtros),
     placeholderData: keepPreviousData,
+    retry: false,
+  })
+}
+
+/** D1: solo consulta con un cliente seleccionado. */
+export function useOpcionesSolicitudes(clienteId: string) {
+  return useQuery<OpcionSolicitud[], ErrorApi>({
+    queryKey: [...CLAVE_SOLICITUDES, 'opciones', clienteId],
+    queryFn: () => listarOpcionesSolicitudes(clienteId),
+    enabled: clienteId !== '',
     retry: false,
   })
 }

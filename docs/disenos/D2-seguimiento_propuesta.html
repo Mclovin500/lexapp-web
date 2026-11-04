@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#bec6e0", "on-tertiary": "#ffffff", "error": "#ba1a1a", "secondary-container": "#dae2fd", "on-secondary": "#ffffff", "surface-container-highest": "#d3e4fe", "tertiary": "#006398", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#93ccff", "on-primary-fixed-variant": "#005234", "surface": "#f8f9ff", "on-surface-variant": "#3c4a41", "tertiary-container": "#48a8ed", "on-error": "#ffffff", "on-tertiary-container": "#003b5c", "inverse-surface": "#213145", "primary": "#006c47", "on-tertiary-fixed-variant": "#004b73", "on-primary-fixed": "#002112", "inverse-primary": "#4cdf9e", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#3f465c", "outline-variant": "#bbcabf", "surface-container-lowest": "#ffffff", "on-secondary-container": "#5c647a", "surface-dim": "#cbdbf5", "secondary": "#565e74", "background": "#f8f9ff", "primary-container": "#00b87b", "primary-fixed": "#6dfcb8", "on-primary-container": "#004129", "surface-container": "#e5eeff", "tertiary-fixed": "#cce5ff", "surface-variant": "#d3e4fe", "outline": "#6c7a71", "surface-container-high": "#dce9ff", "error-container": "#ffdad6", "secondary-fixed": "#dae2fd", "on-surface": "#0b1c30", "primary-fixed-dim": "#4cdf9e", "on-background": "#0b1c30", "on-tertiary-fixed": "#001d31", "on-error-container": "#93000a", "surface-tint": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "margin-compact": "1.25rem", "space-2xl": "3rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-compact": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "headline-sm": ["Inter"], "label-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none">LexApp</span><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase mt-space-xs">Legal Suite</span></div></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider px-space-xs">Gestión Jurídica</span></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="dashboard" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md">Dashboard</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="casos-y-expedientes" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">folder_managed</span><span class="font-body-md text-body-md">Casos y expedientes</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="clientes" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">people</span><span class="font-body-md text-body-md">Clientes</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="propuestas-y-facturacion" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-body-md text-body-md">Propuestas y facturación</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="calendario" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">event</span><span class="font-body-md text-body-md">Calendario</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="mensajes" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">forum</span><span class="font-body-md text-body-md">Mensajes</span></div><span class="h-5 min-w-[20px] px-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center font-bold">4</span></a><div class="my-space-xs pt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</span></div><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="configuracion" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md">Configuración</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="perfil-profesional" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-body-md text-body-md">Perfil profesional</span></div></a></nav></div><div class="p-space-md bg-surface-container-low m-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs text-primary"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Conexión Segura TLS 1.3</span></div><div class="flex items-center justify-between text-secondary font-label-sm text-label-sm"><span>LexApp Suite</span><span class="font-mono">v2.4 LTS</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center w-96"><div class="w-full flex items-center justify-between bg-surface-container-lowest px-space-md py-2 rounded-lg shadow-[0_1px_3px_rgba(15,23,42,0.04)] focus-within:ring-2 focus-within:ring-primary-container"><div class="flex items-center gap-space-sm text-secondary flex-1"><span class="material-symbols-outlined text-[20px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar casos, clientes o expedientes..." type="text"/></div><div class="flex items-center gap-0.5 bg-surface-container px-1.5 py-0.5 rounded text-secondary font-label-sm text-label-sm font-mono"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">mail</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span></button><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none">Lic. Alejandro Morales</span><div class="flex items-center gap-1 mt-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-primary font-semibold">Colegiado Activo</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<!-- Sub-header & Action Ribbon -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<a class="hover:text-primary transition-colors" href="#">Propuestas y facturación</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Seguimiento de propuestas</span>
+</nav>
+<!-- Title & Value proposition -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Propuestas de servicio</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        Supervisión de cotizaciones emitidas, estado de aceptación por cliente y conversión a expedientes procesales.
+      </p>
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-space-sm self-start lg:self-center">
+<button class="inline-flex items-center gap-space-xs px-4 h-10 rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container-low transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">file_download</span>
+<span>Exportar reporte</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-4 h-10 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Nueva propuesta</span>
+</button>
+</div>
+</div>
+<!-- KPI Analytics Metric Grid (4 Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Total Activas -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Propuestas Activas</span>
+<span class="font-display-lg text-display-lg text-on-surface mt-1">28</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">description</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-low/60 -mx-space-lg -mb-space-lg px-space-lg py-2.5">
+<span class="font-label-md text-label-md text-secondary">En circulación</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">$842,500 MXN</span>
+</div>
+</div>
+<!-- Card 2: Pendientes / Enviadas -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Pendientes (Enviadas)</span>
+<span class="font-display-lg text-display-lg text-tertiary mt-1">9</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">schedule_send</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center gap-1.5 bg-surface-container-low/60 -mx-space-lg -mb-space-lg px-space-lg py-2.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-label-md text-label-md text-error font-semibold">3 próximas a vencer (&lt;48h)</span>
+</div>
+</div>
+<!-- Card 3: Aceptadas este mes -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Aceptadas este mes</span>
+<span class="font-display-lg text-display-lg text-primary mt-1">14</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-low/60 -mx-space-lg -mb-space-lg px-space-lg py-2.5">
+<span class="font-label-md text-label-md text-secondary">Tasa de conversión</span>
+<span class="font-label-md text-label-md font-semibold text-primary">71.4% de éxito</span>
+</div>
+</div>
+<!-- Card 4: Borradores -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">En preparación</span>
+<span class="font-display-lg text-display-lg text-secondary mt-1">5</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">edit_document</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-low/60 -mx-space-lg -mb-space-lg px-space-lg py-2.5">
+<span class="font-label-md text-label-md text-secondary">Borradores internos</span>
+<span class="font-label-md text-label-md text-secondary font-medium">Revisión colegiada</span>
+</div>
+</div>
+</div>
+<!-- Operational Filter Deck & State Tabs -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<!-- State Tabs row -->
+<div class="flex flex-wrap items-center justify-between gap-space-md border-b-0 pb-1">
+<div class="flex items-center gap-1 overflow-x-auto py-1">
+<button class="px-3.5 py-1.5 rounded-lg bg-on-surface text-surface font-label-md text-label-md font-semibold flex items-center gap-2 shadow-sm" type="button">
+<span>Todas</span>
+<span class="bg-white/20 text-surface px-1.5 py-0.5 rounded-full text-label-sm font-bold">28</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-2" type="button">
+<span>Borrador</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.5 rounded-full text-label-sm">5</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-2" type="button">
+<span>Enviada</span>
+<span class="bg-tertiary-fixed text-on-tertiary-container px-1.5 py-0.5 rounded-full text-label-sm">9</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-2" type="button">
+<span>Aceptada</span>
+<span class="bg-primary-container text-on-primary-container px-1.5 py-0.5 rounded-full text-label-sm font-semibold">14</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-2" type="button">
+<span>Rechazada</span>
+<span class="bg-error-container text-on-error-container px-1.5 py-0.5 rounded-full text-label-sm">3</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-2" type="button">
+<span>Cancelada</span>
+<span class="bg-surface-container text-secondary px-1.5 py-0.5 rounded-full text-label-sm">2</span>
+</button>
+</div>
+<!-- Quick Summary Metric -->
+<div class="hidden xl:flex items-center gap-2 text-secondary font-label-sm text-label-sm bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>Normativa NOM-151 activa para todas las emisiones</span>
+</div>
+</div>
+<!-- Search and Multi-filter Row -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm items-center">
+<!-- Search Input -->
+<div class="md:col-span-6 xl:col-span-5 relative flex items-center">
+<span class="material-symbols-outlined text-[20px] text-secondary absolute left-3 pointer-events-none">search</span>
+<input class="w-full h-10 pl-10 pr-12 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container transition-all" placeholder="Buscar por número de propuesta, cliente, servicio jurídico..." type="text"/>
+<span class="absolute right-3 font-mono text-label-sm text-secondary bg-surface-container px-1.5 py-0.5 rounded">⌘K</span>
+</div>
+<!-- Filter: Abogado -->
+<div class="md:col-span-2 relative">
+<select class="w-full h-10 px-3 pr-8 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option value="">Abogado responsable</option>
+<option value="lic-morales">Lic. Alejandro Morales</option>
+<option value="lic-del-toro">Lic. Sofía del Toro</option>
+<option value="lic-vargas">Lic. Rodrigo Vargas</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-secondary absolute right-2.5 top-2.5 pointer-events-none">expand_more</span>
+</div>
+<!-- Filter: Rango de Fechas -->
+<div class="md:col-span-2 relative">
+<select class="w-full h-10 px-3 pr-8 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option value="">Período: Últimos 30 días</option>
+<option value="current">Mes actual (Octubre)</option>
+<option value="q3">Tercer Trimestre</option>
+<option value="all">Año fiscal 2025</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-secondary absolute right-2.5 top-2.5 pointer-events-none">calendar_today</span>
+</div>
+<!-- Filter: Rango Importe & Reset -->
+<div class="md:col-span-2 xl:col-span-3 flex items-center gap-space-xs">
+<div class="relative flex-1">
+<select class="w-full h-10 px-3 pr-8 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option value="">Cualquier importe</option>
+<option value="1">&lt; $50,000 MXN</option>
+<option value="2">$50,000 - $100,000 MXN</option>
+<option value="3">&gt; $100,000 MXN</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-secondary absolute right-2.5 top-2.5 pointer-events-none">tune</span>
+</div>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" title="Limpiar filtros" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_alt_off</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary Matter Proposals Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-md font-semibold">Folio / Propuesta</th>
+<th class="py-3 px-space-md font-semibold">Cliente &amp; Entidad</th>
+<th class="py-3 px-space-md font-semibold">Servicio Jurídico Ofertado</th>
+<th class="py-3 px-space-md font-semibold text-right">Importe</th>
+<th class="py-3 px-space-md font-semibold">Emisión</th>
+<th class="py-3 px-space-md font-semibold">Vigencia</th>
+<th class="py-3 px-space-md font-semibold text-center">Estado</th>
+<th class="py-3 px-space-md font-semibold text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- FILA 1: PROPUESTA CONTINUIDAD DESTACADA (Valeria Gómez Rivas / Enviada) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-body-sm text-primary">#PROP-2025-0149</span>
+<span class="material-symbols-outlined text-[16px] text-secondary" title="Firma electrónica avanzada">lock</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">ID: LX-9941</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-tertiary font-bold flex items-center justify-center font-label-md">
+                  VG
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Valeria Gómez Rivas</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">Fintech Nova S.A.P.I. de C.V.</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Asesoría en Ronda Semilla y Pacto de Socios</span>
+<span class="font-label-sm text-label-sm text-secondary">Derecho Corporativo &amp; VC</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right" style="font-variant-numeric: tabular-nums;">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$75,400.00</span>
+<span class="block font-label-sm text-label-sm text-secondary">MXN + IVA</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">24 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">10:45 hrs</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-[16px]">alarm</span>
+<span class="font-label-md text-label-md font-semibold">27 Oct 2025</span>
+</div>
+<span class="font-label-sm text-label-sm text-error font-medium">Expira en 36h</span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Enviada
+              </span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Ver propuesta" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Abrir conversación con cliente" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-tertiary hover:bg-tertiary-fixed transition-colors" title="Reenviar recordatorio" type="button">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+</button>
+<div class="relative inline-block text-left">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</td>
+</tr>
+<!-- FILA 2: CONTINUIDAD DESTACADA ACEPTADA (Roberto Garza Sada -> CREAR EXPEDIENTE) -->
+<tr class="bg-surface-container-low/40 hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-body-sm text-primary">#PROP-2025-0148</span>
+<span class="material-symbols-outlined text-[16px] text-primary" title="Sellado digital confirmado">verified_user</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">ID: LX-9884</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary font-bold flex items-center justify-center font-label-md">
+                  RG
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Roberto Garza Sada</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">InverCapital Grupo México</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Constitución S.A.P.I. y Gobierno Corporativo</span>
+<span class="font-label-sm text-label-sm text-secondary">Estructuración Societaria</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right" style="font-variant-numeric: tabular-nums;">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$110,000.00</span>
+<span class="block font-label-sm text-label-sm text-secondary">MXN + IVA</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">22 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">16:12 hrs</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-primary font-medium">Aceptada</span>
+<span class="block font-label-sm text-label-sm text-secondary">23 Oct 2025</span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Aceptada
+              </span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right">
+<div class="flex items-center justify-end gap-1.5">
+<!-- Botón de acción prioritaria -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:opacity-95 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">folder_special</span>
+<span>Iniciar Expediente</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Ver cotización final" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- FILA 3: ACEPTADA 2 (Dra. Elena Villaseñor / Dictamen Regulatorio CNBV) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-body-sm text-primary">#PROP-2025-0145</span>
+<span class="material-symbols-outlined text-[16px] text-primary" title="Sellado digital confirmado">verified_user</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">ID: LX-9712</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary font-bold flex items-center justify-center font-label-md">
+                  EV
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Dra. Elena Villaseñor</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">Banca Patrimonial Solaris</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Dictamen de Cumplimiento Regulatorio CNBV</span>
+<span class="font-label-sm text-label-sm text-secondary">Compliance Financiero</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right" style="font-variant-numeric: tabular-nums;">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$120,000.00</span>
+<span class="block font-label-sm text-label-sm text-secondary">MXN + IVA</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">19 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">09:18 hrs</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-primary font-medium">Aceptada</span>
+<span class="block font-label-sm text-label-sm text-secondary">21 Oct 2025</span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Aceptada
+              </span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:opacity-95 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">folder_special</span>
+<span>Crear Expediente</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Ver propuesta" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- FILA 4: ENVIADA (Laboratorios BioPharma / Registro COFEPRIS) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-body-sm text-primary">#PROP-2025-0144</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">ID: LX-9630</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-tertiary font-bold flex items-center justify-center font-label-md">
+                  BP
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Ing. Carlos Morales Peña</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">BioPharma Innovations S.A.</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Registro de Patente COFEPRIS/IMPI</span>
+<span class="font-label-sm text-label-sm text-secondary">Propiedad Intelectual</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right" style="font-variant-numeric: tabular-nums;">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$45,000.00</span>
+<span class="block font-label-sm text-label-sm text-secondary">MXN + IVA</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">18 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">11:30 hrs</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">02 Nov 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">Vigente (9 días)</span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Enviada
+              </span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Ver propuesta" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Abrir conversación" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-tertiary hover:bg-tertiary-fixed transition-colors" title="Reenviar recordatorio" type="button">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- FILA 5: BORRADOR (Auditoría Laboral NOM-035 / Industrias del Norte) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-body-sm text-secondary">#PROP-2025-0142</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">ID: LX-9511</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container text-secondary font-bold flex items-center justify-center font-label-md">
+                  IN
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Lic. Fernando Montiel</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">Industrias del Norte Logística</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Auditoría Laboral NOM-035 y Contratos Colectivos</span>
+<span class="font-label-sm text-label-sm text-secondary">Derecho Laboral Colectivo</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right" style="font-variant-numeric: tabular-nums;">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$58,000.00</span>
+<span class="block font-label-sm text-label-sm text-secondary">MXN + IVA</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">15 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">En redacción</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-secondary">No emitida</span>
+<span class="block font-label-sm text-label-sm text-secondary">Sin vigencia</span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+                Borrador
+              </span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Editar</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Ver previsualización" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-error hover:bg-error-container transition-colors" title="Descartar borrador" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- FILA 6: RECHAZADA (Logística Altiplano / Defensa Fiscal SAT) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-body-sm text-secondary">#PROP-2025-0139</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">ID: LX-9488</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container text-secondary font-bold flex items-center justify-center font-label-md">
+                  LA
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Arturo Benavides</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">Logística Altiplano Central</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Recurso de Revocación y Defensa Fiscal SAT</span>
+<span class="font-label-sm text-label-sm text-secondary">Litigio Fiscal &amp; Administrativo</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right" style="font-variant-numeric: tabular-nums;">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$82,000.00</span>
+<span class="block font-label-sm text-label-sm text-secondary">MXN + IVA</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">11 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">14:00 hrs</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-error font-medium">Rechazada</span>
+<span class="block font-label-sm text-label-sm text-secondary">16 Oct 2025</span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+                Rechazada
+              </span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" title="Ver motivo de declinación" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Ver motivo</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Abrir chat para feedback" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- FILA 7: CANCELADA (Grupo Hotelero del Caribe / Cancelada voluntariamente) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors opacity-80">
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="font-mono text-body-sm text-secondary line-through">#PROP-2025-0133</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">ID: LX-9244</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container text-secondary font-bold flex items-center justify-center font-label-md">
+                  GH
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate line-through">Grupo Hotelero Caribe</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">Cancún Hospitality S.A.</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-secondary truncate">Auditoría Inmobiliaria y Régimen Condominal</span>
+<span class="font-label-sm text-label-sm text-secondary">Derecho Inmobiliario</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right" style="font-variant-numeric: tabular-nums;">
+<span class="font-label-lg text-label-lg text-secondary line-through">$135,000.00</span>
+<span class="block font-label-sm text-label-sm text-secondary">Cancelada por despacho</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-secondary">08 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">17:40 hrs</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-secondary">Cancelada</span>
+<span class="block font-label-sm text-label-sm text-secondary">09 Oct 2025</span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[14px]">block</span>
+                Cancelada
+              </span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Duplicar</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" title="Ver propuesta" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- FILA 8: ENVIADA (Marlene Ortiz / Protección de Datos y Privacidad) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-body-sm text-primary">#PROP-2025-0130</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">ID: LX-9190</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-tertiary font-bold flex items-center justify-center font-label-md">
+                  MO
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Marlene Ortiz Solís</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">Retail Cloud América S.A.</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Adecuación LFPDPPP y Transferencia Transfronteriza</span>
+<span class="font-label-sm text-label-sm text-secondary">Privacidad y Protección de Datos</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right" style="font-variant-numeric: tabular-nums;">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$38,500.00</span>
+<span class="block font-label-sm text-label-sm text-secondary">MXN + IVA</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">05 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">15:10 hrs</span>
+</td>
+<td class="py-3.5 px-space-md align-middle">
+<span class="font-body-sm text-body-sm text-on-surface">31 Oct 2025</span>
+<span class="block font-label-sm text-label-sm text-secondary">Vigente (7 días)</span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Enviada
+              </span>
+</td>
+<td class="py-3.5 px-space-md align-middle text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Ver propuesta" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Abrir conversación" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-tertiary hover:bg-tertiary-fixed transition-colors" title="Reenviar recordatorio" type="button">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Registry Footer -->
+<div class="p-space-md bg-surface-container-low/70 flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm">
+<span>Mostrando</span>
+<span class="font-semibold text-on-surface">1 - 8</span>
+<span>de</span>
+<span class="font-semibold text-on-surface">28</span>
+<span>propuestas registradas</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-lowest text-secondary font-label-md text-label-md hover:bg-surface-container disabled:opacity-40 flex items-center gap-1" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span>Anterior</span>
+</button>
+<button class="h-8 w-8 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center justify-center shadow-sm" type="button">
+          1
+        </button>
+<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container flex items-center justify-center" type="button">
+          2
+        </button>
+<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container flex items-center justify-center" type="button">
+          3
+        </button>
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container flex items-center gap-1" type="button">
+<span>Siguiente</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Legal Compliance & Time Stamping Note -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-space-md text-secondary">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Certificación de Emisión y Firma Electrónica Avanzada (FEA)</span>
+<span class="font-body-sm text-body-sm text-secondary">Constancia de conservación NOM-151-SCFI-2016 y sellado de tiempo criptográfico integrado.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md text-label-sm font-label-sm">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+        Prestador de Servicios de Certificación (PSC) En Línea
+      </span>
+<span class="text-secondary/50">•</span>
+<a class="text-primary hover:underline font-semibold" href="#">Descargar auditoría criptográfica</a>
+</div>
+</div>
+</div></main></div></body></html>

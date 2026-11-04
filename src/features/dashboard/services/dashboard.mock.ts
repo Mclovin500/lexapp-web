@@ -5,6 +5,8 @@ import {
   contarSolicitudesNuevasMock,
   solicitudesNuevasRecientesMock,
 } from '@/features/solicitudes/services/solicitudes.mock'
+import { movimientosRecientesMock } from '@/features/pagos/services/pagos.mock'
+import { contarPropuestasPendientesMock } from '@/features/propuestas/services/propuestas.mock'
 import type { ResumenDashboard } from '../types/dashboard.types'
 
 export async function obtenerResumenDashboardMock(): Promise<ResumenDashboard> {
@@ -21,16 +23,12 @@ export async function obtenerResumenDashboardMock(): Promise<ResumenDashboard> {
     indicadores: {
       solicitudesNuevas: contarSolicitudesNuevasMock(),
       expedientesActivos: 12,
-      propuestasPendientes: 5,
+      propuestasPendientes: contarPropuestasPendientesMock(),
       proximasReuniones: proximasReuniones.length,
     },
     solicitudesNuevas: solicitudesNuevasRecientesMock(3),
     proximasReuniones,
-    cobrosRelevantes: [
-      { id: 'mov-551', concepto: 'Anticipo de honorarios', cliente: 'Grupo Inmobiliario Nexus', monto: 45000, estado: 'pagado', fecha: haceMinutos(65) },
-      { id: 'mov-540', concepto: 'Cobro adicional: peritaje', cliente: 'Constructora del Bajío', monto: 12800, estado: 'pendiente', fecha: haceMinutos(60 * 72) },
-      { id: 'mov-532', concepto: 'Segunda parcialidad de honorarios', cliente: 'TechHub México S.A.S.', monto: 9250, estado: 'vencido', fecha: haceMinutos(60 * 24 * 6) },
-    ],
+    cobrosRelevantes: movimientosRecientesMock(3),
     actividadReciente: [
       { id: 'act-1', tipo: 'solicitud', descripcion: 'Valeria Gómez Rivas envió una nueva solicitud de servicios.', fecha: haceMinutos(24) },
       { id: 'act-2', tipo: 'pago', descripcion: 'Grupo Inmobiliario Nexus pagó el anticipo de honorarios.', fecha: haceMinutos(65) },

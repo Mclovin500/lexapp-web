@@ -39,9 +39,15 @@
 - Panel interno: `components/layouts/AppLayout.tsx` (Sidebar + Header únicos) y `components/layouts/app/`
   (`Sidebar`, `EncabezadoApp`, `navegacion.ts` con las 10 opciones de la sección 7).
 - `api/errores.ts`: `ErrorApi` y `aErrorApi()` para los módulos internos (B1 en adelante).
-- `components/ui/`: `Avatar`, `EstadoCarga`, `EstadoError`, `EstadoVacio`, `Paginacion`; `PlaceholderPage interna`.
-- `lib/`: `fechas.ts` (formatos es-MX y relativos), `moneda.ts` (MXN), `archivos.ts`, `iniciales.ts`.
+- `components/ui/`: `Avatar`, `EstadoCarga`, `EstadoError`, `EstadoVacio`, `Paginacion`; `PlaceholderPage interna`;
+  `FiltroPestanas` (filtros con `aria-pressed` y totales), `BuscadorListado` (buscar con Enter o botón; usar `key`),
+  `Dialogo` (`<dialog>` nativo modal).
+- `lib/`: `fechas.ts` (formatos es-MX, relativos y `hoyIso`), `moneda.ts` (MXN), `importes.ts` (validar y sumar en centavos), `archivos.ts`, `iniciales.ts`.
 - `features/dashboard/`: B1, B1A y la cuenta del Header. `features/solicitudes/`: C1 y C2.
+- `features/propuestas/`: D1 y D2. `features/pagos/`: D3, D4 y D5 (estados de movimiento compartidos con B1).
+- `features/clientes/` y `features/expedientes/`: por ahora solo opciones para selects (F y E llegarán después).
+- Los formularios internos reutilizan `CampoTexto`, `CampoSelect` y `CampoAreaTexto` de `features/auth`;
+  TODO: moverlos a `components/ui/` cuando se toque esa parte.
 - Filtros de listados en la URL (`useSearchParams`) para conservarlos al volver con "Atrás".
 
 ## Regla Arquitectónica

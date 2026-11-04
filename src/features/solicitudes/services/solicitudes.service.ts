@@ -5,6 +5,7 @@ import { aErrorApi } from '@/api/errores'
 import { USAR_MOCKS } from '@/api/mocks'
 import type {
   FiltrosSolicitudes,
+  OpcionSolicitud,
   PeticionRechazoSolicitud,
   RespuestaListadoSolicitudes,
   SolicitudDetalle,
@@ -27,6 +28,21 @@ export async function listarSolicitudes(filtros: FiltrosSolicitudes): Promise<Re
         porPagina: filtros.porPagina,
       },
     })
+    return respuesta.data
+  } catch (error: unknown) {
+    throw aErrorApi(error)
+  }
+}
+
+/** D1: solicitudes abiertas del cliente para "Solicitud relacionada". */
+export async function listarOpcionesSolicitudes(clienteId: string): Promise<OpcionSolicitud[]> {
+  if (import.meta.env.DEV && USAR_MOCKS) {
+    const { listarOpcionesSolicitudesMock } = await import('./solicitudes.mock')
+    return listarOpcionesSolicitudesMock(clienteId)
+  }
+
+  try {
+    const respuesta = await api.get<OpcionSolicitud[]>(ENDPOINTS.solicitudes.opciones, { params: { clienteId } })
     return respuesta.data
   } catch (error: unknown) {
     throw aErrorApi(error)

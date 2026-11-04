@@ -5,6 +5,7 @@ import { ErrorApi } from '@/api/errores'
 import type {
   FiltroEstadoSolicitud,
   FiltrosSolicitudes,
+  OpcionSolicitud,
   PeticionRechazoSolicitud,
   RespuestaListadoSolicitudes,
   SolicitudDetalle,
@@ -277,6 +278,28 @@ export async function obtenerSolicitudMock(id: string): Promise<SolicitudDetalle
   await simularRed()
   const solicitud = buscar(id)
   return { ...solicitud, documentos: [...solicitud.documentos], informacionAdicional: [...solicitud.informacionAdicional] }
+}
+
+/** D1: solicitudes abiertas (nueva o en revisión) del cliente. */
+export async function listarOpcionesSolicitudesMock(clienteId: string): Promise<OpcionSolicitud[]> {
+  await esperar(300)
+  if (SIMULAR_ERROR_RED) throw new ErrorApi('red')
+  return solicitudesMock
+    .filter((s) => s.cliente.id === clienteId && (s.estado === 'nueva' || s.estado === 'en_revision'))
+    .map((s) => ({ id: s.id, folio: s.folio, asunto: s.asunto }))
+}
+
+/** D1: valida que la solicitud sea del cliente y siga abierta. */
+export function validarSolicitudDeClienteMock(solicitudId: string, clienteId: string): OpcionSolicitud {
+  const s = solicitudesMock.find((item) => item.id === solicitudId)
+  if (!s || s.cliente.id !== clienteId) throw new ErrorApi('datos_invalidos')
+  return { id: s.id, folio: s.folio, asunto: s.asunto }
+}
+
+/** D1 "Enviar propuesta": la solicitud relacionada queda atendida. */
+export function marcarSolicitudAtendidaMock(solicitudId: string): void {
+  const s = solicitudesMock.find((item) => item.id === solicitudId)
+  if (s && (s.estado === 'nueva' || s.estado === 'en_revision')) s.estado = 'atendida'
 }
 
 /** "Revisar información": nueva → en revisión. */

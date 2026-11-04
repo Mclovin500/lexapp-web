@@ -18,16 +18,20 @@ export const ROUTES = {
   requests: '/solicitudes',                // C1
   requestDetail: '/solicitudes/:solicitudId', // C2
   newProposal: '/propuestas/nueva',        // D1
+  editProposal: '/propuestas/:propuestaId/editar', // D1 (editar borrador)
   proposals: '/propuestas',                // D2
   fees: '/honorarios',                     // D3
+  newCharge: '/honorarios/cobros/nuevo',   // D4
   paymentDetail: '/honorarios/movimientos/:movimientoId', // D5
   cases: '/expedientes',                   // E1
   caseDetail: '/expedientes/:expedienteId', // E2
   caseDocuments: '/expedientes/:expedienteId/documentos', // E3
   clients: '/clientes',                    // F1
+  clientDetail: '/clientes/:clienteId',    // F2
   agenda: '/agenda',                       // G1
   videoRoom: '/agenda/sala/:reunionId',    // G1A
   chat: '/chat',                           // H1
   profile: '/perfil',                      // I1
   settings: '/configuracion',              // J1
+  depositAccount: '/configuracion/cuenta-deposito', // J1A
 } as const

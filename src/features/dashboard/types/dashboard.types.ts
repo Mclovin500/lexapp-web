@@ -1,3 +1,4 @@
+import type { MovimientoResumen } from '@/features/pagos/types/pagos.types'
 import type { SolicitudResumen } from '@/features/solicitudes/types/solicitudes.types'
 
 /** Reuniones: siempre virtuales (regla 9.2 de la especificación). */
@@ -9,17 +10,6 @@ export interface ReunionProxima {
   fin: string
   /** Folio del expediente relacionado, si existe. */
   expediente: string | null
-}
-
-export type EstadoCobro = 'pendiente' | 'pagado' | 'vencido'
-
-export interface CobroRelevante {
-  id: string
-  concepto: string
-  cliente: string
-  monto: number
-  estado: EstadoCobro
-  fecha: string
 }
 
 export type TipoActividad = 'solicitud' | 'propuesta' | 'expediente' | 'documento' | 'pago' | 'mensaje'
@@ -42,6 +32,7 @@ export interface ResumenDashboard {
   /** Las más recientes con estado "nueva" (máximo 3). */
   solicitudesNuevas: SolicitudResumen[]
   proximasReuniones: ReunionProxima[]
-  cobrosRelevantes: CobroRelevante[]
+  /** Movimientos más recientes de D3 (mismos estados que D3 y D5). */
+  cobrosRelevantes: MovimientoResumen[]
   actividadReciente: ActividadReciente[]
 }

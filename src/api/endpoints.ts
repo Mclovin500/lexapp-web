@@ -36,8 +36,28 @@ export const ENDPOINTS = {
   },
   solicitudes: {
     listado: '/solicitudes', // C1
+    opciones: '/solicitudes/opciones', // D1 "Solicitud relacionada" (?clienteId=)
     detalle: (id: string) => `/solicitudes/${encodeURIComponent(id)}`, // C2
     revisar: (id: string) => `/solicitudes/${encodeURIComponent(id)}/revisar`, // C2 "Revisar información"
     rechazar: (id: string) => `/solicitudes/${encodeURIComponent(id)}/rechazar`, // C2
+  },
+  propuestas: {
+    listado: '/propuestas', // D2 (GET) y D1 (POST crear)
+    detalle: (id: string) => `/propuestas/${encodeURIComponent(id)}`, // D2 ver / D1 editar (GET, PUT)
+    cancelar: (id: string) => `/propuestas/${encodeURIComponent(id)}/cancelar`, // D2
+    crearExpediente: (id: string) => `/propuestas/${encodeURIComponent(id)}/expediente`, // D2 (aceptada)
+  },
+  honorarios: {
+    resumen: '/honorarios/resumen', // D3
+    movimientos: '/honorarios/movimientos', // D3 listado
+    movimiento: (id: string) => `/honorarios/movimientos/${encodeURIComponent(id)}`, // D5
+    cobros: '/honorarios/cobros', // D4 (POST crear cobro adicional)
+  },
+  /** Opciones para selectores (D1, D4) mientras no existan F1 y E1. */
+  clientes: {
+    opciones: '/clientes/opciones',
+  },
+  expedientes: {
+    opciones: '/expedientes/opciones', // ?clienteId=
   },
 } as const

@@ -67,6 +67,13 @@ export interface RespuestaListadoSolicitudes {
   totalesPorEstado: Record<FiltroEstadoSolicitud, number>
 }
 
+/** `GET /solicitudes/opciones?clienteId=`: solicitudes abiertas del cliente (D1). */
+export interface OpcionSolicitud {
+  id: string
+  folio: string
+  asunto: string
+}
+
 /** C2 → D1 "Crear propuesta": datos que D1 usará para precargar al cliente. */
 export interface EstadoNuevaPropuesta {
   solicitudId: string

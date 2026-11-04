@@ -21,22 +21,25 @@ import { DashboardPage } from '@/features/dashboard/pages/DashboardPage'
 import { NotificacionesPage } from '@/features/dashboard/pages/NotificacionesPage'
 import { SolicitudesPage } from '@/features/solicitudes/pages/SolicitudesPage'
 import { DetalleSolicitudPage } from '@/features/solicitudes/pages/DetalleSolicitudPage'
+import { NuevaPropuestaPage } from '@/features/propuestas/pages/NuevaPropuestaPage'
+import { PropuestasPage } from '@/features/propuestas/pages/PropuestasPage'
+import { HonorariosPage } from '@/features/pagos/pages/HonorariosPage'
+import { NuevoCobroPage } from '@/features/pagos/pages/NuevoCobroPage'
+import { DetalleMovimientoPage } from '@/features/pagos/pages/DetalleMovimientoPage'
 
 /** Pantallas internas aún no construidas: se muestran dentro del Sidebar y Header. */
 const pendientes: { path: string; id: string; title: string }[] = [
-  { path: ROUTES.newProposal, id: 'D1', title: 'Crear propuesta de servicio' },
-  { path: ROUTES.proposals, id: 'D2', title: 'Seguimiento de propuestas' },
-  { path: ROUTES.fees, id: 'D3', title: 'Honorarios y cobros' },
-  { path: ROUTES.paymentDetail, id: 'D5', title: 'Detalle de pago y movimientos' },
   { path: ROUTES.cases, id: 'E1', title: 'Mis expedientes' },
   { path: ROUTES.caseDetail, id: 'E2', title: 'Detalle del expediente' },
   { path: ROUTES.caseDocuments, id: 'E3', title: 'Documentos del expediente' },
   { path: ROUTES.clients, id: 'F1', title: 'Directorio de clientes' },
+  { path: ROUTES.clientDetail, id: 'F2', title: 'Detalle del cliente' },
   { path: ROUTES.agenda, id: 'G1', title: 'Agenda de citas virtuales' },
   { path: ROUTES.videoRoom, id: 'G1A', title: 'Sala de videollamada' },
   { path: ROUTES.chat, id: 'H1', title: 'Chat con clientes' },
   { path: ROUTES.profile, id: 'I1', title: 'Perfil profesional' },
   { path: ROUTES.settings, id: 'J1', title: 'Configuración' },
+  { path: ROUTES.depositAccount, id: 'J1A', title: 'Cuenta de depósito' },
 ]
 
 export const router = createBrowserRouter([
@@ -110,6 +113,12 @@ export const router = createBrowserRouter([
       { path: ROUTES.notifications, element: <NotificacionesPage /> },
       { path: ROUTES.requests, element: <SolicitudesPage /> },
       { path: ROUTES.requestDetail, element: <DetalleSolicitudPage /> },
+      { path: ROUTES.newProposal, element: <NuevaPropuestaPage /> },
+      { path: ROUTES.editProposal, element: <NuevaPropuestaPage /> },
+      { path: ROUTES.proposals, element: <PropuestasPage /> },
+      { path: ROUTES.fees, element: <HonorariosPage /> },
+      { path: ROUTES.newCharge, element: <NuevoCobroPage /> },
+      { path: ROUTES.paymentDetail, element: <DetalleMovimientoPage /> },
       ...pendientes.map(({ path, id, title }) => ({
         path,
         element: <PlaceholderPage id={id} title={title} interna />,

@@ -14,6 +14,21 @@ function aFecha(iso: string): Date | null {
   return Number.isNaN(fecha.getTime()) ? null : fecha
 }
 
+/** Fecha local de hoy en formato AAAA-MM-DD (para inputs `type="date"`). */
+export function hoyIso(): string {
+  const hoy = new Date()
+  const mes = String(hoy.getMonth() + 1).padStart(2, '0')
+  const dia = String(hoy.getDate()).padStart(2, '0')
+  return `${hoy.getFullYear()}-${mes}-${dia}`
+}
+
+/** "20 nov 2026" a partir de AAAA-MM-DD (sin desfase por zona horaria). */
+export function formatearFechaCorta(fechaIso: string): string {
+  const [anio, mes, dia] = fechaIso.slice(0, 10).split('-').map(Number)
+  if (!anio || !mes || !dia) return fechaIso
+  return new Intl.DateTimeFormat('es-MX', { dateStyle: 'medium' }).format(new Date(anio, mes - 1, dia))
+}
+
 /** "4 nov 2026, 09:15" */
 export function formatearFechaHora(iso: string): string {
   const fecha = aFecha(iso)

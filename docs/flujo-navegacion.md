@@ -42,13 +42,21 @@ A1 abierta directamente (/bienvenida, sin destino): sesión activa ► B1 o A5A 
 | B1A Centro de notificaciones | `/notificaciones` | Implementada (se abre desde la campana del Header) |
 | C1 Solicitudes recibidas | `/solicitudes` | Implementada (filtros en la URL) |
 | C2 Detalle de solicitud | `/solicitudes/:solicitudId` | Implementada |
-| D1, D2, D3, D5, E1–E3, F1, G1, G1A, H1, I1, J1 | — | Placeholder dentro del panel |
+| D1 Crear propuesta | `/propuestas/nueva` · `/propuestas/:propuestaId/editar` | Implementada (crear desde C2 o desde cero; editar borradores) |
+| D2 Seguimiento de propuestas | `/propuestas` | Implementada (filtros en la URL, detalle y cancelación en diálogo) |
+| D3 Honorarios y cobros | `/honorarios` | Implementada (`?propuesta=` filtra los movimientos de una propuesta) |
+| D4 Cobro adicional | `/honorarios/cobros/nuevo` | Implementada (`?cliente=&expediente=` precarga desde E2) |
+| D5 Detalle de movimiento | `/honorarios/movimientos/:movimientoId` | Implementada (solo lectura) |
+| E1–E3, F1, F2, G1, G1A, H1, I1, J1, J1A | — | Placeholder dentro del panel |
 
 Enlaces de retorno: A2A y A2B → P02; A2C → A2B; A2D → P02 (el código es de un solo uso);
 A3A "Corregir" → A3; A4 "Anterior" → A3; A5 "Anterior" → A4.
 Sin estado de navegación (recarga o acceso directo): A2A → P02; A2C y A2D → A2B; A3A → A3.
 A3A → A4 y A5 → A5A usan `replace` (el código ya se usó / el registro ya se envió).
 Desde A5A: `validado` → B1 ("Ingresar a mi despacho"); `requiere_correccion` → A4 o A5.
+Sección D: C2 "Crear propuesta" → D1 (`state` con cliente y solicitud) → D2 con aviso ·
+D2 aceptada → crear/ver expediente (E2) · D2 → D3 `?propuesta=` · D3 → D4 → D5 (`replace`, aviso) ·
+D3 → D5 · D3 → D2 · D3 → J1A · D5 → F2 (cliente) y E2 (expediente).
 
 ## Decisiones de Arquitectura y Navegación
 

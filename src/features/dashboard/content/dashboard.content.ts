@@ -1,5 +1,5 @@
 import { ROUTES } from '@/app/routes'
-import type { EstadoCobro, TipoActividad } from '../types/dashboard.types'
+import type { TipoActividad } from '../types/dashboard.types'
 
 export const dashboardContent = {
   greeting: '¡Bienvenido de nuevo, Licenciado!',
@@ -41,11 +41,6 @@ export const dashboardContent = {
     viewAll: 'Ver honorarios y cobros',
     detail: 'Ver detalle',
     empty: 'No hay movimientos recientes.',
-    states: {
-      pendiente: { label: 'Pendiente', clases: 'bg-tertiary/10 text-tertiary' },
-      pagado: { label: 'Pagado', clases: 'bg-primary-container/15 text-primary' },
-      vencido: { label: 'Vencido', clases: 'bg-error/10 text-error' },
-    } satisfies Record<EstadoCobro, { label: string; clases: string }>,
   },
   activity: {
     title: 'Actividad reciente',

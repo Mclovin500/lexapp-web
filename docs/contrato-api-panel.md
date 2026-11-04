@@ -14,7 +14,7 @@ Todas requieren sesión (cookie `httpOnly`). Errores → `ErrorApi` (`src/api/er
 - 200: `{ "indicadores": { "solicitudesNuevas", "expedientesActivos", "propuestasPendientes", "proximasReuniones" },
   "solicitudesNuevas": [SolicitudResumen] (máx. 3, más recientes con estado "nueva"),
   "proximasReuniones": [{ "id", "titulo", "cliente", "inicio", "fin", "expediente": null | "Exp. 312/2026" }],
-  "cobrosRelevantes": [{ "id", "concepto", "cliente", "monto", "estado": "pendiente" | "pagado" | "vencido", "fecha" }],
+  "cobrosRelevantes": [MovimientoResumen] (máx. 3, ver `contrato-api-honorarios.md`; el estado "vencido" se eliminó),
   "actividadReciente": [{ "id", "tipo": "solicitud" | "propuesta" | "expediente" | "documento" | "pago" | "mensaje", "descripcion", "fecha" }] }`
 - Reuniones: siempre virtuales (regla 9.2); el front enlaza a G1A con el `id`. Cobros: el `id` abre D5.
 

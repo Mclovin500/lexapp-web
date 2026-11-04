@@ -11,11 +11,16 @@ export interface CampoSelectProps extends SelectHTMLAttributes<HTMLSelectElement
   placeholder: string
   error?: string
   labelHint?: ReactNode
+  /** `true`: la primera opción (valor vacío) se puede elegir, p. ej. "Sin solicitud relacionada". */
+  placeholderSeleccionable?: boolean
 }
 
 /** Select nativo con ícono, etiqueta y error, con el mismo estilo que `CampoTexto`. */
 export const CampoSelect = forwardRef<HTMLSelectElement, CampoSelectProps>(
-  ({ id, label, icon, opciones, placeholder, error, labelHint, className = '', ...props }, ref) => {
+  (
+    { id, label, icon, opciones, placeholder, error, labelHint, placeholderSeleccionable = false, className = '', ...props },
+    ref,
+  ) => {
     const errorId = `${id}-error`
 
     return (
@@ -38,7 +43,7 @@ export const CampoSelect = forwardRef<HTMLSelectElement, CampoSelectProps>(
             } ${className}`}
             {...props}
           >
-            <option value="" disabled>
+            <option value="" disabled={!placeholderSeleccionable}>
               {placeholder}
             </option>
             {opciones.map((opcion) => (

@@ -1,0 +1,47 @@
+export const cobroContent = {
+  title: 'Crear cobro adicional',
+  subtitle: 'Genera un cobro relacionado con un expediente. El cliente lo recibirá y lo pagará desde su aplicación móvil.',
+  backToFees: 'Volver a Honorarios y Cobros',
+  backToCase: 'Volver al expediente',
+  // Especificación D4: "El abogado no realiza el pago desde esta pantalla."
+  notice:
+    'Tú solo creas el cobro: el cliente recibe una notificación y lo paga desde su aplicación. Aquí no se capturan datos de tarjeta ni se realiza el pago.',
+  form: {
+    client: 'Cliente',
+    clientPlaceholder: 'Selecciona un cliente',
+    case: 'Expediente',
+    casePlaceholder: 'Selecciona un expediente',
+    caseNoClient: 'Primero selecciona un cliente',
+    caseEmpty: 'Este cliente no tiene expedientes activos',
+    concept: 'Concepto',
+    conceptPlaceholder: 'Ej. Gastos de peritaje',
+    description: 'Descripción',
+    descriptionPlaceholder: 'Explica al cliente a qué corresponde este cobro.',
+    amount: 'Importe (MXN)',
+    amountPlaceholder: 'Ej. 12800',
+    date: 'Fecha',
+    dueDate: 'Fecha límite de pago',
+    optional: '(opcional)',
+  },
+  summary: {
+    title: 'Resumen del cobro',
+    client: 'Cliente',
+    case: 'Expediente',
+    concept: 'Concepto',
+    amount: 'Importe',
+    date: 'Fecha',
+    dueDate: 'Fecha límite',
+    none: 'Sin fecha límite',
+    pending: 'Por definir',
+    afterSend: 'Al enviarlo, el cobro queda como "Pendiente de pago" hasta que el cliente pague.',
+  },
+  actions: {
+    send: 'Enviar cobro al cliente',
+    sending: 'Enviando…',
+    cancel: 'Cancelar',
+  },
+  loading: 'Cargando clientes…',
+  errors: {
+    datos_invalidos: 'Revisa los datos: el expediente debe pertenecer al cliente seleccionado.',
+  },
+}
