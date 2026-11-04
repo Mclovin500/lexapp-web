@@ -8,8 +8,13 @@ export interface DatosRegistro {
   aceptaTerminos: true
 }
 
-/** El backend envía el código de verificación al correo y responde con él enmascarado (para A3A). */
-export interface RespuestaRegistro {
+import type { RespuestaReenvio } from './auth.types'
+
+/**
+ * El backend envía el código de verificación al correo y responde con el correo
+ * enmascarado y los tiempos del código (para A3A).
+ */
+export interface RespuestaRegistro extends RespuestaReenvio {
   correoEnmascarado: string
 }
 

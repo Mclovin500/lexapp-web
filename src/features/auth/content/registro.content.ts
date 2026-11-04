@@ -1,5 +1,3 @@
-import type { IdReglaContrasena } from '../schemas/registro.schema'
-
 export const registroContent = {
   brandName: 'LexApp',
   title: 'Crea tu cuenta profesional',
@@ -31,22 +29,13 @@ export const registroContent = {
     submitButton: 'Siguiente: verificar correo',
     submittingButton: 'Creando cuenta…',
   },
-  passwordMeter: {
-    title: 'Requisitos mínimos de seguridad jurídica:',
-    strength: ['Débil', 'Débil', 'Aceptable', 'Segura'],
-  },
-  passwordRules: {
-    longitud: '8+ caracteres',
-    mayuscula: 'Mayúscula',
-    numero: 'Al menos 1 número',
-  } satisfies Record<IdReglaContrasena, string>,
   terms: {
     // PLACEHOLDER: validar antes de publicar y asignar rutas a los documentos legales
     prefix: 'Acepto las ',
     serviceTerms: 'Condiciones de Servicio',
     middle: ', el ',
     confidentiality: 'Tratamiento Confidencial de Expedientes',
-    suffix: ' y el acuerdo de secreto profesional RGPD aplicable.',
+    suffix: ' y el acuerdo de secreto profesional conforme a la LFPDPPP.',
   },
   errors: {
     correo_registrado: 'Ya existe una cuenta con este correo. Inicia sesión o usa otro correo.',

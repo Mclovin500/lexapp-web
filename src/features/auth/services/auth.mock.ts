@@ -14,6 +14,8 @@ export async function loginMock(credenciales: CredencialesLogin): Promise<Respue
     return {
       requiereCodigo: true,
       correoEnmascarado: 'a***@demo.com',
+      reenviarEnSegundos: 30,
+      expiraEnSegundos: 600,
     }
   }
 

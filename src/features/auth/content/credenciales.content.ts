@@ -1,0 +1,33 @@
+export const credencialesContent = {
+  subtitle: 'Paso 2 de 3: credenciales de tu ejercicio profesional.',
+  form: {
+    cedulaLabel: 'Número de cédula profesional',
+    cedulaHint: 'Sujeta a cotejo',
+    cedulaPlaceholder: 'Ej. 12345678',
+    universityLabel: 'Universidad o institución de procedencia',
+    universityPlaceholder: 'Ej. Universidad Nacional Autónoma de México',
+    specialtyLabel: 'Especialidad o enfoque profesional principal',
+    specialtyPlaceholder: 'Selecciona tu especialidad jurídica',
+    experienceLabel: 'Años de ejercicio activo',
+    experiencePlaceholder: 'Ej. 8',
+    collegeLabel: 'Colegio o jurisdicción emisora',
+    optional: '(opcional)',
+    collegePlaceholder: 'Ej. Ilustre y Nacional Colegio de Abogados',
+  },
+  // Nunca afirmar que la cédula está validada: solo que se cotejará.
+  verificationNote:
+    'Tu cédula queda sujeta a cotejo con los registros oficiales. Tu perfil no se mostrará como validado hasta que concluya la revisión.',
+  actions: {
+    previous: 'Anterior',
+    next: 'Siguiente: Área de práctica',
+    saving: 'Guardando…',
+  },
+  errors: {
+    conflicto: 'Esta cédula ya está registrada.',
+    datos_invalidos: 'Revisa los datos ingresados e inténtalo de nuevo.',
+    sesion_expirada: 'Tu sesión de registro venció. Inicia sesión para continuar.',
+    demasiados_intentos: 'Demasiados intentos. Inténtalo más tarde.',
+    red: 'No pudimos conectar con el servidor. Inténtalo de nuevo.',
+    desconocido: 'Ocurrió un error inesperado. Inténtalo de nuevo.',
+  },
+}

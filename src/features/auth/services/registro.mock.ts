@@ -1,5 +1,6 @@
 // MOCK: eliminar al conectar el backend
 import { type DatosRegistro, type RespuestaRegistro, ErrorRegistro } from '../types/registro.types'
+import { TIEMPOS_CODIGO_MOCK } from './codigo.mock'
 
 function enmascararCorreo(correo: string): string {
   const [usuario, dominio] = correo.split('@')
@@ -13,5 +14,8 @@ export async function registrarAbogadoMock(datos: DatosRegistro): Promise<Respue
     throw new ErrorRegistro('correo_registrado', 'El correo ya está registrado.')
   }
 
-  return { correoEnmascarado: enmascararCorreo(datos.correo.trim().toLowerCase()) }
+  return {
+    correoEnmascarado: enmascararCorreo(datos.correo.trim().toLowerCase()),
+    ...TIEMPOS_CODIGO_MOCK,
+  }
 }

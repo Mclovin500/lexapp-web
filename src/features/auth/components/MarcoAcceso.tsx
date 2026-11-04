@@ -1,14 +1,21 @@
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
+import { Icon } from '@/components/ui/Icon'
 import { accesoContent } from '../content/acceso.content'
 
 interface MarcoAccesoProps {
   children: ReactNode
   /** Brillo central animado (A1) o estático (A3). */
   brilloAnimado?: boolean
+  /** Enlace de regreso en la cabecera (sustituye al lema). Lo usan A2A–A2D. */
+  regreso?: {
+    to: string
+    label: string
+  }
 }
 
-/** Marco visual compartido por A1 y A3: fondo, cabecera y pie institucional. */
-export function MarcoAcceso({ children, brilloAnimado = false }: MarcoAccesoProps) {
+/** Marco visual compartido por A1, A2A–A2D y A3: fondo, cabecera y pie institucional. */
+export function MarcoAcceso({ children, brilloAnimado = false, regreso }: MarcoAccesoProps) {
   const { header, footer } = accesoContent
 
   return (
@@ -27,10 +34,20 @@ export function MarcoAcceso({ children, brilloAnimado = false }: MarcoAccesoProp
 
       {/* Cabecera */}
       <header className="relative z-10 w-full pt-8 sm:pt-10 px-6 sm:px-12 flex justify-between items-center text-label-sm uppercase text-outline select-none">
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full bg-primary-container" aria-hidden="true" />
-          <span className="tracking-widest">{header.tagline}</span>
-        </div>
+        {regreso ? (
+          <Link
+            to={regreso.to}
+            className="group inline-flex items-center gap-2 normal-case text-label-lg text-secondary hover:text-on-surface transition-colors py-2 px-3 -ml-3 rounded-lg hover:bg-surface-container-low focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
+          >
+            <Icon name="arrow_back" size={18} className="transition-transform group-hover:-translate-x-0.5" />
+            <span>{regreso.label}</span>
+          </Link>
+        ) : (
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-primary-container" aria-hidden="true" />
+            <span className="tracking-widest">{header.tagline}</span>
+          </div>
+        )}
         <div className="flex items-center gap-6">
           <span className="hidden md:inline font-medium">{header.edition}</span>
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container-lowest border border-outline-variant/40 text-secondary shadow-sm normal-case">

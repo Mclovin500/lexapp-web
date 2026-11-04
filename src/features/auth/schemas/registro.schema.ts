@@ -1,16 +1,5 @@
 import { z } from 'zod'
-
-/**
- * Reglas de contraseña compartidas por la validación y el indicador visual.
- * Sus textos viven en registro.content.ts (passwordRules), con el mismo id.
- */
-export const REGLAS_CONTRASENA = [
-  { id: 'longitud', cumple: (valor: string) => valor.length >= 8 },
-  { id: 'mayuscula', cumple: (valor: string) => /[A-ZÁÉÍÓÚÑ]/.test(valor) },
-  { id: 'numero', cumple: (valor: string) => /\d/.test(valor) },
-] as const
-
-export type IdReglaContrasena = (typeof REGLAS_CONTRASENA)[number]['id']
+import { contrasenaSchema } from './contrasena.schema'
 
 function telefonoValido(valor: string): boolean {
   if (valor === '') return true
@@ -39,11 +28,7 @@ export const registroSchema = z
       .string()
       .trim()
       .refine(telefonoValido, 'Ingresa un teléfono válido de al menos 10 dígitos.'),
-    contrasena: z
-      .string()
-      .refine((v) => REGLAS_CONTRASENA.every((regla) => regla.cumple(v)), {
-        message: 'La contraseña no cumple los requisitos mínimos.',
-      }),
+    contrasena: contrasenaSchema,
     confirmarContrasena: z.string().min(1, 'Confirma tu contraseña.'),
     aceptaTerminos: z
       .boolean()

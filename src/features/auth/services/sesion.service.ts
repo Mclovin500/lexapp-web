@@ -2,6 +2,7 @@
 import { isAxiosError } from 'axios'
 import { api } from '@/api/cliente'
 import { ENDPOINTS } from '@/api/endpoints'
+import { USAR_MOCKS } from '@/api/mocks'
 import type { EstadoSesion, RespuestaSesion } from '../types/sesion.types'
 
 /**
@@ -9,7 +10,7 @@ import type { EstadoSesion, RespuestaSesion } from '../types/sesion.types'
  * 200 → sesión activa · 401 → sin sesión · otro error → se propaga.
  */
 export async function obtenerSesion(): Promise<EstadoSesion> {
-  if (import.meta.env.DEV && import.meta.env.VITE_USAR_MOCKS === 'true') {
+  if (import.meta.env.DEV && USAR_MOCKS) {
     const { obtenerSesionMock } = await import('./sesion.mock')
     return obtenerSesionMock()
   }

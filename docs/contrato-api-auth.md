@@ -1,66 +1,61 @@
 # PROPUESTA — por confirmar con el equipo de backend
 
-### 1. Iniciar sesión: `POST /auth/login`
-- **Petición**:
-  ```json
-  { "correo": "abogado@despacho.com", "contrasena": "********", "recordarEquipo": false }
-  ```
-- **Respuesta 200 OK**:
-  ```json
-  { "requiereCodigo": true, "correoEnmascarado": "a***@despacho.com" }
-  ```
-- **Errores HTTP**:
-  - `400 / 401`: Credenciales inválidas (`{ "codigo": "credenciales" }`).
-  - `403`: Cuenta no abogado (`{ "codigo": "cuenta_no_abogado" }`).
-  - `429`: Demasiados intentos (`{ "codigo": "demasiados_intentos" }`).
+Contrato de acceso (P02, A1, A2A–A2D, A3). Rutas en `src/api/endpoints.ts`, relativas a `VITE_API_URL`.
+Errores: el cuerpo trae `{ "codigo": "<tipo>" }`. Mapeo común del front (`lib/mapear-error.ts`):
+`400/422` → `codigo_incorrecto` (endpoints de código) o `datos_invalidos` (formularios) · `401` → `sesion_expirada` ·
+`409` → `conflicto` · `410` → `codigo_vencido` · `429` → `demasiados_intentos` · sin respuesta → `red`.
+Los tiempos (`reenviarEnSegundos`, `expiraEnSegundos`) siempre los dicta el backend; el front no los fija.
 
-### 2. Verificación de seguridad: `POST /auth/verificar-codigo` (A2A)
-- Valida el código OTP y emite la sesión.
-- **Respuesta requerida**: debe devolver el estado de validación del perfil:
-  `estadoValidacion: 'pendiente' | 'validado' | 'requiere_correccion' | 'rechazado'`
-- Criterio de navegación: `validado` dirige a B1 Dashboard; otros estados dirigen a A5A.
+## P02 · `POST /auth/login`
+- Petición: `{ "correo", "contrasena", "recordarEquipo": false }`
+- 200: `{ "requiereCodigo": true, "correoEnmascarado": "a***@despacho.com", "reenviarEnSegundos": 30, "expiraEnSegundos": 600 }`
+- Errores propios: `400/401` credenciales · `403` cuenta no abogado · `429`.
 
-### 3. Consultar sesión activa: `GET /auth/sesion` (A1)
-- Lo llama la pantalla de carga A1 al entrar, sin cuerpo (usa la cookie de sesión).
-- **Respuesta 200 OK** (hay sesión):
-  ```json
-  { "estadoValidacion": "validado" }
-  ```
-  Valores: `pendiente | validado | requiere_correccion | rechazado`.
-- **Respuesta 401**: no hay sesión → el front redirige a P02.
-- Criterio de navegación: igual que A2A (`validado` → B1; otros estados → A5A).
+## A2A · `POST /auth/verificar-codigo`
+- Petición: `{ "codigo": "123456" }` → 200: `{ "estadoValidacion": "validado" }` y abre la sesión (cookie `httpOnly`).
+- `validado` → B1; `pendiente | requiere_correccion | rechazado` → A5A.
+- Errores: `400` incorrecto · `410` vencido · `429` · `401` el intento de acceso venció (volver a P02).
 
-### 4. Registro básico: `POST /auth/registro` (A3)
-- **Petición**:
-  ```json
-  {
-    "nombre": "Alejandro",
-    "apellidos": "Morales Vega",
-    "correo": "alejandro.morales@despacho.com",
-    "telefono": "5512345678",
-    "contrasena": "********",
-    "aceptaTerminos": true
-  }
-  ```
-  - `telefono` es opcional: se envía `null` si no se captura.
-  - La confirmación de contraseña solo se valida en el front; no se envía.
-  - Reglas de contraseña del front: mínimo 8 caracteres, 1 mayúscula y 1 número (el backend debe validar lo mismo).
-- **Respuesta 201 Created**: el backend envía el código de 6 dígitos al correo y responde:
-  ```json
-  { "correoEnmascarado": "a***@despacho.com" }
-  ```
-  El front navega a A3A con ese valor.
-- **Errores HTTP**:
-  - `409`: correo ya registrado (`{ "codigo": "correo_registrado" }`).
-  - `400 / 422`: datos inválidos (`{ "codigo": "datos_invalidos" }`).
-  - `429`: demasiados intentos (`{ "codigo": "demasiados_intentos" }`).
+## A2A · `POST /auth/reenviar-codigo`
+- Sin cuerpo (identifica el intento por cookie) → 200: `{ "reenviarEnSegundos", "expiraEnSegundos" }`.
+- Invalida el código anterior.
 
-### 5. Manejo de sesión
-- La sesión debería manejarse con cookie `httpOnly` (sin almacenar tokens en `localStorage`/`sessionStorage`).
+## A1 · `GET /auth/sesion`
+- 200: `{ "estadoValidacion" }` (misma regla de navegación que A2A) · 401: sin sesión → P02.
 
-### 6. Pendiente por definir con backend
-- Momento exacto de creación de la cuenta en base de datos durante el registro (A3 → A3A). El front funciona igual en ambos casos.
-- Formato del teléfono: el front acepta 10 a 13 dígitos (con o sin lada `+52`).
+## A2B · `POST /auth/recuperacion/solicitar`
+- Petición: `{ "correo" }` → 202: `{ "correoEnmascarado", "reenviarEnSegundos", "expiraEnSegundos" }`.
+- MISMA respuesta exista o no la cuenta (no revelar si el correo está registrado).
 
-## Rutas en el front
-Todas las rutas de endpoints están centralizadas en `src/api/endpoints.ts`.
+## A2C · `POST /auth/recuperacion/verificar-codigo`
+- Petición: `{ "correo", "codigo" }` → 200: `{ "tokenRestablecimiento" }` (un solo uso, de vida corta).
+- Errores: `400` incorrecto · `410` vencido · `429`.
+
+## A2C · `POST /auth/recuperacion/reenviar-codigo`
+- Petición: `{ "correo" }` → 200: `{ "reenviarEnSegundos", "expiraEnSegundos" }`. Invalida el anterior.
+
+## A2D · `POST /auth/recuperacion/nueva-contrasena`
+- Petición: `{ "tokenRestablecimiento", "contrasena" }` → 204.
+- Errores: `401/410` token inválido o vencido (el front ofrece reiniciar en A2B) · `400/422` contraseña rechazada.
+
+## A3 · `POST /auth/registro`
+- Petición: `{ "nombre", "apellidos", "correo", "telefono": null | "5512345678", "contrasena", "aceptaTerminos": true }`
+- 201: `{ "correoEnmascarado", "reenviarEnSegundos", "expiraEnSegundos" }` y envía el código de A3A
+  (A3A–A5: ver `contrato-api-registro.md`).
+- Errores: `409` correo ya registrado · `400/422` datos inválidos · `429`.
+
+## Reglas de contraseña (A3 y A2D)
+Mínimo 10 caracteres, una mayúscula, una minúscula, un número y un carácter especial
+(`schemas/contrasena.schema.ts`). El backend debe validar lo mismo y, además, rechazar
+datos personales obvios o el dominio del correo (el front solo lo informa).
+
+## Sesión y estado entre pantallas
+- La sesión se maneja con cookie `httpOnly`; el front no guarda tokens en storage.
+- El token de A2C y los datos entre pantallas viajan solo en memoria (`navigate(..., { state })`).
+
+## Pendientes
+- `src/api/cliente.ts` aún lee un token de `sessionStorage`: retirar cuando la cookie esté lista.
+- Momento de creación de la cuenta en BD durante el registro (A3 → A3A).
+- Formato del teléfono: el front acepta 10 a 13 dígitos (con o sin `+52`).
+- Si `/auth/reenviar-codigo` identifica el intento por cookie o necesita un identificador en el cuerpo.
+- Límite de reenvíos: si existe, el backend debe responder `429` y, opcionalmente, informar los restantes.

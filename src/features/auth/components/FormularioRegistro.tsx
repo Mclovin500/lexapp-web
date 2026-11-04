@@ -6,6 +6,7 @@ import { Icon } from '@/components/ui/Icon'
 import { registroContent } from '../content/registro.content'
 import { useRegistrarAbogado } from '../hooks/useRegistrarAbogado'
 import { registroSchema, type RegistroFormValues } from '../schemas/registro.schema'
+import type { EstadoVerificacionCorreo } from '../types/estado-navegacion.types'
 import type { DatosRegistro } from '../types/registro.types'
 import { CampoContrasena } from './CampoContrasena'
 import { CampoTexto, MensajeCampo } from './CampoTexto'
@@ -52,7 +53,11 @@ export function FormularioRegistro() {
     registrar(aDatosRegistro(valores), {
       onSuccess: (respuesta) => {
         navigate(ROUTES.verifyEmail, {
-          state: { correoEnmascarado: respuesta.correoEnmascarado },
+          state: {
+            correoEnmascarado: respuesta.correoEnmascarado,
+            reenviarEnSegundos: respuesta.reenviarEnSegundos,
+            expiraEnSegundos: respuesta.expiraEnSegundos,
+          } satisfies EstadoVerificacionCorreo,
         })
       },
     })

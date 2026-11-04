@@ -9,8 +9,8 @@ export const accesoContent = {
   footer: {
     // PLACEHOLDER: validar antes de publicar
     encryption: 'Cifrado de grado bancario SSL 256-bit',
-    // PLACEHOLDER: validar antes de publicar (RGPD es normativa europea; en México aplica la LFPDPPP)
-    compliance: 'Cumplimiento RGPD & Secreto Profesional',
+    // PLACEHOLDER: validar antes de publicar
+    compliance: 'Cumplimiento LFPDPPP & Secreto Profesional',
     get copyright() {
       return `© ${new Date().getFullYear()} LexApp Technologies Inc. Todos los derechos reservados.`
     },

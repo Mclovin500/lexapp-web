@@ -2,10 +2,11 @@
 import { isAxiosError } from 'axios'
 import { api } from '@/api/cliente'
 import { ENDPOINTS } from '@/api/endpoints'
+import { USAR_MOCKS } from '@/api/mocks'
 import { type DatosRegistro, type RespuestaRegistro, ErrorRegistro } from '../types/registro.types'
 
 export async function registrarAbogado(datos: DatosRegistro): Promise<RespuestaRegistro> {
-  if (import.meta.env.DEV && import.meta.env.VITE_USAR_MOCKS === 'true') {
+  if (import.meta.env.DEV && USAR_MOCKS) {
     const { registrarAbogadoMock } = await import('./registro.mock')
     return registrarAbogadoMock(datos)
   }

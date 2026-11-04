@@ -7,6 +7,14 @@ import { SeleccionPerfilPage } from '@/features/auth/pages/SeleccionPerfilPage'
 import { AppMovilPage } from '@/features/app-movil/pages/AppMovilPage'
 import { BienvenidaPage } from '@/features/auth/pages/BienvenidaPage'
 import { RegistroPage } from '@/features/auth/pages/RegistroPage'
+import { VerificarCodigoPage } from '@/features/auth/pages/VerificarCodigoPage'
+import { RecuperarContrasenaPage } from '@/features/auth/pages/RecuperarContrasenaPage'
+import { CodigoRecuperacionPage } from '@/features/auth/pages/CodigoRecuperacionPage'
+import { NuevaContrasenaPage } from '@/features/auth/pages/NuevaContrasenaPage'
+import { VerificarCorreoPage } from '@/features/auth/pages/VerificarCorreoPage'
+import { CredencialesPage } from '@/features/auth/pages/CredencialesPage'
+import { PerfilProfesionalPage } from '@/features/auth/pages/PerfilProfesionalPage'
+import { ValidacionProfesionalPage } from '@/features/auth/pages/ValidacionProfesionalPage'
 import { PlaceholderPage } from '@/components/ui/PlaceholderPage'
 
 export const router = createBrowserRouter([
@@ -37,19 +45,19 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.verifyCode,
-    element: <PlaceholderPage id="A2A" title="Verificación de código" />,
+    element: <VerificarCodigoPage />,
   },
   {
     path: ROUTES.recoverPassword,
-    element: <PlaceholderPage id="A2B" title="Recuperar contraseña" />,
+    element: <RecuperarContrasenaPage />,
   },
   {
     path: ROUTES.recoveryCode,
-    element: <PlaceholderPage id="A2C" title="Código de recuperación" />,
+    element: <CodigoRecuperacionPage />,
   },
   {
     path: ROUTES.newPassword,
-    element: <PlaceholderPage id="A2D" title="Nueva contraseña" />,
+    element: <NuevaContrasenaPage />,
   },
   {
     path: ROUTES.register,
@@ -57,19 +65,19 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.verifyEmail,
-    element: <PlaceholderPage id="A3A" title="Verificación de correo" />,
+    element: <VerificarCorreoPage />,
   },
   {
     path: ROUTES.registerCredentials,
-    element: <PlaceholderPage id="A4" title="Registro: credenciales profesionales" />,
+    element: <CredencialesPage />,
   },
   {
     path: ROUTES.registerProfile,
-    element: <PlaceholderPage id="A5" title="Registro: área de práctica y perfil" />,
+    element: <PerfilProfesionalPage />,
   },
   {
     path: ROUTES.validationStatus,
-    element: <PlaceholderPage id="A5A" title="Estado de validación profesional" />,
+    element: <ValidacionProfesionalPage />,
   },
   {
     // TODO: proteger la ruta cuando exista autenticación real

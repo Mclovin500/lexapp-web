@@ -7,6 +7,7 @@ import { loginSchema, type LoginFormValues } from '../schemas/login.schema'
 import { useIniciarSesion } from '../hooks/useIniciarSesion'
 import { CampoContrasena } from './CampoContrasena'
 import { loginContent } from '../content/login.content'
+import type { EstadoVerificacionLogin } from '../types/estado-navegacion.types'
 
 export function FormularioLogin() {
   const navigate = useNavigate()
@@ -29,7 +30,11 @@ export function FormularioLogin() {
     ejecutarLogin(valores, {
       onSuccess: (respuesta) => {
         navigate(ROUTES.verifyCode, {
-          state: { correoEnmascarado: respuesta.correoEnmascarado },
+          state: {
+            correoEnmascarado: respuesta.correoEnmascarado,
+            reenviarEnSegundos: respuesta.reenviarEnSegundos,
+            expiraEnSegundos: respuesta.expiraEnSegundos,
+          } satisfies EstadoVerificacionLogin,
         })
       },
     })
