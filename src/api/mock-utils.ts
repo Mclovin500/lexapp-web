@@ -9,6 +9,16 @@ export const LATENCIA_MOCK = 700
  */
 export const SIMULAR_ERROR_RED = false
 
+/** Fecha ISO de hace `minutos` (para datos ficticios con tiempos relativos realistas). */
+export function haceMinutos(minutos: number): string {
+  return new Date(Date.now() - minutos * 60_000).toISOString()
+}
+
+/** Fecha ISO dentro de `minutos` (reuniones y vencimientos ficticios). */
+export function enMinutos(minutos: number): string {
+  return new Date(Date.now() + minutos * 60_000).toISOString()
+}
+
 /** Espera la latencia simulada. */
 export function esperar(ms: number = LATENCIA_MOCK): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))

@@ -14,4 +14,20 @@ export const ROUTES = {
   registerProfile: '/registro/perfil',     // A5
   validationStatus: '/validacion-profesional',   // A5A
   dashboard: '/dashboard',                 // B1
+  notifications: '/notificaciones',        // B1A
+  requests: '/solicitudes',                // C1
+  requestDetail: '/solicitudes/:solicitudId', // C2
+  newProposal: '/propuestas/nueva',        // D1
+  proposals: '/propuestas',                // D2
+  fees: '/honorarios',                     // D3
+  paymentDetail: '/honorarios/movimientos/:movimientoId', // D5
+  cases: '/expedientes',                   // E1
+  caseDetail: '/expedientes/:expedienteId', // E2
+  caseDocuments: '/expedientes/:expedienteId/documentos', // E3
+  clients: '/clientes',                    // F1
+  agenda: '/agenda',                       // G1
+  videoRoom: '/agenda/sala/:reunionId',    // G1A
+  chat: '/chat',                           // H1
+  profile: '/perfil',                      // I1
+  settings: '/configuracion',              // J1
 } as const

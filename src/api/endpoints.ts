@@ -24,5 +24,20 @@ export const ENDPOINTS = {
   },
   abogado: {
     validacion: '/abogado/validacion', // A5A
+    cuenta: '/abogado/cuenta', // Header y Sidebar (nombre y contadores)
+  },
+  dashboard: {
+    resumen: '/dashboard/resumen', // B1
+  },
+  notificaciones: {
+    listado: '/notificaciones', // B1A
+    detalle: (id: string) => `/notificaciones/${encodeURIComponent(id)}`, // B1A (marcar como leída)
+    marcarTodasLeidas: '/notificaciones/marcar-todas-leidas', // B1A
+  },
+  solicitudes: {
+    listado: '/solicitudes', // C1
+    detalle: (id: string) => `/solicitudes/${encodeURIComponent(id)}`, // C2
+    revisar: (id: string) => `/solicitudes/${encodeURIComponent(id)}/revisar`, // C2 "Revisar información"
+    rechazar: (id: string) => `/solicitudes/${encodeURIComponent(id)}/rechazar`, // C2
   },
 } as const

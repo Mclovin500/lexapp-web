@@ -21,8 +21,12 @@ Latencia simulada: ~700 ms (`src/api/mock-utils.ts`).
 | A4, A5 | Datos guardados | Se precargan al volver con "Anterior" (en memoria; se pierden al recargar) |
 | A5 | "Crear mi cuenta" | Responde `pendiente` y continúa a A5A |
 | A5A | `/validacion-profesional?estado=pendiente` | `?estado=` (`pendiente`, `validado`, `requiere_correccion`, `rechazado`) sobrescribe la constante |
+| B1 | `/dashboard` | 3 solicitudes nuevas, 3 reuniones virtuales, 3 cobros (pagado, pendiente, vencido) y actividad |
+| B1A | 10 notificaciones (5 sin leer, una de cada tipo) | Marcar como leída actualiza la campana; persiste hasta recargar |
+| C1 | 12 solicitudes ficticias | Filtros por estado y área, búsqueda ("Gómez", "laboral") y paginación de 8 |
+| C2 | `sol-0842` (con 3 documentos) | "Revisar información" → En revisión; "Rechazar" pide motivo; `/solicitudes/no-existe` → 404 |
 
 ## Constantes que puedes cambiar
-- `SIMULAR_ERROR_RED` (`src/api/mock-utils.ts`): `true` simula que el servidor no responde (A2A–A5A).
+- `SIMULAR_ERROR_RED` (`src/api/mock-utils.ts`): `true` simula que el servidor no responde (A2A en adelante).
 - `ESTADO_VALIDACION_MOCK` (`services/sesion.mock.ts`): destino tras A2A y estado de A5A sin `?estado=`.
 - `SESION_ACTIVA_MOCK` (`services/sesion.mock.ts`): si A1 abierta directo en `/bienvenida` encuentra sesión.

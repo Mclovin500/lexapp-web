@@ -36,6 +36,13 @@
   (validadores del `state` entre pantallas), `destino-por-validacion.ts`.
 - `features/auth/schemas/contrasena.schema.ts`: reglas únicas de contraseña (A3 y A2D).
 - Cada endpoint: función en `services/`, mock en `services/*.mock.ts` (import dinámico) y hook en `hooks/`.
+- Panel interno: `components/layouts/AppLayout.tsx` (Sidebar + Header únicos) y `components/layouts/app/`
+  (`Sidebar`, `EncabezadoApp`, `navegacion.ts` con las 10 opciones de la sección 7).
+- `api/errores.ts`: `ErrorApi` y `aErrorApi()` para los módulos internos (B1 en adelante).
+- `components/ui/`: `Avatar`, `EstadoCarga`, `EstadoError`, `EstadoVacio`, `Paginacion`; `PlaceholderPage interna`.
+- `lib/`: `fechas.ts` (formatos es-MX y relativos), `moneda.ts` (MXN), `archivos.ts`, `iniciales.ts`.
+- `features/dashboard/`: B1, B1A y la cuenta del Header. `features/solicitudes/`: C1 y C2.
+- Filtros de listados en la URL (`useSearchParams`) para conservarlos al volver con "Atrás".
 
 ## Regla Arquitectónica
 La lógica de cada pantalla vive en su módulo dentro de `features/`; lo compartido va en `components/` o `lib/`.

@@ -16,6 +16,28 @@ import { CredencialesPage } from '@/features/auth/pages/CredencialesPage'
 import { PerfilProfesionalPage } from '@/features/auth/pages/PerfilProfesionalPage'
 import { ValidacionProfesionalPage } from '@/features/auth/pages/ValidacionProfesionalPage'
 import { PlaceholderPage } from '@/components/ui/PlaceholderPage'
+import { AppLayout } from '@/components/layouts/AppLayout'
+import { DashboardPage } from '@/features/dashboard/pages/DashboardPage'
+import { NotificacionesPage } from '@/features/dashboard/pages/NotificacionesPage'
+import { SolicitudesPage } from '@/features/solicitudes/pages/SolicitudesPage'
+import { DetalleSolicitudPage } from '@/features/solicitudes/pages/DetalleSolicitudPage'
+
+/** Pantallas internas aún no construidas: se muestran dentro del Sidebar y Header. */
+const pendientes: { path: string; id: string; title: string }[] = [
+  { path: ROUTES.newProposal, id: 'D1', title: 'Crear propuesta de servicio' },
+  { path: ROUTES.proposals, id: 'D2', title: 'Seguimiento de propuestas' },
+  { path: ROUTES.fees, id: 'D3', title: 'Honorarios y cobros' },
+  { path: ROUTES.paymentDetail, id: 'D5', title: 'Detalle de pago y movimientos' },
+  { path: ROUTES.cases, id: 'E1', title: 'Mis expedientes' },
+  { path: ROUTES.caseDetail, id: 'E2', title: 'Detalle del expediente' },
+  { path: ROUTES.caseDocuments, id: 'E3', title: 'Documentos del expediente' },
+  { path: ROUTES.clients, id: 'F1', title: 'Directorio de clientes' },
+  { path: ROUTES.agenda, id: 'G1', title: 'Agenda de citas virtuales' },
+  { path: ROUTES.videoRoom, id: 'G1A', title: 'Sala de videollamada' },
+  { path: ROUTES.chat, id: 'H1', title: 'Chat con clientes' },
+  { path: ROUTES.profile, id: 'I1', title: 'Perfil profesional' },
+  { path: ROUTES.settings, id: 'J1', title: 'Configuración' },
+]
 
 export const router = createBrowserRouter([
   {
@@ -80,8 +102,18 @@ export const router = createBrowserRouter([
     element: <ValidacionProfesionalPage />,
   },
   {
-    // TODO: proteger la ruta cuando exista autenticación real
-    path: ROUTES.dashboard,
-    element: <PlaceholderPage id="B1" title="Dashboard del abogado" />,
+    // Panel del abogado: Sidebar + Header únicos (sección 7 de la especificación).
+    // TODO: proteger estas rutas cuando exista autenticación real.
+    element: <AppLayout />,
+    children: [
+      { path: ROUTES.dashboard, element: <DashboardPage /> },
+      { path: ROUTES.notifications, element: <NotificacionesPage /> },
+      { path: ROUTES.requests, element: <SolicitudesPage /> },
+      { path: ROUTES.requestDetail, element: <DetalleSolicitudPage /> },
+      ...pendientes.map(({ path, id, title }) => ({
+        path,
+        element: <PlaceholderPage id={id} title={title} interna />,
+      })),
+    ],
   },
 ])

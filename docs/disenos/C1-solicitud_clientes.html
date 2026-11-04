@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#bec6e0", "on-tertiary": "#ffffff", "error": "#ba1a1a", "secondary-container": "#dae2fd", "on-secondary": "#ffffff", "surface-container-highest": "#d3e4fe", "tertiary": "#006398", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#93ccff", "on-primary-fixed-variant": "#005234", "surface": "#f8f9ff", "on-surface-variant": "#3c4a41", "tertiary-container": "#48a8ed", "on-error": "#ffffff", "on-tertiary-container": "#003b5c", "inverse-surface": "#213145", "primary": "#006c47", "on-tertiary-fixed-variant": "#004b73", "on-primary-fixed": "#002112", "inverse-primary": "#4cdf9e", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#3f465c", "outline-variant": "#bbcabf", "surface-container-lowest": "#ffffff", "on-secondary-container": "#5c647a", "surface-dim": "#cbdbf5", "secondary": "#565e74", "background": "#f8f9ff", "primary-container": "#00b87b", "primary-fixed": "#6dfcb8", "on-primary-container": "#004129", "surface-container": "#e5eeff", "tertiary-fixed": "#cce5ff", "surface-variant": "#d3e4fe", "outline": "#6c7a71", "surface-container-high": "#dce9ff", "error-container": "#ffdad6", "secondary-fixed": "#dae2fd", "on-surface": "#0b1c30", "primary-fixed-dim": "#4cdf9e", "on-background": "#0b1c30", "on-tertiary-fixed": "#001d31", "on-error-container": "#93000a", "surface-tint": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "margin-compact": "1.25rem", "space-2xl": "3rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-compact": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "headline-sm": ["Inter"], "label-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none">LexApp</span><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase mt-space-xs">Legal Suite</span></div></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider px-space-xs">Gestión Jurídica</span></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="dashboard" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md">Dashboard</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="casos-y-expedientes" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">folder_managed</span><span class="font-body-md text-body-md">Casos y expedientes</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="clientes" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">people</span><span class="font-body-md text-body-md">Clientes</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="propuestas-y-facturacion" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-body-md text-body-md">Propuestas y facturación</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="calendario" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">event</span><span class="font-body-md text-body-md">Calendario</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="mensajes" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">forum</span><span class="font-body-md text-body-md">Mensajes</span></div><span class="h-5 min-w-[20px] px-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center font-bold">4</span></a><div class="my-space-xs pt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</span></div><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="configuracion" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md">Configuración</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="perfil-profesional" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-body-md text-body-md">Perfil profesional</span></div></a></nav></div><div class="p-space-md bg-surface-container-low m-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs text-primary"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Conexión Segura TLS 1.3</span></div><div class="flex items-center justify-between text-secondary font-label-sm text-label-sm"><span>LexApp Suite</span><span class="font-mono">v2.4 LTS</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center w-96"><div class="w-full flex items-center justify-between bg-surface-container-lowest px-space-md py-2 rounded-lg shadow-[0_1px_3px_rgba(15,23,42,0.04)] focus-within:ring-2 focus-within:ring-primary-container"><div class="flex items-center gap-space-sm text-secondary flex-1"><span class="material-symbols-outlined text-[20px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar casos, clientes o expedientes..." type="text"/></div><div class="flex items-center gap-0.5 bg-surface-container px-1.5 py-0.5 rounded text-secondary font-label-sm text-label-sm font-mono"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">mail</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span></button><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none">Lic. Alejandro Morales</span><div class="flex items-center gap-1 mt-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-primary font-semibold">Colegiado Activo</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-xl">
+<!-- SCRIPT INTERACTIVO Y MARCADOR DE MENÚ LATERAL ACTIVO -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Sincronizar navegación activa de la barra lateral persistente
+      const navLinks = document.querySelectorAll("aside nav a");
+      navLinks.forEach(link => {
+        if (link.getAttribute("data-path") === "clientes" || link.getAttribute("data-path") === "casos-y-expedientes") {
+          link.classList.remove("text-on-surface-variant", "hover:bg-surface-container-low");
+          link.classList.add("bg-primary-container", "text-on-primary-container", "font-semibold", "rounded-lg");
+        }
+      });
+    });
+
+    function toggleRowMenu(id) {
+      const menu = document.getElementById(`menu-row-${id}`);
+      const isHidden = menu.classList.contains("hidden");
+      document.querySelectorAll(".dropdown-action-menu").forEach(m => m.classList.add("hidden"));
+      if (isHidden) {
+        menu.classList.remove("hidden");
+      }
+    }
+
+    function switchTab(tabElement, count) {
+      document.querySelectorAll(".status-tab-btn").forEach(btn => {
+        btn.classList.remove("bg-surface-container-lowest", "text-on-surface", "shadow-sm", "font-semibold");
+        btn.classList.add("text-secondary", "hover:text-on-surface");
+      });
+      tabElement.classList.add("bg-surface-container-lowest", "text-on-surface", "shadow-sm", "font-semibold");
+      tabElement.classList.remove("text-secondary");
+    }
+  </script>
+<!-- 1. ENCABEZADO DEL WORKSPACE Y MÉTRICAS RESUMEN -->
+<section class="flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<span>Área Procesal</span>
+<span>/</span>
+<span class="text-primary font-semibold">Recepción &amp; Onboarding</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Solicitudes de clientes
+        </h1>
+<p class="font-body-md text-body-md text-secondary">
+          Bandeja de entrada y evaluación preliminar de solicitudes jurídicas recibidas para presupuestación o asignación de expediente.
+        </p>
+</div>
+<!-- Botones de Acción Rápida -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="h-10 px-space-md bg-surface-container-lowest text-on-surface font-label-lg text-label-lg rounded-lg shadow-sm hover:bg-surface-container transition-all flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">file_download</span>
+<span>Exportar listado</span>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-1.5 py-0.5 rounded ml-1">CSV</span>
+</button>
+<button class="h-10 px-space-md bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-sm hover:opacity-95 transition-all flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>+ Nueva solicitud externa</span>
+</button>
+</div>
+</div>
+<!-- Indicadores de Desempeño y Carga en Mini Tarjetas / Píldoras -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Métrica: Total de Solicitudes -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">inbox</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Total Recibidas</span>
+<span class="font-headline-md text-headline-md text-on-surface">24</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +18%
+          </span>
+<span class="font-body-sm text-body-sm text-secondary">este mes</span>
+</div>
+</div>
+<!-- Métrica: Nuevas (Sin atender) -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">mark_email_unread</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Nuevas sin atender</span>
+<span class="font-headline-md text-headline-md text-on-surface">5</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Urgente</span>
+</div>
+</div>
+<!-- Métrica: En revisión -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">fact_check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">En análisis de viabilidad</span>
+<span class="font-headline-md text-headline-md text-on-surface">11</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-secondary">T. Resp. Prom.</span>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">2.4 hrs</div>
+</div>
+</div>
+<!-- Métrica: Atendidas / Convertidas -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Convertidas / Expediente</span>
+<span class="font-headline-md text-headline-md text-on-surface">8</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary font-label-sm text-label-sm font-bold">
+          88%
+        </div>
+</div>
+</div>
+</section>
+<!-- 2. BARRA DE CONTROL, BÚSQUEDA Y FILTROS -->
+<section class="flex flex-col gap-space-md">
+<!-- Buscador Prominente -->
+<div class="bg-surface-container-lowest p-2 rounded-xl shadow-sm flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm flex-1 px-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">search</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar por nombre de cliente, empresa, área jurídica o palabras clave del asunto..." type="text"/>
+</div>
+<div class="flex items-center gap-space-xs pr-space-xs">
+<span class="hidden sm:inline-flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-secondary font-label-sm text-label-sm font-mono">
+<span>Shift</span> + <span>F</span>
+</span>
+<button class="h-9 px-space-md bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md rounded-lg flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">clear_all</span>
+<span>Limpiar</span>
+</button>
+</div>
+</div>
+<!-- Pestañas de Estado & Filtros Secundarios -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Segmented Control de Estados -->
+<div class="bg-surface-container-low p-1 rounded-xl flex items-center gap-1 self-start shadow-inner">
+<button class="status-tab-btn h-9 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-semibold shadow-sm font-label-md text-label-md transition-all flex items-center gap-space-xs" onclick="switchTab(this, 24)" type="button">
+<span>Todas</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-secondary text-[11px] font-bold">24</span>
+</button>
+<button class="status-tab-btn h-9 px-space-md rounded-lg text-secondary hover:text-on-surface font-label-md text-label-md transition-all flex items-center gap-space-xs" onclick="switchTab(this, 5)" type="button">
+<span>Nuevas</span>
+<span class="px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-bold text-[11px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest animate-ping"></span>5
+          </span>
+</button>
+<button class="status-tab-btn h-9 px-space-md rounded-lg text-secondary hover:text-on-surface font-label-md text-label-md transition-all flex items-center gap-space-xs" onclick="switchTab(this, 11)" type="button">
+<span>En revisión</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-secondary text-[11px] font-semibold">11</span>
+</button>
+<button class="status-tab-btn h-9 px-space-md rounded-lg text-secondary hover:text-on-surface font-label-md text-label-md transition-all flex items-center gap-space-xs" onclick="switchTab(this, 8)" type="button">
+<span>Atendidas</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-secondary text-[11px] font-semibold">8</span>
+</button>
+</div>
+<!-- Filtros Secundarios y Selectores -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<!-- Selector Área Jurídica -->
+<div class="relative">
+<select class="h-9 pl-space-md pr-8 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg shadow-sm appearance-none outline-none hover:bg-surface-container cursor-pointer transition-colors">
+<option value="">Área Jurídica: Todas</option>
+<option value="corporativo">Corporativo y M&amp;A</option>
+<option value="laboral">Laboral &amp; Seguridad Social</option>
+<option value="civil">Civil y Mercantil</option>
+<option value="pi">Propiedad Intelectual</option>
+<option value="inmobiliario">Derecho Inmobiliario</option>
+<option value="fiscal">Fiscal y Cumplimiento</option>
+</select>
+<span class="material-symbols-outlined text-[16px] text-secondary pointer-events-none absolute right-2.5 top-2.5">expand_more</span>
+</div>
+<!-- Selector Rango de Fechas -->
+<div class="relative">
+<button class="h-9 px-space-md bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg shadow-sm hover:bg-surface-container flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">date_range</span>
+<span>Últimos 30 días</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">expand_more</span>
+</button>
+</div>
+<!-- Botón Filtros Avanzados -->
+<button class="h-9 px-space-md bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg shadow-sm hover:bg-surface-container flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">tune</span>
+<span>Filtros avanzados</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 3 & 4. TABLA PRINCIPAL DE SOLICITUDES DE CLIENTES -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Encabezado de la Tabla -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3.5 px-space-lg font-semibold w-10">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</th>
+<th class="py-3.5 px-space-lg font-semibold">Nombre del Cliente &amp; Organización</th>
+<th class="py-3.5 px-space-lg font-semibold">Área Jurídica &amp; Objeto</th>
+<th class="py-3.5 px-space-lg font-semibold">Fecha de Recepción</th>
+<th class="py-3.5 px-space-lg font-semibold">Estado</th>
+<th class="py-3.5 px-space-lg font-semibold text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-md text-body-md text-on-surface">
+<!-- Registro 1: Valeria Gómez Rivas -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center shrink-0">
+                  VG
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Valeria Gómez Rivas</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-secondary">P. Moral</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Fintech Nova S.A.P.I. de C.V.</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Derecho Corporativo y M&amp;A</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-xs">Revisión contractual mercantil y rondas de inversión Serie A</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Hoy, 09:15 hrs</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">Hace 28 min</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-primary-container/15 text-on-primary-container">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                Nueva
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right whitespace-nowrap relative">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver solicitud</span>
+</button>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface" onclick="toggleRowMenu(1)" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="dropdown-action-menu hidden absolute right-0 top-9 w-48 bg-surface-container-lowest shadow-xl rounded-xl p-1 z-30 flex flex-col text-left" id="menu-row-1">
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">person_add</span> Asignar abogado
+                    </button>
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span> Crear proforma
+                    </button>
+<div class="h-px bg-surface-container my-1"></div>
+<button class="px-3 py-2 text-label-md text-error hover:bg-error-container/30 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">archive</span> Archivar / Rechazar
+                    </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Registro 2: Ing. Carlos Mendoza Prieto -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-fixed font-label-lg text-label-lg font-bold flex items-center justify-center shrink-0">
+                  CM
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Ing. Carlos Mendoza Prieto</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-secondary">P. Moral</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Grupo Inmobiliario Nexus</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Contratación Mercantil &amp; Sociedades</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-xs">Constitución de sociedad anónima y pacto de socios fundadores</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Hoy, 08:30 hrs</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">Hace 1 h 12 min</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-primary-container/15 text-on-primary-container">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                Nueva
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right whitespace-nowrap relative">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver solicitud</span>
+</button>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface" onclick="toggleRowMenu(2)" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="dropdown-action-menu hidden absolute right-0 top-9 w-48 bg-surface-container-lowest shadow-xl rounded-xl p-1 z-30 flex flex-col text-left" id="menu-row-2">
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">person_add</span> Asignar abogado
+                    </button>
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span> Crear proforma
+                    </button>
+<div class="h-px bg-surface-container my-1"></div>
+<button class="px-3 py-2 text-label-md text-error hover:bg-error-container/30 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">archive</span> Archivar / Rechazar
+                    </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Registro 3: Lic. Fernando Garay -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface font-label-lg text-label-lg font-bold flex items-center justify-center shrink-0">
+                  FG
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Lic. Fernando Garay</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-secondary">P. Moral</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Soluciones Logísticas S.A.</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Litigio Laboral &amp; Prevención</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-xs">Auditoría laboral preventiva y contratos NOM-035</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Ayer, 18:10 hrs</span>
+<span class="font-body-sm text-body-sm text-secondary">Hace 18 horas</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                En revisión
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right whitespace-nowrap relative">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver solicitud</span>
+</button>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface" onclick="toggleRowMenu(3)" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="dropdown-action-menu hidden absolute right-0 top-9 w-48 bg-surface-container-lowest shadow-xl rounded-xl p-1 z-30 flex flex-col text-left" id="menu-row-3">
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">person_add</span> Asignar abogado
+                    </button>
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span> Crear proforma
+                    </button>
+<div class="h-px bg-surface-container my-1"></div>
+<button class="px-3 py-2 text-label-md text-error hover:bg-error-container/30 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">archive</span> Archivar / Rechazar
+                    </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Registro 4: Dra. Elena Santillán -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-lg text-label-lg font-bold flex items-center justify-center shrink-0">
+                  ES
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Dra. Elena Santillán</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-secondary">P. Física</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Particular / Alta Dirección</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Litigio &amp; Mediación Laboral</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-xs">Consultoría rescisión directiva y mediación laboral confidencial</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Ayer, 15:40 hrs</span>
+<span class="font-body-sm text-body-sm text-secondary">Hace 21 horas</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                En revisión
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right whitespace-nowrap relative">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver solicitud</span>
+</button>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface" onclick="toggleRowMenu(4)" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="dropdown-action-menu hidden absolute right-0 top-9 w-48 bg-surface-container-lowest shadow-xl rounded-xl p-1 z-30 flex flex-col text-left" id="menu-row-4">
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">person_add</span> Asignar abogado
+                    </button>
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span> Crear proforma
+                    </button>
+<div class="h-px bg-surface-container my-1"></div>
+<button class="px-3 py-2 text-label-md text-error hover:bg-error-container/30 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">archive</span> Archivar / Rechazar
+                    </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Registro 5: Mariana Bosque Ortiz -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface font-label-lg text-label-lg font-bold flex items-center justify-center shrink-0">
+                  MB
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Mariana Bosque Ortiz</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-secondary">P. Moral</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">BioPharma Lab S.A.</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Propiedad Intelectual</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-xs">Registro de patentes y marcas COFEPRIS / IMPI</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">22 Oct 2025</span>
+<span class="font-body-sm text-body-sm text-secondary">11:15 hrs</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                En revisión
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right whitespace-nowrap relative">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver solicitud</span>
+</button>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface" onclick="toggleRowMenu(5)" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="dropdown-action-menu hidden absolute right-0 top-9 w-48 bg-surface-container-lowest shadow-xl rounded-xl p-1 z-30 flex flex-col text-left" id="menu-row-5">
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">person_add</span> Asignar abogado
+                    </button>
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span> Crear proforma
+                    </button>
+<div class="h-px bg-surface-container my-1"></div>
+<button class="px-3 py-2 text-label-md text-error hover:bg-error-container/30 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">archive</span> Archivar / Rechazar
+                    </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Registro 6: Roberto Garza Sada -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-low text-secondary font-label-lg text-label-lg font-bold flex items-center justify-center shrink-0">
+                  RG
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Roberto Garza Sada</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-secondary">P. Moral</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Inversiones del Norte</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Derecho Inmobiliario</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-xs">Adquisición de inmueble comercial y constitución de fideicomiso</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">21 Oct 2025</span>
+<span class="font-body-sm text-body-sm text-secondary">16:20 hrs</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                Atendida
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right whitespace-nowrap relative">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span>Ver expediente</span>
+</button>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface" onclick="toggleRowMenu(6)" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="dropdown-action-menu hidden absolute right-0 top-9 w-48 bg-surface-container-lowest shadow-xl rounded-xl p-1 z-30 flex flex-col text-left" id="menu-row-6">
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt</span> Ver factura emitida
+                    </button>
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span> Registro de actividad
+                    </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Registro 7: Mtra. Claudia Treviño -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-low text-secondary font-label-lg text-label-lg font-bold flex items-center justify-center shrink-0">
+                  CT
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Mtra. Claudia Treviño</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-secondary">P. Moral</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">TechHub México S.A.S.</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Privacidad &amp; Regulación Digital</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-xs">Términos y condiciones SaaS y compliance RGPD / LFPDPPP</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">20 Oct 2025</span>
+<span class="font-body-sm text-body-sm text-secondary">10:05 hrs</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                Atendida
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right whitespace-nowrap relative">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span>Ver expediente</span>
+</button>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface" onclick="toggleRowMenu(7)" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="dropdown-action-menu hidden absolute right-0 top-9 w-48 bg-surface-container-lowest shadow-xl rounded-xl p-1 z-30 flex flex-col text-left" id="menu-row-7">
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt</span> Ver factura emitida
+                    </button>
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span> Registro de actividad
+                    </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Registro 8: Andrés Peñaloza R. -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-space-lg">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-low text-secondary font-label-lg text-label-lg font-bold flex items-center justify-center shrink-0">
+                  AP
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Andrés Peñaloza R.</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-secondary">P. Física</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Particular</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-lg">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Civil &amp; Sucesorio</span>
+<span class="font-body-sm text-body-sm text-secondary truncate max-w-xs">Sucesión testamentaria y adjudicación de bienes inmuebles</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">19 Oct 2025</span>
+<span class="font-body-sm text-body-sm text-secondary">13:45 hrs</span>
+</div>
+</td>
+<td class="py-4 px-space-lg whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                Atendida
+              </span>
+</td>
+<td class="py-4 px-space-lg text-right whitespace-nowrap relative">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span>Ver expediente</span>
+</button>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container hover:text-on-surface" onclick="toggleRowMenu(8)" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="dropdown-action-menu hidden absolute right-0 top-9 w-48 bg-surface-container-lowest shadow-xl rounded-xl p-1 z-30 flex flex-col text-left" id="menu-row-8">
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt</span> Ver factura emitida
+                    </button>
+<button class="px-3 py-2 text-label-md text-on-surface hover:bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span> Registro de actividad
+                    </button>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 5. PAGINADOR Y PIE DE TABLA -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<!-- Conteo informativo -->
+<div class="flex items-center gap-space-md text-secondary font-body-sm text-body-sm">
+<span>Mostrando <strong class="text-on-surface font-semibold">1-8</strong> de <strong class="text-on-surface font-semibold">24</strong> solicitudes</span>
+<div class="flex items-center gap-2">
+<span>Mostrar:</span>
+<select class="bg-surface-container-low text-on-surface rounded px-2 py-1 outline-none font-label-sm text-label-sm cursor-pointer">
+<option value="10">10 por página</option>
+<option value="25">25 por página</option>
+<option value="50">50 por página</option>
+</select>
+</div>
+</div>
+<!-- Controles de Navegación -->
+<div class="flex items-center gap-1 font-label-md text-label-md">
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-low text-secondary opacity-50 cursor-not-allowed flex items-center gap-1" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span>Anterior</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container font-bold flex items-center justify-center shadow-sm" type="button">
+          1
+        </button>
+<button class="w-8 h-8 rounded-lg text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" type="button">
+          2
+        </button>
+<button class="w-8 h-8 rounded-lg text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" type="button">
+          3
+        </button>
+<button class="h-8 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1 transition-colors" type="button">
+<span>Siguiente</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- PANEL INFERIOR CONTEXTUAL: RESUMEN DE COMPLIANCE & ASIGNACIÓN RÁPIDA -->
+<section class="bg-surface-container-low p-space-lg rounded-xl flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[16px] text-on-surface">Protocolo de Confidencialidad y Conflicto de Interés</span>
+<span class="font-body-sm text-body-sm text-secondary">
+          Todas las solicitudes entrantes son analizadas automáticamente mediante motor antifraude y detección de incompatibilidad procesal previa.
+        </span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified_user</span> Sin conflictos activos
+      </span>
+<button class="h-9 px-space-md bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md rounded-lg shadow-sm transition-colors" type="button">
+        Ver bitácora de compliance
+      </button>
+</div>
+</section>
+</div></main></div></body></html>
