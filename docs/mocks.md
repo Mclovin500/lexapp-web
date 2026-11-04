@@ -25,4 +25,4 @@ Latencia simulada: ~700 ms (`src/api/mock-utils.ts`).
 ## Constantes que puedes cambiar
 - `SIMULAR_ERROR_RED` (`src/api/mock-utils.ts`): `true` simula que el servidor no responde (A2A–A5A).
 - `ESTADO_VALIDACION_MOCK` (`services/sesion.mock.ts`): destino tras A2A y estado de A5A sin `?estado=`.
-- `SESION_ACTIVA_MOCK` (`services/sesion.mock.ts`): si A1 encuentra sesión abierta.
+- `SESION_ACTIVA_MOCK` (`services/sesion.mock.ts`): si A1 abierta directo en `/bienvenida` encuentra sesión.

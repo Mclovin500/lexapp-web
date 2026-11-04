@@ -7,15 +7,15 @@ P01 Landing
  ├─ Iniciar sesión ─────────────────────► P02 Login (SOLO abogados)
  └─ Comenzar / Comenzar ahora / Conocer la experiencia para clientes / Regístrate como abogado ─► P03
 
-P03:   Abogado ► A3 Registro        Cliente ► P04 App móvil
+P03:   Abogado ► A1 Carga ► A3 Registro        Cliente ► P04 App móvil
 
-Login: P02 ► A2A código ► validado ► B1 Dashboard
-                        └ pendiente / requiere corrección / rechazado ► A5A
+Login: P02 ► A2A código ► A1 Carga ► validado ► B1 Dashboard
+                                   └ pendiente / requiere corrección / rechazado ► A5A
        P02 "¿Olvidaste tu contraseña?" ► A2B ► A2C ► A2D ► P02
        P02 "Regístrate" ► P03
 
 Registro: A3 ► A3A ► A4 ► A5 ► A5A ► (aprobado) B1
-A1 (pantalla de carga): se decide al final; probablemente P01 "Iniciar sesión" ► A1 ► B1 si hay sesión, P02 si no.
+A1 abierta directamente (/bienvenida, sin destino): sesión activa ► B1 o A5A | sin sesión ► P02
 ```
 
 ## Pantallas implementadas
@@ -26,7 +26,7 @@ A1 (pantalla de carga): se decide al final; probablemente P01 "Iniciar sesión" 
 | P02 Login | `/login` | Implementada |
 | P03 Selección de perfil | `/seleccion-perfil` | Implementada |
 | P04 App móvil | `/app-movil` | Implementada |
-| A1 Carga | `/bienvenida` | Implementada (sin enlace de entrada aún) |
+| A1 Carga | `/bienvenida` | Implementada (tras A2A y al elegir "Abogado" en P03) |
 | A2A Verificación de código | `/verificar-codigo` | Implementada |
 | A2B Recuperar contraseña | `/recuperar-contrasena` | Implementada |
 | A2C Código de recuperación | `/codigo-recuperacion` | Implementada |
@@ -50,5 +50,8 @@ Desde A5A: `validado` → B1 ("Ingresar a mi despacho"); `requiere_correccion` �
 2. **P03 bifurcación**: opción "Abogado" dirige a A3; opción "Cliente" dirige a P04.
 3. **P04 app móvil**: no debe existir la opción "Continuar en navegador".
 4. **Destino tras A2A**: depende del estado de validación (`validado` → B1; demás estados → A5A).
-5. **Ubicación de A1**: pantalla de carga cuya ubicación se definirá al final.
+5. **Ubicación de A1**: pantalla de transición en dos puntos: tras verificar el código en A2A
+   (→ B1 o A5A) y al elegir "Abogado" en P03 (→ A3). Recibe su destino por `state`
+   (`EstadoCarga`, lista cerrada de rutas) y navega con `replace`. Los enlaces "Iniciar sesión"
+   de P01 y del resto de pantallas van directo a P02.
 

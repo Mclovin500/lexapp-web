@@ -1,7 +1,7 @@
 import { Icon } from '@/components/ui/Icon'
 import { validacionProfesionalContent } from '../../content/validacion-profesional.content'
 
-/** Lista de funciones que permanecen restringidas mientras el perfil no esté validado. */
+/** A5A en `pendiente`: funciones que permanecen restringidas hasta la aprobación. */
 export function FuncionesRestringidas() {
   const { restricted } = validacionProfesionalContent
 

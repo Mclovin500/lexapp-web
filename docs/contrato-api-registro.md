@@ -30,8 +30,7 @@ Mismo formato de errores y mapeo que `contrato-api-auth.md` (`lib/mapear-error.t
 ## A5 · `PUT /registro/perfil`
 - Petición: `{ "areaPractica", "especializaciones": ["<valor>"], "biografia" (≤ 500),
   "informacionRelevante": { "idiomas": null | "<texto>", "jurisdicciones": null | "<texto>" },
-  "disponibilidad": "inmediata" | "agenda_previa" | "corporativo" }` → 204.
-- El front permite hasta 5 especializaciones.
+  "disponibilidad": "inmediata" | "agenda_previa" | "corporativo" }` → 204. Máximo 5 especializaciones.
 
 ## A5 · `POST /registro/enviar`
 - Sin cuerpo → 200: `{ "estadoValidacion": "pendiente", "folio", "fechaEnvio": "<ISO 8601>" }`.
@@ -43,7 +42,8 @@ Mismo formato de errores y mapeo que `contrato-api-auth.md` (`lib/mapear-error.t
   "especialidad": "<valor de catálogo>", "motivo"?: "<texto>" }`. `401` → el front pide iniciar sesión.
 - `estado`: `pendiente | validado | requiere_correccion | rechazado`; el front muestra SOLO ese valor real.
 - `cedulaEnmascarada` llega ya enmascarada; `motivo` se espera en `requiere_correccion` y `rechazado`.
-- `validado` → B1 · `requiere_correccion` → A4 / A5 · `rechazado`: aclaración y soporte "Próximamente".
+- `validado` → B1 · `requiere_correccion` y `rechazado` → corregir en A4 / A5 y reenviar desde A5 ·
+  `pendiente` → A4 / A5 abiertos para consultar o actualizar, más la lista de funciones restringidas.
 
 ## Catálogos
 Especialidades, áreas de práctica, especializaciones y disponibilidad viven por ahora en
@@ -56,4 +56,5 @@ Especialidades, áreas de práctica, especializaciones y disponibilidad viven po
 - Documentación requerida en A4 ("cuando corresponda" según la especificación): formato y carga.
 - Servicios ofrecidos, honorarios y fotografía de A5 (los pide la especificación; el diseño no los incluye).
 - Formato oficial de la cédula profesional (7 u 8 dígitos es provisional).
-- Qué funciones se restringen mientras el perfil no está validado (A5A) y si existe aclaración/soporte.
+- Si `POST /registro/enviar` acepta reenvíos tras `requiere_correccion`/`rechazado` (hoy 409 = ya enviado)
+  y qué pasa con la revisión si el abogado edita A4/A5 en `pendiente`; qué funciones se restringen.

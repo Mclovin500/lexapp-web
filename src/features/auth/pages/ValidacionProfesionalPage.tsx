@@ -3,6 +3,7 @@ import { Icon } from '@/components/ui/Icon'
 import { AlertaError } from '../components/compartidos/AlertaError'
 import { MensajeError } from '../components/compartidos/MensajeError'
 import { MarcoAcceso } from '../components/MarcoAcceso'
+import { AccionesValidacion } from '../components/validacion/AccionesValidacion'
 import { DatosExpediente } from '../components/validacion/DatosExpediente'
 import { FuncionesRestringidas } from '../components/validacion/FuncionesRestringidas'
 import { TarjetaEstadoValidacion } from '../components/validacion/TarjetaEstadoValidacion'
@@ -11,39 +12,28 @@ import { useValidacionProfesional } from '../hooks/useValidacionProfesional'
 
 /**
  * A5A: estado real de la validación (GET /abogado/validacion).
- * validado → B1 · requiere_correccion → A4 / A5 · pendiente y rechazado: informativo.
+ * Izquierda: estado, mensaje y datos enviados. Derecha: acciones disponibles y,
+ * en `pendiente`, las funciones restringidas hasta la aprobación.
  */
 export function ValidacionProfesionalPage() {
   const contenido = validacionProfesionalContent
   const validacion = useValidacionProfesional()
   const datos = validacion.data
   const actualizando = validacion.isFetching && !validacion.isPending
+  const actualizar = () => void validacion.refetch()
 
   return (
     <MarcoAcceso>
       <div className="w-full max-w-5xl bg-surface-container-lowest rounded-xl shadow-xl shadow-on-surface/5 p-6 sm:p-8">
         {/* Encabezado */}
-        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-8">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-              <Icon name="assignment_ind" size={26} />
-            </div>
-            <div>
-              <h1 className="text-headline-lg text-on-surface tracking-tight">{contenido.title}</h1>
-              <p className="text-body-md text-on-surface-variant mt-1">{contenido.subtitle}</p>
-            </div>
+        <div className="flex items-start gap-4 mb-8">
+          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+            <Icon name="assignment_ind" size={26} />
           </div>
-          {!validacion.isPending && (
-            <button
-              type="button"
-              onClick={() => void validacion.refetch()}
-              disabled={validacion.isFetching}
-              className="inline-flex h-10 px-4 items-center justify-center gap-2 rounded-lg bg-surface-container text-on-surface text-label-lg font-semibold hover:bg-surface-container-high transition-colors cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              <Icon name="refresh" size={18} className={actualizando ? 'animate-spin motion-reduce:animate-none' : ''} />
-              {actualizando ? contenido.refreshing : contenido.refresh}
-            </button>
-          )}
+          <div>
+            <h1 className="text-headline-lg text-on-surface tracking-tight">{contenido.title}</h1>
+            <p className="text-body-md text-on-surface-variant mt-1">{contenido.subtitle}</p>
+          </div>
         </div>
 
         {validacion.isPending && (
@@ -68,7 +58,7 @@ export function ValidacionProfesionalPage() {
                 {' '}
                 <button
                   type="button"
-                  onClick={() => void validacion.refetch()}
+                  onClick={actualizar}
                   className="font-semibold underline hover:opacity-80 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
                 >
                   {contenido.errors.retry}
@@ -79,8 +69,8 @@ export function ValidacionProfesionalPage() {
         )}
 
         {datos && (
-          <div className={`grid grid-cols-1 gap-6 ${datos.estado === 'validado' ? '' : 'lg:grid-cols-12'}`}>
-            <div className={`flex flex-col gap-6 ${datos.estado === 'validado' ? '' : 'lg:col-span-8'}`}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-8 flex flex-col gap-6">
               {validacion.isError && (
                 <AlertaError>
                   <MensajeError tipo={validacion.error.tipo} mensajes={contenido.errors} />
@@ -89,11 +79,14 @@ export function ValidacionProfesionalPage() {
               <TarjetaEstadoValidacion estado={datos.estado} motivo={datos.motivo} />
               <DatosExpediente validacion={datos} />
             </div>
-            {datos.estado !== 'validado' && (
-              <div className="lg:col-span-4">
-                <FuncionesRestringidas />
-              </div>
-            )}
+            <div className="lg:col-span-4 flex flex-col gap-6">
+              <AccionesValidacion
+                estado={datos.estado}
+                onActualizar={actualizar}
+                actualizando={actualizando}
+              />
+              {datos.estado === 'pendiente' && <FuncionesRestringidas />}
+            </div>
           </div>
         )}
       </div>

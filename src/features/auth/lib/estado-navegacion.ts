@@ -1,4 +1,7 @@
+import { ROUTES } from '@/app/routes'
 import type {
+  DestinoCarga,
+  EstadoCarga,
   EstadoCodigoRecuperacion,
   EstadoContrasenaActualizada,
   EstadoNuevaContrasena,
@@ -16,6 +19,16 @@ function esTexto(valor: unknown): valor is string {
 
 function esSegundos(valor: unknown): valor is number {
   return typeof valor === 'number' && Number.isFinite(valor) && valor >= 0
+}
+
+const DESTINOS_CARGA: readonly DestinoCarga[] = [
+  ROUTES.dashboard,
+  ROUTES.validationStatus,
+  ROUTES.register,
+]
+
+export function esEstadoCarga(valor: unknown): valor is EstadoCarga {
+  return esObjeto(valor) && DESTINOS_CARGA.some((destino) => destino === valor.destino)
 }
 
 export function esEstadoVerificacionLogin(valor: unknown): valor is EstadoVerificacionLogin {

@@ -30,7 +30,7 @@
 - `features/auth/components/registro/`: `TarjetaRegistro` (tarjeta común de A3–A5), `ConProgresoRegistro`
   (precarga de A4/A5), `AccionesRegistro`, `SelectorEtiquetas` (`aria-pressed`), `SelectorDisponibilidad`,
   formularios de A4 y A5.
-- `features/auth/components/validacion/`: `TarjetaEstadoValidacion`, `DatosExpediente`, `FuncionesRestringidas` (A5A).
+- `features/auth/components/validacion/`: `TarjetaEstadoValidacion`, `DatosExpediente`, `AccionesValidacion`, `FuncionesRestringidas` (A5A).
 - `features/auth/content/catalogos.content.ts`: catálogos provisionales (TODO: `GET /catalogos/...`).
 - `features/auth/lib/`: `mapear-error.ts` (axios → `ErrorAutenticacion`), `estado-navegacion.ts`
   (validadores del `state` entre pantallas), `destino-por-validacion.ts`.

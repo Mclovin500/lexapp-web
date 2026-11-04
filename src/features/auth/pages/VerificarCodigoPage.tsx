@@ -12,6 +12,7 @@ import { destinoPorValidacion } from '../lib/destino-por-validacion'
 import { esEstadoVerificacionLogin } from '../lib/estado-navegacion'
 import { mensajePorTipo } from '../lib/mapear-error'
 import type { ErrorAutenticacion } from '../types/auth.types'
+import type { EstadoCarga } from '../types/estado-navegacion.types'
 
 /** A2A: verificación del código enviado tras el login. Correcto → B1 (validado) o A5A. */
 export function VerificarCodigoPage() {
@@ -52,7 +53,9 @@ function VerificarCodigo({
   const verificar = async (codigo: string) => {
     reenvio.reset()
     const respuesta = await verificacion.mutateAsync({ codigo })
-    navigate(destinoPorValidacion(respuesta.estadoValidacion), { replace: true })
+    // A1 muestra la carga y continúa a B1 (validado) o A5A.
+    const estado: EstadoCarga = { destino: destinoPorValidacion(respuesta.estadoValidacion) }
+    navigate(ROUTES.welcome, { replace: true, state: estado })
   }
 
   const reenviar = async () => {

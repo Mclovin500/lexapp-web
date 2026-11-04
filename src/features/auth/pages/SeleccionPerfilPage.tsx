@@ -5,13 +5,10 @@ import { Icon } from '@/components/ui/Icon'
 import { CabeceraSeleccionPerfil } from '../components/CabeceraSeleccionPerfil'
 import { TarjetaPerfil } from '../components/TarjetaPerfil'
 import { seleccionPerfilContent } from '../content/seleccion-perfil.content'
+import type { EstadoCarga } from '../types/estado-navegacion.types'
 import type { EstadoNavegacionPerfil, TipoPerfil } from '../types/perfil.types'
 
-/** P03 → A3 (abogado) o P04 (cliente), según docs/flujo-navegacion.md */
-const DESTINO_POR_PERFIL: Record<TipoPerfil, string> = {
-  abogado: ROUTES.register,
-  cliente: ROUTES.mobileApp,
-}
+/** P03: abogado → A1 (carga) → A3 · cliente → P04. Ver docs/flujo-navegacion.md */
 
 export function SeleccionPerfilPage() {
   const navigate = useNavigate()
@@ -22,8 +19,13 @@ export function SeleccionPerfilPage() {
 
   const handleSubmit = (evento: FormEvent<HTMLFormElement>) => {
     evento.preventDefault()
+    if (perfil === 'abogado') {
+      const estado: EstadoCarga = { destino: ROUTES.register }
+      navigate(ROUTES.welcome, { state: estado })
+      return
+    }
     const estado: EstadoNavegacionPerfil = { tipoPerfil: perfil }
-    navigate(DESTINO_POR_PERFIL[perfil], { state: estado })
+    navigate(ROUTES.mobileApp, { state: estado })
   }
 
   return (

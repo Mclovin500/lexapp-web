@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-import { ROUTES } from '@/app/routes'
 import { Icon } from '@/components/ui/Icon'
 import { validacionProfesionalContent } from '../../content/validacion-profesional.content'
 import type { EstadoValidacion } from '../../types/sesion.types'
@@ -32,14 +30,9 @@ const tonos: Record<EstadoValidacion, { caja: string; icono: string; insignia: s
   },
 }
 
-const botonPrimario =
-  'inline-flex h-11 px-5 items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold shadow-md transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
-const botonSecundario =
-  'inline-flex h-11 px-5 items-center justify-center gap-2 rounded-lg bg-surface-container-lowest text-on-surface text-label-lg font-semibold shadow-sm hover:bg-surface-container transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
-
-/** Estado real devuelto por el backend, con su mensaje y sus acciones. */
+/** Estado real devuelto por el backend, con su mensaje y el motivo (las acciones viven en AccionesValidacion). */
 export function TarjetaEstadoValidacion({ estado, motivo }: TarjetaEstadoValidacionProps) {
-  const { states, reasonLabel, actions } = validacionProfesionalContent
+  const { states, reasonLabel } = validacionProfesionalContent
   const texto = states[estado]
   const tono = tonos[estado]
 
@@ -69,43 +62,6 @@ export function TarjetaEstadoValidacion({ estado, motivo }: TarjetaEstadoValidac
         </div>
       )}
 
-      <div className="mt-6 flex flex-wrap gap-3">
-        {estado === 'validado' && (
-          <Link to={ROUTES.dashboard} replace className={botonPrimario}>
-            {actions.enterOffice}
-            <Icon name="arrow_forward" size={18} />
-          </Link>
-        )}
-
-        {estado === 'requiere_correccion' && (
-          <>
-            <Link to={ROUTES.registerCredentials} className={botonPrimario}>
-              <Icon name="badge" size={18} />
-              {actions.fixCredentials}
-            </Link>
-            <Link to={ROUTES.registerProfile} className={botonSecundario}>
-              <Icon name="psychology" size={18} />
-              {actions.editProfile}
-            </Link>
-          </>
-        )}
-
-        {estado === 'rechazado' && (
-          <>
-            {/* El diseño ofrece aclaración y soporte, pero aún no existen: se muestran deshabilitados. */}
-            <button type="button" disabled className={`${botonSecundario} opacity-60 cursor-not-allowed`}>
-              <Icon name="rate_review" size={18} />
-              {actions.clarification}
-              <span className="text-label-sm text-secondary font-normal">· {actions.comingSoon}</span>
-            </button>
-            <button type="button" disabled className={`${botonSecundario} opacity-60 cursor-not-allowed`}>
-              <Icon name="support_agent" size={18} />
-              {actions.support}
-              <span className="text-label-sm text-secondary font-normal">· {actions.comingSoon}</span>
-            </button>
-          </>
-        )}
-      </div>
     </section>
   )
 }

@@ -20,7 +20,7 @@ Los tiempos (`reenviarEnSegundos`, `expiraEnSegundos`) siempre los dicta el back
 - Sin cuerpo (identifica el intento por cookie) → 200: `{ "reenviarEnSegundos", "expiraEnSegundos" }`.
 - Invalida el código anterior.
 
-## A1 · `GET /auth/sesion`
+## A1 · `GET /auth/sesion` (solo si A1 se abre sin destino, p. ej. acceso directo)
 - 200: `{ "estadoValidacion" }` (misma regla de navegación que A2A) · 401: sin sesión → P02.
 
 ## A2B · `POST /auth/recuperacion/solicitar`

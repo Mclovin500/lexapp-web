@@ -1,19 +1,28 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { Icon } from '@/components/ui/Icon'
 import { MarcoAcceso } from '../components/MarcoAcceso'
 import { bienvenidaContent } from '../content/bienvenida.content'
 import { useVerificarSesion } from '../hooks/useVerificarSesion'
 import { destinoPorValidacion } from '../lib/destino-por-validacion'
+import { esEstadoCarga } from '../lib/estado-navegacion'
 
 /**
- * A1: pantalla de carga. Consulta la sesión y redirige:
- * sesión activa → B1 o A5A (según validación) · sin sesión o error → P02.
+ * A1: pantalla de carga de transición.
+ * - Con destino en el estado (A2A → B1/A5A, P03 → A3): espera el tiempo mínimo y continúa.
+ * - Sin destino (acceso directo a /bienvenida): consulta la sesión →
+ *   activa: B1 o A5A · sin sesión o error: P02.
+ * Siempre navega con `replace`, para que "Atrás" no regrese a la carga.
  */
 export function BienvenidaPage() {
   const navigate = useNavigate()
-  const { data: sesion, isError } = useVerificarSesion()
+  const { state } = useLocation()
+  const destinoFijo = esEstadoCarga(state) ? state.destino : null
+  const { data: sesion, isError } = useVerificarSesion(destinoFijo === null)
+  const etiquetaCarga = destinoFijo
+    ? bienvenidaContent.loadingLabelPorDestino[destinoFijo]
+    : bienvenidaContent.loadingLabel
   const [tiempoMinimoCumplido, setTiempoMinimoCumplido] = useState(false)
 
   useEffect(() => {
@@ -25,12 +34,18 @@ export function BienvenidaPage() {
   }, [])
 
   useEffect(() => {
-    if (!tiempoMinimoCumplido || (!sesion && !isError)) return
+    if (!tiempoMinimoCumplido) return
 
+    if (destinoFijo) {
+      navigate(destinoFijo, { replace: true })
+      return
+    }
+
+    if (!sesion && !isError) return
     const destino =
       sesion?.activa ? destinoPorValidacion(sesion.estadoValidacion) : ROUTES.login
     navigate(destino, { replace: true })
-  }, [tiempoMinimoCumplido, sesion, isError, navigate])
+  }, [tiempoMinimoCumplido, destinoFijo, sesion, isError, navigate])
 
   return (
     <MarcoAcceso brilloAnimado>
@@ -65,7 +80,7 @@ export function BienvenidaPage() {
               className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-primary-container border-t-transparent"
               aria-hidden="true"
             />
-            <span className="tracking-wide">{bienvenidaContent.loadingLabel}</span>
+            <span className="tracking-wide">{etiquetaCarga}</span>
           </div>
         </div>
       </div>
