@@ -233,6 +233,18 @@ export function contarSolicitudesNuevasMock(): number {
   return solicitudesMock.filter((s) => s.estado === 'nueva').length
 }
 
+/** Para crear un expediente desde una propuesta (D2). */
+export function areaDeSolicitudMock(id: string): string | null {
+  return solicitudesMock.find((s) => s.id === id)?.areaJuridica ?? null
+}
+
+/** Para el historial de interacción de F2. */
+export function solicitudesDeClienteMock(clienteId: string): Pick<SolicitudDetalle, 'id' | 'folio' | 'asunto' | 'fechaRecepcion' | 'estado'>[] {
+  return solicitudesMock
+    .filter((s) => s.cliente.id === clienteId)
+    .map(({ id, folio, asunto, fechaRecepcion, estado }) => ({ id, folio, asunto, fechaRecepcion, estado }))
+}
+
 /** Para "Nuevas solicitudes" del Dashboard. */
 export function solicitudesNuevasRecientesMock(limite: number): SolicitudResumen[] {
   return solicitudesMock.filter((s) => s.estado === 'nueva').sort(porFechaDesc).slice(0, limite).map(aResumen)

@@ -26,14 +26,14 @@ import { PropuestasPage } from '@/features/propuestas/pages/PropuestasPage'
 import { HonorariosPage } from '@/features/pagos/pages/HonorariosPage'
 import { NuevoCobroPage } from '@/features/pagos/pages/NuevoCobroPage'
 import { DetalleMovimientoPage } from '@/features/pagos/pages/DetalleMovimientoPage'
+import { ExpedientesPage } from '@/features/expedientes/pages/ExpedientesPage'
+import { DetalleExpedientePage } from '@/features/expedientes/pages/DetalleExpedientePage'
+import { DocumentosExpedientePage } from '@/features/expedientes/pages/DocumentosExpedientePage'
+import { ClientesPage } from '@/features/clientes/pages/ClientesPage'
+import { DetalleClientePage } from '@/features/clientes/pages/DetalleClientePage'
 
 /** Pantallas internas aún no construidas: se muestran dentro del Sidebar y Header. */
 const pendientes: { path: string; id: string; title: string }[] = [
-  { path: ROUTES.cases, id: 'E1', title: 'Mis expedientes' },
-  { path: ROUTES.caseDetail, id: 'E2', title: 'Detalle del expediente' },
-  { path: ROUTES.caseDocuments, id: 'E3', title: 'Documentos del expediente' },
-  { path: ROUTES.clients, id: 'F1', title: 'Directorio de clientes' },
-  { path: ROUTES.clientDetail, id: 'F2', title: 'Detalle del cliente' },
   { path: ROUTES.agenda, id: 'G1', title: 'Agenda de citas virtuales' },
   { path: ROUTES.videoRoom, id: 'G1A', title: 'Sala de videollamada' },
   { path: ROUTES.chat, id: 'H1', title: 'Chat con clientes' },
@@ -119,6 +119,11 @@ export const router = createBrowserRouter([
       { path: ROUTES.fees, element: <HonorariosPage /> },
       { path: ROUTES.newCharge, element: <NuevoCobroPage /> },
       { path: ROUTES.paymentDetail, element: <DetalleMovimientoPage /> },
+      { path: ROUTES.cases, element: <ExpedientesPage /> },
+      { path: ROUTES.caseDetail, element: <DetalleExpedientePage /> },
+      { path: ROUTES.caseDocuments, element: <DocumentosExpedientePage /> },
+      { path: ROUTES.clients, element: <ClientesPage /> },
+      { path: ROUTES.clientDetail, element: <DetalleClientePage /> },
       ...pendientes.map(({ path, id, title }) => ({
         path,
         element: <PlaceholderPage id={id} title={title} interna />,

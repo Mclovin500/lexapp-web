@@ -51,6 +51,9 @@ export function useCrearCobroAdicional() {
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: CLAVE_HONORARIOS })
       void queryClient.invalidateQueries({ queryKey: CLAVE_RESUMEN_DASHBOARD })
+      // El cobro aparece en "Pagos relacionados" de E2 y F2.
+      void queryClient.invalidateQueries({ queryKey: ['expedientes'] })
+      void queryClient.invalidateQueries({ queryKey: ['clientes'] })
     },
   })
 }

@@ -4,7 +4,11 @@
 import { enMinutos, esperar, haceMinutos, SIMULAR_ERROR_RED } from '@/api/mock-utils'
 import { ErrorApi } from '@/api/errores'
 import { buscarClienteMock } from '@/features/clientes/services/clientes.mock'
-import { buscarExpedienteMock } from '@/features/expedientes/services/expedientes.mock'
+import {
+  AUTOR_ABOGADO_MOCK,
+  buscarExpedienteMock,
+  registrarEventoExpedienteMock,
+} from '@/features/expedientes/services/expedientes.mock'
 import type {
   CambioEstadoMovimiento,
   EstadoMovimiento,
@@ -126,6 +130,14 @@ export function tieneMovimientosDePropuestaMock(propuestaId: string): boolean {
   return movimientosMock.some((m) => m.propuestaId === propuestaId)
 }
 
+/** Pagos relacionados de E2 (por expediente) y F2 (por cliente). */
+export function movimientosDeMock(filtro: { expedienteId?: string; clienteId?: string }): MovimientoResumen[] {
+  return movimientosMock
+    .filter((m) => (!filtro.expedienteId || m.expediente?.id === filtro.expedienteId) && (!filtro.clienteId || m.cliente.id === filtro.clienteId))
+    .sort(porFechaDesc)
+    .map(aResumen)
+}
+
 /** Para "Pagos y cobros relevantes" del Dashboard. */
 export function movimientosRecientesMock(limite: number): MovimientoResumen[] {
   return [...movimientosMock].sort(porFechaDesc).slice(0, limite).map(aResumen)
@@ -177,6 +189,7 @@ export async function crearCobroAdicionalMock(peticion: PeticionCobroAdicional):
   const cliente = buscarClienteMock(peticion.clienteId)
   const expediente = buscarExpedienteMock(peticion.expedienteId)
   if (expediente.clienteId !== cliente.id) throw new ErrorApi('datos_invalidos')
+  if (expediente.estado === 'finalizado') throw new ErrorApi('conflicto')
 
   const id = `mov-${consecutivo}`
   const ahora = new Date().toISOString()
@@ -198,6 +211,7 @@ export async function crearCobroAdicionalMock(peticion: PeticionCobroAdicional):
     referenciaTransaccion: null,
     historial: [{ estado: 'pendiente', fecha: ahora, nota: 'Cobro enviado al cliente. Lo pagará desde su aplicación.' }],
   })
+  registrarEventoExpedienteMock(expediente.id, 'pago', `Se envió al cliente el cobro adicional "${peticion.concepto}".`, AUTOR_ABOGADO_MOCK)
   consecutivo += 1
   return { id }
 }

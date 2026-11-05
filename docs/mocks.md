@@ -34,6 +34,15 @@ Latencia simulada: ~700 ms (`src/api/mock-utils.ts`).
 | D3 | 9 movimientos (uno o más por estado) | Resumen, filtros, búsqueda ("peritaje", "Exp."), paginación |
 | D4 | Cliente `cli-102` + `exp-290` | Crea `mov-561` pendiente y abre D5 con aviso; cliente y expediente ajenos → 422 |
 | D5 | `mov-560` … `mov-520` | Historial por estado; `/honorarios/movimientos/no-existe` → 404 |
+| E1 | 10 expedientes (5 activos, 2 en espera, 3 finalizados) | Filtros por estado y área, búsqueda ("amparo", "Garza"), paginación de 8 |
+| E2 | `exp-312` | Actualizaciones (una interna), historial, 4 documentos, 2 pagos y 1 reunión |
+| E2 | Registrar actualización / Cambiar estado | Se agregan al expediente; finalizado bloquea actualizaciones, cobros y cargas (409) |
+| E2/E3 | `/expedientes/exp-999` | 403 "No tienes acceso" (expediente de otro abogado); `exp-000` → 404 |
+| E3 | `exp-298` | 3 documentos, 2 pendientes de revisión; "Revisar" → revisado o requiere corrección |
+| E3 | Vista previa y descarga | Documentos ficticios: PDF generado; documentos cargados en la sesión: el archivo real |
+| E3 | `exp-301` / `exp-260` | Sin documentos (estado vacío) |
+| F1 | 11 clientes | Estados calculados (activo, en propuesta, sin casos abiertos), búsqueda ("TechHub") |
+| F2 | `cli-110` | Expediente, documentos, pagos e historial de interacción; `/clientes/cli-106` → 404 (sin relación) |
 
 ## Constantes que puedes cambiar
 - `SIMULAR_ERROR_RED` (`src/api/mock-utils.ts`): `true` simula que el servidor no responde (A2A en adelante).

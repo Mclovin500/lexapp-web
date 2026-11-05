@@ -1,0 +1,103 @@
+import type { CategoriaDocumento, FiltroDocumentos } from '../types/documentos.types'
+
+export const categoriasDocumento: Record<CategoriaDocumento, string> = {
+  escritos: 'Escritos y promociones',
+  acuerdos: 'Acuerdos y resoluciones',
+  contratos: 'Contratos y convenios',
+  pruebas: 'Pruebas y evidencias',
+  identificacion: 'Identificación y personalidad',
+  comprobantes: 'Comprobantes',
+  otros: 'Otros',
+}
+
+/** Formatos permitidos y tamaño máximo (por confirmar con el backend). */
+export const REGLAS_ARCHIVO = {
+  extensiones: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'jpg', 'jpeg', 'png'],
+  maximoBytes: 20 * 1024 * 1024,
+  accept: '.pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png',
+}
+
+export const documentosContent = {
+  title: 'Documentos del expediente',
+  subtitle: 'Todos los documentos quedan asociados a este expediente. Solo tú y el cliente pueden consultarlos.',
+  back: 'Volver al expediente',
+  loading: 'Cargando documentos…',
+  upload: 'Cargar documento',
+  closedNotice: 'El expediente está finalizado: puedes consultar y descargar documentos, pero no cargar nuevos.',
+  filters: {
+    ariaLabel: 'Filtrar por estado del documento',
+    options: [
+      { valor: 'todos', label: 'Todos' },
+      { valor: 'pendiente_revision', label: 'Pendientes de revisión' },
+      { valor: 'revisado', label: 'Revisados' },
+      { valor: 'requiere_correccion', label: 'Requieren corrección' },
+    ] satisfies { valor: FiltroDocumentos; label: string }[],
+    searchLabel: 'Buscar documentos',
+    searchPlaceholder: 'Buscar por nombre del documento',
+    categoryLabel: 'Categoría',
+    categoryAll: 'Todas las categorías',
+    clear: 'Limpiar filtros',
+  },
+  table: {
+    caption: 'Documentos del expediente',
+    name: 'Nombre del documento',
+    category: 'Categoría',
+    date: 'Fecha',
+    author: 'Cargado por',
+    size: 'Tamaño',
+    status: 'Estado',
+    actions: 'Acciones',
+    preview: 'Vista previa',
+    download: 'Descargar',
+    downloading: 'Preparando…',
+    review: 'Revisar',
+    roles: { abogado: 'Abogado', cliente: 'Cliente' },
+  },
+  empty: { title: 'No hay documentos con estos filtros', description: 'Carga el primer documento o cambia los filtros.' },
+  preview: {
+    title: 'Vista previa',
+    loading: 'Preparando la vista previa…',
+    unsupported: 'Este formato no tiene vista previa. Descárgalo para abrirlo.',
+    download: 'Descargar',
+    details: 'Datos del documento',
+    history: 'Historial',
+    actions: {
+      cargado: 'Cargado',
+      revisado: 'Revisado',
+      correccion_solicitada: 'Corrección solicitada',
+    },
+  },
+  uploadDialog: {
+    title: 'Cargar documento',
+    description: 'El documento quedará asociado a este expediente y el cliente lo verá en su aplicación.',
+    file: 'Archivo',
+    fileHint: 'PDF, Word, Excel, JPG o PNG. Máximo 20 MB.',
+    choose: 'Seleccionar archivo',
+    change: 'Cambiar archivo',
+    category: 'Categoría',
+    categoryPlaceholder: 'Selecciona una categoría',
+    description2: 'Descripción',
+    descriptionPlaceholder: 'Ej. Acuerdo que fija fecha de audiencia.',
+    optional: '(opcional)',
+    submit: 'Cargar documento',
+    saving: 'Cargando…',
+    cancel: 'Cancelar',
+    done: 'El documento se cargó al expediente.',
+  },
+  reviewDialog: {
+    title: 'Revisar documento',
+    description: 'Marca el documento como revisado o pide al cliente que lo corrija.',
+    note: 'Comentario para el cliente',
+    notePlaceholder: 'Ej. Falta la página con las firmas.',
+    noteRequired: 'Explica qué debe corregir (al menos 10 caracteres).',
+    approve: 'Marcar como revisado',
+    reject: 'Solicitar corrección',
+    saving: 'Guardando…',
+    done: 'La revisión del documento se guardó.',
+  },
+  errors: {
+    no_encontrado: 'No encontramos este expediente.',
+    sin_permiso: 'No tienes acceso a los documentos de este expediente.',
+    conflicto: 'No se pudo guardar: el expediente o el documento cambió de estado. Recarga la página.',
+  },
+}

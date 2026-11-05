@@ -45,7 +45,12 @@
 - `lib/`: `fechas.ts` (formatos es-MX, relativos y `hoyIso`), `moneda.ts` (MXN), `importes.ts` (validar y sumar en centavos), `archivos.ts`, `iniciales.ts`.
 - `features/dashboard/`: B1, B1A y la cuenta del Header. `features/solicitudes/`: C1 y C2.
 - `features/propuestas/`: D1 y D2. `features/pagos/`: D3, D4 y D5 (estados de movimiento compartidos con B1).
-- `features/clientes/` y `features/expedientes/`: por ahora solo opciones para selects (F y E llegarán después).
+- `features/expedientes/`: E1, E2 y E3 (documentos). `features/clientes/`: F1 y F2, más las opciones de los selects.
+- `features/agenda/services/reuniones.mock.ts`: reuniones ficticias compartidas por B1, E2 y F2 hasta que exista G1.
+- Mocks que combinan módulos (`expediente-detalle.mock.ts`, `clientes-directorio.mock.ts`) van en archivos aparte
+  para evitar importaciones circulares entre mocks.
+- `lib/archivos.ts`: `extensionArchivo`, `descargarUrl` (descarga desde una URL temporal) y `formatearTamano`.
+- `components/ui/Dialogo`: el título usa `useId`, así que puede haber varios diálogos en una pantalla.
 - Los formularios internos reutilizan `CampoTexto`, `CampoSelect` y `CampoAreaTexto` de `features/auth`;
   TODO: moverlos a `components/ui/` cuando se toque esa parte.
 - Filtros de listados en la URL (`useSearchParams`) para conservarlos al volver con "Atrás".

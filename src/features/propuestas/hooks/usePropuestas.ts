@@ -40,12 +40,14 @@ export function useDetallePropuesta(id: string) {
   })
 }
 
-/** Una propuesta enviada cambia D2, el Dashboard, C1/C2 (solicitud atendida) y los contadores. */
+/** Una propuesta cambia D2, el Dashboard, C1/C2 (solicitud atendida), E1 y F1 (estado del cliente) y los contadores. */
 function useInvalidarPropuestas() {
   const queryClient = useQueryClient()
   return () => {
     void queryClient.invalidateQueries({ queryKey: CLAVE_PROPUESTAS })
     void queryClient.invalidateQueries({ queryKey: ['solicitudes'] })
+    void queryClient.invalidateQueries({ queryKey: ['expedientes'] })
+    void queryClient.invalidateQueries({ queryKey: ['clientes'] })
     void queryClient.invalidateQueries({ queryKey: CLAVE_RESUMEN_DASHBOARD })
     void queryClient.invalidateQueries({ queryKey: CLAVE_CUENTA })
   }

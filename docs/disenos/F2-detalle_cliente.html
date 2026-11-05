@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#bec6e0", "on-tertiary": "#ffffff", "error": "#ba1a1a", "secondary-container": "#dae2fd", "on-secondary": "#ffffff", "surface-container-highest": "#d3e4fe", "tertiary": "#006398", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#93ccff", "on-primary-fixed-variant": "#005234", "surface": "#f8f9ff", "on-surface-variant": "#3c4a41", "tertiary-container": "#48a8ed", "on-error": "#ffffff", "on-tertiary-container": "#003b5c", "inverse-surface": "#213145", "primary": "#006c47", "on-tertiary-fixed-variant": "#004b73", "on-primary-fixed": "#002112", "inverse-primary": "#4cdf9e", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#3f465c", "outline-variant": "#bbcabf", "surface-container-lowest": "#ffffff", "on-secondary-container": "#5c647a", "surface-dim": "#cbdbf5", "secondary": "#565e74", "background": "#f8f9ff", "primary-container": "#00b87b", "primary-fixed": "#6dfcb8", "on-primary-container": "#004129", "surface-container": "#e5eeff", "tertiary-fixed": "#cce5ff", "surface-variant": "#d3e4fe", "outline": "#6c7a71", "surface-container-high": "#dce9ff", "error-container": "#ffdad6", "secondary-fixed": "#dae2fd", "on-surface": "#0b1c30", "primary-fixed-dim": "#4cdf9e", "on-background": "#0b1c30", "on-tertiary-fixed": "#001d31", "on-error-container": "#93000a", "surface-tint": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "margin-compact": "1.25rem", "space-2xl": "3rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-compact": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "headline-sm": ["Inter"], "label-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none">LexApp</span><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase mt-space-xs">Legal Suite</span></div></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider px-space-xs">Gestión Jurídica</span></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="casos-y-expedientes" href="#"><span class="font-body-md text-body-md">Casos y expedientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="clientes" href="#"><span class="font-body-md text-body-md">Clientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="propuestas-y-facturacion" href="#"><span class="font-body-md text-body-md">Propuestas y facturación</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="font-body-md text-body-md">Calendario</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="mensajes" href="#"><span class="font-body-md text-body-md">Mensajes</span><span class="h-5 min-w-[20px] px-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center font-bold">4</span></a><div class="my-space-xs pt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</span></div><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="configuracion" href="#"><span class="font-body-md text-body-md">Configuración</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="perfil-profesional" href="#"><span class="font-body-md text-body-md">Perfil profesional</span></a></nav></div><div class="p-space-md bg-surface-container-low m-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs text-primary"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Conexión Segura TLS 1.3</span></div><div class="flex items-center justify-between text-secondary font-label-sm text-label-sm"><span>LexApp Suite</span><span class="font-mono">v2.4 LTS</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center w-96"><div class="w-full flex items-center justify-between bg-surface-container-lowest px-space-md py-2 rounded-lg shadow-[0_1px_3px_rgba(15,23,42,0.04)] focus-within:ring-2 focus-within:ring-primary-container"><div class="flex items-center gap-space-sm text-secondary flex-1"><span class="material-symbols-outlined text-[20px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar casos, clientes o expedientes..." type="text"/></div><div class="flex items-center gap-0.5 bg-surface-container px-1.5 py-0.5 rounded text-secondary font-label-sm text-label-sm font-mono"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">mail</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span></button><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none">Lic. Alejandro Morales</span><div class="flex items-center gap-1 mt-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-primary font-semibold">Colegiado Activo</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<!-- Breadcrumb & Back action bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-secondary font-label-md text-label-md">
+<a class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="font-label-sm text-label-sm font-medium">Volver a clientes</span>
+</a>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer transition-colors">Gestión Jurídica</span>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-on-surface cursor-pointer transition-colors" href="#">Directorio de clientes</a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold truncate max-w-sm">Valeria Gómez Rivas (Fintech Nova S.A.P.I. de C.V.)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[15px] text-primary">verified_user</span>
+        Expediente KYC Verificado
+      </span>
+<span class="font-mono font-label-sm text-label-sm text-secondary bg-surface-container-low px-2 py-1 rounded">ID: CLI-2024-0089</span>
+</div>
+</div>
+<!-- Hero Ficha del Cliente -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-xl flex flex-col gap-space-lg">
+<div class="flex flex-col xl:flex-row xl:items-start justify-between gap-space-lg">
+<!-- Identity & Basic Corporate Info -->
+<div class="flex items-start gap-space-lg">
+<div class="relative">
+<div class="w-20 h-20 rounded-xl bg-gradient-to-br from-primary-container/20 to-primary/10 flex items-center justify-center text-primary font-headline-lg text-headline-lg font-bold shadow-sm">
+            VG
+          </div>
+<span class="absolute -bottom-2 -right-1 px-2 py-0.5 rounded-full bg-secondary text-surface-container-lowest font-label-sm text-label-sm uppercase tracking-wider font-semibold shadow-sm">
+            Moral
+          </span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface leading-tight font-bold tracking-tight">
+              Valeria Gómez Rivas
+            </h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-container/15 text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+              Cliente Activo
+            </span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-medium">
+              S.A.P.I. de C.V.
+            </span>
+</div>
+<p class="font-body-md text-body-md text-secondary font-medium flex items-center gap-2">
+<span class="text-on-surface font-semibold">Fintech Nova S.A.P.I. de C.V.</span>
+<span class="text-outline-variant">•</span>
+<span>Nombre comercial: <strong class="text-on-surface">NovaPay México</strong></span>
+</p>
+<!-- Quick interactive actions / contact chips -->
+<div class="flex items-center gap-space-md flex-wrap pt-1">
+<div class="inline-flex items-center gap-1.5 text-on-surface font-body-sm text-body-sm group">
+<span class="material-symbols-outlined text-[16px] text-secondary">mail</span>
+<a class="hover:text-primary transition-colors" href="mailto:valeria.gomez@novapay.mx">valeria.gomez@novapay.mx</a>
+<button class="text-secondary hover:text-on-surface p-0.5 rounded hover:bg-surface-container transition-colors" onclick="navigator.clipboard.writeText('valeria.gomez@novapay.mx'); alert('Correo copiado al portapapeles');" title="Copiar correo">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="inline-flex items-center gap-1.5 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">phone</span>
+<span>+52 55 4192 8830</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="inline-flex items-center gap-1.5 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="truncate max-w-xs">Torre Virreyes Piso 18, Lomas de Chapultepec, CDMX</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm self-start xl:self-center flex-wrap">
+<button class="h-10 px-4 rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg flex items-center gap-2 hover:bg-surface-container-low transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">edit</span>
+<span>Editar ficha</span>
+</button>
+<div class="relative inline-block">
+<button class="w-10 h-10 rounded-lg bg-surface-container-lowest text-secondary flex items-center justify-center hover:bg-surface-container-low hover:text-on-surface transition-colors shadow-sm" title="Opciones avanzadas y exportación" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<button class="h-10 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-semibold flex items-center gap-2 shadow-sm hover:brightness-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Nueva propuesta / caso</span>
+</button>
+</div>
+</div>
+<!-- Metadata bar / Badges Row -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md pt-space-md bg-surface-container-low/70 rounded-xl p-space-md">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">RFC Registrado</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface font-mono">FN0210904AB8</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Folio Mercantil Electrónico</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface font-mono">89412-CDMX</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Antigüedad en Despacho</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">10 meses <span class="text-secondary font-normal font-label-sm text-label-sm">(Desde Ene 2024)</span></span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Nivel de Confidencialidad</span>
+<span class="inline-flex items-center gap-1 font-body-md text-body-md font-semibold text-primary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+          Nivel A (Máxima Reserva)
+        </span>
+</div>
+</div>
+</div>
+<!-- Internal Tabs Navigation -->
+<div class="flex items-center gap-space-sm bg-surface-container-lowest rounded-xl p-1.5 shadow-sm overflow-x-auto">
+<!-- Tab: Información (ACTIVE) -->
+<button class="relative px-space-lg py-2.5 rounded-lg bg-surface-container font-label-lg text-label-lg font-semibold text-primary flex items-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+<span>Información</span>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</button>
+<!-- Tab: Casos -->
+<button class="px-space-lg py-2.5 rounded-lg text-secondary font-label-lg text-label-lg font-medium flex items-center gap-2 hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span>Casos</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm font-semibold text-secondary">3 activos</span>
+</button>
+<!-- Tab: Propuestas -->
+<button class="px-space-lg py-2.5 rounded-lg text-secondary font-label-lg text-label-lg font-medium flex items-center gap-2 hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">request_quote</span>
+<span>Propuestas</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm font-semibold text-secondary">2 vigentes</span>
+</button>
+<!-- Tab: Actividad -->
+<button class="px-space-lg py-2.5 rounded-lg text-secondary font-label-lg text-label-lg font-medium flex items-center gap-2 hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>Actividad</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm font-semibold text-secondary">19 registros</span>
+</button>
+<!-- Tab: Chat -->
+<button class="px-space-lg py-2.5 rounded-lg text-secondary font-label-lg text-label-lg font-medium flex items-center gap-2 hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Chat</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold">1 nuevo</span>
+</button>
+</div>
+<!-- Content Grid: Tab Activa ("INFORMACIÓN") -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Columna Izquierda: Datos Generales y Fiscales (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Tarjeta: Datos Generales y Razón Social -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-space-lg bg-surface-container-low/50 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]">corporate_fare</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Datos Generales y Razón Social</h2>
+<p class="font-body-sm text-body-sm text-secondary">Estructura legal, personalidad jurídica e incorporación mercantil</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">Validado</span>
+</div>
+<div class="p-space-xl flex flex-col gap-space-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-space-md gap-x-space-lg">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Razón Social Formal</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Fintech Nova S.A.P.I. de C.V.</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Nombre Comercial</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">NovaPay México</span>
+</div>
+<div class="flex flex-col gap-1 md:col-span-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Régimen de Constitución Mercantil</span>
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md text-on-surface">Sociedad Anónima Promotora de Inversión de Capital Variable</span>
+<span class="material-symbols-outlined text-[16px] text-primary" title="Inscrita en Registro Público">check_circle</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Fecha de Alta en LexApp</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">15 Enero 2024</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Sector / Vertical de Negocio</span>
+<span class="inline-flex items-center gap-1.5 font-body-md text-body-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                Fintech / Servicios Financieros y Pagos
+              </span>
+</div>
+<div class="flex flex-col gap-1 md:col-span-2 bg-surface-container-low rounded-lg p-space-md">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Representante Legal &amp; Apoderada General</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Poder Vigente</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Valeria Gómez Rivas</p>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+                Poder Notarial para Pleitos y Cobranzas y Actos de Administración #45,120 ante Notaría Pública 102 de la CDMX.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tarjeta: Información Fiscal y Facturación -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-space-lg bg-surface-container-low/50 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]">receipt_long</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Información Fiscal y Facturación</h2>
+<p class="font-body-sm text-body-sm text-secondary">Datos para emisión de CFDI 4.0 y constancia de situación fiscal</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary-container/15 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+            SAT Validado
+          </span>
+</div>
+<div class="p-space-xl flex flex-col gap-space-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-space-md gap-x-space-lg">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Clave RFC</span>
+<div class="flex items-center gap-2">
+<span class="font-body-lg text-body-lg font-bold text-on-surface font-mono tracking-wide">FN0210904AB8</span>
+<button class="text-secondary hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors" onclick="navigator.clipboard.writeText('FN0210904AB8'); alert('RFC copiado');" title="Copiar RFC" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Régimen Fiscal (SAT)</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">601 - General de Ley Personas Morales</span>
+</div>
+<div class="flex flex-col gap-1 md:col-span-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Domicilio Fiscal Registrado</span>
+<div class="flex items-start gap-2 bg-surface-container-low/60 p-3 rounded-lg">
+<span class="material-symbols-outlined text-[20px] text-secondary mt-0.5">location_on</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Av. Pedregal 24, Torre Virreyes Piso 18</span>
+<span class="font-body-sm text-body-sm text-secondary">Col. Molino del Rey / Lomas de Chapultepec, C.P. 11000, Miguel Hidalgo, Ciudad de México</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Uso Predeterminado de CFDI</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">G03 - Gastos en general</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Correo para Facturación Electrónica</span>
+<div class="flex items-center gap-1.5 text-on-surface font-body-md text-body-md font-medium">
+<span class="material-symbols-outlined text-[18px] text-secondary">alternate_email</span>
+<a class="hover:text-primary transition-colors" href="mailto:facturacion@novapay.mx">facturacion@novapay.mx</a>
+</div>
+</div>
+</div>
+<!-- Documentos complementarios disponibles -->
+<div class="mt-space-xs pt-space-md flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-medium">Documento adjunto:</span>
+<a class="inline-flex items-center gap-1.5 text-primary hover:text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-[16px]">description</span>
+<span>Constancia de Situación Fiscal (PDF - Actualizada Sep 2024)</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Columna Derecha: Contactos Clave, Asignación del Despacho y Resumen Ejecutivo (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Tarjeta: Resumen Ejecutivo de Cartera -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Resumen de Cartera</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Tier 1</span>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Casos Vinculados</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface leading-none">3</span>
+<a class="font-label-sm text-label-sm text-primary hover:underline font-medium" href="#">Ver en Casos →</a>
+</div>
+<span class="font-body-sm text-body-sm text-secondary mt-1">2 corporativos, 1 regulatorio</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Facturación Acum.</span>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface leading-none tabular-nums">$285,400</span>
+<span class="font-body-sm text-body-sm text-secondary mt-1 font-mono">MXN (Sin adeudos)</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-primary-container/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">security</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Cumplimiento KYC &amp; PLD</span>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-primary">Favorable / NOM-151</span>
+</div>
+<!-- Notas internas confidenciales -->
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">sticky_note_2</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Notas Internas del Despacho</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface italic leading-relaxed">
+            “Cliente prioritario con ronda de inversión en curso (Serie A). Atención preferente en temas corporativos estatutarios y autorizaciones ante CNBV.”
+          </p>
+</div>
+</div>
+<!-- Tarjeta: Contactos Clave & Apoderados -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-space-lg bg-surface-container-low/50 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">group</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Contactos Clave &amp; Apoderados</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">3 registrados</span>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<!-- Contacto 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-primary-container/20 text-primary flex items-center justify-center font-bold font-label-md text-label-md">
+                VG
+              </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Valeria Gómez Rivas</span>
+<span class="font-label-sm text-label-sm text-secondary">COO &amp; Apoderada General</span>
+<div class="flex items-center gap-2 mt-1 text-secondary font-body-sm text-body-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="mailto:valeria.gomez@novapay.mx">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                    valeria.gomez@novapay.mx
+                  </a>
+</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-medium">Principal</span>
+</div>
+<!-- Contacto 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold font-label-md text-label-md">
+                SL
+              </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Mtro. Santiago Luján</span>
+<span class="font-label-sm text-label-sm text-secondary">Director de Finanzas (CFO)</span>
+<div class="flex items-center gap-2 mt-1 text-secondary font-body-sm text-body-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="mailto:slujan@novapay.mx">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                    slujan@novapay.mx
+                  </a>
+<span>•</span>
+<span>+52 55 8890 1204</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Contacto 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container text-secondary flex items-center justify-center font-bold font-label-md text-label-md">
+                BP
+              </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Lic. Beatriz Peralta</span>
+<span class="font-label-sm text-label-sm text-secondary">Coordinadora Legal Interna</span>
+<div class="flex items-center gap-2 mt-1 text-secondary font-body-sm text-body-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="mailto:bperalta@novapay.mx">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                    bperalta@novapay.mx
+                  </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tarjeta: Equipo Asignado en LexApp -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_ind</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Equipo Asignado</h2>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline font-medium" type="button">Reasignar</button>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Abogado Titular -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Lic. Alejandro Morales</span>
+<span class="font-label-sm text-label-sm text-secondary">Abogado Titular del Cliente</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold">Titular</span>
+</div>
+<!-- Asociada de Soporte -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Lic. Mariana Rivas</span>
+<span class="font-label-sm text-label-sm text-secondary">Abogada Asociada de Soporte</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary font-label-sm text-label-sm font-semibold">Asociada</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pie de Página / Auditoría y Cumplimiento -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-sm text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">policy</span>
+<span class="font-label-sm text-label-sm leading-normal">
+        Expediente protegido bajo <strong>Secreto Profesional Jurídico</strong> y los lineamientos de la <strong>LFPDPPP</strong> (Ley Federal de Protección de Datos Personales en Posesión de los Particulares).
+      </span>
+</div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm whitespace-nowrap">
+<span>Última modificación: <strong>Hoy, 10:42 AM</strong></span>
+<span>•</span>
+<span>Auditoría de acceso: <strong class="text-on-surface">Lic. Alejandro Morales</strong></span>
+</div>
+</div>
+</div></main></div></body></html>

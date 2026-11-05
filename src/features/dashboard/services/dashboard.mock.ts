@@ -1,10 +1,12 @@
 // MOCK: eliminar al conectar el backend
-import { enMinutos, esperar, haceMinutos, SIMULAR_ERROR_RED } from '@/api/mock-utils'
+import { esperar, haceMinutos, SIMULAR_ERROR_RED } from '@/api/mock-utils'
 import { ErrorApi } from '@/api/errores'
 import {
   contarSolicitudesNuevasMock,
   solicitudesNuevasRecientesMock,
 } from '@/features/solicitudes/services/solicitudes.mock'
+import { proximasReunionesMock } from '@/features/agenda/services/reuniones.mock'
+import { contarExpedientesActivosMock } from '@/features/expedientes/services/expedientes.mock'
 import { movimientosRecientesMock } from '@/features/pagos/services/pagos.mock'
 import { contarPropuestasPendientesMock } from '@/features/propuestas/services/propuestas.mock'
 import type { ResumenDashboard } from '../types/dashboard.types'
@@ -13,18 +15,14 @@ export async function obtenerResumenDashboardMock(): Promise<ResumenDashboard> {
   await esperar()
   if (SIMULAR_ERROR_RED) throw new ErrorApi('red')
 
-  const proximasReuniones = [
-    { id: 'reu-301', titulo: 'Seguimiento de compraventa', cliente: 'Roberto Garza Sada', inicio: enMinutos(45), fin: enMinutos(90), expediente: 'Exp. 305/2026' },
-    { id: 'reu-302', titulo: 'Asesoría inicial: terminación laboral', cliente: 'Elena Santillán Ruiz', inicio: enMinutos(240), fin: enMinutos(285), expediente: null },
-    { id: 'reu-303', titulo: 'Revisión de avances del amparo', cliente: 'Jorge Villaseñor Cano', inicio: enMinutos(60 * 26), fin: enMinutos(60 * 27), expediente: 'Exp. 312/2026' },
-  ]
+  const proximasReuniones = proximasReunionesMock({ limite: 3 })
 
   return {
     indicadores: {
       solicitudesNuevas: contarSolicitudesNuevasMock(),
-      expedientesActivos: 12,
+      expedientesActivos: contarExpedientesActivosMock(),
       propuestasPendientes: contarPropuestasPendientesMock(),
-      proximasReuniones: proximasReuniones.length,
+      proximasReuniones: proximasReunionesMock().length,
     },
     solicitudesNuevas: solicitudesNuevasRecientesMock(3),
     proximasReuniones,

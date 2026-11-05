@@ -47,7 +47,12 @@ A1 abierta directamente (/bienvenida, sin destino): sesión activa ► B1 o A5A 
 | D3 Honorarios y cobros | `/honorarios` | Implementada (`?propuesta=` filtra los movimientos de una propuesta) |
 | D4 Cobro adicional | `/honorarios/cobros/nuevo` | Implementada (`?cliente=&expediente=` precarga desde E2) |
 | D5 Detalle de movimiento | `/honorarios/movimientos/:movimientoId` | Implementada (solo lectura) |
-| E1–E3, F1, F2, G1, G1A, H1, I1, J1, J1A | — | Placeholder dentro del panel |
+| E1 Mis expedientes | `/expedientes` | Implementada (filtros en la URL) |
+| E2 Detalle del expediente | `/expedientes/:expedienteId` | Implementada (actualizaciones, cambio de estado) |
+| E3 Documentos del expediente | `/expedientes/:expedienteId/documentos` | Implementada (vista previa, descarga, carga y revisión) |
+| F1 Directorio de clientes | `/clientes` | Implementada |
+| F2 Detalle del cliente | `/clientes/:clienteId` | Implementada |
+| G1, G1A, H1, I1, J1, J1A | — | Placeholder dentro del panel |
 
 Enlaces de retorno: A2A y A2B → P02; A2C → A2B; A2D → P02 (el código es de un solo uso);
 A3A "Corregir" → A3; A4 "Anterior" → A3; A5 "Anterior" → A4.
@@ -57,6 +62,8 @@ Desde A5A: `validado` → B1 ("Ingresar a mi despacho"); `requiere_correccion` �
 Sección D: C2 "Crear propuesta" → D1 (`state` con cliente y solicitud) → D2 con aviso ·
 D2 aceptada → crear/ver expediente (E2) · D2 → D3 `?propuesta=` · D3 → D4 → D5 (`replace`, aviso) ·
 D3 → D5 · D3 → D2 · D3 → J1A · D5 → F2 (cliente) y E2 (expediente).
+Secciones E y F: E1 → E2 → E3 · E2 → F2, H1 (chat), G1 (agenda), G1A (reunión), D4 (`?cliente=&expediente=`), D5 ·
+E3 → E2 · F1 → F2 → E2, E3, D5, H1 · D2 aceptada → E2.
 
 ## Decisiones de Arquitectura y Navegación
 

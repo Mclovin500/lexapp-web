@@ -7,6 +7,7 @@ import { buscarClienteMock } from '@/features/clientes/services/clientes.mock'
 import { agregarExpedienteMock } from '@/features/expedientes/services/expedientes.mock'
 import { tieneMovimientosDePropuestaMock } from '@/features/pagos/services/pagos.mock'
 import {
+  areaDeSolicitudMock,
   marcarSolicitudAtendidaMock,
   validarSolicitudDeClienteMock,
 } from '@/features/solicitudes/services/solicitudes.mock'
@@ -141,6 +142,13 @@ function normalizar(texto: string): string {
   return texto.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
 }
 
+/** Para el estado del cliente y el historial de interacción de F1/F2. */
+export function propuestasDeClienteMock(clienteId: string): Pick<PropuestaMock, 'id' | 'folio' | 'servicio' | 'estado' | 'fechaCreacion' | 'fechaEnvio'>[] {
+  return propuestasMock
+    .filter((p) => p.cliente.id === clienteId)
+    .map(({ id, folio, servicio, estado, fechaCreacion, fechaEnvio }) => ({ id, folio, servicio, estado, fechaCreacion, fechaEnvio }))
+}
+
 /** Para el indicador "Propuestas pendientes" del Dashboard. */
 export function contarPropuestasPendientesMock(): number {
   return propuestasMock.filter((p) => p.estado === 'enviada' || p.estado === 'pendiente_respuesta').length
@@ -251,6 +259,9 @@ export async function crearExpedienteMock(id: string): Promise<RespuestaCrearExp
     folio: `Exp. ${consecutivoExpediente}/2026`,
     asunto: propuesta.servicio,
     clienteId: propuesta.cliente.id,
+    areaJuridica: (propuesta.solicitud && areaDeSolicitudMock(propuesta.solicitud.id)) ?? 'Por definir',
+    descripcion: propuesta.descripcion,
+    propuesta: { id: propuesta.id, folio: propuesta.folio },
   })
   consecutivoExpediente += 1
   propuesta.expedienteId = expedienteId

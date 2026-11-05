@@ -53,11 +53,21 @@ export const ENDPOINTS = {
     movimiento: (id: string) => `/honorarios/movimientos/${encodeURIComponent(id)}`, // D5
     cobros: '/honorarios/cobros', // D4 (POST crear cobro adicional)
   },
-  /** Opciones para selectores (D1, D4) mientras no existan F1 y E1. */
   clientes: {
-    opciones: '/clientes/opciones',
+    opciones: '/clientes/opciones', // D1, D4 (selectores)
+    listado: '/clientes', // F1
+    detalle: (id: string) => `/clientes/${encodeURIComponent(id)}`, // F2
   },
   expedientes: {
-    opciones: '/expedientes/opciones', // ?clienteId=
+    opciones: '/expedientes/opciones', // D4 (?clienteId=)
+    listado: '/expedientes', // E1
+    detalle: (id: string) => `/expedientes/${encodeURIComponent(id)}`, // E2
+    actualizaciones: (id: string) => `/expedientes/${encodeURIComponent(id)}/actualizaciones`, // E2 (POST)
+    estado: (id: string) => `/expedientes/${encodeURIComponent(id)}/estado`, // E2 (PATCH)
+    documentos: (id: string) => `/expedientes/${encodeURIComponent(id)}/documentos`, // E3 (GET listado, POST cargar)
+    documento: (id: string, documentoId: string) =>
+      `/expedientes/${encodeURIComponent(id)}/documentos/${encodeURIComponent(documentoId)}`, // E3 (PATCH revisar)
+    urlDocumento: (id: string, documentoId: string) =>
+      `/expedientes/${encodeURIComponent(id)}/documentos/${encodeURIComponent(documentoId)}/url`, // E3 vista previa y descarga
   },
 } as const
