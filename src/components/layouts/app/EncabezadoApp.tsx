@@ -65,7 +65,7 @@ export function EncabezadoApp({ cuenta, onAbrirMenu }: EncabezadoAppProps) {
             aria-label={etiquetasShell.profile}
             className="ml-2 flex items-center gap-3 rounded-lg px-2 py-1 hover:bg-surface-container-low transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
-            <Avatar nombre={cuenta.nombreCompleto} size="sm" />
+            <Avatar nombre={cuenta.nombreCompleto} foto={cuenta.fotoUrl} size="sm" />
             <span className="hidden md:flex flex-col text-left">
               <span className="text-label-md text-on-surface font-semibold leading-tight">{nombre}</span>
               <span

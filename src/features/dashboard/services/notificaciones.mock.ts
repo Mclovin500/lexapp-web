@@ -35,7 +35,7 @@ const notificacionesMock: Notificacion[] = [
     fecha: haceMinutos(180), leida: false, destino: { expedienteId: 'exp-298' },
   },
   {
-    id: 'not-06', tipo: 'nuevo_mensaje', referencia: 'Patricia Ortiz Medina',
+    id: 'not-06', tipo: 'nuevo_mensaje', referencia: 'Elena Santillán Ruiz · Exp. 298/2026',
     descripcion: '"Gracias, licenciado. Le envío mañana la documentación que me pidió."',
     fecha: haceMinutos(60 * 20), leida: true, destino: { conversacionId: 'con-77' },
   },

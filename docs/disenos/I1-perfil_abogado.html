@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#bec6e0", "on-tertiary": "#ffffff", "error": "#ba1a1a", "secondary-container": "#dae2fd", "on-secondary": "#ffffff", "surface-container-highest": "#d3e4fe", "tertiary": "#006398", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#93ccff", "on-primary-fixed-variant": "#005234", "surface": "#f8f9ff", "on-surface-variant": "#3c4a41", "tertiary-container": "#48a8ed", "on-error": "#ffffff", "on-tertiary-container": "#003b5c", "inverse-surface": "#213145", "primary": "#006c47", "on-tertiary-fixed-variant": "#004b73", "on-primary-fixed": "#002112", "inverse-primary": "#4cdf9e", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#3f465c", "outline-variant": "#bbcabf", "surface-container-lowest": "#ffffff", "on-secondary-container": "#5c647a", "surface-dim": "#cbdbf5", "secondary": "#565e74", "background": "#f8f9ff", "primary-container": "#00b87b", "primary-fixed": "#6dfcb8", "on-primary-container": "#004129", "surface-container": "#e5eeff", "tertiary-fixed": "#cce5ff", "surface-variant": "#d3e4fe", "outline": "#6c7a71", "surface-container-high": "#dce9ff", "error-container": "#ffdad6", "secondary-fixed": "#dae2fd", "on-surface": "#0b1c30", "primary-fixed-dim": "#4cdf9e", "on-background": "#0b1c30", "on-tertiary-fixed": "#001d31", "on-error-container": "#93000a", "surface-tint": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "margin-compact": "1.25rem", "space-2xl": "3rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-compact": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "headline-sm": ["Inter"], "label-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none">LexApp</span><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase mt-space-xs">Legal Suite</span></div></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider px-space-xs">Gestión Jurídica</span></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="casos-y-expedientes" href="#"><span class="font-body-md text-body-md">Casos y expedientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="clientes" href="#"><span class="font-body-md text-body-md">Clientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="propuestas-y-facturacion" href="#"><span class="font-body-md text-body-md">Propuestas y facturación</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="font-body-md text-body-md">Calendario</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="mensajes" href="#"><span class="font-body-md text-body-md">Mensajes</span><span class="h-5 min-w-[20px] px-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm flex items-center justify-center font-bold">4</span></a><div class="my-space-xs pt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</span></div><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="configuracion" href="#"><span class="font-body-md text-body-md">Configuración</span></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-2 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="perfil-profesional" href="#"><span class="font-body-md text-body-md">Perfil profesional</span></a></nav></div><div class="p-space-md bg-surface-container-low m-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs text-primary"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Conexión Segura TLS 1.3</span></div><div class="flex items-center justify-between text-secondary font-label-sm text-label-sm"><span>LexApp Suite</span><span class="font-mono">v2.4 LTS</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center w-96"><div class="w-full flex items-center justify-between bg-surface-container-lowest px-space-md py-2 rounded-lg shadow-[0_1px_3px_rgba(15,23,42,0.04)] focus-within:ring-2 focus-within:ring-primary-container"><div class="flex items-center gap-space-sm text-secondary flex-1"><span class="material-symbols-outlined text-[20px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar casos, clientes o expedientes..." type="text"/></div><div class="flex items-center gap-0.5 bg-surface-container px-1.5 py-0.5 rounded text-secondary font-label-sm text-label-sm font-mono"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">mail</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span></button><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none">Lic. Alejandro Morales</span><div class="flex items-center gap-1 mt-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-primary font-semibold">Colegiado Activo</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-lg pb-space-2xl">
+<!-- Encabezado de Página y Acciones -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<span>Administración</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Mi perfil profesional</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Mi perfil profesional</h1>
+<p class="font-body-md text-body-md text-secondary max-w-3xl">
+        Información pública y corporativa del titular, credenciales académicas verificadas y parámetros de atención legal en la plataforma.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-10 px-4 rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container-low transition-all flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">calendar_clock</span>
+<span>Configurar disponibilidad</span>
+</button>
+<button class="h-10 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-all flex items-center gap-space-xs font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">edit_square</span>
+<span>Editar perfil</span>
+</button>
+</div>
+</div>
+<!-- Hero Profile Card (Nivel 1 de elevación, estilo sovereign trust) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col xl:flex-row gap-space-xl items-start justify-between relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-gradient-to-br from-primary-fixed/30 via-surface-container-low to-transparent pointer-events-none opacity-60"></div>
+<!-- Info del Abogado y Avatar -->
+<div class="flex flex-col sm:flex-row gap-space-lg items-start relative z-10">
+<div class="relative shrink-0">
+<div class="w-32 h-32 rounded-xl overflow-hidden shadow-md bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Retrato fotográfico formal de estudio para socio de firma jurídica, Lic. Alejandro Morales, hombre mexicano en sus 40s vistiendo traje formal azul marino con corbata sobria, fondo neutro arquitectónico contemporáneo, iluminación suave y mirada segura y cordial, alta definición." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwX5spdlqoXAP4V66K9W5A-KFRMniEvCDVIymHMWcLQlBtY0isqUIAN06NfPw5Tc55J5mFwjnYJCX2Nfi-6hho_yjSLsdh3Gb6WNp0LJFtGiam7G5diV8j4aO1R1wqE7qdI-Adm1fRoHVU-xYK-L7WrBXYlMJR8ojKSfbnHQWXno1totGanzT95V6hCRABjFBRYUW_xianD6FYpaeRxDWikxr9Vyx9RMFQfDEdTobo"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-surface-container-lowest px-2 py-0.5 rounded-full shadow-sm flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">En línea</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Lic. Alejandro Morales Garza</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/20 text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+            Titular Verificado
+          </span>
+</div>
+<p class="font-body-lg text-body-lg text-primary font-medium">
+          Especialista en Derecho Mercantil, Corporativo &amp; M&amp;A
+        </p>
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 mt-space-xs text-secondary font-label-md text-label-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">history_edu</span>
+<span>14 años de ejercicio profesional</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">domain</span>
+<span>Socio Titular / Fundador</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+<span>Ciudad de México, México</span>
+</div>
+</div>
+<!-- Hash de verificación institucional y colegiatura -->
+<div class="mt-3 pt-3 flex flex-wrap items-center gap-3">
+<div class="bg-surface-container-low px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">fingerprint</span>
+<span class="font-mono text-body-sm text-body-sm text-secondary tracking-tight">ID-LEX: 9942-MORALES-MX</span>
+</div>
+<div class="bg-surface-container-low px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">gavel</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">INCAM Matrícula: <strong class="text-on-surface">#14892</strong></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Official DGP/SEP Professional License Validation Box -->
+<div class="w-full xl:w-[480px] bg-surface-container-low/80 rounded-xl p-space-md flex flex-col gap-space-sm relative z-10 shrink-0">
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Cédulas Profesionales DGP / SEP</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+          Vigentes &amp; Auténticas
+        </span>
+</div>
+<!-- Cédula 1: Licenciatura -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-semibold text-primary">Cédula Núm. 7482910-DGP</span>
+<span class="font-label-sm text-label-sm text-secondary">Licenciatura en Derecho</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Universidad Nacional Autónoma de México (UNAM) — Facultad de Derecho</span>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mt-1">
+<span class="text-primary font-semibold">Validada Oficialmente ante Dirección General de Profesiones</span>
+<span class="font-mono text-secondary">Folio #SEP-DGP-2024-88419</span>
+</div>
+</div>
+<!-- Cédula 2: Maestría -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-mono font-semibold text-primary">Cédula Maestría Núm. 9182304-DGP</span>
+<span class="font-label-sm text-label-sm text-secondary">Posgrado</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Maestría en Derecho Corporativo y Bursátil — Universidad Panamericana</span>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mt-1">
+<span class="text-primary font-semibold">Validada Oficialmente ante DGP/SEP</span>
+<span class="font-mono text-secondary">Folio #SEP-DGP-2023-11209</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm px-1 pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+          Cotejo con Registro Nacional de Profesionistas
+        </span>
+<span class="font-mono">Audit: 14/01/2024</span>
+</div>
+</div>
+</div>
+<!-- Main Body Grid (Left 65%, Right 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column (65% / col-span-8) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- A. Biografía Profesional -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">article</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Semblanza y Biografía Profesional</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Resumen Curricular</span>
+</div>
+<div class="space-y-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<p>
+            Abogado postulante y consultor corporativo con más de 14 años de trayectoria en litigio mercantil de alta cuantía, reestructuración societaria y operaciones de capital de riesgo (Venture Capital &amp; Private Equity). Ha liderado más de 180 transacciones de inversión y financiamiento estructurado para empresas de base tecnológica y grupos financieros en México y Latinoamérica.
+          </p>
+<p>
+            Miembro activo del Ilustre y Nacional Colegio de Abogados de México (INCAM) y árbitro del Centro de Arbitraje de México (CAM). Su práctica se caracteriza por el rigor técnico, la protección preventiva de activos fiduciarios y la transparencia probatoria.
+          </p>
+</div>
+<!-- Idiomas -->
+<div class="mt-space-xs pt-space-md bg-surface-container-low p-space-md rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">translate</span>
+            Idiomas de Despacho y Audiencias:
+          </span>
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Español</span>
+<span class="font-label-sm text-label-sm text-secondary">(Nativo)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Inglés Jurídico</span>
+<span class="font-label-sm text-label-sm text-secondary">(C2 Profesional - Cambridge Legal)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- B. Áreas de Práctica Jurídica -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">category</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Áreas de Práctica &amp; Especialización</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">6 Especialidades activas</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<!-- Item 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Derecho Corporativo &amp; Societario</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-on-primary-fixed-variant font-label-sm text-label-sm font-bold">Principal</span>
+</div>
+<div class="flex items-center justify-between text-secondary font-body-sm text-body-sm pt-1">
+<span>68 expedientes dirigidos</span>
+<span class="material-symbols-outlined text-[18px] text-primary">corporate_fare</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Fusiones &amp; Adquisiciones (M&amp;A)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">Avanzado</span>
+</div>
+<div class="flex items-center justify-between text-secondary font-body-sm text-body-sm pt-1">
+<span>42 transacciones concluidas</span>
+<span class="material-symbols-outlined text-[18px] text-primary">handshake</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Litigio Mercantil y Arbitraje Comercial</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">Titular</span>
+</div>
+<div class="flex items-center justify-between text-secondary font-body-sm text-body-sm pt-1">
+<span>55 juicios federales</span>
+<span class="material-symbols-outlined text-[18px] text-primary">balance</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Venture Capital y Rondas de Inversión</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">Especialista</span>
+</div>
+<div class="flex items-center justify-between text-secondary font-body-sm text-body-sm pt-1">
+<span>SAFE, Convertible Notes &amp; Term Sheets</span>
+<span class="material-symbols-outlined text-[18px] text-primary">trending_up</span>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Regulación Fintech y Cumplimiento CNBV</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">Fintech Law</span>
+</div>
+<div class="flex items-center justify-between text-secondary font-body-sm text-body-sm pt-1">
+<span>Compliance &amp; Sandbox Regulatorio</span>
+<span class="material-symbols-outlined text-[18px] text-primary">security</span>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Gobierno Corporativo y Fideicomisos</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">Estructuración</span>
+</div>
+<div class="flex items-center justify-between text-secondary font-body-sm text-body-sm pt-1">
+<span>Consejos de Administración &amp; Fiduciaria</span>
+<span class="material-symbols-outlined text-[18px] text-primary">account_balance</span>
+</div>
+</div>
+</div>
+</div>
+<!-- C. Trayectoria Académica y Colegiaturas -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">school</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Trayectoria Académica y Colegiaturas</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">Registro Histórico</span>
+</div>
+<div class="relative pl-6 space-y-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container">
+<!-- Hito 1 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Maestría en Derecho Corporativo y Financiero</span>
+<span class="font-mono text-body-sm text-body-sm text-secondary">2016 – 2018</span>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">Universidad Panamericana</span>
+<p class="font-body-sm text-body-sm text-secondary">Graduado con Mención Honorífica. Tesis en reestructuraciones transfronterizas de deuda mercantil.</p>
+</div>
+</div>
+<!-- Hito 2 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Licenciatura en Derecho</span>
+<span class="font-mono text-body-sm text-body-sm text-secondary">2007 – 2012</span>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">Facultad de Derecho, Universidad Nacional Autónoma de México (UNAM)</span>
+<p class="font-body-sm text-body-sm text-secondary">Titulado con Mención Honorífica y Medalla al Mérito Universitario.</p>
+</div>
+</div>
+<!-- Hito 3 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-secondary ring-4 ring-surface-container-lowest"></div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Diplomado en Regulación de Entidades Fintech</span>
+<span class="font-mono text-body-sm text-body-sm text-secondary">2020</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Instituto Tecnológico Autónomo de México (ITAM)</span>
+<p class="font-body-sm text-body-sm text-secondary">Especialización en modelos novedosos (Sandbox), Open Banking y prevención de PLD/FT.</p>
+</div>
+</div>
+<!-- Hito 4 - Colegiación -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Ilustre y Nacional Colegio de Abogados de México (INCAM)</span>
+<span class="font-mono text-body-sm text-body-sm text-secondary">Miembro Vigente</span>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">Miembro Titular con Certificación Profesional Anual</span>
+<p class="font-body-sm text-body-sm text-secondary">Adscrito a la Comisión de Derecho Mercantil y Bursátil. Folio de Miembro #14892.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (35% / col-span-4) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- D. Parámetros de Disponibilidad Profesional -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">event_available</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Régimen de Atención</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">tune</span>
+</div>
+<!-- Status Pill -->
+<div class="p-space-sm rounded-lg bg-primary-container/15 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary-container"></span>
+</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Disponible para nuevos casos</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">ACTIVO</span>
+</div>
+<!-- Horarios -->
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Horarios de Consulta</span>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-1.5 font-body-sm text-body-sm">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-medium">Lunes a Viernes</span>
+<span class="font-mono text-on-surface-variant font-semibold">09:00 - 18:30 hrs</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-medium">Sábados</span>
+<span class="text-secondary">Guardias y términos urgentes</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-medium">Domingos</span>
+<span class="text-error font-medium">Inhábil procesal</span>
+</div>
+</div>
+</div>
+<!-- Modalidades de Atención -->
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Modalidades Habilitadas</span>
+<div class="space-y-1.5 font-body-sm text-body-sm">
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">location_city</span>
+<div class="flex flex-col">
+<span class="font-medium">Presencial en Oficina</span>
+<span class="font-label-sm text-label-sm text-secondary">Torre Virreyes, Piso 18, Lomas de Chapultepec, CDMX</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">video_call</span>
+<div class="flex flex-col">
+<span class="font-medium">Videollamada Cifrada LexApp Live</span>
+<span class="font-label-sm text-label-sm text-secondary">Cifrado de extremo a extremo e2ee</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">account_balance</span>
+<div class="flex flex-col">
+<span class="font-medium">Comparecencias en Tribunales</span>
+<span class="font-label-sm text-label-sm text-secondary">Juzgados de Distrito y Salas Especializadas</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SLA y Accion -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-high/40 text-on-surface font-label-md text-label-md">
+<span class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+            Respuesta promedio:
+          </span>
+<span class="font-semibold text-primary">&lt; 2 hrs hábiles</span>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+<span>Ajustar agenda y turnos</span>
+</button>
+</div>
+<!-- E. Métricas y Desempeño en LexApp -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">analytics</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Métricas en LexApp</h3>
+</div>
+<span class="font-label-sm text-label-sm font-mono text-secondary">Ciclo 2024</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Casos Activos</span>
+<span class="font-display-lg text-display-lg text-on-surface leading-none font-bold">19</span>
+<span class="font-label-sm text-label-sm text-primary">Bajo patrocinio</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Clientes Corp.</span>
+<span class="font-display-lg text-display-lg text-on-surface leading-none font-bold">42</span>
+<span class="font-label-sm text-label-sm text-primary">Empresas retenidas</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Tasa Éxito</span>
+<span class="font-headline-lg text-headline-lg text-on-surface leading-tight font-bold">94.2%</span>
+<span class="font-label-sm text-label-sm text-primary">Resolución favorable</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Satisfacción</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-on-surface leading-tight font-bold">4.9</span>
+<span class="font-label-sm text-label-sm text-secondary">/ 5.0</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-primary-container font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+              128 valoraciones
+            </span>
+</div>
+</div>
+<!-- Inline Visual: Gráfica de actividad trimestral -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm">
+<span>Resoluciones por Trimestre</span>
+<span class="font-semibold text-primary">Últimos 12 meses</span>
+</div>
+<div class="h-14 w-full flex items-end justify-between gap-2 px-1 pt-2">
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="w-full bg-primary-container/40 rounded-t h-8"></div>
+<span class="font-label-sm text-label-sm text-secondary">Q1</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="w-full bg-primary-container/60 rounded-t h-10"></div>
+<span class="font-label-sm text-label-sm text-secondary">Q2</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="w-full bg-primary-container/80 rounded-t h-9"></div>
+<span class="font-label-sm text-label-sm text-secondary">Q3</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="w-full bg-primary-container rounded-t h-12"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Q4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- F. Protocolo de Transparencia y Secreto Profesional -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Transparencia &amp; Secreto Fiduciario</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+          Perfil Auditado por LexApp Core. Sujeto a estrictos protocolos de secreto profesional conforme al Código de Ética de la Barra Mexicana y la Ley Federal de Protección de Datos Personales en Posesión de Particulares (LFPDPPP).
+        </p>
+<div class="pt-2 flex items-center justify-between text-secondary font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            Cifrado TLS 1.3 + FIPS 140-2
+          </span>
+<span class="font-mono">Rev. 2024.1</span>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#bec6e0", "on-tertiary": "#ffffff", "error": "#ba1a1a", "secondary-container": "#dae2fd", "on-secondary": "#ffffff", "surface-container-highest": "#d3e4fe", "tertiary": "#006398", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#93ccff", "on-primary-fixed-variant": "#005234", "surface": "#f8f9ff", "on-surface-variant": "#3c4a41", "tertiary-container": "#48a8ed", "on-error": "#ffffff", "on-tertiary-container": "#003b5c", "inverse-surface": "#213145", "primary": "#006c47", "on-tertiary-fixed-variant": "#004b73", "on-primary-fixed": "#002112", "inverse-primary": "#4cdf9e", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#3f465c", "outline-variant": "#bbcabf", "surface-container-lowest": "#ffffff", "on-secondary-container": "#5c647a", "surface-dim": "#cbdbf5", "secondary": "#565e74", "background": "#f8f9ff", "primary-container": "#00b87b", "primary-fixed": "#6dfcb8", "on-primary-container": "#004129", "surface-container": "#e5eeff", "tertiary-fixed": "#cce5ff", "surface-variant": "#d3e4fe", "outline": "#6c7a71", "surface-container-high": "#dce9ff", "error-container": "#ffdad6", "secondary-fixed": "#dae2fd", "on-surface": "#0b1c30", "primary-fixed-dim": "#4cdf9e", "on-background": "#0b1c30", "on-tertiary-fixed": "#001d31", "on-error-container": "#93000a", "surface-tint": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "margin-compact": "1.25rem", "space-2xl": "3rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-compact": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "headline-sm": ["Inter"], "label-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none">LexApp</span><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase mt-space-xs">Legal Suite</span></div></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider px-space-xs">Gestión Jurídica</span></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="casos-y-expedientes" href="#"><span class="font-body-md text-body-md">Casos y expedientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="clientes" href="#"><span class="font-body-md text-body-md">Clientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="propuestas-y-facturacion" href="#"><span class="font-body-md text-body-md">Propuestas y facturación</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="font-body-md text-body-md">Calendario</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="mensajes" href="#"><span class="font-body-md text-body-md">Mensajes</span><span class="h-5 min-w-[20px] px-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm flex items-center justify-center font-bold">4</span></a><div class="my-space-xs pt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</span></div><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="configuracion" href="#"><span class="font-body-md text-body-md">Configuración</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="perfil-profesional" href="#"><span class="font-body-md text-body-md">Perfil profesional</span></a></nav></div><div class="p-space-md bg-surface-container-low m-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs text-primary"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Conexión Segura TLS 1.3</span></div><div class="flex items-center justify-between text-secondary font-label-sm text-label-sm"><span>LexApp Suite</span><span class="font-mono">v2.4 LTS</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center w-96"><div class="w-full flex items-center justify-between bg-surface-container-lowest px-space-md py-2 rounded-lg shadow-[0_1px_3px_rgba(15,23,42,0.04)] focus-within:ring-2 focus-within:ring-primary-container"><div class="flex items-center gap-space-sm text-secondary flex-1"><span class="material-symbols-outlined text-[20px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar casos, clientes o expedientes..." type="text"/></div><div class="flex items-center gap-0.5 bg-surface-container px-1.5 py-0.5 rounded text-secondary font-label-sm text-label-sm font-mono"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">mail</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span></button><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none">Lic. Alejandro Morales</span><div class="flex items-center gap-1 mt-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-primary font-semibold">Colegiado Activo</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-space-xl py-space-xl"><div class="flex flex-col w-full">
+<!-- Interactive State Controller Bar (Simulador Auditoría) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md mb-space-lg shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Simulador de Estados de Auditoría STP / Banxico</p>
+<p class="font-body-sm text-body-sm text-secondary">Herramienta interactiva para alternar la pantalla entre los 4 ciclos del expediente financiero</p>
+</div>
+</div>
+<!-- Toggle Buttons -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container rounded-lg" id="audit-tabs">
+<button class="px-3 py-1.5 rounded font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all flex items-center gap-1" id="tab-unregistered" onclick="setAuditState('unregistered')">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+        1. Sin cuenta
+      </button>
+<button class="px-3 py-1.5 rounded font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all flex items-center gap-1" id="tab-pending" onclick="setAuditState('pending')">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+        2. Pendiente
+      </button>
+<button class="px-3 py-1.5 rounded font-label-sm text-label-sm bg-surface-container-lowest text-primary font-semibold shadow-sm transition-all flex items-center gap-1" id="tab-verified" onclick="setAuditState('verified')">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+        3. Verificada (Activa)
+      </button>
+<button class="px-3 py-1.5 rounded font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all flex items-center gap-1" id="tab-rejected" onclick="setAuditState('rejected')">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+        4. Rechazada
+      </button>
+</div>
+</section>
+<!-- Encabezado de Navegación y Título -->
+<header class="flex flex-col gap-space-sm mb-space-xl">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<nav class="flex items-center gap-2 font-label-sm text-label-sm text-secondary">
+<span>Inicio</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Administración</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Configuración (J1)</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Cuenta de depósito / honorarios</span>
+</nav>
+<div class="flex items-center gap-space-sm">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors shadow-sm font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+          Volver a Configuración (J1)
+        </a>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mt-2">
+<div class="flex flex-col max-w-3xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Cuenta de depósito / honorarios</h1>
+<p class="font-body-md text-body-md text-secondary mt-1">
+          Parametrización de la cuenta receptora institucional del abogado colegiado. Las dispersiones líquidas se liberan automáticamente vía SPEI al confirmarse el cumplimiento de hitos procesales ganados y autos ejecutorios.
+        </p>
+</div>
+<!-- Trust Badge -->
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-xl shadow-sm self-start lg:self-auto">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wide">SPEI Fiduciario STP Nivel 4</span>
+<span class="font-mono text-body-sm text-secondary font-semibold">LEX-FID-7492-CDMX</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Banner Dinámico según Estado de Verificación -->
+<div class="mb-space-xl" id="state-banner-container">
+<!-- Estado 3: VERIFICADA (Default) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" id="banner-verified">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-label-lg text-label-lg text-on-surface">Cuenta de dispersión activa y verificada oficialmente (Auditada STP / Banxico)</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Cotejo SAT &amp; DGP Válido</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+            Registro bancario certificado con clave de rastreo Banxico. Los depósitos de expedientes judiciales se procesan sin intermediarios a esta cuenta institucional.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">Conexión STP Direct Activa</span>
+</div>
+</div>
+<!-- Estado 1: SIN CUENTA (Oculto) -->
+<div class="hidden p-space-md rounded-xl bg-surface-container shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" id="banner-unregistered">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+<div>
+<h2 class="font-label-lg text-label-lg text-on-surface">Sin cuenta receptora institucional configurada</h2>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+            Para recibir transferencias SPEI directas de honorarios regulados, vincule la cuenta bancaria de cheques o débito fiscal del titular colegiado.
+          </p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm font-semibold">Acción requerida</span>
+</div>
+<!-- Estado 2: PENDIENTE (Oculto) -->
+<div class="hidden p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" id="banner-pending">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px] animate-spin">sync</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-label-lg text-label-lg text-on-surface">Verificación fiduciaria en proceso (STP / Banxico)</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm">Estimado: ~15 minutos</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+            Hemos emitido la micro-dispersión testigo ($0.01 MXN). Estamos corroborando la titularidad de la CLABE con la base nacional de participantes de Banxico.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-semibold text-secondary">Validando Cédula y RFC</span>
+</div>
+</div>
+<!-- Estado 4: RECHAZADA (Oculto) -->
+<div class="hidden p-space-md rounded-xl bg-error-container text-on-error-container shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" id="banner-rejected">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-on-error-container/10 flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[20px]">error</span>
+</div>
+<div>
+<h2 class="font-label-lg text-label-lg font-bold">Discrepancia detectada en titularidad de cuenta receptora</h2>
+<p class="font-body-sm text-body-sm mt-0.5 opacity-90">
+            El nombre registrado en la CLABE no coincide con el RFC fiscal (MOSA820415-K30) o Cédula DGP. Conforme a las reglas fiduciarias CNBV, no se admiten cuentas de terceros.
+          </p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-error-container font-label-sm text-label-sm font-semibold shadow-sm hover:opacity-90" onclick="document.getElementById('clabe-input').focus();">
+        Corregir CLABE
+      </button>
+</div>
+</div>
+<!-- Contenido Principal: Grilla 12 Columnas -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Columna Izquierda: Tarjeta de Cuenta Activa + Información Fiscal (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Card Bancaria de Alta Seguridad (Visible en Estado Verificado y Pendiente) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden" id="card-receptora-container">
+<!-- Background Decorative Geometric Lines -->
+<div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-surface-container-high opacity-40 pointer-events-none"></div>
+<div class="absolute right-12 bottom-6 w-32 h-32 rounded-full bg-surface-container opacity-30 pointer-events-none"></div>
+<div>
+<!-- Header de Tarjeta -->
+<div class="flex items-center justify-between pb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold text-headline-sm">
+                BBVA
+              </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">BBVA México Institucional</span>
+<span class="font-body-sm text-body-sm text-secondary">SPEI STP Direct • México</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold" id="status-pill">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Cuenta Activa
+            </div>
+</div>
+<!-- Microchip & Contactless Vector Representation -->
+<div class="my-space-md flex items-center justify-between">
+<div class="w-12 h-9 rounded bg-surface-container-high flex items-center justify-center p-1">
+<div class="w-full h-full rounded-sm bg-surface-container flex flex-col justify-around p-0.5">
+<div class="h-0.5 w-full bg-surface-variant"></div>
+<div class="h-0.5 w-full bg-surface-variant"></div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+<span class="font-label-sm text-label-sm font-mono tracking-wider">HSM FIPS 140-2</span>
+</div>
+</div>
+<!-- CLABE Interbancaria con Toggle de Ojo -->
+<div class="mt-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">CLABE Interbancaria Única</span>
+<button class="text-secondary hover:text-on-surface flex items-center gap-1 font-label-sm text-label-sm" id="toggle-eye-btn" onclick="toggleClabeMask()" title="Mostrar/Ocultar dígitos">
+<span class="material-symbols-outlined text-[18px]" id="eye-icon">visibility</span>
+<span id="eye-text">Mostrar</span>
+</button>
+</div>
+<div class="font-mono text-headline-sm text-headline-sm text-on-surface tracking-wider mt-1 select-all font-semibold" id="clabe-display">
+              6461 8015 7044 •••• 90
+            </div>
+</div>
+<!-- Titular & Datos Jurídicos -->
+<div class="grid grid-cols-2 gap-space-md mt-space-lg pt-space-md bg-surface-container-low rounded-xl p-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-secondary block">Titular Acreditado</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold block mt-0.5">Lic. Alejandro Morales Santillán</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Constancia Fiscal Válida
+              </span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary block">Tipo de Contrato</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold block mt-0.5">Cheques Empresarial</span>
+<span class="font-body-sm text-body-sm text-secondary block mt-0.5">Divisa: MXN Pesos</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary block">RFC Fiscal</span>
+<span class="font-mono font-label-md text-label-md text-on-surface font-semibold block mt-0.5">MOSA820415-K30</span>
+<span class="font-label-sm text-label-sm text-secondary">Coincidente 100%</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary block">Cédula Profesional</span>
+<span class="font-mono font-label-md text-label-md text-on-surface font-semibold block mt-0.5">DGP-7824109</span>
+<span class="font-label-sm text-label-sm text-primary">Validada en RNP</span>
+</div>
+</div>
+</div>
+<!-- Acciones Inferiores de la Tarjeta -->
+<div class="mt-space-lg pt-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+            Descargar CEP (Banxico)
+          </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-container transition-colors font-label-sm text-label-sm font-semibold shadow-sm" onclick="focusForm()" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+            Actualizar datos bancarios
+          </button>
+</div>
+</div>
+<!-- Tarjeta Alternativa cuando NO hay cuenta registrada -->
+<div class="hidden bg-surface-container-lowest rounded-xl p-space-xl shadow-sm text-center flex flex-col items-center justify-center" id="card-empty-placeholder">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-secondary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">credit_card_off</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">No hay cuenta receptora registrada</h3>
+<p class="font-body-md text-body-md text-secondary mt-1 max-w-sm">
+          Complete el formulario lateral con su CLABE interbancaria oficial para activar la recepción de fondos por resoluciones judiciales.
+        </p>
+<div class="mt-space-lg flex items-center gap-2 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+          Cifrado bancario de extremo a extremo
+        </div>
+</div>
+<!-- Certificado Fiduciario NOM-151 & Hash SHA-256 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">workspace_premium</span>
+<span class="font-label-lg text-label-lg text-on-surface">Certificación NOM-151 &amp; Trazabilidad STP</span>
+</div>
+<span class="font-mono font-label-sm text-label-sm text-secondary">SHA-256</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+          Constancia de conservación de mensajes de datos con validez probatoria plena ante tribunales federales mercantiles.
+        </p>
+<div class="bg-surface-container-low p-2.5 rounded-lg mt-space-sm font-mono text-body-sm text-secondary break-all">
+          0x9a8f2e1b4c7308d95e6f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d
+        </div>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs text-secondary font-label-sm text-label-sm">
+<span>Sello: PSC Autorizado Secretaría de Economía</span>
+<span>Folio: 2024-STP-883492</span>
+</div>
+</div>
+</div>
+<!-- Columna Derecha: Formulario de Modificación / Captura (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg" id="form-panel">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm">
+<!-- Form Header -->
+<div class="flex items-center justify-between pb-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface" id="form-title">Modificar cuenta receptora</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm font-semibold">18 dígitos SPEI</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-1">
+              Las modificaciones de cuenta pasan por una validación de seguridad de 15 minutos previo a su primer abono.
+            </p>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+</div>
+<form class="flex flex-col gap-space-md" onsubmit="handleFormSubmit(event)">
+<!-- Campo 1: Titular de la Cuenta (Readonly/Advised) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between" for="titular-input">
+<span>Nombre completo del titular acreditado</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Debe coincidir con RFC</span>
+</label>
+<div class="relative">
+<input class="w-full h-10 px-3 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-lowest shadow-sm" id="titular-input" required="" type="text" value="Lic. Alejandro Morales Santillán"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-primary text-[20px]">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+              Cotejado automáticamente con su e.firma SAT: <strong class="font-semibold text-on-surface">MOSA820415-K30</strong>. No se autorizan cuentas mancomunadas con terceros ajenos al juicio.
+            </p>
+</div>
+<!-- Fila de 2 Columnas: Banco y Tipo de Cuenta -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Institución Bancaria -->
+<div class="flex flex-col gap-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="bank-select">Institución bancaria receptora</label>
+<div class="relative">
+<select class="w-full h-10 px-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-lowest shadow-sm appearance-none cursor-pointer" id="bank-select">
+<option selected="" value="012">BBVA México (012)</option>
+<option value="072">Banorte / Ixe (072)</option>
+<option value="014">Santander México (014)</option>
+<option value="002">Citibanamex (002)</option>
+<option value="021">HSBC México (021)</option>
+<option value="044">Scotiabank Inverlat (044)</option>
+<option value="058">Banregio (058)</option>
+<option value="127">Azteca (127)</option>
+<option value="906">STP - Sistema de Transferencias y Pagos (906)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-secondary pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Tipo de Cuenta -->
+<div class="flex flex-col gap-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="account-type-select">Tipo de cuenta bancaria</label>
+<div class="relative">
+<select class="w-full h-10 px-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-lowest shadow-sm appearance-none cursor-pointer" id="account-type-select">
+<option selected="" value="cheques">Cheques Empresarial / P. Física Act. Emp.</option>
+<option value="debito">Débito Profesional Persona Física</option>
+<option value="fideicomiso">Subcuenta de Fideicomiso Notarial</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-secondary pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- CLABE Interbancaria (18 Dígitos) -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface" for="clabe-input">CLABE Interbancaria única (18 dígitos)</label>
+<span class="font-mono font-label-sm text-label-sm text-secondary" id="clabe-counter">18 / 18 dígitos</span>
+</div>
+<div class="relative">
+<input class="w-full h-10 px-3 pr-24 rounded-lg bg-surface-container-low text-on-surface font-mono font-label-lg text-label-lg outline-none focus:bg-surface-container-lowest shadow-sm tracking-wider" id="clabe-input" maxlength="18" oninput="validateClabeInput(this)" placeholder="Ej. 012180001234567890" required="" type="text" value="646180157044238790"/>
+<div class="absolute right-2.5 top-2 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" id="clabe-status-icon">check_circle</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold" id="clabe-status-text">Válida</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-secondary font-body-sm text-body-sm mt-0.5">
+<span>Estructura: 3 banco + 3 plaza + 11 número de cuenta + 1 dígito de control</span>
+<span class="text-primary font-semibold">Algoritmo Banxico OK</span>
+</div>
+</div>
+<!-- Carga de Carátula de Estado de Cuenta (Documentación Probatoria) -->
+<div class="flex flex-col gap-1 mt-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between">
+<span>Carátula de estado de cuenta bancario</span>
+<span class="font-label-sm text-label-sm text-secondary">Opcional para cuentas verificadas / Obligatorio para cambios</span>
+</label>
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Caratula_BBVA_Septiembre_2024.pdf</span>
+<span class="font-body-sm text-body-sm text-secondary block mt-0.5">1.4 MB • Subido y cotejado por IA LexGuard el 14/09/2024</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface text-label-sm font-label-sm font-semibold shadow-sm" type="button">
+                  Reemplazar archivo
+                </button>
+</div>
+</div>
+</div>
+<!-- Aviso de Seguridad y Prueba Testigo de 1 Centavo -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex items-start gap-space-sm mt-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">shield</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Procedimiento de verificación y dispersión testigo</span>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+                Al guardar modificaciones, el motor STP transferirá un abono automático testigo de $0.01 MXN con clave de rastreo para validar su cuenta ante el CEP de Banxico. Además, se solicitará autorización con token OTP enviado a su teléfono móvil colegiado.
+              </p>
+</div>
+</div>
+<!-- Botones de Acción (Form Actions) -->
+<div class="flex flex-wrap items-center justify-end gap-space-sm mt-space-md pt-space-md">
+<a class="px-4 py-2.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg font-semibold text-center" href="#">
+              Cancelar
+            </a>
+<button class="px-5 py-2.5 rounded-lg bg-primary-container text-on-primary-container hover:opacity-95 transition-all font-label-lg text-label-lg font-semibold shadow-sm flex items-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+              Guardar cambios y autorizar
+            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Timeline de Auditoría y Certificación STP (NOM-151) -->
+<section class="mt-space-2xl bg-surface-container-lowest rounded-xl p-space-xl shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-lg mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">history_edu</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Bitácora de Auditoría y Verificación Bancaria</h2>
+<p class="font-body-sm text-body-sm text-secondary">Registro inmutable de pruebas de abono SPEI, cotejos fiduciarios y certificaciones notariales</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm font-semibold">Protocolo PCI-DSS v4.0</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">NOM-151 Secretaría de Economía</span>
+</div>
+</div>
+<!-- Timeline Entries -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Evento 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono font-label-sm text-label-sm text-secondary">14 SEP 2024 • 11:42:08</span>
+<span class="flex items-center gap-1 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+              Acreditado
+            </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Prueba de abono testigo ($0.01 MXN) conciliada</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-1">
+            SPEI con clave de rastreo Banxico <strong class="font-mono text-on-surface">2024091401200147982</strong> reintegrado automáticamente a tesorería STP.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs font-mono text-body-sm text-secondary truncate">
+          CEP: 88472910-BBVA-SAT-OK
+        </div>
+</div>
+<!-- Evento 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono font-label-sm text-label-sm text-secondary">14 SEP 2024 • 11:38:22</span>
+<span class="flex items-center gap-1 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+              Sin Incidencias
+            </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Cotejo de Cédula DGP y RFC fiscal SAT</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-1">
+            Validación de titularidad de la persona física con actividad profesional contra padrón del SAT y Dirección General de Profesiones.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs font-mono text-body-sm text-secondary truncate">
+          Cédula: DGP-7824109 • RFC: MOSA820415
+        </div>
+</div>
+<!-- Evento 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono font-label-sm text-label-sm text-secondary">01 AGO 2024 • 09:15:00</span>
+<span class="flex items-center gap-1 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+              Vigente
+            </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Vinculación a Fideicomiso Maestro LexApp</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-1">
+            Incorporación del letrado como beneficiario fiduciario directo de los fondos en custodia bajo el contrato maestro LEX-FID-7492-CDMX.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs font-mono text-body-sm text-secondary truncate">
+          Fiduciario: Banco STP S.A.
+        </div>
+</div>
+</div>
+</section>
+<!-- Banner Informativo Fiduciario y Preguntas Frecuentes Jurídicas -->
+<section class="mt-space-lg grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-2xl">
+<!-- Seguridad Bancaria FIPS -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">enhanced_encryption</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Infraestructura Fiduciaria de Grado Bancario</h3>
+<p class="font-body-md text-body-md text-secondary">
+          Las liquidaciones no se almacenan en monederos virtuales de LexApp. Se dispersan de forma directa e irrevocable desde la bóveda de fideicomiso STP regulada por la CNBV y Banco de México.
+        </p>
+</div>
+<div class="mt-space-lg flex flex-col gap-2 pt-space-md">
+<div class="flex items-center gap-2 text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+          Cumplimiento total con Disposiciones de Carácter General CNBV
+        </div>
+<div class="flex items-center gap-2 text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+          Autenticación reforzada mediante hardware HSM Nivel 3
+        </div>
+</div>
+</div>
+<!-- Acordeón / FAQ de Liquidaciones de Honorarios -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Preguntas frecuentes sobre liquidación de honorarios</h3>
+<span class="font-label-sm text-label-sm text-secondary">Manual de Tesorería Jurídica</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<details class="group bg-surface-container-low p-space-md rounded-xl" open="">
+<summary class="flex items-center justify-between font-label-lg text-label-lg text-on-surface cursor-pointer list-none">
+<span>¿En qué momento se libera el pago de honorarios hacia esta cuenta receptora?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="font-body-sm text-body-sm text-secondary mt-2">
+            Los honorarios se dispersan automáticamente cuando el juzgado dicta auto de radicación conforme, o cuando ambas partes suscriben la finalización del hito procesal mediante firma electrónica avanzada (e.firma). El plazo de acreditación interbancaria es de 5 a 15 segundos hábiles.
+          </p>
+</details>
+<details class="group bg-surface-container-low p-space-md rounded-xl">
+<summary class="flex items-center justify-between font-label-lg text-label-lg text-on-surface cursor-pointer list-none">
+<span>¿LexApp realiza retención de impuestos fiscales (ISR / IVA)?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="font-body-sm text-body-sm text-secondary mt-2">
+            Si su régimen fiscal registrado en LexApp es Persona Física con Actividad Profesional o RESICO, el sistema emite el CFDI de honorarios y efectúa únicamente las retenciones de ley solicitadas por personas morales clientes, entregando el Comprobante Fiscal Digital por Internet y la constancia de retención timbrada ante el SAT.
+          </p>
+</details>
+<details class="group bg-surface-container-low p-space-md rounded-xl">
+<summary class="flex items-center justify-between font-label-lg text-label-lg text-on-surface cursor-pointer list-none">
+<span>¿Puedo registrar una cuenta bancaria a nombre de mi despacho o firma civil (S.C.)?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="font-body-sm text-body-sm text-secondary mt-2">
+            Sí. Para personas morales (Sociedad Civil o S.A.P.I. de C.V.), debe solicitar la migración de perfil en el submenú de Datos Fiscales, adjuntando el acta constitutiva y el poder notarial que lo acredite como representante legal con facultades de administración.
+          </p>
+</details>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-secondary font-label-sm text-label-sm">
+<span>Soporte especializado para colegiados: tesoreria@lexapp.mx</span>
+<span>Línea STP Direct: 800-LEX-STP (539-787)</span>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript Logic -->
+<script>
+    // State management for demo / presentation
+    let isClabeMasked = true;
+    const fullClabe = "6461 8015 7044 2387 90";
+    const maskedClabe = "6461 8015 7044 •••• 90";
+
+    function toggleClabeMask() {
+      const display = document.getElementById('clabe-display');
+      const eyeIcon = document.getElementById('eye-icon');
+      const eyeText = document.getElementById('eye-text');
+      
+      isClabeMasked = !isClabeMasked;
+      if (isClabeMasked) {
+        display.textContent = maskedClabe;
+        eyeIcon.textContent = 'visibility';
+        eyeText.textContent = 'Mostrar';
+      } else {
+        display.textContent = fullClabe;
+        eyeIcon.textContent = 'visibility_off';
+        eyeText.textContent = 'Ocultar';
+      }
+    }
+
+    function setAuditState(state) {
+      // Elements
+      const banners = ['unregistered', 'pending', 'verified', 'rejected'];
+      banners.forEach(b => {
+        const el = document.getElementById(`banner-${b}`);
+        if (el) el.classList.add('hidden');
+        
+        const tabBtn = document.getElementById(`tab-${b}`);
+        if (tabBtn) {
+          tabBtn.className = "px-3 py-1.5 rounded font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all flex items-center gap-1";
+        }
+      });
+
+      // Activate chosen banner
+      const activeBanner = document.getElementById(`banner-${state}`);
+      if (activeBanner) activeBanner.classList.remove('hidden');
+
+      // Highlight chosen tab
+      const activeTab = document.getElementById(`tab-${state}`);
+      if (activeTab) {
+        activeTab.className = "px-3 py-1.5 rounded font-label-sm text-label-sm bg-surface-container-lowest text-primary font-semibold shadow-sm transition-all flex items-center gap-1";
+      }
+
+      // UI state adaptations
+      const cardContainer = document.getElementById('card-receptora-container');
+      const placeholderContainer = document.getElementById('card-empty-placeholder');
+      const formTitle = document.getElementById('form-title');
+      const statusPill = document.getElementById('status-pill');
+      const clabeInput = document.getElementById('clabe-input');
+
+      if (state === 'unregistered') {
+        cardContainer.classList.add('hidden');
+        placeholderContainer.classList.remove('hidden');
+        formTitle.textContent = "Vincular cuenta receptora por primera vez";
+        clabeInput.value = "";
+        validateClabeInput(clabeInput);
+      } else {
+        cardContainer.classList.remove('hidden');
+        placeholderContainer.classList.add('hidden');
+        formTitle.textContent = "Modificar cuenta receptora";
+        if (clabeInput.value === "") {
+          clabeInput.value = "646180157044238790";
+          validateClabeInput(clabeInput);
+        }
+      }
+
+      if (state === 'pending') {
+        statusPill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> En Verificación Banxico';
+        statusPill.className = "flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm font-semibold";
+      } else if (state === 'verified') {
+        statusPill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> Cuenta Activa';
+        statusPill.className = "flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold";
+      } else if (state === 'rejected') {
+        statusPill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Verificación Fallida';
+        statusPill.className = "flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold";
+      }
+    }
+
+    function validateClabeInput(input) {
+      const val = input.value.replace(/\D/g, '');
+      input.value = val;
+      const counter = document.getElementById('clabe-counter');
+      const icon = document.getElementById('clabe-status-icon');
+      const text = document.getElementById('clabe-status-text');
+
+      counter.textContent = `${val.length} / 18 dígitos`;
+
+      if (val.length === 18) {
+        icon.textContent = 'check_circle';
+        icon.className = 'material-symbols-outlined text-primary text-[20px]';
+        text.textContent = 'Válida';
+        text.className = 'font-label-sm text-label-sm text-primary font-semibold';
+      } else {
+        icon.textContent = 'pending';
+        icon.className = 'material-symbols-outlined text-secondary text-[20px]';
+        text.textContent = 'Incompleta';
+        text.className = 'font-label-sm text-label-sm text-secondary font-semibold';
+      }
+    }
+
+    function focusForm() {
+      const el = document.getElementById('clabe-input');
+      el.focus();
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Se ha enviado la solicitud de modificación. Se ha emitido un código de autenticación token OTP a su teléfono móvil colegiado para autorizar la prueba testigo STP.');
+      setAuditState('pending');
+    }
+  </script>
+</div></main></div></body></html>

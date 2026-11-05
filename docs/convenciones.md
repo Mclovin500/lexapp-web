@@ -46,7 +46,13 @@
 - `features/dashboard/`: B1, B1A y la cuenta del Header. `features/solicitudes/`: C1 y C2.
 - `features/propuestas/`: D1 y D2. `features/pagos/`: D3, D4 y D5 (estados de movimiento compartidos con B1).
 - `features/expedientes/`: E1, E2 y E3 (documentos). `features/clientes/`: F1 y F2, más las opciones de los selects.
-- `features/agenda/services/reuniones.mock.ts`: reuniones ficticias compartidas por B1, E2 y F2 hasta que exista G1.
+- `features/agenda/`: G1 y G1A. `services/videollamada.service.ts` es el punto único para conectar el proveedor de video;
+  `hooks/useMedios.ts` maneja cámara, micrófono y pantalla (y los libera al salir).
+- `features/chat/`: H1. Estado de navegación `EstadoAbrirCliente` (`{ clienteId, expedienteId? }`) para abrir H1 o G1 desde otras pantallas.
+- `hooks/useAhora.ts`: hora actual que se renueva sola (las reglas de React no permiten `Date.now()` al renderizar).
+- `features/perfil/`: I1. `features/configuracion/`: J1 y J1A; `lib/clabe.ts` valida la CLABE (dígito de control y banco).
+- `components/ui/Avatar`: acepta `foto` (si no hay, muestra las iniciales).
+- `components/ui/PlaceholderPage`: ya no se usa en el panel (todas las pantallas están implementadas).
 - Mocks que combinan módulos (`expediente-detalle.mock.ts`, `clientes-directorio.mock.ts`) van en archivos aparte
   para evitar importaciones circulares entre mocks.
 - `lib/archivos.ts`: `extensionArchivo`, `descargarUrl` (descarga desde una URL temporal) y `formatearTamano`.

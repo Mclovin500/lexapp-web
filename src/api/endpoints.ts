@@ -3,6 +3,7 @@
 export const ENDPOINTS = {
   auth: {
     login: '/auth/login', // P02
+    cerrarSesion: '/auth/cerrar-sesion', // J1 "Cerrar sesión"
     verificarCodigo: '/auth/verificar-codigo', // A2A
     reenviarCodigo: '/auth/reenviar-codigo', // A2A
     sesion: '/auth/sesion', // A1
@@ -25,6 +26,16 @@ export const ENDPOINTS = {
   abogado: {
     validacion: '/abogado/validacion', // A5A
     cuenta: '/abogado/cuenta', // Header y Sidebar (nombre y contadores)
+    perfil: '/abogado/perfil', // I1 (GET, PUT)
+    foto: '/abogado/perfil/foto', // I1 (POST multipart, DELETE)
+    datosPersonales: '/abogado/datos-personales', // J1 (GET, PUT)
+    contrasena: '/abogado/contrasena', // J1 (POST cambiar)
+    sesiones: '/abogado/sesiones', // J1 (GET lista, DELETE cerrar las demás)
+    sesion: (id: string) => `/abogado/sesiones/${encodeURIComponent(id)}`, // J1 (DELETE)
+    notificaciones: '/abogado/preferencias/notificaciones', // J1 (GET, PUT)
+    privacidad: '/abogado/preferencias/privacidad', // J1 (GET, PUT)
+    exportarDatos: '/abogado/privacidad/exportacion', // J1 (POST solicitar copia de datos)
+    cuentaDeposito: '/abogado/cuenta-deposito', // J1A (GET, PUT)
   },
   dashboard: {
     resumen: '/dashboard/resumen', // B1
@@ -69,5 +80,23 @@ export const ENDPOINTS = {
       `/expedientes/${encodeURIComponent(id)}/documentos/${encodeURIComponent(documentoId)}`, // E3 (PATCH revisar)
     urlDocumento: (id: string, documentoId: string) =>
       `/expedientes/${encodeURIComponent(id)}/documentos/${encodeURIComponent(documentoId)}/url`, // E3 vista previa y descarga
+  },
+  reuniones: {
+    listado: '/reuniones', // G1 (GET calendario/próximas/historial, POST programar)
+    inmediata: '/reuniones/inmediata', // H1 "Videollamada"
+    detalle: (id: string) => `/reuniones/${encodeURIComponent(id)}`, // G1 consultar, G1A
+    cancelar: (id: string) => `/reuniones/${encodeURIComponent(id)}/cancelar`, // G1
+    sala: (id: string) => `/reuniones/${encodeURIComponent(id)}/sala`, // G1A (credencial del proveedor de video)
+    finalizar: (id: string) => `/reuniones/${encodeURIComponent(id)}/finalizar`, // G1A
+  },
+  agenda: {
+    disponibilidad: '/agenda/disponibilidad', // G1 "Crear disponibilidad" (GET, PUT)
+  },
+  conversaciones: {
+    listado: '/conversaciones', // H1 (GET lista, POST abrir/crear)
+    mensajes: (id: string) => `/conversaciones/${encodeURIComponent(id)}/mensajes`, // H1 (GET historial, POST enviar)
+    leida: (id: string) => `/conversaciones/${encodeURIComponent(id)}/leida`, // H1 (POST marcar como leída)
+    adjunto: (id: string, adjuntoId: string) =>
+      `/conversaciones/${encodeURIComponent(id)}/adjuntos/${encodeURIComponent(adjuntoId)}/url`, // H1 descarga
   },
 } as const

@@ -2,6 +2,8 @@ import { iniciales } from '@/lib/iniciales'
 
 interface AvatarProps {
   nombre: string
+  /** Si hay foto se muestra en lugar de las iniciales. */
+  foto?: string | null
   size?: 'sm' | 'md' | 'lg'
   className?: string
 }
@@ -13,7 +15,10 @@ const tamanos = {
 } as const
 
 /** Avatar con las iniciales del nombre (sin fotografía). */
-export function Avatar({ nombre, size = 'md', className = '' }: AvatarProps) {
+export function Avatar({ nombre, foto = null, size = 'md', className = '' }: AvatarProps) {
+  if (foto) {
+    return <img src={foto} alt="" aria-hidden="true" className={`shrink-0 rounded-full object-cover ${tamanos[size]} ${className}`} />
+  }
   return (
     <span
       aria-hidden="true"

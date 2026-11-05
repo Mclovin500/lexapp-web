@@ -15,7 +15,9 @@ export function rutaDeNotificacion({ tipo, destino }: Notificacion): string {
         ? generatePath(ROUTES.requestDetail, { solicitudId: destino.solicitudId })
         : ROUTES.requests
     case 'nuevo_mensaje':
-      return ROUTES.chat
+      return destino.conversacionId
+        ? `${ROUTES.chat}?${new URLSearchParams({ conversacion: destino.conversacionId }).toString()}`
+        : ROUTES.chat
     case 'propuesta_aceptada':
     case 'propuesta_rechazada':
       return ROUTES.proposals

@@ -233,6 +233,12 @@ export function contarSolicitudesNuevasMock(): number {
   return solicitudesMock.filter((s) => s.estado === 'nueva').length
 }
 
+/** Para el chat (H1): datos de quien envió una solicitud aunque aún no sea cliente. */
+export function contactoDeSolicitudMock(clienteId: string): { id: string; nombre: string; organizacion: string | null } | null {
+  const solicitud = solicitudesMock.find((s) => s.cliente.id === clienteId)
+  return solicitud ? { id: solicitud.cliente.id, nombre: solicitud.cliente.nombre, organizacion: solicitud.cliente.organizacion } : null
+}
+
 /** Para crear un expediente desde una propuesta (D2). */
 export function areaDeSolicitudMock(id: string): string | null {
   return solicitudesMock.find((s) => s.id === id)?.areaJuridica ?? null

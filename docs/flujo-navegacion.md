@@ -52,7 +52,12 @@ A1 abierta directamente (/bienvenida, sin destino): sesión activa ► B1 o A5A 
 | E3 Documentos del expediente | `/expedientes/:expedienteId/documentos` | Implementada (vista previa, descarga, carga y revisión) |
 | F1 Directorio de clientes | `/clientes` | Implementada |
 | F2 Detalle del cliente | `/clientes/:clienteId` | Implementada |
-| G1, G1A, H1, I1, J1, J1A | — | Placeholder dentro del panel |
+| G1 Agenda | `/agenda` | Implementada (`?fecha=AAAA-MM-DD` selecciona el día) |
+| G1A Sala de videollamada | `/agenda/sala/:reunionId` | Implementada (`?origen=chat&conversacion=` para volver a H1) |
+| H1 Chat | `/chat` | Implementada (`?conversacion=` selecciona la conversación) |
+| I1 Perfil profesional | `/perfil` | Implementada (consultar y editar en la misma pantalla) |
+| J1 Configuración | `/configuracion` | Implementada (secciones con ancla, p. ej. `#cuenta-deposito`) |
+| J1A Cuenta de depósito | `/configuracion/cuenta-deposito` | Implementada (`?estado=` con datos ficticios) |
 
 Enlaces de retorno: A2A y A2B → P02; A2C → A2B; A2D → P02 (el código es de un solo uso);
 A3A "Corregir" → A3; A4 "Anterior" → A3; A5 "Anterior" → A4.
@@ -64,6 +69,11 @@ D2 aceptada → crear/ver expediente (E2) · D2 → D3 `?propuesta=` · D3 → D
 D3 → D5 · D3 → D2 · D3 → J1A · D5 → F2 (cliente) y E2 (expediente).
 Secciones E y F: E1 → E2 → E3 · E2 → F2, H1 (chat), G1 (agenda), G1A (reunión), D4 (`?cliente=&expediente=`), D5 ·
 E3 → E2 · F1 → F2 → E2, E3, D5, H1 · D2 aceptada → E2.
+Secciones G y H: G1 → G1A (Unirse) → G1 · H1 → G1A (Videollamada) → H1 · H1 → E2, F2 · B1 y E2 → G1A ·
+E2 "Programar reunión" → G1 con el diálogo precargado · E2, F2, C2 y D2 → H1 (abre o crea la conversación) ·
+B1A mensaje → H1 `?conversacion=` · B1A videollamada → G1A.
+Secciones I y J: Header (perfil) → I1 · I1 → A5A (estado de validación), G1 (horario) · J1 → I1, D3, J1A ·
+J1A "Guardar cambios" → J1 `#cuenta-deposito` con aviso · J1 "Cerrar sesión" → P02 (sustituye a la antigua A2).
 
 ## Decisiones de Arquitectura y Navegación
 

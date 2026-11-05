@@ -1,6 +1,7 @@
 // MOCK: eliminar al conectar el backend
 import { esperar, haceMinutos, SIMULAR_ERROR_RED } from '@/api/mock-utils'
 import { ErrorApi } from '@/api/errores'
+import { contactoDeSolicitudMock } from '@/features/solicitudes/services/solicitudes.mock'
 import type { TipoPersona } from '@/features/solicitudes/types/solicitudes.types'
 import type { OpcionCliente } from '../types/clientes.types'
 
@@ -34,6 +35,18 @@ export function buscarClienteMock(id: string): ClienteRegistroMock {
   const cliente = clientesMock.find((c) => c.id === id)
   if (!cliente) throw new ErrorApi('datos_invalidos')
   return cliente
+}
+
+/**
+ * Para H1 y G1A: el abogado puede escribir a sus clientes y a quien le envió una solicitud.
+ * `enDirectorio` = aparece en F1 (tiene relación profesional).
+ */
+export function buscarContactoMock(id: string): OpcionCliente & { enDirectorio: boolean } {
+  const cliente = clientesMock.find((c) => c.id === id)
+  if (cliente) return { id: cliente.id, nombre: cliente.nombre, organizacion: cliente.organizacion, enDirectorio: true }
+  const contacto = contactoDeSolicitudMock(id)
+  if (!contacto) throw new ErrorApi('sin_permiso')
+  return { ...contacto, enDirectorio: false }
 }
 
 export async function listarOpcionesClientesMock(): Promise<OpcionCliente[]> {

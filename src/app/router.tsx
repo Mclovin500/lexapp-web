@@ -15,7 +15,6 @@ import { VerificarCorreoPage } from '@/features/auth/pages/VerificarCorreoPage'
 import { CredencialesPage } from '@/features/auth/pages/CredencialesPage'
 import { PerfilProfesionalPage } from '@/features/auth/pages/PerfilProfesionalPage'
 import { ValidacionProfesionalPage } from '@/features/auth/pages/ValidacionProfesionalPage'
-import { PlaceholderPage } from '@/components/ui/PlaceholderPage'
 import { AppLayout } from '@/components/layouts/AppLayout'
 import { DashboardPage } from '@/features/dashboard/pages/DashboardPage'
 import { NotificacionesPage } from '@/features/dashboard/pages/NotificacionesPage'
@@ -31,16 +30,12 @@ import { DetalleExpedientePage } from '@/features/expedientes/pages/DetalleExped
 import { DocumentosExpedientePage } from '@/features/expedientes/pages/DocumentosExpedientePage'
 import { ClientesPage } from '@/features/clientes/pages/ClientesPage'
 import { DetalleClientePage } from '@/features/clientes/pages/DetalleClientePage'
-
-/** Pantallas internas aún no construidas: se muestran dentro del Sidebar y Header. */
-const pendientes: { path: string; id: string; title: string }[] = [
-  { path: ROUTES.agenda, id: 'G1', title: 'Agenda de citas virtuales' },
-  { path: ROUTES.videoRoom, id: 'G1A', title: 'Sala de videollamada' },
-  { path: ROUTES.chat, id: 'H1', title: 'Chat con clientes' },
-  { path: ROUTES.profile, id: 'I1', title: 'Perfil profesional' },
-  { path: ROUTES.settings, id: 'J1', title: 'Configuración' },
-  { path: ROUTES.depositAccount, id: 'J1A', title: 'Cuenta de depósito' },
-]
+import { AgendaPage } from '@/features/agenda/pages/AgendaPage'
+import { SalaVideollamadaPage } from '@/features/agenda/pages/SalaVideollamadaPage'
+import { ChatPage } from '@/features/chat/pages/ChatPage'
+import { MiPerfilPage } from '@/features/perfil/pages/MiPerfilPage'
+import { ConfiguracionPage } from '@/features/configuracion/pages/ConfiguracionPage'
+import { CuentaDepositoPage } from '@/features/configuracion/pages/CuentaDepositoPage'
 
 export const router = createBrowserRouter([
   {
@@ -124,10 +119,12 @@ export const router = createBrowserRouter([
       { path: ROUTES.caseDocuments, element: <DocumentosExpedientePage /> },
       { path: ROUTES.clients, element: <ClientesPage /> },
       { path: ROUTES.clientDetail, element: <DetalleClientePage /> },
-      ...pendientes.map(({ path, id, title }) => ({
-        path,
-        element: <PlaceholderPage id={id} title={title} interna />,
-      })),
+      { path: ROUTES.agenda, element: <AgendaPage /> },
+      { path: ROUTES.videoRoom, element: <SalaVideollamadaPage /> },
+      { path: ROUTES.chat, element: <ChatPage /> },
+      { path: ROUTES.profile, element: <MiPerfilPage /> },
+      { path: ROUTES.settings, element: <ConfiguracionPage /> },
+      { path: ROUTES.depositAccount, element: <CuentaDepositoPage /> },
     ],
   },
 ])

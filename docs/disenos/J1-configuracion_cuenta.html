@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#bec6e0", "on-tertiary": "#ffffff", "error": "#ba1a1a", "secondary-container": "#dae2fd", "on-secondary": "#ffffff", "surface-container-highest": "#d3e4fe", "tertiary": "#006398", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#93ccff", "on-primary-fixed-variant": "#005234", "surface": "#f8f9ff", "on-surface-variant": "#3c4a41", "tertiary-container": "#48a8ed", "on-error": "#ffffff", "on-tertiary-container": "#003b5c", "inverse-surface": "#213145", "primary": "#006c47", "on-tertiary-fixed-variant": "#004b73", "on-primary-fixed": "#002112", "inverse-primary": "#4cdf9e", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#3f465c", "outline-variant": "#bbcabf", "surface-container-lowest": "#ffffff", "on-secondary-container": "#5c647a", "surface-dim": "#cbdbf5", "secondary": "#565e74", "background": "#f8f9ff", "primary-container": "#00b87b", "primary-fixed": "#6dfcb8", "on-primary-container": "#004129", "surface-container": "#e5eeff", "tertiary-fixed": "#cce5ff", "surface-variant": "#d3e4fe", "outline": "#6c7a71", "surface-container-high": "#dce9ff", "error-container": "#ffdad6", "secondary-fixed": "#dae2fd", "on-surface": "#0b1c30", "primary-fixed-dim": "#4cdf9e", "on-background": "#0b1c30", "on-tertiary-fixed": "#001d31", "on-error-container": "#93000a", "surface-tint": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "margin-compact": "1.25rem", "space-2xl": "3rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-compact": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "headline-sm": ["Inter"], "label-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none">LexApp</span><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase mt-space-xs">Legal Suite</span></div></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider px-space-xs">Gestión Jurídica</span></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="casos-y-expedientes" href="#"><span class="font-body-md text-body-md">Casos y expedientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="clientes" href="#"><span class="font-body-md text-body-md">Clientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="propuestas-y-facturacion" href="#"><span class="font-body-md text-body-md">Propuestas y facturación</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="font-body-md text-body-md">Calendario</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="mensajes" href="#"><span class="font-body-md text-body-md">Mensajes</span><span class="h-5 min-w-[20px] px-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm flex items-center justify-center font-bold">4</span></a><div class="my-space-xs pt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</span></div><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="configuracion" href="#"><span class="font-body-md text-body-md">Configuración</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="perfil-profesional" href="#"><span class="font-body-md text-body-md">Perfil profesional</span></a></nav></div><div class="p-space-md bg-surface-container-low m-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs text-primary"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Conexión Segura TLS 1.3</span></div><div class="flex items-center justify-between text-secondary font-label-sm text-label-sm"><span>LexApp Suite</span><span class="font-mono">v2.4 LTS</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center w-96"><div class="w-full flex items-center justify-between bg-surface-container-lowest px-space-md py-2 rounded-lg shadow-[0_1px_3px_rgba(15,23,42,0.04)] focus-within:ring-2 focus-within:ring-primary-container"><div class="flex items-center gap-space-sm text-secondary flex-1"><span class="material-symbols-outlined text-[20px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar casos, clientes o expedientes..." type="text"/></div><div class="flex items-center gap-0.5 bg-surface-container px-1.5 py-0.5 rounded text-secondary font-label-sm text-label-sm font-mono"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">mail</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span></button><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none">Lic. Alejandro Morales</span><div class="flex items-center gap-1 mt-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-primary font-semibold">Colegiado Activo</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-space-xl py-space-xl"><div class="flex flex-col w-full">
+<!-- BREADCRUMBS & TOP CONTEXT BAR -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm tracking-wider uppercase">
+<span>Administración</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Configuración General</span>
+<span class="mx-space-xs text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-on-surface-variant font-medium normal-case bg-surface-container-low px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px] text-primary">verified_user</span>
+        Bóveda Cifrada &amp; Seguridad TLS 1.3
+      </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-sm py-1 bg-surface-container-low rounded-lg text-secondary font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Sincronizado con Poder Judicial Federal</span>
+</div>
+<span class="font-mono text-label-sm text-secondary">ID: USR-7482-LEX</span>
+</div>
+</div>
+<!-- PAGE HEADER & ACTION CONTROLS -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl pb-space-lg bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex flex-col max-w-3xl">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">manage_accounts</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Configuración de Cuenta</h1>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+        Administración de credenciales de acceso, protocolos de seguridad fiduciaria, alertas procesales y preferencias del entorno de trabajo de LexApp Legal Suite.
+      </p>
+</div>
+<!-- HEADER QUICK ACTIONS -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-10 px-space-md rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg flex items-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+<span>Restablecer valores</span>
+</button>
+<button class="h-10 px-space-lg rounded-lg bg-primary-container text-on-primary-container hover:opacity-95 transition-all font-label-lg text-label-lg flex items-center gap-space-xs shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Guardar cambios</span>
+</button>
+</div>
+</div>
+<!-- HORIZONTAL TAB SELECTOR -->
+<div class="mb-space-xl">
+<div class="flex items-center gap-space-xs bg-surface-container-low p-1.5 rounded-xl w-full sm:w-auto overflow-x-auto shadow-inner" id="config-tabs-nav">
+<button class="config-tab-btn flex items-center gap-space-sm px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm transition-all" onclick="switchSection('tab-cuenta', this)" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">person</span>
+<span>Cuenta</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-on-primary-container font-label-sm text-label-sm">Verificado</span>
+</button>
+<button class="config-tab-btn flex items-center gap-space-sm px-space-md py-2 rounded-lg text-secondary hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg transition-all" onclick="switchSection('tab-seguridad', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+<span>Seguridad</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm">2FA Activo</span>
+</button>
+<button class="config-tab-btn flex items-center gap-space-sm px-space-md py-2 rounded-lg text-secondary hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg transition-all" onclick="switchSection('tab-notificaciones', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">notifications_active</span>
+<span>Notificaciones</span>
+<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center font-bold">8</span>
+</button>
+<button class="config-tab-btn flex items-center gap-space-sm px-space-md py-2 rounded-lg text-secondary hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg transition-all" onclick="switchSection('tab-preferencias', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Preferencias</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm">GMT-6</span>
+</button>
+</div>
+</div>
+<!-- WORKSPACE GRID: MAIN CONTENT CANVAS -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-xl">
+<!-- PRIMARY ACTIVE CONTENT: SECTIONS 1 TO 4 (SPAN 8 COLS) -->
+<div class="xl:col-span-8 flex flex-col gap-space-xl min-w-0">
+<!-- ============================================== -->
+<!-- SECCIÓN 1: CUENTA (PERFIL Y DATOS PROFESIONALES) -->
+<!-- ============================================== -->
+<section class="flex flex-col gap-space-lg bg-surface-container-lowest p-space-xl rounded-xl shadow-sm" id="tab-cuenta">
+<div class="flex items-center justify-between pb-space-md bg-surface-container-low/50 -mx-space-xl -mt-space-xl p-space-xl rounded-t-xl mb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-primary">badge</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Información de Cuenta y Titular</h2>
+<p class="font-body-sm text-body-sm text-secondary">Datos identificativos, acreditación colegial y despacho registrado</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-primary-container/20 text-on-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">gavel</span>
+            Acreditado DGP
+          </span>
+</div>
+<!-- FOTO DE PERFIL / AVATAR CARD -->
+<div class="flex flex-col sm:flex-row items-center sm:items-start gap-space-lg p-space-lg bg-surface-container-low rounded-xl">
+<div class="relative shrink-0">
+<img class="w-24 h-24 rounded-xl object-cover shadow-sm ring-2 ring-primary/20" data-alt="Corporate headshot portrait of an accomplished male attorney Lic. Alejandro Morales wearing a sharp dark navy tailored suit, subtle emerald silk tie, neutral clean lighting in an executive law firm office environment, ultra-sharp resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-GTFkCy4cM3SKZxJq2GuODswpB6iKa4exSHmpqbw_JM4zObLGIkuFla4iMQh4l662Fji3O7mtN3TQibRS57jsirv4HWNP6jgrUC1DaIAHvgTb0TUGLY4VPAGW_8SZMO5fIRS_Eok1KMNRsRVOMJtuPxCs82oonfO9qgjKdzPA-NdPVlBtRCwwCoGbZZjkYvZi6h1NmhyiRui6cXS6ypu_DAcT-AczrlC6xItxZZTU"/>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+<div class="flex flex-col justify-center text-center sm:text-left flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2 mb-1 justify-center sm:justify-start">
+<span class="font-label-lg text-label-lg text-on-surface">Fotografía de Identificación Jurídica</span>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded">Perfil Público Colegiado</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mb-space-sm">
+              Formatos aceptados: JPG o PNG. Resolución óptima de 400x400 px, fondo sobrio institucional. Máx 4MB.
+            </p>
+<div class="flex flex-wrap items-center gap-space-sm justify-center sm:justify-start">
+<button class="h-8 px-space-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">upload</span>
+<span>Actualizar fotografía</span>
+</button>
+<button class="h-8 px-space-sm text-error hover:bg-error-container/30 transition-colors rounded-lg font-label-md text-label-md flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<!-- FORMULARIO DE DATOS PERSONALES Y PROFESIONALES -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- NOMBRE COMPLETO -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span>Nombre Completo Oficial</span>
+<span class="text-primary">*</span>
+</label>
+<div class="flex items-center px-space-md h-10 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary mr-2">person</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface outline-none" type="text" value="Alejandro Morales Garza"/>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Debe coincidir con la Cédula Profesional y DNI.</span>
+</div>
+<!-- CÉDULA PROFESIONAL -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span>Cédula Profesional Vinculada</span>
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-0.5" href="#">
+<span>Ver perfil profesional</span>
+<span class="material-symbols-outlined text-[12px]">open_in_new</span>
+</a>
+</div>
+<div class="flex items-center justify-between px-space-md h-10 bg-surface-container-low rounded-lg shadow-inner">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">workspace_premium</span>
+<span class="font-mono text-body-md text-on-surface font-semibold">7482910-DGP</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm">Solo lectura</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Validada ante Registro Nacional de Profesionistas.</span>
+</div>
+<!-- EMAIL PRINCIPAL -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
+<span>Correo Electrónico Principal</span>
+<span class="text-primary font-label-sm text-label-sm bg-primary-container/20 px-1.5 py-0.2 rounded font-semibold">Verificado ante DGP</span>
+</label>
+<div class="flex items-center px-space-md h-10 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary mr-2">mail</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface outline-none" type="email" value="a.morales@lexapp.law"/>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Utilizado para acceso al portal y firma tokenizada.</span>
+</div>
+<!-- EMAIL RESPALDO PROCESAL -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">
+<span>Correo de Respaldo Procesal</span>
+</label>
+<div class="flex items-center px-space-md h-10 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary mr-2">forward_to_inbox</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface outline-none" type="email" value="notificaciones@bufetemorales.mx"/>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Reenvío duplicado de autos y cédulas judiciales.</span>
+</div>
+<!-- TELÉFONO CORPORATIVO -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
+<span>Teléfono Corporativo Móvil</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">sms</span>
+                SMS Verificado
+              </span>
+</label>
+<div class="flex items-center px-space-md h-10 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary mr-2">phone_iphone</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface outline-none font-mono" type="tel" value="+52 55 4192 8830"/>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Canal exclusivo para OTP y alertas perentorias 24/7.</span>
+</div>
+<!-- IDIOMA PRETERMINADO -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">
+<span>Idioma del Sistema Jurídico</span>
+</label>
+<div class="flex items-center justify-between px-space-md h-10 bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">language</span>
+<span class="font-body-md text-body-md text-on-surface">Español (México)</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-secondary">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Adaptado a la terminología procesal civil, penal y mercantil.</span>
+</div>
+<!-- DESPACHO / BUFETE REGISTRADO (FULL WIDTH) -->
+<div class="md:col-span-2 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">
+<span>Despacho / Bufete Registrado (Razón Social)</span>
+</label>
+<div class="flex items-center justify-between px-space-md h-10 bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="flex items-center gap-2 flex-1">
+<span class="material-symbols-outlined text-[18px] text-secondary">apartment</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface outline-none font-medium" type="text" value="Morales &amp; Asociados Corporativo Legal S.C."/>
+</div>
+<span class="font-label-sm text-label-sm text-secondary px-2 py-0.5 rounded bg-surface-container">Licencia Enterprise</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Entidad titular de las pólizas de seguro de responsabilidad profesional y facturación fiscal.</span>
+</div>
+</div>
+</section>
+<!-- ============================================== -->
+<!-- SECCIÓN 2: SEGURIDAD (BLINDAJE Y SESIONES) -->
+<!-- ============================================== -->
+<section class="flex flex-col gap-space-lg bg-surface-container-lowest p-space-xl rounded-xl shadow-sm" id="tab-seguridad">
+<div class="flex items-center justify-between pb-space-md bg-surface-container-low/50 -mx-space-xl -mt-space-xl p-space-xl rounded-t-xl mb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-primary">security</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Seguridad y Blindaje Criptográfico</h2>
+<p class="font-body-sm text-body-sm text-secondary">Gestión de credenciales, autenticación multifactor y administración de terminales</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+            Nivel Fiduciario Alto
+          </span>
+</div>
+<!-- CAMBIO DE CONTRASEÑA -->
+<div class="p-space-lg bg-surface-container-low rounded-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">password</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-[16px]">Actualización de Contraseña</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded">
+              Modificada hace 42 días
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Contraseña Actual</label>
+<input class="h-10 px-space-md bg-surface-container-lowest rounded-lg font-body-md text-on-surface outline-none shadow-sm" type="password" value="••••••••••••••••"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Nueva Contraseña</label>
+<input class="h-10 px-space-md bg-surface-container-lowest rounded-lg font-body-md text-on-surface outline-none shadow-sm" placeholder="Mínimo 14 caracteres..." type="password"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Confirmar Contraseña</label>
+<input class="h-10 px-space-md bg-surface-container-lowest rounded-lg font-body-md text-on-surface outline-none shadow-sm" placeholder="Repetir nueva contraseña..." type="password"/>
+</div>
+</div>
+<!-- FORTALEZA CRIPTOGRÁFICA -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">lock_clock</span>
+                Fortaleza Criptográfica: <span class="text-primary font-bold">Fuerte (16 caracteres, mayúsculas, números y símbolos)</span>
+</span>
+<span class="text-secondary font-mono">256-bit Entropía</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="w-1/4 bg-primary-container h-full"></div>
+<div class="w-1/4 bg-primary-container h-full ml-0.5"></div>
+<div class="w-1/4 bg-primary-container h-full ml-0.5"></div>
+<div class="w-1/4 bg-primary-container/60 h-full ml-0.5"></div>
+</div>
+</div>
+</div>
+<!-- AUTENTICACIÓN EN DOS PASOS (2FA / MFA) -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md p-space-lg bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 text-on-primary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">phonelink_lock</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Autenticación en Dos Pasos (2FA / TOTP)</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold">Activado</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+                Protegido mediante Llave de Seguridad FIDO2 / Authenticator App (Google/1Password). Códigos temporales requeridos para firma y radicación.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-9 px-space-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md shadow-sm" type="button">
+              Códigos de respaldo (8)
+            </button>
+<button class="h-9 px-space-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md shadow-sm" type="button">
+              Reconfigurar
+            </button>
+</div>
+</div>
+<!-- ADMINISTRACIÓN DE SESIONES ACTIVAS -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">devices</span>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold">Dispositivos y Sesiones Autorizadas</h3>
+</div>
+<button class="text-error hover:underline font-label-sm text-label-sm flex items-center gap-1 font-semibold" type="button">
+<span class="material-symbols-outlined text-[15px]">logout</span>
+              Cerrar todas las demás sesiones remotas
+            </button>
+</div>
+<div class="flex flex-col gap-2">
+<!-- DISPOSITIVO 1 -->
+<div class="flex items-center justify-between p-space-md bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="material-symbols-outlined text-[22px] text-primary shrink-0">laptop_mac</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">MacBook Pro 16" - Chrome 124</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-on-primary-container font-label-sm text-label-sm font-semibold">Esta sesión actual</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Ciudad de México, MX • IP: 187.190.22.10 • Activa ahora</span>
+</div>
+</div>
+<span class="w-3 h-3 rounded-full bg-primary-container shrink-0"></span>
+</div>
+<!-- DISPOSITIVO 2 -->
+<div class="flex items-center justify-between p-space-md bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="material-symbols-outlined text-[22px] text-secondary shrink-0">phone_iphone</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">iPhone 15 Pro - App LexApp iOS</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm">Biometría FaceID</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Lomas de Chapultepec, CDMX • IP: 201.144.11.45 • Sincronizado hace 18 min</span>
+</div>
+</div>
+<button class="text-secondary hover:text-error transition-colors p-1" title="Revocar acceso" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- DISPOSITIVO 3 -->
+<div class="flex items-center justify-between p-space-md bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="material-symbols-outlined text-[22px] text-secondary shrink-0">desktop_mac</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">iMac 27" - Despacho Torre Virreyes</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm">Red Fija</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">Torre Virreyes Piso 14 • IP: 189.204.89.12 • Inactivo hace 2 días</span>
+</div>
+</div>
+<button class="text-secondary hover:text-error transition-colors p-1" title="Revocar acceso" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ============================================== -->
+<!-- SECCIÓN 3: NOTIFICACIONES (CANALES PROCESALES) -->
+<!-- ============================================== -->
+<section class="flex flex-col gap-space-lg bg-surface-container-lowest p-space-xl rounded-xl shadow-sm" id="tab-notificaciones">
+<div class="flex items-center justify-between pb-space-md bg-surface-container-low/50 -mx-space-xl -mt-space-xl p-space-xl rounded-t-xl mb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-primary">notifications</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Matriz de Notificaciones y Términos Judiciales</h2>
+<p class="font-body-sm text-body-sm text-secondary">Configuración granular de despachos de correo, push en escritorio y mensajería urgente</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-primary-container/20 text-on-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+            Prioridad Máxima
+          </span>
+</div>
+<!-- TABLA / MATRIZ DE PREFERENCIAS -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-space-md rounded-l-lg">Evento Jurídico / Categoría</th>
+<th class="py-2.5 px-space-sm text-center">Email</th>
+<th class="py-2.5 px-space-sm text-center">Push Escritorio</th>
+<th class="py-2.5 px-space-sm text-center rounded-r-lg">SMS / WhatsApp</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface font-body-md text-body-md">
+<!-- GRUPO 1: SOLICITUDES DE CLIENTES -->
+<tr class="bg-surface-container/30">
+<td class="py-2 px-space-md font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider" colspan="4">
+                  1. Solicitudes de Clientes y Nuevos Asuntos
+                </td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold">Nueva solicitud de asesoría recibida</span>
+<span class="font-body-sm text-body-sm text-secondary">Prospección calificada ingresada desde el portal web</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold">Solicitudes por vencer plazo de primera respuesta</span>
+<span class="font-body-sm text-body-sm text-secondary">Alerta crítica cuando restan menos de 2 horas según SLA de despacho</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+</tr>
+<!-- GRUPO 2: MENSAJES Y CHAT -->
+<tr class="bg-surface-container/30">
+<td class="py-2 px-space-md font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider" colspan="4">
+                  2. Comunicaciones y Expediente Electrónico
+                </td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold">Mensajes directos de clientes en litigio activo</span>
+<span class="font-body-sm text-body-sm text-secondary">Mensajería encriptada extremo a extremo con sonido procesal</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold">Documentación y radicaciones subidas a la bóveda</span>
+<span class="font-body-sm text-body-sm text-secondary">Archivos judiciales o pruebas periciales depositadas por el cliente</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+</tr>
+<!-- GRUPO 3: PROPUESTAS Y CONTRATACIONES -->
+<tr class="bg-surface-container/30">
+<td class="py-2 px-space-md font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider" colspan="4">
+                  3. Contratación, Honorarios y Firma NOM-151
+                </td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold">Aceptación de propuesta u honorarios pactados</span>
+<span class="font-body-sm text-body-sm text-secondary">Confirmación de cotización aprobada por cliente corporativo</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold">Firma electrónica de contrato de patrocinio</span>
+<span class="font-body-sm text-body-sm text-secondary">Constancia de conservación con sello de tiempo NOM-151 generada</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+</tr>
+<!-- GRUPO 4: ACTIVIDAD JUDICIAL Y TÉRMINOS PERENTORIOS -->
+<tr class="bg-surface-container/30">
+<td class="py-2 px-space-md font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider" colspan="4">
+                  4. Boletines Judiciales y Términos Fatales
+                </td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-primary">Acuerdos publicados en listas judiciales (Boletines)</span>
+<span class="font-body-sm text-body-sm text-secondary">Rastreo diario de acuerdos publicados en TSJ y Juzgados de Distrito</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-error">Vencimientos de términos perentorios y amparos</span>
+<span class="font-body-sm text-body-sm text-secondary">Alertas obligatorias escalonadas: 48h, 24h y 2h previas al cierre de juzgado</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3 px-space-sm text-center">
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ============================================== -->
+<!-- SECCIÓN 4: PREFERENCIAS (ENTORNO Y OPERATIVIDAD) -->
+<!-- ============================================== -->
+<section class="flex flex-col gap-space-lg bg-surface-container-lowest p-space-xl rounded-xl shadow-sm" id="tab-preferencias">
+<div class="flex items-center justify-between pb-space-md bg-surface-container-low/50 -mx-space-xl -mt-space-xl p-space-xl rounded-t-xl mb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-primary">display_settings</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Preferencias del Entorno Procesal</h2>
+<p class="font-body-sm text-body-sm text-secondary">Calibración de husos horarios jurídicos, cálculo de inhábiles y densidad visual</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            PJF Compatible
+          </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- HUSO HORARIO PROCESAL -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span>Huso Horario Procesal</span>
+</label>
+<div class="flex items-center justify-between px-space-md h-10 bg-surface-container-low rounded-lg shadow-sm">
+<span class="font-body-md text-body-md text-on-surface">GMT-6 (Hora del Centro - CDMX / Tribunales Federales)</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Determina el cómputo legal de las 23:59:59 hrs en promociones judiciales.</span>
+</div>
+<!-- FORMATO DE FECHAS -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+<span>Formato de Fechas y Notación</span>
+</label>
+<div class="flex items-center justify-between px-space-md h-10 bg-surface-container-low rounded-lg shadow-sm">
+<span class="font-body-md text-body-md text-on-surface">DD/MM/AAAA (Nomenclatura Judicial Mexicana)</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary">Ejemplo: 24/10/2024 para vistas procesales y acuerdos.</span>
+</div>
+<!-- REGLAS DE CALENDARIO JUDICIAL -->
+<div class="flex flex-col gap-1.5 p-space-md bg-surface-container-low rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">event_available</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Días Inhábiles del Poder Judicial</span>
+</div>
+<input checked="" class="w-4 h-4 accent-[#00b87b] rounded cursor-pointer" type="checkbox"/>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+              Exclusión automática de cómputo en fines de semana, puentes oficiales y periodos vacacionales fijados por el CJF (Ley de Amparo Art. 19).
+            </p>
+</div>
+<!-- DENSIDAD VISUAL -->
+<div class="flex flex-col gap-1.5 p-space-md bg-surface-container-low rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">table_rows</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Densidad de Registros y Tablas</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Compacta para litigio</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+              Reduce la altura de filas a 44px para visualizar más expedientes y acuerdos judiciales simultáneamente sin desplazamiento forzado.
+            </p>
+</div>
+</div>
+</section>
+</div>
+<!-- ============================================== -->
+<!-- LATERAL DERECHO: DOSSIER DE AUDITORÍA Y ESTADO -->
+<!-- (SPAN 4 COLS) -->
+<!-- ============================================== -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- TARJETA: ESTADO DE LA CUENTA & CRIPTOGRAFÍA -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Estado del Entorno</span>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface text-[17px]">Bóveda Certificada</span>
+<span class="font-body-sm text-body-sm text-secondary">Cifrado AES-256 GCM en reposo</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-space-xs">
+<div class="p-2.5 bg-surface-container-low rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Licencia</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Titular Senior</span>
+</div>
+<div class="p-2.5 bg-surface-container-low rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Firma Electrónica</span>
+<span class="font-label-md text-label-md text-primary font-bold">Vigente (e.firma)</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-secondary">Expira e.firma SAT:</span>
+<span class="font-mono text-on-surface font-semibold">14 Nov 2026</span>
+</div>
+</div>
+<!-- VISUAL DATA: GRÁFICA DE ACTIVIDAD Y AUDITORÍA DE ACCESOS -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">history_toggle_off</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Registro de Auditoría</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">Últimas 48 horas</span>
+</div>
+<!-- SPARKLINE DE INTENTOS DE ACCESO -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary">Intentos de Acceso y Verificaciones</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">100% Autorizados</span>
+</div>
+<!-- INLINE SVG SPARKLINE CHART -->
+<svg class="w-full h-12 text-primary" fill="none" viewbox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 36 L30 32 L60 38 L90 20 L120 25 L150 12 L180 18 L210 8 L240 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M0 36 L30 32 L60 38 L90 20 L120 25 L150 12 L180 18 L210 8 L240 14 V 48 H 0 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+<!-- LISTA CRONOLÓGICA DE AUDITORÍA -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-start justify-between text-body-sm text-body-sm p-2 rounded bg-surface-container-low/50">
+<div class="flex items-start gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container mt-1.5 shrink-0"></span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Inicio de sesión exitoso</span>
+<span class="text-secondary text-[11px]">IP 187.190.22.10 • CDMX • Mac Chrome</span>
+</div>
+</div>
+<span class="font-mono text-[11px] text-secondary shrink-0">Hoy 08:30</span>
+</div>
+<div class="flex items-start justify-between text-body-sm text-body-sm p-2 rounded bg-surface-container-low/50">
+<div class="flex items-start gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container mt-1.5 shrink-0"></span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Firma de memorial civil</span>
+<span class="text-secondary text-[11px]">Validación TOTP completada</span>
+</div>
+</div>
+<span class="font-mono text-[11px] text-secondary shrink-0">Ayer 19:14</span>
+</div>
+<div class="flex items-start justify-between text-body-sm text-body-sm p-2 rounded bg-surface-container-low/50">
+<div class="flex items-start gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container mt-1.5 shrink-0"></span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Sincronización móvil iOS</span>
+<span class="text-secondary text-[11px]">IP 201.144.11.45 • Token renovado</span>
+</div>
+</div>
+<span class="font-mono text-[11px] text-secondary shrink-0">Ayer 14:02</span>
+</div>
+</div>
+<button class="w-full py-2 text-center text-primary hover:bg-surface-container transition-colors rounded-lg font-label-md text-label-md font-semibold" type="button">
+          Descargar bitácora criptográfica (CSV)
+        </button>
+</div>
+<!-- TARJETA: CONTACTO CON SOPORTE LEGAL SUITE -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm text-on-surface">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-semibold">Mesa de Ayuda Jurídica</h4>
+<span class="font-body-sm text-body-sm text-secondary">Soporte técnico para fedatarios y litigantes</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+          ¿Deseas migrar tu base de expedientes o configurar un servidor de correo con clave PGP dedicada?
+        </p>
+<button class="h-9 px-space-md rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">headset_mic</span>
+<span>Contactar Especialista TI</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchSection(targetSectionId, activeTabButton) {
+    // List of section IDs
+    const sectionIds = ['tab-cuenta', 'tab-seguridad', 'tab-notificaciones', 'tab-preferencias'];
+    
+    // Smooth scroll and visual feedback
+    const targetElement = document.getElementById(targetSectionId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Update active tab buttons style
+    const allButtons = document.querySelectorAll('.config-tab-btn');
+    allButtons.forEach(btn => {
+      btn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      btn.classList.add('text-secondary');
+    });
+
+    if (activeTabButton) {
+      activeTabButton.classList.remove('text-secondary');
+      activeTabButton.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+    }
+  }
+</script></main></div></body></html>

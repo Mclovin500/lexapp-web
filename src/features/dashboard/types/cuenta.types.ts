@@ -6,6 +6,8 @@ export interface CuentaAbogado {
   /** Tratamiento profesional, p. ej. "Lic." (puede faltar). */
   tratamiento: string | null
   correo: string
+  /** Foto del perfil profesional (I1); `null` = se muestran las iniciales. */
+  fotoUrl: string | null
   estadoValidacion: EstadoValidacion
   contadores: {
     solicitudesNuevas: number

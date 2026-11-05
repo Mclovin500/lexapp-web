@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#bec6e0", "on-tertiary": "#ffffff", "error": "#ba1a1a", "secondary-container": "#dae2fd", "on-secondary": "#ffffff", "surface-container-highest": "#d3e4fe", "tertiary": "#006398", "surface-container-low": "#eff4ff", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#93ccff", "on-primary-fixed-variant": "#005234", "surface": "#f8f9ff", "on-surface-variant": "#3c4a41", "tertiary-container": "#48a8ed", "on-error": "#ffffff", "on-tertiary-container": "#003b5c", "inverse-surface": "#213145", "primary": "#006c47", "on-tertiary-fixed-variant": "#004b73", "on-primary-fixed": "#002112", "inverse-primary": "#4cdf9e", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#3f465c", "outline-variant": "#bbcabf", "surface-container-lowest": "#ffffff", "on-secondary-container": "#5c647a", "surface-dim": "#cbdbf5", "secondary": "#565e74", "background": "#f8f9ff", "primary-container": "#00b87b", "primary-fixed": "#6dfcb8", "on-primary-container": "#004129", "surface-container": "#e5eeff", "tertiary-fixed": "#cce5ff", "surface-variant": "#d3e4fe", "outline": "#6c7a71", "surface-container-high": "#dce9ff", "error-container": "#ffdad6", "secondary-fixed": "#dae2fd", "on-surface": "#0b1c30", "primary-fixed-dim": "#4cdf9e", "on-background": "#0b1c30", "on-tertiary-fixed": "#001d31", "on-error-container": "#93000a", "surface-tint": "#006c47", "on-secondary-fixed": "#131b2e", "surface-bright": "#f8f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "margin-compact": "1.25rem", "space-2xl": "3rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-compact": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "headline-sm": ["Inter"], "label-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "600"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none">LexApp</span><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase mt-space-xs">Legal Suite</span></div></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider px-space-xs">Gestión Jurídica</span></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="casos-y-expedientes" href="#"><span class="font-body-md text-body-md">Casos y expedientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="clientes" href="#"><span class="font-body-md text-body-md">Clientes</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="propuestas-y-facturacion" href="#"><span class="font-body-md text-body-md">Propuestas y facturación</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="font-body-md text-body-md">Calendario</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg bg-primary-container text-on-primary-container font-semibold rounded-lg transition-colors" data-path="mensajes" href="#"><span class="font-body-md text-body-md">Mensajes</span><span class="h-5 min-w-[20px] px-1 rounded-full bg-on-primary-container text-primary-container font-label-sm text-label-sm flex items-center justify-center font-bold">4</span></a><div class="my-space-xs pt-space-xs px-space-xs"><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Administración</span></div><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="configuracion" href="#"><span class="font-body-md text-body-md">Configuración</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="perfil-profesional" href="#"><span class="font-body-md text-body-md">Perfil profesional</span></a></nav></div><div class="p-space-md bg-surface-container-low m-space-sm rounded-xl flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs text-primary"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold">Conexión Segura TLS 1.3</span></div><div class="flex items-center justify-between text-secondary font-label-sm text-label-sm"><span>LexApp Suite</span><span class="font-mono">v2.4 LTS</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center w-96"><div class="w-full flex items-center justify-between bg-surface-container-lowest px-space-md py-2 rounded-lg shadow-[0_1px_3px_rgba(15,23,42,0.04)] focus-within:ring-2 focus-within:ring-primary-container"><div class="flex items-center gap-space-sm text-secondary flex-1"><span class="material-symbols-outlined text-[20px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar casos, clientes o expedientes..." type="text"/></div><div class="flex items-center gap-0.5 bg-surface-container px-1.5 py-0.5 rounded text-secondary font-label-sm text-label-sm font-mono"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">mail</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span></button><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button></div><div class="h-8 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none">Lic. Alejandro Morales</span><div class="flex items-center gap-1 mt-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-primary font-semibold">Colegiado Activo</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-space-xl py-space-xl"><div class="flex flex-col w-full">
+<!-- Page Header & Regulatory Trust Badge -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<nav aria-label="Migas de pan" class="flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<span>Gestión Jurídica</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Mensajes y Comunicaciones</span>
+</nav>
+<div class="flex items-center gap-space-sm mt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Mensajes</h1>
+<span class="h-2 w-2 rounded-full bg-primary-container"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+        Canal seguro y cifrado de comunicación procesal directa con clientes y apoderados legales.
+      </p>
+</div>
+<!-- Security Micro-Badge (Secreto Profesional) -->
+<div class="inline-flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Canal Cifrado E2E</span>
+<span class="font-label-sm text-[10px] text-secondary leading-none">Secreto Profesional • LFPDPPP</span>
+</div>
+</div>
+</div>
+<!-- Operational 2-Column Desktop Architecture -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Conversation Docket / List (approx 35% width -> 4 cols) -->
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Search & Filters Container -->
+<div class="p-space-md flex flex-col gap-space-sm bg-surface-container-lowest">
+<!-- Quick Search -->
+<div class="w-full flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-lg">
+<div class="flex items-center gap-2 flex-1 text-secondary">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary outline-none" placeholder="Buscar en mensajes, clientes o expedientes..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-secondary text-[16px] cursor-pointer hover:text-on-surface transition-colors">tune</span>
+</div>
+<!-- Filter Segmented Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto pb-1 text-on-surface-variant font-label-sm text-label-sm">
+<button class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface font-semibold shrink-0 transition-colors">
+            Todas (12)
+          </button>
+<button class="px-2.5 py-1 rounded-md hover:bg-surface-container-low text-secondary shrink-0 transition-colors">
+            No leídos <span class="text-primary font-bold">(4)</span>
+</button>
+<button class="px-2.5 py-1 rounded-md hover:bg-surface-container-low text-secondary shrink-0 transition-colors">
+            Expedientes activos (8)
+          </button>
+<button class="px-2.5 py-1 rounded-md hover:bg-surface-container-low text-secondary shrink-0 transition-colors">
+            Solicitudes previas (2)
+          </button>
+</div>
+</div>
+<!-- Conversations Docket Stream -->
+<div class="flex flex-col max-h-[740px] overflow-y-auto divide-y-0">
+<!-- Conversation 1: ACTIVE / SELECTED -->
+<div class="relative p-space-md bg-surface-container-low cursor-pointer transition-colors flex flex-col gap-2">
+<!-- Active Marker Edge -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="flex items-start justify-between gap-space-sm pl-1">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-lg text-label-lg flex items-center justify-center font-bold">
+                  VG
+                </div>
+<!-- Online Green Dot -->
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary-container ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Valeria Gómez Rivas</span>
+<span class="material-symbols-outlined text-primary text-[15px]">verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary truncate">Fintech Nova S.A.P.I. de C.V.</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-primary font-semibold">11:42 hrs</span>
+<span class="mt-1 h-4 min-w-[16px] px-1.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[10px] flex items-center justify-center font-bold">
+                2
+              </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium line-clamp-2 pl-1">
+            Licenciado, le confirmo que ya contamos con la copia certificada del acta notarial para la audiencia del martes.
+          </p>
+<div class="flex items-center justify-between pl-1 pt-0.5">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-tertiary font-mono">
+<span class="material-symbols-outlined text-[13px]">gavel</span>
+              Exp. #452/2024-J2
+            </span>
+<span class="font-label-sm text-[10px] text-secondary uppercase tracking-wider font-semibold">En Audiencia</span>
+</div>
+</div>
+<!-- Conversation 2 -->
+<div class="p-space-md hover:bg-surface-container-low/60 cursor-pointer transition-colors flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full bg-surface-container text-secondary font-label-lg text-label-lg flex items-center justify-center font-semibold">
+                  RG
+                </div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Roberto Garza Sada</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">InverCapital Grupo México</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-secondary">Ayer • 17:15</span>
+<span class="mt-1 h-4 min-w-[16px] px-1.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[10px] flex items-center justify-center font-bold">
+                1
+              </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+            Quedo a la espera del borrador final del convenio modificatorio del fideicomiso.
+          </p>
+<div class="flex items-center justify-between pt-0.5">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-mono">
+<span class="material-symbols-outlined text-[13px]">description</span>
+              Exp. #318/2024
+            </span>
+<span class="font-label-sm text-[10px] text-secondary">Mercantil</span>
+</div>
+</div>
+<!-- Conversation 3 -->
+<div class="p-space-md hover:bg-surface-container-low/60 cursor-pointer transition-colors flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full bg-surface-container text-secondary font-label-lg text-label-lg flex items-center justify-center font-semibold">
+                  EV
+                </div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Dra. Elena Villaseñor</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">Banca Patrimonial Solaris</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-secondary">Ayer • 12:30</span>
+<span class="mt-1 h-4 min-w-[16px] px-1.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[10px] flex items-center justify-center font-bold">
+                1
+              </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+            Revisé la propuesta de honorarios y en el comité la aprobaron preliminarmente.
+          </p>
+<div class="flex items-center justify-between pt-0.5">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-mono">
+<span class="material-symbols-outlined text-[13px]">assignment_turned_in</span>
+              Solicitud #SOL-8821
+            </span>
+<span class="font-label-sm text-[10px] text-secondary">Honorarios</span>
+</div>
+</div>
+<!-- Conversation 4 -->
+<div class="p-space-md hover:bg-surface-container-low/60 cursor-pointer transition-colors flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full bg-surface-container text-secondary font-label-lg text-label-lg flex items-center justify-center font-semibold">
+                  CM
+                </div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Ing. Carlos Morales Peña</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">BioPharma Innovations S.A.</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-secondary">18 Oct</span>
+<span class="material-symbols-outlined text-primary text-[16px] mt-1">done_all</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-2">
+            Perfecto, entonces nos vemos en la reunión virtual del jueves.
+          </p>
+<div class="flex items-center justify-between pt-0.5">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-mono">
+<span class="material-symbols-outlined text-[13px]">gavel</span>
+              Exp. #209/2024
+            </span>
+<span class="font-label-sm text-[10px] text-secondary">Patentes</span>
+</div>
+</div>
+<!-- Conversation 5 -->
+<div class="p-space-md hover:bg-surface-container-low/60 cursor-pointer transition-colors flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-10 h-10 rounded-full bg-surface-container text-secondary font-label-lg text-label-lg flex items-center justify-center font-semibold">
+                  FM
+                </div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Lic. Fernando Montiel</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">Soluciones Logísticas del Bajío</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-secondary">15 Oct</span>
+<span class="material-symbols-outlined text-secondary text-[16px] mt-1">done_all</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-2">
+            Los apoderados firmaron la comparecencia ante Notaría 102.
+          </p>
+<div class="flex items-center justify-between pt-0.5">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-mono">
+<span class="material-symbols-outlined text-[13px]">gavel</span>
+              Exp. #104/2024
+            </span>
+<span class="font-label-sm text-[10px] text-secondary">Corporativo</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Active Conversation Canvas & Chat Flow (65% width -> 8 cols) -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Chat Header -->
+<div class="p-space-md bg-surface-container-lowest flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-11 h-11 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-lg text-label-lg flex items-center justify-center font-bold">
+              VG
+            </div>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-primary-container ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Valeria Gómez Rivas</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-[10px] font-semibold">
+                Directora de Operaciones / Apoderada
+              </span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm">
+<span class="text-secondary font-medium">Fintech Nova S.A.P.I. de C.V.</span>
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+                En línea
+              </span>
+</div>
+</div>
+</div>
+<!-- Header Actions -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span>Abrir Expediente</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Llamada segura" type="button">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Opciones" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- CRITICAL CONTEXT BAR: Case Link & Judicial Reference -->
+<div class="bg-surface-container-low px-space-md py-2.5 flex flex-wrap items-center justify-between gap-space-sm shadow-[inset_0_1px_0_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-7 h-7 rounded bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">balance</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[10px] uppercase font-bold text-secondary tracking-wider">Conversación vinculada:</span>
+<span class="font-label-sm text-label-sm font-semibold text-tertiary font-mono">Exp. #452/2024-J2</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate font-medium">— Estructuración de Ronda Semilla e Inversión</span>
+</div>
+<span class="font-label-sm text-[11px] text-secondary">
+              Juzgado 4º de Distrito en Materia Civil — Ciudad de México
+            </span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-[11px] font-semibold">
+            En trámite procesal activo
+          </span>
+<a class="font-label-sm text-label-sm text-primary font-semibold hover:underline flex items-center gap-0.5" href="#">
+<span>Ver expediente completo</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Historical Message Stream -->
+<div class="p-space-lg flex flex-col gap-space-md bg-surface min-h-[480px] max-h-[520px] overflow-y-auto">
+<!-- Date Separator 1 -->
+<div class="flex items-center justify-center my-1">
+<div class="px-3 py-1 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm">
+            Lunes, 17 de Noviembre 2025
+          </div>
+</div>
+<!-- Incoming Message (Client) -->
+<div class="flex flex-col items-start max-w-xl">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Valeria Gómez Rivas</span>
+<span class="font-label-sm text-[11px] text-secondary">16:10 hrs</span>
+</div>
+<div class="p-space-md rounded-2xl rounded-tl-sm bg-surface-container-lowest text-on-surface shadow-sm">
+<p class="font-body-md text-body-md">
+              Licenciado Morales, buenas tardes. Quería consultar si ya se radicó formalmente el acuerdo de admisión del Juzgado 4º.
+            </p>
+</div>
+</div>
+<!-- Outgoing Message (Lawyer) -->
+<div class="flex flex-col items-end self-end max-w-xl">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-label-sm text-[11px] text-secondary">16:22 hrs</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Lic. Alejandro Morales (Tú)</span>
+</div>
+<div class="p-space-md rounded-2xl rounded-tr-sm bg-primary text-on-primary shadow-sm">
+<p class="font-body-md text-body-md">
+              Buenas tardes, estimada Valeria. Es correcto, el actuario notificó el acuerdo favorable hoy a las 10:15 hrs. Lo incorporamos de inmediato a su expediente digital en LexApp.
+            </p>
+</div>
+</div>
+<!-- Outgoing Message with Legal Attachment -->
+<div class="flex flex-col items-end self-end max-w-xl">
+<div class="w-full sm:w-96 p-space-md rounded-2xl rounded-tr-sm bg-primary text-on-primary shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-start gap-3 bg-on-primary/10 p-space-sm rounded-xl">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md font-semibold text-on-primary truncate">
+                  Acuerdo_Radicacion_Admision_J4Dto_Civil.pdf
+                </span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-label-sm text-[11px] text-on-primary/80">1.4 MB</span>
+<span class="text-on-primary/60">•</span>
+<span class="font-label-sm text-[11px] text-on-primary/80 font-mono">Hash SHA-256</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-3 py-1 rounded bg-on-primary/20 hover:bg-on-primary/30 text-on-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+                Previsualizar
+              </button>
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">download</span>
+                Descargar
+              </button>
+</div>
+<div class="flex items-center justify-between text-on-primary/70 font-label-sm text-[10px] pt-1">
+<span>Constancia de Notificación Judicial</span>
+<span class="flex items-center gap-0.5">16:24 hrs • <span class="material-symbols-outlined text-[13px]">done_all</span></span>
+</div>
+</div>
+</div>
+<!-- Date Separator 2 (TODAY) -->
+<div class="flex items-center justify-center my-2">
+<div class="px-3 py-1 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm font-medium">
+            Hoy, 18 de Noviembre 2025
+          </div>
+</div>
+<!-- Outgoing Message (Lawyer Reminder) -->
+<div class="flex flex-col items-end self-end max-w-xl">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-label-sm text-[11px] text-secondary">09:40 hrs</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Lic. Alejandro Morales (Tú)</span>
+</div>
+<div class="p-space-md rounded-2xl rounded-tr-sm bg-primary text-on-primary shadow-sm">
+<p class="font-body-md text-body-md">
+              Recordatorio procesal: tenemos fijada la Audiencia previa y de conciliación para hoy a las 11:30 hrs. Recuerde traer la copia certificada del poder general para pleitos y cobranzas.
+            </p>
+</div>
+</div>
+<!-- Incoming Messages (Client - UNREAD BATCH) -->
+<div class="flex flex-col items-start max-w-xl gap-2">
+<div class="flex items-baseline gap-2 mb-0.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Valeria Gómez Rivas</span>
+<span class="font-label-sm text-[11px] text-secondary">11:38 hrs</span>
+</div>
+<div class="p-space-md rounded-2xl rounded-tl-sm bg-surface-container-lowest text-on-surface shadow-sm">
+<p class="font-body-md text-body-md">
+              Excelente, Licenciado. Vamos en camino al juzgado.
+            </p>
+</div>
+<!-- Second unread bubble with highlight border effect -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest text-on-surface shadow-sm relative">
+<p class="font-body-md text-body-md">
+              Le confirmo que ya contamos con la copia certificada del acta notarial (#45,120) debidamente protocolizada para exhibirla en la diligencia.
+            </p>
+<div class="flex items-center justify-between mt-2 pt-1 font-label-sm text-[11px] text-secondary">
+<span class="inline-flex items-center gap-1 text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Nuevo mensaje procesal
+              </span>
+<span>11:42 hrs</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action-Oriented Message Composition Workspace -->
+<div class="p-space-md bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.02)] flex flex-col gap-2">
+<!-- Integrated Operational Toolbar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container-low hover:text-on-surface transition-colors flex items-center gap-1 font-label-sm text-label-sm" title="Adjuntar documento o expediente" type="button">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+<span class="hidden sm:inline">Adjuntar Documento</span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container-low hover:text-on-surface transition-colors flex items-center gap-1 font-label-sm text-label-sm" title="Insertar plantilla procesal" type="button">
+<span class="material-symbols-outlined text-[18px]">quickreply</span>
+<span class="hidden sm:inline">Plantilla Jurídica</span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container-low hover:text-on-surface transition-colors flex items-center gap-1 font-label-sm text-label-sm" title="Nota de voz procesal cifrada" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+<span class="hidden sm:inline">Audio Cifrado</span>
+</button>
+</div>
+<div class="flex items-center gap-2 text-secondary font-label-sm text-[11px]">
+<span class="hidden md:inline">Shift + Enter para nueva línea</span>
+<span class="material-symbols-outlined text-[16px]">lock</span>
+</div>
+</div>
+<!-- Input Frame & Send Trigger -->
+<div class="flex items-end gap-space-sm bg-surface-container-low p-2 rounded-xl">
+<textarea class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-secondary outline-none resize-none px-2 py-1" placeholder="Escribe un mensaje seguro a Valeria Gómez Rivas... (Shift + Enter para salto de línea)" rows="2"></textarea>
+<button class="h-10 px-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-semibold transition-all flex items-center gap-2 shadow-sm shrink-0" type="button">
+<span>Enviar</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+<!-- Regulatory Legal Microcopy -->
+<div class="flex items-center justify-between text-secondary font-label-sm text-[11px] px-1 pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[14px]">verified</span>
+<span>Las comunicaciones en LexApp están amparadas por el secreto profesional legal y la NOM-151.</span>
+</div>
+<span class="font-mono text-[10px]">Cifrado AES-256 GCM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for filter tabs switching
+  document.querySelectorAll('.lg\\:col-span-5 button').forEach(button => {
+    button.addEventListener('click', function() {
+      const parent = this.parentElement;
+      if (parent) {
+        parent.querySelectorAll('button').forEach(btn => {
+          btn.classList.remove('bg-surface-container', 'text-on-surface', 'font-semibold');
+          btn.classList.add('text-secondary');
+        });
+        this.classList.add('bg-surface-container', 'text-on-surface', 'font-semibold');
+        this.classList.remove('text-secondary');
+      }
+    });
+  });
+</script></main></div></body></html>

@@ -6,7 +6,7 @@ Todas requieren sesión (cookie `httpOnly`). Errores → `ErrorApi` (`src/api/er
 `409` conflicto · `429` demasiados intentos · sin respuesta → red. Fechas en ISO 8601; importes en MXN.
 
 ## Header y Sidebar · `GET /abogado/cuenta`
-- 200: `{ "nombreCompleto", "tratamiento": "Lic." | null, "correo", "estadoValidacion",
+- 200: `{ "nombreCompleto", "tratamiento": "Lic." | null, "correo", "fotoUrl": null | "<URL>", "estadoValidacion",
   "contadores": { "solicitudesNuevas", "mensajesSinLeer", "notificacionesSinLeer" } }`
 - Los contadores alimentan las insignias de Solicitudes y Chat (Sidebar) y la campana (Header).
 

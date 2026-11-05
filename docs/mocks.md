@@ -43,6 +43,20 @@ Latencia simulada: ~700 ms (`src/api/mock-utils.ts`).
 | E3 | `exp-301` / `exp-260` | Sin documentos (estado vacío) |
 | F1 | 11 clientes | Estados calculados (activo, en propuesta, sin casos abiertos), búsqueda ("TechHub") |
 | F2 | `cli-110` | Expediente, documentos, pagos e historial de interacción; `/clientes/cli-106` → 404 (sin relación) |
+| G1 | 6 próximas reuniones y 4 en el historial (fechas relativas a cuando cargas la página) | `reu-300` está "En curso" para probar "Unirse" |
+| G1 | Programar reunión | Fecha pasada → 422; traslape con otra reunión → 409; expediente finalizado (`exp-275`) → 409 |
+| G1 | Configurar disponibilidad | Lun–Jue 9:00–18:00 y Vie 9:00–14:00; se guarda en memoria |
+| G1A | `/agenda/sala/reu-300` | Cámara y micrófono reales; el cliente "entra" a los 4 s y conecta en 2 s. Botón de corte simulado (solo con mocks) |
+| G1A | `/agenda/sala/reu-303` / `reu-290` / `reu-999` | Sala aún cerrada / reunión finalizada / 403 |
+| H1 | 7 conversaciones, 4 mensajes sin leer (contador del Sidebar) | Abrir una conversación la marca como leída |
+| H1 | Enviar mensaje | El "cliente" contesta a los 4 s; los adjuntos enviados se pueden descargar |
+| H1 | Videollamada | Crea (o reutiliza) una reunión inmediata y abre G1A; al finalizar ofrece "Volver al chat" |
+| H1 | `/chat?conversacion=con-999` | 403 "No tienes acceso a esta conversación" |
+| I1 | Perfil validado y visible para clientes | "Editar perfil" guarda en memoria; la foto (JPG/PNG ≤ 4 MB) también se ve en el Header |
+| J1 | Contraseña actual `Demo1234!` | Otra contraseña → "no es correcta"; al cambiarla se cierran las otras 2 sesiones |
+| J1A | Cuenta BBVA verificada (terminación 4519) | `?estado=sin_cuenta`, `pendiente`, `verificada` o `rechazada` cambia el estado inicial |
+| J1A | CLABE de prueba `012180001234567899` | Con titular "Alejandro Morales Vega" se verifica a los 15 s; con otro titular, "Rechazada" |
+| J1A | `4152313412345678` | Aviso: parece un número de tarjeta |
 
 ## Constantes que puedes cambiar
 - `SIMULAR_ERROR_RED` (`src/api/mock-utils.ts`): `true` simula que el servidor no responde (A2A en adelante).
