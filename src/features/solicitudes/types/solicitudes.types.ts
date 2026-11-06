@@ -27,14 +27,23 @@ export interface SolicitudResumen {
   prioridad: PrioridadSolicitud | null
 }
 
+/**
+ * Documento que el cliente adjuntó a su solicitud. No trae URL: para verlo o descargarlo se pide
+ * una URL temporal firmada con `GET /solicitudes/{id}/documentos/{documentoId}/url` (regla 9.4).
+ */
 export interface DocumentoSolicitud {
   id: string
   nombre: string
+  /** Formato corto: "PDF", "XLSX", "DOCX", "JPG", "PNG"… */
   tipoArchivo: string
   tamanoBytes: number
   fechaCarga: string
-  /** URL temporal de descarga; `null` si aún no está disponible. */
-  url: string | null
+}
+
+/** `GET /solicitudes/{id}/documentos/{documentoId}/url`: URL temporal para vista previa y descarga. */
+export interface UrlDocumentoSolicitud {
+  url: string
+  expiraEn: string
 }
 
 /** `GET /solicitudes/{id}` (C2). */

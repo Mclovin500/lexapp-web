@@ -38,14 +38,16 @@ Todas requieren sesión (cookie `httpOnly`). Errores → `ErrorApi` (`src/api/er
 ## C2 · `GET /solicitudes/{id}`
 - 200: `SolicitudResumen` + `{ "cliente": { …, "correo", "telefono" }, "descripcion",
   "informacionAdicional": [{ "etiqueta", "valor" }], "documentos": [{ "id", "nombre", "tipoArchivo",
-  "tamanoBytes", "fechaCarga", "url": null | "<URL temporal>" }], "motivoRechazo": null | "<texto>" }` · 404.
+  "tamanoBytes", "fechaCarga" }], "motivoRechazo": null | "<texto>" }` · 404.
+- `GET /solicitudes/{id}/documentos/{documentoId}/url` → `{ "url", "expiraEn" }`: URL temporal firmada para vista previa
+  y descarga (se pide en cada uso; el detalle no trae URLs permanentes). 403/404 si el documento no es de esa solicitud.
 - `POST /solicitudes/{id}/revisar` → 204: "Revisar información" pasa `nueva` → `en_revision`.
 - `POST /solicitudes/{id}/rechazar` `{ "motivo" }` (10–500 caracteres) → 204. Solo `nueva` o `en_revision`; si no, 409.
 - "Crear propuesta" navega a D1 con `{ solicitudId, clienteId }`. "Abrir conversación" navega a H1 con `{ clienteId }`.
 
 ## Pendientes
 - Al enviar una propuesta (D1) la solicitud pasa a `convertida_propuesta` (sección 8). Falta definir quién la marca `atendida` (cerrada sin propuesta) y si el cliente ve el motivo de rechazo.
-- URLs de descarga de documentos (firmadas y con vigencia) y vista previa.
+- Vigencia de las URLs firmadas de documentos (hoy se propone 10 minutos).
 - Catálogo de áreas jurídicas: hoy en `features/solicitudes/content/solicitudes.content.ts` (TODO `GET /catalogos/areas-juridicas`).
 - Búsqueda general del Header (deshabilitada hasta que existan expedientes y clientes).
 - Protección de rutas del panel con la sesión real (hoy `TODO` en `src/app/router.tsx`).

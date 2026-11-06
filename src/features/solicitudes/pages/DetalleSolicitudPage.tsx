@@ -115,7 +115,7 @@ export function DetalleSolicitudPage() {
                 )}
               </section>
 
-              <DocumentosSolicitud documentos={solicitud.documentos} />
+              <DocumentosSolicitud solicitudId={solicitud.id} documentos={solicitud.documentos} />
 
               <p className="flex items-start gap-2 p-4 rounded-lg bg-surface-container-low text-body-sm text-secondary">
                 <Icon name="info" size={18} className="shrink-0 mt-0.5" />

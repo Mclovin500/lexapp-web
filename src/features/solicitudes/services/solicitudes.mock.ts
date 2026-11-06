@@ -2,6 +2,7 @@
 // Datos ficticios en memoria (se reinician al recargar). Nunca en storage.
 import { enMinutos, esperar, haceMinutos, SIMULAR_ERROR_RED } from '@/api/mock-utils'
 import { ErrorApi } from '@/api/errores'
+import { crearPdfFicticio } from '@/features/expedientes/services/pdf-ficticio.mock'
 import type {
   FiltroEstadoSolicitud,
   FiltrosSolicitudes,
@@ -13,7 +14,7 @@ import type {
 } from '../types/solicitudes.types'
 
 function doc(id: string, nombre: string, tipoArchivo: string, kb: number, minutos: number) {
-  return { id, nombre, tipoArchivo, tamanoBytes: kb * 1024, fechaCarga: haceMinutos(minutos), url: null }
+  return { id, nombre, tipoArchivo, tamanoBytes: kb * 1024, fechaCarga: haceMinutos(minutos) }
 }
 
 const solicitudesMock: SolicitudDetalle[] = [
@@ -297,6 +298,31 @@ export async function obtenerSolicitudMock(id: string): Promise<SolicitudDetalle
   await simularRed()
   const solicitud = buscar(id)
   return { ...solicitud, documentos: [...solicitud.documentos], informacionAdicional: [...solicitud.informacionAdicional] }
+}
+
+const urlsGeneradas = new Map<string, string>()
+
+/**
+ * Simula la URL temporal firmada del documento. Los PDF son un PDF ficticio válido; los demás formatos,
+ * un archivo de texto de prueba (los archivos reales los entregará el backend).
+ */
+export async function obtenerUrlDocumentoSolicitudMock(solicitudId: string, documentoId: string): Promise<{ url: string; expiraEn: string }> {
+  await esperar(300)
+  if (SIMULAR_ERROR_RED) throw new ErrorApi('red')
+  const documento = buscar(solicitudId).documentos.find((d) => d.id === documentoId)
+  if (!documento) throw new ErrorApi('no_encontrado')
+  const clave = `${solicitudId}/${documentoId}`
+  let url = urlsGeneradas.get(clave)
+  if (!url) {
+    const lineas = ['LexApp - Documento ficticio de prueba', '', `Documento: ${documento.nombre}`, `Solicitud: ${solicitudId}`]
+    const archivo =
+      documento.tipoArchivo === 'PDF'
+        ? crearPdfFicticio([...lineas, '', 'Este archivo solo existe para probar la vista previa y la descarga.'])
+        : new Blob([`${lineas.join('\n')}\n`], { type: 'text/plain' })
+    url = URL.createObjectURL(archivo)
+    urlsGeneradas.set(clave, url)
+  }
+  return { url, expiraEn: new Date(Date.now() + 10 * 60_000).toISOString() }
 }
 
 /** D1: solicitudes abiertas (nueva o en revisión) del cliente. */

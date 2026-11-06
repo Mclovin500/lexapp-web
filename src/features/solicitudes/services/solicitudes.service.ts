@@ -9,6 +9,7 @@ import type {
   PeticionRechazoSolicitud,
   RespuestaListadoSolicitudes,
   SolicitudDetalle,
+  UrlDocumentoSolicitud,
 } from '../types/solicitudes.types'
 
 /** C1: listado con filtros, búsqueda y paginación del lado del servidor. */
@@ -58,6 +59,21 @@ export async function obtenerSolicitud(id: string): Promise<SolicitudDetalle> {
 
   try {
     const respuesta = await api.get<SolicitudDetalle>(ENDPOINTS.solicitudes.detalle(id))
+    return respuesta.data
+  } catch (error: unknown) {
+    throw aErrorApi(error)
+  }
+}
+
+/** C2: URL temporal firmada de un documento adjunto (se pide en cada uso; no se guarda). */
+export async function obtenerUrlDocumentoSolicitud(solicitudId: string, documentoId: string): Promise<UrlDocumentoSolicitud> {
+  if (import.meta.env.DEV && USAR_MOCKS) {
+    const { obtenerUrlDocumentoSolicitudMock } = await import('./solicitudes.mock')
+    return obtenerUrlDocumentoSolicitudMock(solicitudId, documentoId)
+  }
+
+  try {
+    const respuesta = await api.get<UrlDocumentoSolicitud>(ENDPOINTS.solicitudes.urlDocumento(solicitudId, documentoId))
     return respuesta.data
   } catch (error: unknown) {
     throw aErrorApi(error)

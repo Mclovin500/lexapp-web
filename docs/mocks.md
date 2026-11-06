@@ -26,7 +26,7 @@ Latencia simulada: ~700 ms (`src/api/mock-utils.ts`).
 | B1 | `/dashboard` | 3 solicitudes nuevas, 3 reuniones virtuales, los 3 movimientos más recientes y actividad |
 | B1A | 10 notificaciones (5 sin leer, una de cada tipo) | Marcar como leída actualiza la campana; persiste hasta recargar |
 | C1 | 12 solicitudes ficticias (5 "Convertida en propuesta") | Filtros por estado y área, búsqueda ("Gómez", "laboral") y paginación de 8 |
-| C2 | `sol-0842` (con 3 documentos) | "Revisar información" → En revisión; "Rechazar" pide motivo; `/solicitudes/no-existe` → 404 |
+| C2 | `sol-0842` (con 3 documentos: vista previa y descarga; los PDF son un PDF de prueba, el XLSX un archivo de texto) | "Revisar información" → En revisión; "Rechazar" pide motivo; `/solicitudes/no-existe` → 404 |
 | D1 | "Crear propuesta" desde C2 | Cliente y solicitud precargados; "Enviar" marca la solicitud como Atendida |
 | D1 | Conceptos que no suman los honorarios | Error de validación en el formulario |
 | D1 | `/propuestas/pro-086/editar` | Edita un borrador; `/propuestas/pro-089/editar` muestra "no editable" |

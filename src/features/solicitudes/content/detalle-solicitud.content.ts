@@ -22,7 +22,12 @@ export const detalleSolicitudContent = {
     title: 'Documentos disponibles',
     empty: 'El cliente no adjuntó documentos.',
     download: 'Descargar',
-    unavailable: 'Descarga no disponible',
+    downloading: 'Preparando…',
+    preview: 'Vista previa',
+    previewLoading: 'Preparando la vista previa…',
+    previewUnsupported: 'Este formato no tiene vista previa. Descárgalo para abrirlo.',
+    close: 'Cerrar',
+    protectedNote: 'Los enlaces de descarga son temporales y solo funcionan para ti.',
   },
   // Aviso basado en C2 de Stitch: no afirmar que existe contratación en esta etapa.
   disclaimer:

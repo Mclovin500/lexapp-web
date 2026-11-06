@@ -4,6 +4,7 @@ import { CLAVE_CUENTA } from '@/features/dashboard/hooks/useCuentaAbogado'
 import { CLAVE_RESUMEN_DASHBOARD } from '@/features/dashboard/hooks/useResumenDashboard'
 import {
   listarOpcionesSolicitudes,
+  obtenerUrlDocumentoSolicitud,
   listarSolicitudes,
   obtenerSolicitud,
   rechazarSolicitud,
@@ -15,6 +16,7 @@ import type {
   PeticionRechazoSolicitud,
   RespuestaListadoSolicitudes,
   SolicitudDetalle,
+  UrlDocumentoSolicitud,
 } from '../types/solicitudes.types'
 
 const CLAVE_SOLICITUDES = ['solicitudes'] as const
@@ -45,6 +47,25 @@ export function useDetalleSolicitud(id: string) {
     queryKey: [...CLAVE_SOLICITUDES, 'detalle', id],
     queryFn: () => obtenerSolicitud(id),
     retry: false,
+  })
+}
+
+/** C2 vista previa: URL temporal que se pide al abrirla y no se guarda en caché. */
+export function useUrlDocumentoSolicitud(solicitudId: string, documentoId: string | null) {
+  return useQuery<UrlDocumentoSolicitud, ErrorApi>({
+    queryKey: [...CLAVE_SOLICITUDES, 'documento-url', solicitudId, documentoId],
+    queryFn: () => obtenerUrlDocumentoSolicitud(solicitudId, documentoId ?? ''),
+    enabled: documentoId !== null,
+    staleTime: 0,
+    gcTime: 0,
+    retry: false,
+  })
+}
+
+/** C2 descargar: pide una URL nueva en cada clic. */
+export function useDescargarDocumentoSolicitud(solicitudId: string) {
+  return useMutation<UrlDocumentoSolicitud, ErrorApi, string>({
+    mutationFn: (documentoId) => obtenerUrlDocumentoSolicitud(solicitudId, documentoId),
   })
 }
 

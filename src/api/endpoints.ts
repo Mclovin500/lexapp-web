@@ -53,6 +53,8 @@ export const ENDPOINTS = {
     detalle: (id: string) => `/solicitudes/${encodeURIComponent(id)}`, // C2
     revisar: (id: string) => `/solicitudes/${encodeURIComponent(id)}/revisar`, // C2 "Revisar información"
     rechazar: (id: string) => `/solicitudes/${encodeURIComponent(id)}/rechazar`, // C2
+    urlDocumento: (id: string, documentoId: string) =>
+      `/solicitudes/${encodeURIComponent(id)}/documentos/${encodeURIComponent(documentoId)}/url`, // C2 vista previa y descarga
   },
   propuestas: {
     listado: '/propuestas', // D2 (GET) y D1 (POST crear)
