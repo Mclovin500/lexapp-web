@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { BotonTema } from '@/components/ui/BotonTema'
 import { Icon } from '@/components/ui/Icon'
 import { accesoContent } from '../content/acceso.content'
 
@@ -53,6 +54,7 @@ export function MarcoAcceso({ children, brilloAnimado = false, regreso }: MarcoA
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container-lowest border border-outline-variant/40 text-secondary shadow-sm normal-case">
             {header.version}
           </span>
+          <BotonTema className="-mr-2 normal-case" />
         </div>
       </header>
 

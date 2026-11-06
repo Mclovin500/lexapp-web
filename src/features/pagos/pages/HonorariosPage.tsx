@@ -48,7 +48,7 @@ export function HonorariosPage() {
           </Link>
           <Link
             to={ROUTES.newCharge}
-            className="inline-flex h-10 px-4 items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-md font-semibold shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="inline-flex h-10 px-4 items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-md font-semibold shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <Icon name="add_circle" size={18} />
             {contenido.actions.newCharge}

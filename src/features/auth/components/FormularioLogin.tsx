@@ -171,7 +171,7 @@ export function FormularioLogin() {
         <button
           type="submit"
           disabled={isPending}
-          className="w-full h-11 mt-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary cursor-pointer"
+          className="w-full h-11 mt-2 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary cursor-pointer"
         >
           {isPending ? (
             <>

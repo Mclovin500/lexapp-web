@@ -47,7 +47,7 @@ export function AccionesSolicitud({ solicitud, onRechazar, onIrAInformacion }: A
       </h2>
 
       {abierta && (
-        <button type="button" onClick={crearPropuesta} className={`${base} bg-primary-container hover:bg-primary text-on-primary shadow-md`}>
+        <button type="button" onClick={crearPropuesta} className={`${base} bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary shadow-md`}>
           <Icon name="post_add" size={20} />
           {actions.createProposal}
         </button>

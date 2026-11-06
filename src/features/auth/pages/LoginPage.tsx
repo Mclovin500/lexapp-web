@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
+import { BotonTema } from '@/components/ui/BotonTema'
 import { Icon } from '@/components/ui/Icon'
 import { FormularioLogin } from '../components/FormularioLogin'
 import { PanelInstitucional } from '../components/PanelInstitucional'
@@ -22,10 +23,13 @@ export function LoginPage() {
                 <Icon name="arrow_back" size={18} />
                 <span>{loginContent.header.backToHome}</span>
               </Link>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary font-semibold">
-                <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
-                <span>{loginContent.header.systemVersion}</span>
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
+                  <span>{loginContent.header.systemVersion}</span>
+                </span>
+                <BotonTema />
+              </div>
             </div>
 
             {/* Logotipo */}

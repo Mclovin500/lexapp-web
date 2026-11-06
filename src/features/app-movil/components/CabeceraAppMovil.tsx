@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
+import { BotonTema } from '@/components/ui/BotonTema'
 import { Icon } from '@/components/ui/Icon'
 import { appMovilContent } from '../content/app-movil.content'
 
@@ -42,8 +43,8 @@ export function CabeceraAppMovil() {
         </div>
 
         {/* Sellos de seguridad y versión */}
-        <div className="hidden sm:flex items-center gap-3">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant text-label-sm">
+        <div className="flex items-center gap-3">
+          <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant text-label-sm">
             <Icon name="shield_lock" size={14} className="text-primary" />
             <span className="tracking-wide uppercase">{header.securityBadge}</span>
           </div>
@@ -51,6 +52,7 @@ export function CabeceraAppMovil() {
           <span className="hidden lg:inline text-label-sm text-secondary tracking-wide">
             {header.systemVersion}
           </span>
+          <BotonTema />
         </div>
       </div>
     </header>

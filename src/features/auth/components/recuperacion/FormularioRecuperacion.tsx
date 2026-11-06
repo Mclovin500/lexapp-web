@@ -65,7 +65,7 @@ export function FormularioRecuperacion() {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full h-11 bg-primary-container hover:bg-primary hover:shadow-lg hover:shadow-primary-container/20 text-on-primary text-label-lg font-semibold rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        className="w-full h-11 bg-primary-container hover:bg-primary-hover hover:shadow-lg hover:shadow-primary-container/20 text-on-primary-container hover:text-on-primary text-label-lg font-semibold rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
         {isPending ? (
           <>

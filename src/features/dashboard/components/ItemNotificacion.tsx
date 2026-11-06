@@ -57,7 +57,7 @@ export function ItemNotificacion({ notificacion, onMarcarLeida, marcando }: Item
           onClick={() => {
             if (noLeida) onMarcarLeida(notificacion.id)
           }}
-          className="inline-flex h-9 px-3 items-center justify-center gap-1.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-md font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="inline-flex h-9 px-3 items-center justify-center gap-1.5 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-md font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           {tipo.accion}
           <Icon name="arrow_forward" size={16} />

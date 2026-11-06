@@ -40,7 +40,7 @@ export function Paginacion({ pagina, porPagina, total, onCambiar, etiqueta }: Pa
             onClick={() => onCambiar(numero)}
             aria-current={numero === pagina ? 'page' : undefined}
             className={`${boton} ${
-              numero === pagina ? 'bg-primary-container text-on-primary font-semibold' : 'hover:bg-surface-container text-on-surface'
+              numero === pagina ? 'bg-primary-container text-on-primary-container font-semibold' : 'hover:bg-surface-container text-on-surface'
             }`}
           >
             {numero}

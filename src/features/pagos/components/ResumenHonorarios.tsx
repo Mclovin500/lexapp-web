@@ -29,16 +29,16 @@ export function ResumenHonorarios() {
         return (
           <div
             key={clave}
-            className={`p-5 rounded-xl shadow-sm ${indice === 0 ? 'bg-primary-container text-on-primary' : 'bg-surface-container-lowest text-on-surface'}`}
+            className={`p-5 rounded-xl shadow-sm ${indice === 0 ? 'bg-primary-container text-on-primary-container' : 'bg-surface-container-lowest text-on-surface'}`}
           >
             <div className="flex items-start justify-between gap-2">
-              <p className={`text-label-md ${indice === 0 ? 'text-on-primary/90' : 'text-secondary'}`}>{texto.label}</p>
+              <p className={`text-label-md ${indice === 0 ? 'text-on-primary-container/90' : 'text-secondary'}`}>{texto.label}</p>
               <Icon name={texto.icon} size={20} className={indice === 0 ? '' : 'text-primary'} />
             </div>
             <p className="mt-2 text-headline-md tabular-nums" aria-busy={resumen.isPending}>
               {typeof valor === 'number' ? formatearMonto(valor) : '—'}
             </p>
-            <p className={`mt-1 text-body-sm ${indice === 0 ? 'text-on-primary/80' : 'text-secondary'}`}>{texto.detail}</p>
+            <p className={`mt-1 text-body-sm ${indice === 0 ? 'text-on-primary-container/80' : 'text-secondary'}`}>{texto.detail}</p>
           </div>
         )
       })}

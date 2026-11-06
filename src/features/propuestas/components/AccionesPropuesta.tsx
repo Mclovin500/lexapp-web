@@ -39,7 +39,7 @@ export function AccionesPropuesta({ propuesta, onVer, onCancelar }: AccionesProp
   return (
     <div className="flex flex-wrap justify-end gap-1.5">
       {estado === 'aceptada' && (
-        <button type="button" onClick={abrirExpediente} disabled={crearExpediente.isPending} className={`${boton} bg-primary-container text-on-primary hover:bg-primary`}>
+        <button type="button" onClick={abrirExpediente} disabled={crearExpediente.isPending} className={`${boton} bg-primary-container text-on-primary-container hover:text-on-primary hover:bg-primary-hover`}>
           <Icon name="folder_special" size={16} />
           {propuesta.expedienteId ? actions.viewCase : crearExpediente.isPending ? actions.creatingCase : actions.createCase}
         </button>

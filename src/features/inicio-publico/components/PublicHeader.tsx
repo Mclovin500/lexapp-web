@@ -3,6 +3,7 @@ import { ROUTES } from '@/app/routes'
 import { Container } from '@/components/ui/Container'
 import { Icon } from '@/components/ui/Icon'
 import { Button } from '@/components/ui/Button'
+import { BotonTema } from '@/components/ui/BotonTema'
 import { navItems } from '../content/inicio-publico.content'
 
 export function PublicHeader() {
@@ -53,6 +54,7 @@ export function PublicHeader() {
 
         {/* Acciones Desktop */}
         <div className="hidden sm:flex shrink-0 items-center gap-space-sm">
+          <BotonTema />
           <Button variant="ghost" size="md" to={ROUTES.login}>
             Iniciar sesión
           </Button>
@@ -66,6 +68,7 @@ export function PublicHeader() {
           <Button variant="primary" size="sm" to={ROUTES.profileSelection}>
             Comenzar
           </Button>
+          <BotonTema />
           <button
             type="button"
             onClick={toggleMobileMenu}

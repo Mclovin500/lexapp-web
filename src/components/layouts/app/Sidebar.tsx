@@ -64,7 +64,7 @@ export function Sidebar({ contadores, abierto, onCerrar }: SidebarProps) {
                         <Icon name={opcion.icon} size={20} filled={isActive} />
                         <span className="flex-1">{opcion.label}</span>
                         {contador > 0 && (
-                          <span className="h-5 min-w-5 px-1.5 rounded-full bg-primary-container text-on-primary text-[11px] font-bold flex items-center justify-center">
+                          <span className="h-5 min-w-5 px-1.5 rounded-full bg-primary-container text-on-primary-container text-[11px] font-bold flex items-center justify-center">
                             {contador}
                             <span className="sr-only"> pendientes</span>
                           </span>

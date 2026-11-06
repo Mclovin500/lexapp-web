@@ -34,6 +34,6 @@ export function AvisoGuardado({ texto }: { texto: string }) {
 }
 
 export const botonPrimario =
-  'h-11 px-5 inline-flex items-center justify-center gap-2 self-start rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+  'h-11 px-5 inline-flex items-center justify-center gap-2 self-start rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
 export const botonSecundario =
   'h-10 px-4 inline-flex items-center justify-center gap-2 self-start rounded-lg bg-surface-container text-on-surface text-label-md font-semibold hover:bg-surface-container-high disabled:opacity-60 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'

@@ -29,7 +29,7 @@ export function AccionesRegistro({
       <button
         type="submit"
         disabled={cargando}
-        className="h-11 bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold rounded-lg shadow-md shadow-primary-container/20 flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        className="h-11 bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold rounded-lg shadow-md shadow-primary-container/20 flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
         {cargando ? (
           <>

@@ -198,7 +198,7 @@ function Sala({ reunion, rutaRegreso, volver, onDentro }: SalaProps) {
           </dl>
           <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
             {rutaRegreso && (
-              <Link to={rutaRegreso} className="h-11 px-5 inline-flex items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold">
+              <Link to={rutaRegreso} className="h-11 px-5 inline-flex items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold">
                 <Icon name="chat" size={20} />
                 {contenido.backChat}
               </Link>
@@ -206,7 +206,7 @@ function Sala({ reunion, rutaRegreso, volver, onDentro }: SalaProps) {
             <Link
               to={ROUTES.agenda}
               className={`h-11 px-5 inline-flex items-center justify-center gap-2 rounded-lg text-label-lg font-semibold ${
-                rutaRegreso ? 'bg-surface-container text-on-surface hover:bg-surface-container-high' : 'bg-primary-container hover:bg-primary text-on-primary'
+                rutaRegreso ? 'bg-surface-container text-on-surface hover:bg-surface-container-high' : 'bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary'
               }`}
             >
               <Icon name="calendar_month" size={20} />
@@ -286,7 +286,7 @@ function Sala({ reunion, rutaRegreso, volver, onDentro }: SalaProps) {
                 type="button"
                 onClick={entrarASala}
                 disabled={entrar.isPending || medios.estado === 'solicitando' || medios.estado === 'inactivo'}
-                className="h-11 px-5 inline-flex items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="h-11 px-5 inline-flex items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <Icon name="login" size={20} />
                 {entrar.isPending ? contenido.prepare.entering : contenido.prepare.enter}

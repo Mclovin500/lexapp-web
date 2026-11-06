@@ -120,7 +120,7 @@ export function CampoMensaje({ conversacionId }: { conversacionId: string }) {
         <button
           type="submit"
           disabled={enviar.isPending}
-          className="shrink-0 h-11 px-4 rounded-lg inline-flex items-center gap-2 bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold disabled:opacity-60 disabled:cursor-wait cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="shrink-0 h-11 px-4 rounded-lg inline-flex items-center gap-2 bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold disabled:opacity-60 disabled:cursor-wait cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           <Icon name="send" size={18} />
           <span className="hidden sm:inline">{enviar.isPending ? composer.sending : composer.send}</span>

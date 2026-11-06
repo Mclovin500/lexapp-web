@@ -166,7 +166,7 @@ function Formulario({ clientes, precarga, onCerrar, onProgramada }: FormularioPr
         <button
           type="submit"
           disabled={programar.isPending}
-          className="h-11 px-5 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="h-11 px-5 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           {programar.isPending ? textos.saving : textos.submit}
         </button>

@@ -22,7 +22,7 @@ export function BurbujaMensaje({ mensaje, nombreCliente, descargando, onDescarga
       </span>
       <div
         className={`px-4 py-3 rounded-2xl flex flex-col gap-2 ${
-          propio ? 'bg-primary-container text-on-primary rounded-br-md' : 'bg-surface-container-lowest text-on-surface shadow-sm rounded-bl-md'
+          propio ? 'bg-primary-container text-on-primary-container rounded-br-md' : 'bg-surface-container-lowest text-on-surface shadow-sm rounded-bl-md'
         }`}
       >
         {mensaje.texto && <p className="text-body-md whitespace-pre-line break-words">{mensaje.texto}</p>}
@@ -31,7 +31,7 @@ export function BurbujaMensaje({ mensaje, nombreCliente, descargando, onDescarga
             <Icon name="description" size={22} />
             <span className="min-w-0">
               <span className="block text-label-md font-semibold truncate max-w-48 sm:max-w-64">{mensaje.adjunto.nombre}</span>
-              <span className={`block text-[11px] ${propio ? 'text-on-primary/80' : 'text-secondary'}`}>{formatearTamano(mensaje.adjunto.tamanoBytes)}</span>
+              <span className={`block text-[11px] ${propio ? 'text-on-primary-container/80' : 'text-secondary'}`}>{formatearTamano(mensaje.adjunto.tamanoBytes)}</span>
             </span>
             <button
               type="button"

@@ -109,7 +109,7 @@ export function FormularioCodigo({
         <button
           type="submit"
           disabled={!completo || cargando}
-          className="w-full h-12 mt-6 bg-primary-container hover:bg-primary text-on-primary text-label-lg rounded-lg flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg active:scale-[0.99] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="w-full h-12 mt-6 bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg rounded-lg flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg active:scale-[0.99] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           {cargando ? (
             <>

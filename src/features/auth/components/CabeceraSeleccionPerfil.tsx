@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
+import { BotonTema } from '@/components/ui/BotonTema'
 import { Icon } from '@/components/ui/Icon'
 import { seleccionPerfilContent } from '../content/seleccion-perfil.content'
 
@@ -57,6 +58,7 @@ export function CabeceraSeleccionPerfil() {
           <Icon name="code" size={15} />
           <span>{header.systemVersion}</span>
         </div>
+        <BotonTema />
       </div>
     </header>
   )

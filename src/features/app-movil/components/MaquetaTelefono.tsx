@@ -125,7 +125,7 @@ export function MaquetaTelefono() {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 pt-0.5">
-                  <div className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg bg-primary-container text-on-primary text-[11px] font-semibold shadow-xs">
+                  <div className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg bg-primary-container text-on-primary-container text-[11px] font-semibold shadow-xs">
                     <Icon name="chat" size={12} />
                     <span>{lawyer.messageAction}</span>
                   </div>

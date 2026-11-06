@@ -69,7 +69,7 @@ export function ListaConversaciones({ filtro, busqueda, seleccionada, onFiltrar,
                           {c.ultimoMensaje ? `${c.ultimoMensaje.autor === 'abogado' ? list.you : ''}${c.ultimoMensaje.texto}` : ''}
                         </span>
                         {c.noLeidos > 0 && (
-                          <span className="shrink-0 min-w-5 h-5 px-1.5 rounded-full bg-primary-container text-on-primary text-[11px] font-bold flex items-center justify-center" aria-label={list.unread(c.noLeidos)}>
+                          <span className="shrink-0 min-w-5 h-5 px-1.5 rounded-full bg-primary-container text-on-primary-container text-[11px] font-bold flex items-center justify-center" aria-label={list.unread(c.noLeidos)}>
                             {c.noLeidos}
                           </span>
                         )}

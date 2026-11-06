@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { Avatar } from '@/components/ui/Avatar'
+import { BotonTema } from '@/components/ui/BotonTema'
 import { Icon } from '@/components/ui/Icon'
 import type { CuentaAbogado } from '@/features/dashboard/types/cuenta.types'
 import { etiquetasShell } from './navegacion'
@@ -50,6 +51,7 @@ export function EncabezadoApp({ cuenta, onAbrirMenu }: EncabezadoAppProps) {
       </div>
 
       <div className="ml-auto flex items-center gap-1 sm:gap-2">
+        <BotonTema className="rounded-full hover:bg-surface-container-low" />
         <Link to={ROUTES.chat} aria-label={etiquetasShell.messages(mensajes)} className={botonIcono}>
           <Icon name="mail" size={22} />
           <Insignia valor={mensajes} />

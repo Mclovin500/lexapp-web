@@ -13,7 +13,7 @@ interface BaseProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-primary-container text-on-primary hover:bg-primary shadow-sm hover:shadow-md shadow-primary-container/20',
+    'bg-primary-container text-on-primary-container hover:text-on-primary hover:bg-primary-hover shadow-sm hover:shadow-md shadow-primary-container/20',
   secondary:
     'bg-surface-container-lowest text-on-surface hover:bg-surface-container-low shadow-sm',
   ghost:

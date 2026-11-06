@@ -69,7 +69,7 @@ export function CalendarioMensual({ mes, seleccionado, reuniones, cargando, onSe
               aria-label={etiqueta}
               className={`relative h-12 rounded-lg flex flex-col items-center justify-center gap-0.5 text-label-md tabular-nums cursor-pointer transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
                 activo
-                  ? 'bg-primary-container text-on-primary font-bold'
+                  ? 'bg-primary-container text-on-primary-container font-bold'
                   : clave === hoy
                     ? 'bg-primary-container/10 text-primary font-bold hover:bg-primary-container/20'
                     : delMes
@@ -81,7 +81,7 @@ export function CalendarioMensual({ mes, seleccionado, reuniones, cargando, onSe
               {total > 0 && (
                 <span className="flex gap-0.5" aria-hidden="true">
                   {Array.from({ length: Math.min(total, 3) }, (_, i) => (
-                    <span key={i} className={`w-1.5 h-1.5 rounded-full ${activo ? 'bg-on-primary' : 'bg-primary'}`} />
+                    <span key={i} className={`w-1.5 h-1.5 rounded-full ${activo ? 'bg-on-primary-container' : 'bg-primary'}`} />
                   ))}
                 </span>
               )}

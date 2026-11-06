@@ -135,7 +135,7 @@ export function FormularioNuevaContrasena({ tokenRestablecimiento }: FormularioN
           <button
             type="submit"
             disabled={isPending || tokenInvalido}
-            className="w-full h-12 bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold rounded-lg shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="w-full h-12 bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold rounded-lg shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             {isPending ? (
               <>

@@ -12,7 +12,7 @@ export function AccesosRapidos() {
           to={item.to}
           className={`inline-flex h-10 px-4 items-center gap-2 rounded-lg text-label-md font-semibold shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
             indice === 1
-              ? 'bg-primary-container hover:bg-primary text-on-primary'
+              ? 'bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary'
               : 'bg-surface-container-lowest hover:bg-surface-container text-on-surface'
           }`}
         >

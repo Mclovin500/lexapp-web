@@ -18,23 +18,23 @@ interface AccionProps {
 }
 
 const baseAccion =
-  'w-full flex items-center gap-3 p-3 rounded-lg text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+  'group w-full flex items-center gap-3 p-3 rounded-lg text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
 
 function ContenidoAccion({ icon, label, detail, destacada = false }: AccionProps) {
   return (
     <>
       <span
         className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
-          destacada ? 'bg-on-primary/15 text-on-primary' : 'bg-surface-container text-primary'
+          destacada ? 'bg-on-primary-container/10 text-on-primary-container group-hover:bg-on-primary/15 group-hover:text-on-primary' : 'bg-surface-container text-primary'
         }`}
       >
         <Icon name={icon} size={20} />
       </span>
       <span className="flex-1 min-w-0">
-        <span className={`block text-label-lg font-semibold ${destacada ? 'text-on-primary' : 'text-on-surface'}`}>
+        <span className={`block text-label-lg font-semibold ${destacada ? 'text-on-primary-container group-hover:text-on-primary' : 'text-on-surface'}`}>
           {label}
         </span>
-        <span className={`block text-body-sm ${destacada ? 'text-on-primary/80' : 'text-secondary'}`}>{detail}</span>
+        <span className={`block text-body-sm ${destacada ? 'text-on-primary-container/80 group-hover:text-on-primary/80' : 'text-secondary'}`}>{detail}</span>
       </span>
     </>
   )
@@ -46,12 +46,12 @@ function AccionEnlace({ to, ...props }: AccionProps & { to: string }) {
       to={to}
       className={`${baseAccion} ${
         props.destacada
-          ? 'bg-primary-container hover:bg-primary shadow-md'
+          ? 'bg-primary-container hover:bg-primary-hover shadow-md'
           : 'bg-surface-container-lowest hover:bg-surface-container shadow-sm'
       }`}
     >
       <ContenidoAccion {...props} />
-      <Icon name="chevron_right" size={20} className={props.destacada ? 'text-on-primary' : 'text-outline'} />
+      <Icon name="chevron_right" size={20} className={props.destacada ? 'text-on-primary-container group-hover:text-on-primary' : 'text-outline'} />
     </Link>
   )
 }

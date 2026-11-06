@@ -262,7 +262,7 @@ export function FormularioPerfil({ perfil, onCancelar, onGuardado }: FormularioP
         <button
           type="submit"
           disabled={guardar.isPending}
-          className="h-11 px-5 inline-flex items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold disabled:opacity-60 cursor-pointer"
+          className="h-11 px-5 inline-flex items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold disabled:opacity-60 cursor-pointer"
         >
           <Icon name="save" size={18} />
           {guardar.isPending ? form.saving : form.save}

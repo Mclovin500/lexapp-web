@@ -32,7 +32,7 @@ export function PasosRegistro({ pasoActual }: PasosRegistroProps) {
               <span
                 className={`w-8 h-8 rounded-full text-label-md flex items-center justify-center ring-4 ring-surface-container-lowest ${
                   esActual || completado
-                    ? 'bg-primary-container text-on-primary shadow-md shadow-primary-container/30'
+                    ? 'bg-primary-container text-on-primary-container shadow-md shadow-primary-container/30'
                     : 'bg-surface-container text-secondary'
                 }`}
               >

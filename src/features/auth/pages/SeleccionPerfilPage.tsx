@@ -69,7 +69,7 @@ export function SeleccionPerfilPage() {
           <div className="flex flex-col items-center gap-3 w-full max-w-sm">
             <button
               type="submit"
-              className="w-full h-12 bg-primary-container hover:bg-primary text-on-primary text-label-lg rounded-lg shadow-md hover:shadow-lg flex items-center justify-center gap-3 transition-all duration-150 active:scale-[0.99] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="w-full h-12 bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg rounded-lg shadow-md hover:shadow-lg flex items-center justify-center gap-3 transition-all duration-150 active:scale-[0.99] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               <span>{opcionActual.continueLabel}</span>
               <Icon name="arrow_forward" size={20} />

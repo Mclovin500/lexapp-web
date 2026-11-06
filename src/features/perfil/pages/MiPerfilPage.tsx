@@ -45,7 +45,7 @@ export function MiPerfilPage() {
                     setAviso(null)
                     setEditando(true)
                   }}
-                  className="self-start md:self-center h-11 px-5 inline-flex items-center gap-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold shadow-sm cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="self-start md:self-center h-11 px-5 inline-flex items-center gap-2 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold shadow-sm cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   <Icon name="edit" size={18} />
                   {contenido.edit}

@@ -20,7 +20,7 @@ export function ConfirmacionContrasena() {
       <Link
         to={ROUTES.login}
         replace
-        className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-lg font-semibold shadow-md transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold shadow-md transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
         <span>{success.loginButton}</span>
         <Icon name="login" size={20} />
