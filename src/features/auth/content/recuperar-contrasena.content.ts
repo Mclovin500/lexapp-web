@@ -19,10 +19,8 @@ export const recuperarContrasenaContent = {
   },
   trustBadges: [
     { icon: 'lock_clock', title: 'Código temporal', detail: 'De un solo uso' },
-    // PLACEHOLDER: validar antes de publicar
-    { icon: 'policy', title: 'NOM-151', detail: 'Trazabilidad oficial' },
-    // PLACEHOLDER: validar antes de publicar
-    { icon: 'encrypted', title: 'End-to-End', detail: 'Criptografía cuántica' },
+    { icon: 'mark_email_read', title: 'Solo a tu correo', detail: 'El código llega a tu correo registrado' },
+    { icon: 'timer', title: 'Vigencia limitada', detail: 'El código vence en minutos' },
   ],
   errors: {
     datos_invalidos: 'Revisa el correo ingresado e inténtalo de nuevo.',

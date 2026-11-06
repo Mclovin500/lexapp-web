@@ -8,7 +8,7 @@ import { agregarExpedienteMock } from '@/features/expedientes/services/expedient
 import { tieneMovimientosDePropuestaMock } from '@/features/pagos/services/pagos.mock'
 import {
   areaDeSolicitudMock,
-  marcarSolicitudAtendidaMock,
+  marcarSolicitudConvertidaMock,
   validarSolicitudDeClienteMock,
 } from '@/features/solicitudes/services/solicitudes.mock'
 import type {
@@ -210,7 +210,7 @@ function aplicar(propuesta: PropuestaMock, peticion: PeticionPropuesta): void {
   if (peticion.accion === 'enviar') {
     propuesta.estado = 'enviada'
     propuesta.fechaEnvio = new Date().toISOString()
-    if (solicitud) marcarSolicitudAtendidaMock(solicitud.id)
+    if (solicitud) marcarSolicitudConvertidaMock(solicitud.id)
   }
 }
 

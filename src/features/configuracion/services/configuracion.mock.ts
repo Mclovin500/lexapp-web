@@ -1,6 +1,7 @@
 // MOCK: eliminar al conectar el backend
 import { esperar, haceMinutos, SIMULAR_ERROR_RED } from '@/api/mock-utils'
 import { ErrorApi } from '@/api/errores'
+import { terminarSesionMock } from '@/features/auth/services/sesion.mock'
 import { NOMBRE_ABOGADO_MOCK } from '@/features/perfil/services/perfil.mock'
 import { BANCOS } from '../lib/clabe'
 import type {
@@ -189,4 +190,5 @@ export async function guardarCuentaDepositoMock(peticion: PeticionCuentaDeposito
 
 export async function cerrarSesionMock(): Promise<void> {
   await simularRed(400)
+  terminarSesionMock()
 }

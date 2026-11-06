@@ -7,9 +7,11 @@ import { USAR_MOCKS } from '@/api/mocks'
 import { mapearErrorApi } from '../lib/mapear-error'
 import type {
   CredencialesProfesionales,
+  DocumentoRegistro,
   PerfilProfesional,
   ProgresoRegistro,
   RespuestaEnvioRegistro,
+  TipoDocumentoRegistro,
 } from '../types/registro-profesional.types'
 
 const { registro } = ENDPOINTS
@@ -23,6 +25,41 @@ export async function obtenerProgresoRegistro(): Promise<ProgresoRegistro> {
 
   try {
     const respuesta = await api.get<ProgresoRegistro>(registro.progreso)
+    return respuesta.data
+  } catch (error: unknown) {
+    throw mapearErrorApi(error, 'formulario')
+  }
+}
+
+/** A4 "Documentación requerida": sube la cédula o el título (multipart). */
+export async function subirDocumentoRegistro(tipo: TipoDocumentoRegistro, archivo: File): Promise<DocumentoRegistro> {
+  if (import.meta.env.DEV && USAR_MOCKS) {
+    const { subirDocumentoRegistroMock } = await import('./registro-profesional.mock')
+    return subirDocumentoRegistroMock(tipo, archivo)
+  }
+
+  const datos = new FormData()
+  datos.append('tipo', tipo)
+  datos.append('archivo', archivo)
+  try {
+    const respuesta = await api.post<DocumentoRegistro>(registro.documentos, datos)
+    return respuesta.data
+  } catch (error: unknown) {
+    throw mapearErrorApi(error, 'formulario')
+  }
+}
+
+/** A5 "Fotografía profesional" (opcional). */
+export async function subirFotoRegistro(archivo: File): Promise<{ fotoUrl: string }> {
+  if (import.meta.env.DEV && USAR_MOCKS) {
+    const { subirFotoRegistroMock } = await import('./registro-profesional.mock')
+    return subirFotoRegistroMock(archivo)
+  }
+
+  const datos = new FormData()
+  datos.append('foto', archivo)
+  try {
+    const respuesta = await api.post<{ fotoUrl: string }>(registro.foto, datos)
     return respuesta.data
   } catch (error: unknown) {
     throw mapearErrorApi(error, 'formulario')

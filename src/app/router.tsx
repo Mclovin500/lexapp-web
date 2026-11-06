@@ -16,6 +16,7 @@ import { CredencialesPage } from '@/features/auth/pages/CredencialesPage'
 import { PerfilProfesionalPage } from '@/features/auth/pages/PerfilProfesionalPage'
 import { ValidacionProfesionalPage } from '@/features/auth/pages/ValidacionProfesionalPage'
 import { AppLayout } from '@/components/layouts/AppLayout'
+import { RutaProtegida } from '@/components/layouts/RutaProtegida'
 import { DashboardPage } from '@/features/dashboard/pages/DashboardPage'
 import { NotificacionesPage } from '@/features/dashboard/pages/NotificacionesPage'
 import { SolicitudesPage } from '@/features/solicitudes/pages/SolicitudesPage'
@@ -101,8 +102,12 @@ export const router = createBrowserRouter([
   },
   {
     // Panel del abogado: Sidebar + Header únicos (sección 7 de la especificación).
-    // TODO: proteger estas rutas cuando exista autenticación real.
-    element: <AppLayout />,
+    // Protegido con RutaProtegida: sin sesión → P02; sin validación aprobada → A5A.
+    element: (
+      <RutaProtegida>
+        <AppLayout />
+      </RutaProtegida>
+    ),
     children: [
       { path: ROUTES.dashboard, element: <DashboardPage /> },
       { path: ROUTES.notifications, element: <NotificacionesPage /> },

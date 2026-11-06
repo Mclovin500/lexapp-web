@@ -40,7 +40,7 @@ export function useDetallePropuesta(id: string) {
   })
 }
 
-/** Una propuesta cambia D2, el Dashboard, C1/C2 (solicitud atendida), E1 y F1 (estado del cliente) y los contadores. */
+/** Una propuesta cambia D2, el Dashboard, C1/C2 (solicitud convertida en propuesta), E1 y F1 (estado del cliente) y los contadores. */
 function useInvalidarPropuestas() {
   const queryClient = useQueryClient()
   return () => {

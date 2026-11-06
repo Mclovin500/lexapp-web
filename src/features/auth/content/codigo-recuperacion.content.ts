@@ -11,10 +11,8 @@ export const codigoRecuperacionContent = {
     wrongEmail: '¿El correo no es correcto? Regresar',
     rememberedPassword: '¿Recordaste tu contraseña? Iniciar sesión',
   },
-  // PLACEHOLDER: validar antes de publicar
-  trustSeal: 'Identidad verificada por sello criptográfico SHA-256',
-  // PLACEHOLDER: validar antes de publicar
-  trustReference: 'Ref: NOM-151-SCFI-2016',
+  trustSeal: 'El código es temporal y de un solo uso',
+  trustReference: 'Nunca compartas este código con nadie.',
   errors: {
     codigo_incorrecto: 'Código incorrecto. Verifica e inténtalo de nuevo.',
     codigo_vencido: 'El código venció. Solicita uno nuevo.',

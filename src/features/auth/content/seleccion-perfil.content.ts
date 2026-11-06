@@ -23,8 +23,7 @@ export const seleccionPerfilContent = {
     brandName: 'LexApp',
     brandBadge: 'OS',
     brandSubtitle: 'LEGAL SUITE',
-    // PLACEHOLDER: validar antes de publicar
-    securityBadge: 'Acceso protegido TLS 1.3',
+    securityBadge: 'Conexión segura',
     // PLACEHOLDER: validar antes de publicar
     systemVersion: 'v4.2.0',
   },
@@ -48,7 +47,7 @@ export const seleccionPerfilContent = {
       features: [
         'Búsqueda y cotización por especialidad legal',
         'Seguimiento procesal móvil en tiempo real',
-        'Cifrado de grado bancario y confidencialidad',
+        'Comunicación privada con su abogado',
       ],
       platformNote: {
         icon: 'stay_current_portrait',
@@ -67,7 +66,7 @@ export const seleccionPerfilContent = {
         'Quiero ofrecer mis servicios profesionales, gestionar clientes corporativos y centralizar mis expedientes jurídicos y honorarios.',
       features: [
         'Plataforma web integral y despacho digital',
-        'Validación de cédula profesional ante DGP',
+        'Validación de tu cédula profesional antes de atender clientes',
         'Gestión documental, plazos y cobro de honorarios',
       ],
       platformNote: {
@@ -86,8 +85,7 @@ export const seleccionPerfilContent = {
     loginLinkText: 'Inicia sesión',
   },
   footer: {
-    // PLACEHOLDER: validar antes de publicar
-    securityLabel: 'Conexión cifrada TLS 1.3 • Protocolo de secreto fiduciario NOM-151',
+    securityLabel: 'Conexión segura • LexApp',
     get legal() {
       return `Tus datos están protegidos y resguardados conforme a la LFPDPPP • © ${new Date().getFullYear()} LexApp Systems México.`
     },

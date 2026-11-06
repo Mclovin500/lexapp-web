@@ -20,6 +20,8 @@ export const ENDPOINTS = {
     reenviarCodigo: '/registro/reenviar-codigo', // A3A
     progreso: '/registro/progreso', // A4 y A5 (precarga)
     credenciales: '/registro/credenciales', // A4
+    documentos: '/registro/documentos', // A4 (POST multipart: cédula o título)
+    foto: '/registro/foto', // A5 (POST multipart: fotografía profesional)
     perfil: '/registro/perfil', // A5
     enviar: '/registro/enviar', // A5
   },

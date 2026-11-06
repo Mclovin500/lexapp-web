@@ -19,9 +19,16 @@ Mismo formato de errores y mapeo que `contrato-api-auth.md` (`lib/mapear-error.t
 - 200: `{ "credenciales"?: {...}, "perfil"?: {...} }` con la misma forma que los PUT.
 - Precarga A4 y A5 al volver con "Anterior". `401` → el front pide iniciar sesión.
 
+## A4 · `POST /registro/documentos` (multipart: `tipo`, `archivo`)
+- `tipo`: `cedula` (obligatoria) | `titulo` (opcional). PDF, JPG o PNG de hasta 5 MB.
+- 201: `{ "id", "tipo", "nombre", "tamanoBytes" }`. Se sube al elegir el archivo; el PUT solo envía la lista.
+- Errores: `400/422` formato o tamaño · `401`. Solo se usan para la validación profesional (no son públicos).
+
 ## A4 · `PUT /registro/credenciales`
-- Petición: `{ "numeroCedula": "12345678", "universidad", "especialidad": "<valor de catálogo>",
-  "aniosExperiencia": 8, "colegio": null | "<texto>" }` → 204.
+- Petición: `{ "numeroCedula": "12345678", "gradoAcademico": "licenciatura" | "especialidad" | "maestria" | "doctorado",
+  "tituloObtenido", "universidad", "especialidad": "<valor de catálogo>", "aniosExperiencia": 8,
+  "colegio": null | "<texto>", "documentos": [{ "id", "tipo", "nombre", "tamanoBytes" }] }` → 204.
+- "Formación académica" = `gradoAcademico` + `tituloObtenido` + `universidad`. `documentos` debe incluir la cédula.
 - `numeroCedula`: solo dígitos, 7 u 8 (formato provisional). `aniosExperiencia`: entero 0–60.
 - `colegio` es opcional (campo extra del diseño).
 - Errores: `409` cédula ya registrada · `400/422` datos inválidos · `401`.
@@ -30,7 +37,13 @@ Mismo formato de errores y mapeo que `contrato-api-auth.md` (`lib/mapear-error.t
 ## A5 · `PUT /registro/perfil`
 - Petición: `{ "areaPractica", "especializaciones": ["<valor>"], "biografia" (≤ 500),
   "informacionRelevante": { "idiomas": null | "<texto>", "jurisdicciones": null | "<texto>" },
-  "disponibilidad": "inmediata" | "agenda_previa" | "corporativo" }` → 204. Máximo 5 especializaciones.
+  "disponibilidad": "inmediata" | "agenda_previa" | "corporativo",
+  "servicios": [{ "nombre", "descripcion" }] (1 a 5), "honorarios": { "consultaInicial" (MXN, 0 = sin costo), "tarifaHora": null | MXN },
+  "fotoUrl": null | "<URL de POST /registro/foto>" }` → 204. Máximo 5 especializaciones.
+- Estos datos son el punto de partida del perfil profesional (I1).
+
+## A5 · `POST /registro/foto` (multipart: `foto`, JPG o PNG ≤ 4 MB)
+- 201: `{ "fotoUrl" }`. Opcional ("Fotografía profesional, si corresponde"). Se muestra al cliente solo con el perfil validado.
 
 ## A5 · `POST /registro/enviar`
 - Sin cuerpo → 200: `{ "estadoValidacion": "pendiente", "folio", "fechaEnvio": "<ISO 8601>" }`.

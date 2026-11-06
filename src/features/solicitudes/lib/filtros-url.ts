@@ -1,7 +1,7 @@
 import type { FiltroEstadoSolicitud, FiltrosSolicitudes } from '../types/solicitudes.types'
 import { areasJuridicas, solicitudesContent } from '../content/solicitudes.content'
 
-const ESTADOS: FiltroEstadoSolicitud[] = ['todas', 'nueva', 'en_revision', 'atendida']
+const ESTADOS: FiltroEstadoSolicitud[] = ['todas', 'nueva', 'en_revision', 'convertida_propuesta', 'atendida']
 
 /** Lee los filtros de C1 desde la URL (?estado=&area=&q=&pagina=), validando cada valor. */
 export function filtrosDesdeUrl(parametros: URLSearchParams): FiltrosSolicitudes {

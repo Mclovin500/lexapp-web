@@ -21,6 +21,14 @@ export const especialidades: OpcionCatalogo[] = [
   { valor: 'internacional', etiqueta: 'Derecho Internacional y Arbitraje' },
 ]
 
+/** A4: grado académico máximo. TODO: GET /catalogos/grados-academicos */
+export const gradosAcademicos: OpcionCatalogo[] = [
+  { valor: 'licenciatura', etiqueta: 'Licenciatura' },
+  { valor: 'especialidad', etiqueta: 'Especialidad' },
+  { valor: 'maestria', etiqueta: 'Maestría' },
+  { valor: 'doctorado', etiqueta: 'Doctorado' },
+]
+
 /** A5: área de práctica principal. TODO: GET /catalogos/areas-practica */
 export const areasPractica: OpcionCatalogo[] = [
   { valor: 'corporativo', etiqueta: 'Derecho Corporativo y Mercantil' },

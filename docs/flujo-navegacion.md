@@ -72,6 +72,7 @@ E3 → E2 · F1 → F2 → E2, E3, D5, H1 · D2 aceptada → E2.
 Secciones G y H: G1 → G1A (Unirse) → G1 · H1 → G1A (Videollamada) → H1 · H1 → E2, F2 · B1 y E2 → G1A ·
 E2 "Programar reunión" → G1 con el diálogo precargado · E2, F2, C2 y D2 → H1 (abre o crea la conversación) ·
 B1A mensaje → H1 `?conversacion=` · B1A videollamada → G1A.
+Protección del panel (`RutaProtegida`): sin sesión → P02 · sesión sin validación aprobada → A5A · un 401 en cualquier pantalla vuelve a consultar la sesión.
 Secciones I y J: Header (perfil) → I1 · I1 → A5A (estado de validación), G1 (horario) · J1 → I1, D3, J1A ·
 J1A "Guardar cambios" → J1 `#cuenta-deposito` con aviso · J1 "Cerrar sesión" → P02 (sustituye a la antigua A2).
 

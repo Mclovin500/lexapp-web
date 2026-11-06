@@ -17,13 +17,10 @@ export const nuevaContrasenaContent = {
     revocationNote: 'Al guardar, se cerrarán las sesiones activas en otros dispositivos.',
   },
   criteria: {
-    // PLACEHOLDER: validar antes de publicar
-    title: 'Criterios de seguridad NOM-151',
+    title: 'Requisitos de seguridad',
     description: 'Tu nueva contraseña protege expedientes confidenciales. Debe cumplir:',
-    // PLACEHOLDER: validar antes de publicar
-    encryption: { title: 'Cifrado Asimétrico RSA-4096', detail: 'LexApp no puede leer tu contraseña.' },
-    // PLACEHOLDER: validar antes de publicar
-    compliance: 'Cumplimiento con Código de Comercio e ISO/IEC 27001',
+    encryption: { title: 'Contraseña privada', detail: 'Nunca te la pediremos por correo ni por chat.' },
+    compliance: 'Usa una contraseña que no utilices en otros sitios.',
   },
   success: {
     tag: 'Proceso concluido',

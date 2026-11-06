@@ -10,6 +10,7 @@ export const estadosSolicitud: Record<EstadoSolicitud, { label: string; icon: st
   en_revision: { label: 'En revisión', icon: 'manage_search', clases: 'bg-tertiary-fixed/60 text-on-tertiary-fixed-variant' },
   atendida: { label: 'Atendida', icon: 'check_circle', clases: 'bg-surface-container text-secondary' },
   rechazada: { label: 'Rechazada', icon: 'block', clases: 'bg-error-container/60 text-on-error-container' },
+  convertida_propuesta: { label: 'Convertida en propuesta', icon: 'request_quote', clases: 'bg-primary/10 text-primary' },
 }
 
 export const prioridadesSolicitud: Record<PrioridadSolicitud, { label: string; clases: string }> = {
@@ -45,6 +46,7 @@ export const solicitudesContent = {
       { valor: 'todas', label: 'Todas' },
       { valor: 'nueva', label: 'Nuevas' },
       { valor: 'en_revision', label: 'En revisión' },
+      { valor: 'convertida_propuesta', label: 'Convertidas en propuesta' },
       { valor: 'atendida', label: 'Atendidas' },
     ] satisfies { valor: FiltroEstadoSolicitud; label: string }[],
     searchLabel: 'Buscar solicitudes',

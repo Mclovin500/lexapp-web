@@ -29,10 +29,10 @@ Todas requieren sesión (cookie `httpOnly`). Errores → `ErrorApi` (`src/api/er
 - `PATCH /notificaciones/{id}` `{ "leida": true }` → 204 · `POST /notificaciones/marcar-todas-leidas` → 204.
 
 ## C1 · `GET /solicitudes?estado=&area=&busqueda=&pagina=&porPagina=`
-- `estado`: `nueva | en_revision | atendida` (sin parámetro = todas). `busqueda`: nombre del cliente o área.
-- 200: `{ "solicitudes": [SolicitudResumen], "total", "totalesPorEstado": { "todas", "nueva", "en_revision", "atendida" } }`
+- `estado`: `nueva | en_revision | convertida_propuesta | atendida` (sin parámetro = todas). `busqueda`: nombre del cliente o área.
+- 200: `{ "solicitudes": [SolicitudResumen], "total", "totalesPorEstado": { "todas", "nueva", "en_revision", "convertida_propuesta", "atendida" } }`
 - `SolicitudResumen`: `{ "id", "folio", "cliente": { "id", "nombre", "tipoPersona": "fisica" | "moral", "organizacion" },
-  "areaJuridica", "asunto", "fechaRecepcion", "estado": "nueva" | "en_revision" | "atendida" | "rechazada",
+  "areaJuridica", "asunto", "fechaRecepcion", "estado": "nueva" | "en_revision" | "atendida" | "rechazada" | "convertida_propuesta",
   "prioridad": "alta" | "media" | "baja" | null }`. Los totales respetan área y búsqueda.
 
 ## C2 · `GET /solicitudes/{id}`
@@ -44,7 +44,7 @@ Todas requieren sesión (cookie `httpOnly`). Errores → `ErrorApi` (`src/api/er
 - "Crear propuesta" navega a D1 con `{ solicitudId, clienteId }`. "Abrir conversación" navega a H1 con `{ clienteId }`.
 
 ## Pendientes
-- Quién pasa una solicitud a `atendida` (propuesta enviada en D1/D2) y si el cliente ve el motivo de rechazo.
+- Al enviar una propuesta (D1) la solicitud pasa a `convertida_propuesta` (sección 8). Falta definir quién la marca `atendida` (cerrada sin propuesta) y si el cliente ve el motivo de rechazo.
 - URLs de descarga de documentos (firmadas y con vigencia) y vista previa.
 - Catálogo de áreas jurídicas: hoy en `features/solicitudes/content/solicitudes.content.ts` (TODO `GET /catalogos/areas-juridicas`).
 - Búsqueda general del Header (deshabilitada hasta que existan expedientes y clientes).

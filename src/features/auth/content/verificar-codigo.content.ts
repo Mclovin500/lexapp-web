@@ -10,10 +10,8 @@ export const verificarCodigoContent = {
   description: 'Enviamos un código de 6 dígitos al correo profesional vinculado a tu cuenta:',
   codeLabel: 'Introduce el código de verificación',
   submitButton: 'Verificar código',
-  // PLACEHOLDER: validar antes de publicar
-  encryptionNote: 'Cifrado homomórfico activo de extremo a extremo',
-  // PLACEHOLDER: validar antes de publicar
-  encryptionBadge: '256-bit',
+  encryptionNote: 'No compartas este código con nadie, ni con personal de LexApp.',
+  encryptionBadge: 'Un solo uso',
   errors: {
     codigo_incorrecto: 'Código incorrecto. Verifica e inténtalo de nuevo.',
     codigo_vencido: 'El código venció. Solicita uno nuevo.',

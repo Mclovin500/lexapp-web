@@ -80,7 +80,7 @@ const solicitudesMock: SolicitudDetalle[] = [
     areaJuridica: 'Derecho Laboral',
     asunto: 'Auditoría laboral preventiva y actualización de contratos',
     fechaRecepcion: haceMinutos(60 * 18),
-    estado: 'en_revision',
+    estado: 'convertida_propuesta',
     prioridad: 'media',
     descripcion:
       'Buscamos una auditoría preventiva de nuestros contratos laborales y reglamento interior de trabajo para 120 colaboradores.',
@@ -110,7 +110,7 @@ const solicitudesMock: SolicitudDetalle[] = [
     areaJuridica: 'Derecho Civil',
     asunto: 'Sucesión testamentaria y adjudicación de inmueble',
     fechaRecepcion: haceMinutos(60 * 50),
-    estado: 'en_revision',
+    estado: 'atendida',
     prioridad: 'baja',
     descripcion:
       'Mi padre falleció y dejó testamento. Necesitamos iniciar la sucesión y adjudicar una casa a los herederos.',
@@ -125,7 +125,7 @@ const solicitudesMock: SolicitudDetalle[] = [
     areaJuridica: 'Protección de Datos',
     asunto: 'Aviso de privacidad y términos de servicio de plataforma digital',
     fechaRecepcion: haceMinutos(60 * 72),
-    estado: 'atendida',
+    estado: 'convertida_propuesta',
     prioridad: null,
     descripcion: 'Necesitamos redactar el aviso de privacidad y los términos de servicio de nuestra plataforma conforme a la LFPDPPP.',
     informacionAdicional: [],
@@ -139,7 +139,7 @@ const solicitudesMock: SolicitudDetalle[] = [
     areaJuridica: 'Derecho Inmobiliario',
     asunto: 'Compraventa de inmueble comercial y constitución de fideicomiso',
     fechaRecepcion: haceMinutos(60 * 96),
-    estado: 'atendida',
+    estado: 'convertida_propuesta',
     prioridad: 'media',
     descripcion: 'Adquiriremos un local comercial y queremos estructurar la compra mediante un fideicomiso.',
     informacionAdicional: [],
@@ -167,7 +167,7 @@ const solicitudesMock: SolicitudDetalle[] = [
     areaJuridica: 'Derecho Administrativo',
     asunto: 'Recurso contra multa municipal por licencia de construcción',
     fechaRecepcion: haceMinutos(60 * 150),
-    estado: 'atendida',
+    estado: 'convertida_propuesta',
     prioridad: 'alta',
     descripcion: 'Recibimos una multa municipal por supuestas irregularidades en la licencia de construcción y queremos impugnarla.',
     informacionAdicional: [{ etiqueta: 'Plazo para impugnar', valor: `Vence ${new Date(enMinutos(60 * 24 * 9)).toLocaleDateString('es-MX')}` }],
@@ -195,7 +195,7 @@ const solicitudesMock: SolicitudDetalle[] = [
     areaJuridica: 'Derecho Fiscal',
     asunto: 'Defensa ante requerimiento del SAT por devolución de IVA',
     fechaRecepcion: haceMinutos(60 * 200),
-    estado: 'atendida',
+    estado: 'convertida_propuesta',
     prioridad: 'media',
     descripcion: 'El SAT nos requirió información adicional sobre una solicitud de devolución de IVA y queremos responder correctamente.',
     informacionAdicional: [],
@@ -281,6 +281,7 @@ export async function listarSolicitudesMock(filtros: FiltrosSolicitudes): Promis
       todas: contar('todas'),
       nueva: contar('nueva'),
       en_revision: contar('en_revision'),
+      convertida_propuesta: contar('convertida_propuesta'),
       atendida: contar('atendida'),
     },
   }
@@ -314,10 +315,10 @@ export function validarSolicitudDeClienteMock(solicitudId: string, clienteId: st
   return { id: s.id, folio: s.folio, asunto: s.asunto }
 }
 
-/** D1 "Enviar propuesta": la solicitud relacionada queda atendida. */
-export function marcarSolicitudAtendidaMock(solicitudId: string): void {
+/** D1 "Enviar propuesta": la solicitud relacionada queda "Convertida en propuesta" (sección 8). */
+export function marcarSolicitudConvertidaMock(solicitudId: string): void {
   const s = solicitudesMock.find((item) => item.id === solicitudId)
-  if (s && (s.estado === 'nueva' || s.estado === 'en_revision')) s.estado = 'atendida'
+  if (s && (s.estado === 'nueva' || s.estado === 'en_revision')) s.estado = 'convertida_propuesta'
 }
 
 /** "Revisar información": nueva → en revisión. */

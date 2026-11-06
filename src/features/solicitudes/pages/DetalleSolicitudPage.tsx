@@ -137,6 +137,14 @@ export function DetalleSolicitudPage() {
               {solicitud.estado === 'atendida' && (
                 <p className="rounded-xl bg-surface-container-low p-5 text-body-sm text-secondary">{contenido.attended}</p>
               )}
+              {solicitud.estado === 'convertida_propuesta' && (
+                <div className="rounded-xl bg-primary/5 p-5 flex flex-col gap-2">
+                  <p className="text-body-sm text-on-surface">{contenido.converted}</p>
+                  <Link to={ROUTES.proposals} className="self-start text-label-md text-primary font-semibold hover:underline">
+                    {contenido.viewProposals}
+                  </Link>
+                </div>
+              )}
               <AccionesSolicitud
                 solicitud={solicitud}
                 onRechazar={() => setDialogoAbierto(true)}

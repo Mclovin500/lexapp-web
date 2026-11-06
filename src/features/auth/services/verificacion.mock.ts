@@ -6,7 +6,7 @@ import type {
   RespuestaVerificarCodigo,
 } from '../types/verificacion.types'
 import { TIEMPOS_CODIGO_MOCK, validarCodigoMock } from './codigo.mock'
-import { ESTADO_VALIDACION_MOCK } from './sesion.mock'
+import { ESTADO_VALIDACION_MOCK, iniciarSesionMock } from './sesion.mock'
 
 export async function verificarCodigoLoginMock(
   peticion: PeticionVerificarCodigo,
@@ -14,6 +14,7 @@ export async function verificarCodigoLoginMock(
   await esperar()
   if (SIMULAR_ERROR_RED) throw new ErrorAutenticacion('red')
   validarCodigoMock(peticion.codigo)
+  iniciarSesionMock()
   return { estadoValidacion: ESTADO_VALIDACION_MOCK }
 }
 

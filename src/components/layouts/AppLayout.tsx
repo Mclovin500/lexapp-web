@@ -7,7 +7,7 @@ import { Sidebar } from './app/Sidebar'
 
 /**
  * Estructura única de las pantallas internas (B1 en adelante): Sidebar + Header + Workspace.
- * TODO: proteger estas rutas cuando exista autenticación real (sesión con cookie httpOnly).
+ * La protección de las rutas está en `RutaProtegida` (router.tsx).
  */
 export function AppLayout() {
   const [menuAbierto, setMenuAbierto] = useState(false)

@@ -7,12 +7,26 @@ import type { EstadoSesion, EstadoValidacion } from '../types/sesion.types'
  */
 export const ESTADO_VALIDACION_MOCK: EstadoValidacion = 'validado'
 
-/** `false`: A1 redirige a P02. `true`: A1 redirige según ESTADO_VALIDACION_MOCK. */
-const SESION_ACTIVA_MOCK = false
+/**
+ * Sesión al cargar la página. `true`: el panel se abre directo (cómodo para probar con las URLs);
+ * `false`: el panel redirige a P02 hasta iniciar sesión (P02 → A2A).
+ * En memoria: "Cerrar sesión" (J1) la termina y A2A la inicia; al recargar vuelve a este valor.
+ */
+const SESION_ACTIVA_MOCK = true
+
+let sesionActiva = SESION_ACTIVA_MOCK
+
+/** A2A con código correcto. */
+export function iniciarSesionMock(): void {
+  sesionActiva = true
+}
+
+/** J1 "Cerrar sesión". */
+export function terminarSesionMock(): void {
+  sesionActiva = false
+}
 
 export async function obtenerSesionMock(): Promise<EstadoSesion> {
   await new Promise((resolve) => setTimeout(resolve, 600))
-  return SESION_ACTIVA_MOCK
-    ? { activa: true, estadoValidacion: ESTADO_VALIDACION_MOCK }
-    : { activa: false }
+  return sesionActiva ? { activa: true, estadoValidacion: ESTADO_VALIDACION_MOCK } : { activa: false }
 }

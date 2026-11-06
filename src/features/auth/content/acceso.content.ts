@@ -7,10 +7,8 @@ export const accesoContent = {
     version: 'v2.4 LTS',
   },
   footer: {
-    // PLACEHOLDER: validar antes de publicar
-    encryption: 'Cifrado de grado bancario SSL 256-bit',
-    // PLACEHOLDER: validar antes de publicar
-    compliance: 'Cumplimiento LFPDPPP & Secreto Profesional',
+    encryption: 'Conexión segura (HTTPS)',
+    compliance: 'Consulta nuestro aviso de privacidad',
     get copyright() {
       return `© ${new Date().getFullYear()} LexApp Technologies Inc. Todos los derechos reservados.`
     },

@@ -61,26 +61,23 @@ export const heroContent = {
   secondaryCtaHref: '#como-funciona',
   metrics: [
     {
-      // PLACEHOLDER: validar antes de publicar
-      value: '+1,200',
-      label: 'Asuntos gestionados',
+      value: '24/7',
+      label: 'Acceso a tus asuntos',
     },
     {
       icon: 'verified',
-      // PLACEHOLDER: validar antes de publicar
-      value: 'Cotejo DGP',
-      label: 'Cédulas validadas',
+      value: 'Validación',
+      label: 'Profesional antes de atender',
     },
     {
-      icon: 'lock',
-      // PLACEHOLDER: validar antes de publicar
-      value: 'NOM-151',
-      label: 'Cifrado fiduciario',
+      icon: 'videocam',
+      value: '100%',
+      label: 'Reuniones virtuales',
     },
   ] satisfies MetricItem[],
   mockup: {
     url: 'lexapp.mx/expedientes/docket-84920',
-    securityLabel: '256-bit AES',
+    securityLabel: 'HTTPS',
     panelName: 'LexPanel',
     menuItems: [
       { icon: 'folder_special', label: 'Expedientes', active: true },
@@ -95,18 +92,16 @@ export const heroContent = {
     progressSteps: ['1. Demanda', '2. Contestación', '3. Desahogo', '4. Sentencia'],
     activeStepIndex: 2,
     recordTitle: 'Constancia de Notificación Digital',
-    // PLACEHOLDER: validar antes de publicar
-    recordSubtitle: 'Sello NOM-151-SCFI-2016 verificado',
+    recordSubtitle: 'Asociada al expediente',
     floatingCardTop: {
       icon: 'task_alt',
-      title: 'Expediente Verificado',
-      // PLACEHOLDER: validar antes de publicar
-      subtitle: 'DGP: Cédula 7481920',
+      title: 'Perfil profesional validado',
+      subtitle: 'Visible para clientes solo tras la validación',
     },
     floatingCardBottom: {
-      icon: 'enhanced_encryption',
-      title: 'Comunicación Cifrada E2E',
-      subtitle: 'Secreto profesional resguardado',
+      icon: 'forum',
+      title: 'Chat por expediente',
+      subtitle: 'Mensajes asociados a cada caso',
     },
   },
 }
@@ -130,7 +125,7 @@ export const howItWorksContent = {
       icon: 'key',
       title: 'Accede a LexApp',
       description:
-        'Ingresa a la experiencia correspondiente a tu tipo de cuenta mediante autenticación fiduciaria de doble factor y validación de identidad.',
+        'Ingresa a la experiencia correspondiente a tu tipo de cuenta con tu contraseña y un código de verificación enviado a tu correo.',
       footer: 'Credenciales seguras',
     },
     {
@@ -161,7 +156,7 @@ export const forClientsContent = {
       icon: 'badge',
       title: 'Información profesional',
       description:
-        'Revisa cédulas profesionales validadas ante DGP, trayectoria y experiencia comprobada.',
+        'Consulta la trayectoria, experiencia y especialidades de abogados con perfil validado en LexApp.',
     },
     {
       icon: 'chat',
@@ -197,8 +192,8 @@ export const forClientsContent = {
     ] satisfies SpecialistChip[],
     encryptedNotice: {
       icon: 'lock',
-      title: 'Canal Cifrado Activo',
-      subtitle: 'Sus consultas cuentan con secrecía legal',
+      title: 'Comunicación privada',
+      subtitle: 'Solo usted y su abogado ven la conversación',
     },
   },
 }
@@ -225,21 +220,20 @@ export const forLawyersContent = {
     {
       icon: 'request_quote',
       title: 'Elaboración de propuestas de servicios',
-      // PLACEHOLDER: validar antes de publicar
       description:
-        'Cotizaciones transparentes con honorarios desglosados y constancia de validez jurídica NOM-151.',
+        'Cotizaciones transparentes con honorarios desglosados que el cliente acepta desde su aplicación.',
     },
     {
       icon: 'calendar_month',
       title: 'Administración de citas y disponibilidad',
       description:
-        'Control de agenda procesal, audiencias ante tribunales y citas de asesoría sincronizadas.',
+        'Agenda de reuniones virtuales con tus clientes y horarios de disponibilidad para nuevas citas.',
     },
     {
       icon: 'mark_chat_read',
       title: 'Comunicación con clientes',
       description:
-        'Mensajería fiduciaria cifrada y envío seguro de acuerdos judiciales con acuse de recibo.',
+        'Chat por expediente con documentos adjuntos y videollamadas dentro de la plataforma.',
     },
   ] satisfies BenefitItem[],
   cta: {
@@ -301,13 +295,13 @@ export const featuresContent = {
       icon: 'source',
       title: 'Organización de expedientes',
       description:
-        'Control integral de autos, documentos de prueba y notificaciones judiciales en un solo entorno cifrado y accesible en cualquier momento.',
+        'Actualizaciones, documentos, pagos y reuniones de cada caso reunidos en un solo lugar y accesibles en cualquier momento.',
     },
     {
       icon: 'lock_clock',
       title: 'Comunicación digital',
       description:
-        'Canal directo y protegido bajo secreto fiduciario con soporte para intercambio seguro de antecedentes documentales y acuerdos procesales.',
+        'Canal directo con cada cliente para compartir mensajes y documentos relacionados con su caso.',
     },
     {
       icon: 'visibility',
@@ -352,6 +346,6 @@ export const footerContent = {
   },
   copyright:
     `© ${new Date().getFullYear()} LexApp Legal Suite. Plataforma de servicios jurídicos digitales en español. Todos los derechos reservados.`,
-  securityLabel: 'Cifrado y seguridad fiduciaria',
+  securityLabel: 'Conexión segura',
 }
 

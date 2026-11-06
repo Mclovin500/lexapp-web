@@ -44,8 +44,7 @@ export const loginContent = {
     mobileAppLinkText: 'Usa la app móvil de LexApp',
   },
   footer: {
-    // PLACEHOLDER: validar antes de publicar
-    securityLabel: 'Conexión cifrada TLS 1.3 • Protocolo de secreto fiduciario NOM-151',
+    securityLabel: 'Conexión segura • Acceso exclusivo para abogados',
     get copyright() {
       return `LexApp Technologies Inc. © ${new Date().getFullYear()}. Todos los derechos reservados.`
     },
@@ -60,8 +59,7 @@ export const loginContent = {
         // PLACEHOLDER: validar antes de publicar
         docketNumber: 'Expediente 402/2024-CIV',
         court: 'Juzgado Séptimo de Distrito en Materia Civil',
-        // PLACEHOLDER: validar antes de publicar
-        verificationBadge: 'Cotejado DGP',
+        verificationBadge: 'En trámite',
         phaseLabel: 'Fase: Audiencia Constitucional',
         termLabel: 'Término en 48 hrs',
         progressPercentage: 72,
@@ -72,29 +70,25 @@ export const loginContent = {
         description: 'Cédula electrónica recibida vía buzón judicial seguro.',
       },
       encryptedChannel: {
-        tag: 'Canal Cifrado E2E',
-        title: 'Bóveda de Evidencia Activa',
-        // PLACEHOLDER: validar antes de publicar
-        description: 'Metadatos con sello de tiempo criptográfico NOM-151.',
+        tag: 'Chat con tu cliente',
+        title: 'Documentos en su expediente',
+        description: 'Mensajes y archivos quedan asociados al caso correspondiente.',
       },
     },
     metrics: [
       {
-        // PLACEHOLDER: validar antes de publicar
-        value: '+1,200',
-        label: 'Asuntos gestionados',
+        value: '24/7',
+        label: 'Acceso a tus expedientes',
         highlight: false,
       },
       {
-        // PLACEHOLDER: validar antes de publicar
         value: '100%',
-        label: 'Cifrado fiduciario',
+        label: 'Reuniones virtuales',
         highlight: true,
       },
       {
-        // PLACEHOLDER: validar antes de publicar
-        value: 'DGP',
-        label: 'Cotejo oficial de cédulas',
+        value: 'Cédula',
+        label: 'Validada antes de atender clientes',
         highlight: false,
       },
     ],

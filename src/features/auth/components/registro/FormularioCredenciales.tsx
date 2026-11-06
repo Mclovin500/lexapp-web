@@ -1,37 +1,48 @@
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { Icon } from '@/components/ui/Icon'
-import { especialidades } from '../../content/catalogos.content'
+import { especialidades, gradosAcademicos } from '../../content/catalogos.content'
 import { credencialesContent } from '../../content/credenciales.content'
 import { progresoRegistroContent } from '../../content/progreso-registro.content'
-import { useGuardarCredenciales } from '../../hooks/useRegistroProfesional'
+import { useGuardarCredenciales, useSubirDocumentoRegistro } from '../../hooks/useRegistroProfesional'
 import { credencialesSchema, type CredencialesFormValues } from '../../schemas/credenciales.schema'
-import type { CredencialesProfesionales } from '../../types/registro-profesional.types'
+import type { CredencialesProfesionales, DocumentoRegistro, TipoDocumentoRegistro } from '../../types/registro-profesional.types'
 import { CampoTexto } from '../CampoTexto'
 import { AlertaError } from '../compartidos/AlertaError'
 import { CampoSelect } from '../compartidos/CampoSelect'
 import { MensajeError } from '../compartidos/MensajeError'
 import { AccionesRegistro } from './AccionesRegistro'
+import { CampoArchivoRegistro } from './CampoArchivoRegistro'
+
+const TIPOS_DOCUMENTO = ['application/pdf', 'image/jpeg', 'image/png']
+const MAXIMO_DOCUMENTO = 5 * 1024 * 1024
 
 function aValoresFormulario(guardadas?: CredencialesProfesionales): CredencialesFormValues {
   return {
     numeroCedula: guardadas?.numeroCedula ?? '',
+    gradoAcademico: guardadas?.gradoAcademico ?? '',
+    tituloObtenido: guardadas?.tituloObtenido ?? '',
     universidad: guardadas?.universidad ?? '',
     especialidad: guardadas?.especialidad ?? '',
     aniosExperiencia: guardadas ? String(guardadas.aniosExperiencia) : '',
     colegio: guardadas?.colegio ?? '',
+    documentoCedula: guardadas?.documentos.find((d) => d.tipo === 'cedula') ?? null,
+    documentoTitulo: guardadas?.documentos.find((d) => d.tipo === 'titulo') ?? null,
   }
 }
 
 function aCredenciales(valores: CredencialesFormValues): CredencialesProfesionales {
   return {
     numeroCedula: valores.numeroCedula,
+    gradoAcademico: valores.gradoAcademico as CredencialesProfesionales['gradoAcademico'],
+    tituloObtenido: valores.tituloObtenido.trim(),
     universidad: valores.universidad,
     especialidad: valores.especialidad,
     aniosExperiencia: Number(valores.aniosExperiencia),
     colegio: valores.colegio === '' ? null : valores.colegio,
+    documentos: [valores.documentoCedula, valores.documentoTitulo].filter((d): d is DocumentoRegistro => d !== null),
   }
 }
 
@@ -45,14 +56,40 @@ export function FormularioCredenciales({ guardadas }: FormularioCredencialesProp
   const { form, verificationNote, actions, errors: mensajes } = credencialesContent
   const { mutate: guardar, isPending, error } = useGuardarCredenciales()
 
+  const subir = useSubirDocumentoRegistro()
+
   const {
     register,
     handleSubmit,
+    control,
+    setValue,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm<CredencialesFormValues>({
     resolver: zodResolver(credencialesSchema),
     defaultValues: aValoresFormulario(guardadas),
   })
+  const [documentoCedula, documentoTitulo] = useWatch({ control, name: ['documentoCedula', 'documentoTitulo'] })
+
+  const campoDe = (tipo: TipoDocumentoRegistro) => (tipo === 'cedula' ? 'documentoCedula' : 'documentoTitulo')
+  const elegirDocumento = (tipo: TipoDocumentoRegistro, archivo: File) => {
+    const campo = campoDe(tipo)
+    if (!TIPOS_DOCUMENTO.includes(archivo.type) || archivo.size === 0 || archivo.size > MAXIMO_DOCUMENTO) {
+      setError(campo, { message: form.docInvalid })
+      return
+    }
+    clearErrors(campo)
+    subir.mutate(
+      { tipo, archivo },
+      {
+        onSuccess: (documento) => setValue(campo, documento, { shouldValidate: true }),
+        onError: () => setError(campo, { message: form.docInvalid }),
+      },
+    )
+  }
+  const subiendo = (tipo: TipoDocumentoRegistro) => subir.isPending && subir.variables?.tipo === tipo
+  const textosArchivo = { choose: form.docChoose, change: form.docChange, remove: form.docRemove, uploading: form.docUploading }
 
   const onSubmit = (valores: CredencialesFormValues) => {
     guardar(aCredenciales(valores), {
@@ -80,6 +117,28 @@ export function FormularioCredenciales({ guardadas }: FormularioCredencialesProp
         {...register('numeroCedula')}
       />
 
+      <fieldset className="space-y-3">
+        <legend className="text-label-md text-on-surface font-semibold mb-1">{form.educationTitle}</legend>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <CampoSelect
+            id="credenciales-grado"
+            label={form.degreeLabel}
+            icon="workspace_premium"
+            opciones={gradosAcademicos}
+            placeholder={form.degreePlaceholder}
+            error={errors.gradoAcademico?.message}
+            {...register('gradoAcademico')}
+          />
+          <CampoTexto
+            id="credenciales-titulo"
+            label={form.titleLabel}
+            icon="history_edu"
+            maxLength={150}
+            placeholder={form.titlePlaceholder}
+            error={errors.tituloObtenido?.message}
+            {...register('tituloObtenido')}
+          />
+        </div>
       <CampoTexto
         id="credenciales-universidad"
         label={form.universityLabel}
@@ -89,6 +148,7 @@ export function FormularioCredenciales({ guardadas }: FormularioCredencialesProp
         error={errors.universidad?.message}
         {...register('universidad')}
       />
+      </fieldset>
 
       <CampoSelect
         id="credenciales-especialidad"
@@ -125,6 +185,34 @@ export function FormularioCredenciales({ guardadas }: FormularioCredencialesProp
         />
       </div>
 
+      <fieldset className="space-y-3">
+        <legend className="text-label-md text-on-surface font-semibold">{form.documentsTitle}</legend>
+        <p className="text-body-sm text-secondary">{form.documentsDescription}</p>
+        <CampoArchivoRegistro
+          label={form.cedulaDocLabel}
+          hint={form.docHint}
+          accept=".pdf,.jpg,.jpeg,.png"
+          actual={documentoCedula}
+          cargando={subiendo('cedula')}
+          error={errors.documentoCedula?.message}
+          textos={textosArchivo}
+          onElegir={(archivo) => elegirDocumento('cedula', archivo)}
+          onQuitar={() => setValue('documentoCedula', null, { shouldValidate: true })}
+        />
+        <CampoArchivoRegistro
+          label={form.titleDocLabel}
+          opcional={form.optional}
+          hint={form.docHint}
+          accept=".pdf,.jpg,.jpeg,.png"
+          actual={documentoTitulo}
+          cargando={subiendo('titulo')}
+          error={errors.documentoTitulo?.message}
+          textos={textosArchivo}
+          onElegir={(archivo) => elegirDocumento('titulo', archivo)}
+          onQuitar={() => setValue('documentoTitulo', null)}
+        />
+      </fieldset>
+
       <div className="p-3 rounded-lg bg-surface-container-low flex items-start gap-2.5">
         <Icon name="info" size={18} className="text-primary shrink-0 mt-0.5" />
         <p className="text-body-sm text-secondary leading-relaxed">{verificationNote}</p>
@@ -145,7 +233,7 @@ export function FormularioCredenciales({ guardadas }: FormularioCredencialesProp
         anterior={{ to: ROUTES.register, label: actions.previous }}
         textoSiguiente={actions.next}
         textoCargando={actions.saving}
-        cargando={isPending}
+        cargando={isPending || subir.isPending}
       />
     </form>
   )

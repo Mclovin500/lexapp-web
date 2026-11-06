@@ -1,9 +1,10 @@
-export type EstadoSolicitud = 'nueva' | 'en_revision' | 'atendida' | 'rechazada'
+/** Sección 8: `convertida_propuesta` = se envió una propuesta (D1); `atendida` = se cerró sin propuesta. */
+export type EstadoSolicitud = 'nueva' | 'en_revision' | 'atendida' | 'rechazada' | 'convertida_propuesta'
 export type PrioridadSolicitud = 'alta' | 'media' | 'baja'
 export type TipoPersona = 'fisica' | 'moral'
 
 /** Filtros de C1 (Stitch: "Todas", "Nuevas", "En revisión", "Atendidas"). */
-export type FiltroEstadoSolicitud = 'todas' | 'nueva' | 'en_revision' | 'atendida'
+export type FiltroEstadoSolicitud = 'todas' | 'nueva' | 'en_revision' | 'convertida_propuesta' | 'atendida'
 
 export interface ClienteSolicitud {
   id: string

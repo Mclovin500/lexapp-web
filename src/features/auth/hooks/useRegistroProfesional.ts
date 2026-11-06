@@ -4,13 +4,17 @@ import {
   guardarCredenciales,
   guardarPerfil,
   obtenerProgresoRegistro,
+  subirDocumentoRegistro,
+  subirFotoRegistro,
 } from '../services/registro-profesional.service'
 import type { ErrorAutenticacion } from '../types/auth.types'
 import type {
   CredencialesProfesionales,
+  DocumentoRegistro,
   PerfilProfesional,
   ProgresoRegistro,
   RespuestaEnvioRegistro,
+  TipoDocumentoRegistro,
 } from '../types/registro-profesional.types'
 
 const CLAVE_PROGRESO = ['registro', 'progreso'] as const
@@ -23,6 +27,18 @@ export function useProgresoRegistro() {
     staleTime: 0,
     retry: false,
   })
+}
+
+/** A4: sube la cédula o el título en cuanto se elige el archivo. */
+export function useSubirDocumentoRegistro() {
+  return useMutation<DocumentoRegistro, ErrorAutenticacion, { tipo: TipoDocumentoRegistro; archivo: File }>({
+    mutationFn: ({ tipo, archivo }) => subirDocumentoRegistro(tipo, archivo),
+  })
+}
+
+/** A5: fotografía profesional (opcional). */
+export function useSubirFotoRegistro() {
+  return useMutation<{ fotoUrl: string }, ErrorAutenticacion, File>({ mutationFn: subirFotoRegistro })
 }
 
 /** A4: guarda credenciales y actualiza la precarga en caché. */

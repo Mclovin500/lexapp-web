@@ -44,7 +44,7 @@ export const registroContent = {
     red: 'No pudimos conectar con el servidor. Inténtalo de nuevo.',
     desconocido: 'Ocurrió un error inesperado. Inténtalo de nuevo.',
   },
-  reassurance: 'Cifrado E2E para expedientes y validez procesal',
+  reassurance: 'Tus datos solo se usan para crear tu cuenta y validar tu perfil profesional',
   links: {
     hasAccountText: '¿Ya tienes una cuenta colegiada?',
     loginLinkText: 'Iniciar sesión',

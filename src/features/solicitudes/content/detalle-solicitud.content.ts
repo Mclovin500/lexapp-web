@@ -41,6 +41,8 @@ export const detalleSolicitudContent = {
     reason: 'Motivo',
   },
   attended: 'Esta solicitud ya fue atendida.',
+  converted: 'Esta solicitud ya se convirtió en una propuesta de servicios.',
+  viewProposals: 'Ver propuestas',
   rejectDialog: {
     title: 'Rechazar solicitud',
     description: 'El cliente verá el motivo en su aplicación. Esta acción no se puede deshacer.',
