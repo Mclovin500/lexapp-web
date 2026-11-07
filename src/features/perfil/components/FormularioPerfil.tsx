@@ -18,7 +18,6 @@ function aFormulario(p: PerfilAbogado): PerfilFormValues {
   return {
     aniosExperiencia: String(p.aniosExperiencia),
     descripcion: p.descripcion,
-    idiomas: p.idiomas,
     areasPractica: p.areasPractica,
     especialidades: p.especialidades,
     formacion: p.formacion.map((f) => ({ ...f, anioInicio: String(f.anioInicio), anioFin: f.anioFin === null ? '' : String(f.anioFin) })),
@@ -37,7 +36,6 @@ function aPeticion(v: PerfilFormValues): PeticionPerfil {
   return {
     aniosExperiencia: Number(v.aniosExperiencia),
     descripcion: v.descripcion.trim(),
-    idiomas: v.idiomas.trim(),
     areasPractica: v.areasPractica,
     especialidades: v.especialidades,
     formacion: v.formacion.map((f) => ({ id: f.id, titulo: f.titulo.trim(), institucion: f.institucion.trim(), anioInicio: Number(f.anioInicio), anioFin: anioFin(f.anioFin) })),
@@ -144,7 +142,6 @@ export function FormularioPerfil({ perfil, onCancelar, onGuardado }: FormularioP
           error={errores.descripcion?.message}
           {...register('descripcion')}
         />
-        <CampoTexto id="perfil-idiomas" label={form.languages} labelHint={form.optional} icon="translate" maxLength={150} placeholder={form.languagesPlaceholder} error={errores.idiomas?.message} {...register('idiomas')} />
       </Seccion>
 
       <Seccion titulo={`${sections.areas} y ${sections.specialties.toLowerCase()}`}>

@@ -43,12 +43,6 @@ export function VistaPerfil({ perfil }: { perfil: PerfilAbogado }) {
       <div className="xl:col-span-8 flex flex-col gap-6">
         <Tarjeta id="perfil-descripcion" titulo={sections.description}>
           <p className="text-body-md text-on-surface-variant whitespace-pre-line">{perfil.descripcion}</p>
-          {perfil.idiomas && (
-            <p className="flex items-center gap-2 text-body-sm text-secondary">
-              <Icon name="translate" size={18} />
-              {sections.languages}: <span className="text-on-surface">{perfil.idiomas}</span>
-            </p>
-          )}
         </Tarjeta>
         <Tarjeta id="perfil-areas" titulo={`${sections.areas} y ${sections.specialties.toLowerCase()}`}>
           <Chips valores={perfil.areasPractica.map((v) => etiquetaDe(areasPractica, v))} />

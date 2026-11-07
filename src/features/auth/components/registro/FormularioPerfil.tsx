@@ -31,7 +31,6 @@ function aValoresFormulario(guardado?: PerfilProfesional): PerfilProfesionalForm
     areaPractica: guardado?.areaPractica ?? '',
     especializaciones: guardado?.especializaciones ?? [],
     biografia: guardado?.biografia ?? '',
-    idiomas: guardado?.informacionRelevante.idiomas ?? '',
     jurisdicciones: guardado?.informacionRelevante.jurisdicciones ?? '',
     disponibilidad: guardado?.disponibilidad ?? disponibilidades[0].valor,
     servicios: guardado?.servicios.map((s) => ({ ...s })) ?? [{ nombre: '', descripcion: '' }],
@@ -47,7 +46,6 @@ function aPerfil(valores: PerfilProfesionalFormValues): PerfilProfesional {
     especializaciones: valores.especializaciones,
     biografia: valores.biografia,
     informacionRelevante: {
-      idiomas: valores.idiomas === '' ? null : valores.idiomas,
       jurisdicciones: valores.jurisdicciones === '' ? null : valores.jurisdicciones,
     },
     disponibilidad: valores.disponibilidad,
@@ -161,24 +159,14 @@ export function FormularioPerfil({ guardado }: FormularioPerfilProps) {
           {form.relevantInfo}
           <span className="text-secondary font-normal">{form.optional}</span>
         </legend>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-          <CampoTexto
-            id="perfil-idiomas"
-            label={form.languagesLabel}
-            icon="translate"
-            placeholder={form.languagesPlaceholder}
-            error={errors.idiomas?.message}
-            {...register('idiomas')}
-          />
-          <CampoTexto
-            id="perfil-jurisdicciones"
-            label={form.jurisdictionsLabel}
-            icon="account_balance"
-            placeholder={form.jurisdictionsPlaceholder}
-            error={errors.jurisdicciones?.message}
-            {...register('jurisdicciones')}
-          />
-        </div>
+        <CampoTexto
+          id="perfil-jurisdicciones"
+          label={form.jurisdictionsLabel}
+          icon="account_balance"
+          placeholder={form.jurisdictionsPlaceholder}
+          error={errors.jurisdicciones?.message}
+          {...register('jurisdicciones')}
+        />
       </fieldset>
 
       <fieldset className="space-y-3">

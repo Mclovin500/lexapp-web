@@ -7,7 +7,7 @@ Mismas reglas que `contrato-api-panel.md`: sesión por cookie `httpOnly`, errore
 - `GET /abogado/perfil` → `{ "fotoUrl", "tratamiento", "nombreCompleto", "cedula", "estadoValidacion", "visibleParaClientes",
   "aniosExperiencia", "formacion": [{ "id", "titulo", "institucion", "anioInicio", "anioFin": null | año }],
   "experiencia": [{ "id", "cargo", "organizacion", "anioInicio", "anioFin", "descripcion" }],
-  "areasPractica": [valor], "especialidades": [valor], "descripcion", "idiomas",
+  "areasPractica": [valor], "especialidades": [valor], "descripcion",
   "servicios": [{ "id", "nombre", "descripcion" }],
   "honorarios": { "consultaInicial" (MXN, 0 = sin costo), "tarifaHora": null | MXN, "nota" },
   "disponibilidad": { "aceptaNuevosCasos", "modalidad" } }`.

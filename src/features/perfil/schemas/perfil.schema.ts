@@ -15,7 +15,6 @@ const importeOpcional = z.string().trim().refine((v) => v === '' || esImporteVal
 export const perfilSchema = z.object({
   aniosExperiencia: z.string().regex(/^\d{1,2}$/, 'Escribe un número de 0 a 99.'),
   descripcion: z.string().trim().min(50, 'Describe tu trayectoria en al menos 50 caracteres.').max(LIMITE_DESCRIPCION, `Máximo ${LIMITE_DESCRIPCION} caracteres.`),
-  idiomas: z.string().trim().max(150, 'Máximo 150 caracteres.'),
   areasPractica: z
     .array(z.string())
     .min(1, 'Elige al menos un área de práctica.')

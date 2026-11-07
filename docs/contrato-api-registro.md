@@ -36,7 +36,7 @@ Mismo formato de errores y mapeo que `contrato-api-auth.md` (`lib/mapear-error.t
 
 ## A5 · `PUT /registro/perfil`
 - Petición: `{ "areaPractica", "especializaciones": ["<valor>"], "biografia" (≤ 500),
-  "informacionRelevante": { "idiomas": null | "<texto>", "jurisdicciones": null | "<texto>" },
+  "informacionRelevante": { "jurisdicciones": null | "<texto>" },
   "disponibilidad": "inmediata" | "agenda_previa" | "corporativo",
   "servicios": [{ "nombre", "descripcion" }] (1 a 5), "honorarios": { "consultaInicial" (MXN, 0 = sin costo), "tarifaHora": null | MXN },
   "fotoUrl": null | "<URL de POST /registro/foto>" }` → 204. Máximo 5 especializaciones.

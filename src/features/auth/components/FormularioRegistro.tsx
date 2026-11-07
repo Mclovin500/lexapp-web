@@ -15,8 +15,10 @@ import { IndicadorContrasena } from './IndicadorContrasena'
 /** Convierte los valores del formulario al cuerpo que espera el backend. */
 function aDatosRegistro(valores: RegistroFormValues): DatosRegistro {
   return {
-    nombre: valores.nombre,
-    apellidos: valores.apellidos,
+    primerNombre: valores.primerNombre,
+    segundoNombre: valores.segundoNombre === '' ? null : valores.segundoNombre,
+    apellidoPaterno: valores.apellidoPaterno,
+    apellidoMaterno: valores.apellidoMaterno,
     correo: valores.correo.toLowerCase(),
     telefono: valores.telefono === '' ? null : valores.telefono,
     contrasena: valores.contrasena,
@@ -37,8 +39,10 @@ export function FormularioRegistro() {
   } = useForm<RegistroFormValues>({
     resolver: zodResolver(registroSchema),
     defaultValues: {
-      nombre: '',
-      apellidos: '',
+      primerNombre: '',
+      segundoNombre: '',
+      apellidoPaterno: '',
+      apellidoMaterno: '',
       correo: '',
       telefono: '',
       contrasena: '',
@@ -65,25 +69,47 @@ export function FormularioRegistro() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
-      {/* Nombre y apellidos */}
+      {/* Nombres y apellidos (como en la cédula profesional) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         <CampoTexto
-          id="registro-nombre"
+          id="registro-primer-nombre"
           label={form.firstNameLabel}
           icon="badge"
           autoComplete="given-name"
+          maxLength={50}
           placeholder={form.firstNamePlaceholder}
-          error={errors.nombre?.message}
-          {...register('nombre')}
+          error={errors.primerNombre?.message}
+          {...register('primerNombre')}
         />
         <CampoTexto
-          id="registro-apellidos"
-          label={form.lastNameLabel}
+          id="registro-segundo-nombre"
+          label={form.middleNameLabel}
+          labelHint={form.middleNameOptional}
+          icon="badge"
+          autoComplete="additional-name"
+          maxLength={50}
+          placeholder={form.middleNamePlaceholder}
+          error={errors.segundoNombre?.message}
+          {...register('segundoNombre')}
+        />
+        <CampoTexto
+          id="registro-apellido-paterno"
+          label={form.paternalLastNameLabel}
           icon="badge"
           autoComplete="family-name"
-          placeholder={form.lastNamePlaceholder}
-          error={errors.apellidos?.message}
-          {...register('apellidos')}
+          maxLength={50}
+          placeholder={form.paternalLastNamePlaceholder}
+          error={errors.apellidoPaterno?.message}
+          {...register('apellidoPaterno')}
+        />
+        <CampoTexto
+          id="registro-apellido-materno"
+          label={form.maternalLastNameLabel}
+          icon="badge"
+          maxLength={50}
+          placeholder={form.maternalLastNamePlaceholder}
+          error={errors.apellidoMaterno?.message}
+          {...register('apellidoMaterno')}
         />
       </div>
 

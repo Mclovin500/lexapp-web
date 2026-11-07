@@ -1,7 +1,10 @@
 /** Cuerpo de `POST /auth/registro` (A3). La confirmación de contraseña no se envía. */
 export interface DatosRegistro {
-  nombre: string
-  apellidos: string
+  primerNombre: string
+  /** Opcional; `null` si no se captura. */
+  segundoNombre: string | null
+  apellidoPaterno: string
+  apellidoMaterno: string
   correo: string
   telefono: string | null
   contrasena: string

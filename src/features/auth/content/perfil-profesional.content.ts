@@ -11,8 +11,6 @@ export const perfilProfesionalContent = {
       'Describe brevemente tu trayectoria, enfoque jurídico y tipos de asuntos que atiendes (visible en tu perfil).',
     relevantInfo: 'Información relevante',
     optional: '(opcional)',
-    languagesLabel: 'Idiomas de atención',
-    languagesPlaceholder: 'Ej. Español (nativo), Inglés jurídico (C1)',
     jurisdictionsLabel: 'Jurisdicciones habituales',
     jurisdictionsPlaceholder: 'Ej. Tribunales Federales, Juzgados Mercantiles',
     availabilityLabel: 'Disponibilidad inicial',

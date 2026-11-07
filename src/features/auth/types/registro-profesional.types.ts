@@ -32,7 +32,6 @@ export interface PerfilProfesional {
   especializaciones: string[]
   biografia: string
   informacionRelevante: {
-    idiomas: string | null
     jurisdicciones: string | null
   }
   disponibilidad: string

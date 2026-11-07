@@ -1,6 +1,18 @@
 import { z } from 'zod'
 import { contrasenaSchema } from './contrasena.schema'
 
+/** Letras (con acentos y ñ), espacios, apóstrofo, punto y guion. */
+const PATRON_NOMBRE = /^[\p{L}][\p{L}\s'.-]*$/u
+
+function campoNombre(requerido: string) {
+  return z
+    .string()
+    .trim()
+    .min(1, requerido)
+    .max(50, 'Máximo 50 caracteres.')
+    .regex(PATRON_NOMBRE, 'Usa solo letras.')
+}
+
 function telefonoValido(valor: string): boolean {
   if (valor === '') return true
   const digitos = valor.replace(/\D/g, '')
@@ -9,16 +21,14 @@ function telefonoValido(valor: string): boolean {
 
 export const registroSchema = z
   .object({
-    nombre: z
+    primerNombre: campoNombre('El primer nombre es requerido.'),
+    segundoNombre: z
       .string()
       .trim()
-      .min(1, 'El nombre es requerido.')
-      .max(80, 'El nombre no puede superar 80 caracteres.'),
-    apellidos: z
-      .string()
-      .trim()
-      .min(1, 'Los apellidos son requeridos.')
-      .max(80, 'Los apellidos no pueden superar 80 caracteres.'),
+      .max(50, 'Máximo 50 caracteres.')
+      .refine((v): boolean => v === '' || PATRON_NOMBRE.test(v), 'Usa solo letras.'),
+    apellidoPaterno: campoNombre('El apellido paterno es requerido.'),
+    apellidoMaterno: campoNombre('El apellido materno es requerido.'),
     correo: z
       .string()
       .trim()

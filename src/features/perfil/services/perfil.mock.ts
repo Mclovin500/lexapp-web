@@ -27,7 +27,6 @@ let perfil: PeticionPerfil = {
   especialidades: ['contratacion-mercantil', 'fusiones-adquisiciones', 'amparo'],
   descripcion:
     'Abogado con 14 años de experiencia en derecho corporativo y litigio civil. Acompaño a empresas y personas en la prevención y solución de conflictos con un trato cercano y explicaciones claras de cada etapa del caso.',
-  idiomas: 'Español (nativo), inglés (avanzado)',
   servicios: [
     { id: 'srv-1', nombre: 'Consulta jurídica inicial', descripcion: 'Análisis del caso y opciones de solución en una videollamada.' },
     { id: 'srv-2', nombre: 'Redacción y revisión de contratos', descripcion: 'Contratos mercantiles, de arrendamiento y de prestación de servicios.' },

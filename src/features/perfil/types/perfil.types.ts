@@ -42,7 +42,6 @@ export interface PerfilAbogado {
   /** Valores del catálogo de especializaciones. */
   especialidades: string[]
   descripcion: string
-  idiomas: string
   servicios: Servicio[]
   honorarios: {
     /** MXN; `0` = primera consulta sin costo. */

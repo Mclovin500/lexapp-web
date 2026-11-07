@@ -39,7 +39,7 @@ Los tiempos (`reenviarEnSegundos`, `expiraEnSegundos`) siempre los dicta el back
 - Errores: `401/410` token inválido o vencido (el front ofrece reiniciar en A2B) · `400/422` contraseña rechazada.
 
 ## A3 · `POST /auth/registro`
-- Petición: `{ "nombre", "apellidos", "correo", "telefono": null | "5512345678", "contrasena", "aceptaTerminos": true }`
+- Petición: `{ "primerNombre", "segundoNombre": null | "<texto>", "apellidoPaterno", "apellidoMaterno", "correo", "telefono": null | "5512345678", "contrasena", "aceptaTerminos": true }`
 - 201: `{ "correoEnmascarado", "reenviarEnSegundos", "expiraEnSegundos" }` y envía el código de A3A
   (A3A–A5: ver `contrato-api-registro.md`).
 - Errores: `409` correo ya registrado · `400/422` datos inválidos · `429`.

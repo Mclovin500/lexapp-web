@@ -27,7 +27,6 @@ export const perfilContent = {
   },
   sections: {
     description: 'Descripción',
-    languages: 'Idiomas',
     areas: 'Áreas de práctica',
     specialties: 'Especialidades',
     education: 'Formación',
@@ -65,8 +64,6 @@ export const perfilContent = {
     years: 'Años de experiencia',
     description: 'Descripción profesional',
     descriptionPlaceholder: 'Tu trayectoria y cómo trabajas con tus clientes.',
-    languages: 'Idiomas',
-    languagesPlaceholder: 'Ej. Español (nativo), inglés (avanzado)',
     areasHint: `Elige hasta ${MAX_AREAS}.`,
     specialtiesHint: `Elige hasta ${MAX_ESPECIALIDADES}.`,
     add: 'Agregar',

@@ -24,7 +24,6 @@ export const perfilProfesionalSchema = z.object({
     .trim()
     .min(1, 'Describe brevemente tu trayectoria profesional.')
     .max(LIMITE_BIOGRAFIA, `Máximo ${LIMITE_BIOGRAFIA} caracteres.`),
-  idiomas: z.string().trim().max(150, 'Máximo 150 caracteres.'),
   jurisdicciones: z.string().trim().max(150, 'Máximo 150 caracteres.'),
   disponibilidad: z
     .string()
