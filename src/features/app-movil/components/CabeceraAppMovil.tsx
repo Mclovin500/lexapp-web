@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { BotonTema } from '@/components/ui/BotonTema'
 import { Icon } from '@/components/ui/Icon'
+import { Logo } from '@/components/ui/Logo'
 import { appMovilContent } from '../content/app-movil.content'
 
 export function CabeceraAppMovil() {
@@ -24,9 +25,7 @@ export function CabeceraAppMovil() {
 
         {/* Logotipo */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-sm">
-            <Icon name="balance" size={24} />
-          </div>
+          <Logo className="h-10" />
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
               <span className="text-headline-sm font-bold tracking-tight text-on-surface">

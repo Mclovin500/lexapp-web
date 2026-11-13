@@ -1,5 +1,6 @@
 import { Container } from '@/components/ui/Container'
 import { Icon } from '@/components/ui/Icon'
+import { Logo } from '@/components/ui/Logo'
 import { footerContent } from '../content/inicio-publico.content'
 
 export function PublicFooter() {
@@ -10,9 +11,7 @@ export function PublicFooter() {
           {/* Columna Marca */}
           <div className="lg:col-span-2 flex flex-col gap-space-md">
             <div className="flex items-center gap-space-sm text-left">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container text-primary">
-                <Icon name="balance" size={24} />
-              </div>
+              <Logo className="h-11" />
               <div className="flex flex-col">
                 <span className="text-headline-sm font-semibold tracking-tight leading-none text-on-surface">
                   {footerContent.brandName}

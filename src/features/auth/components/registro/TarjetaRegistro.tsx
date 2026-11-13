@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { Icon } from '@/components/ui/Icon'
+import { Logo } from '@/components/ui/Logo'
 import { registroContent } from '../../content/registro.content'
 import { PasosRegistro } from '../PasosRegistro'
 
@@ -21,9 +22,7 @@ export function TarjetaRegistro({ pasoActual, subtitle, children }: TarjetaRegis
       {/* Identidad y encabezado */}
       <div className="flex flex-col items-center text-center">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-md shadow-primary/20 text-on-primary">
-            <Icon name="balance" size={24} />
-          </div>
+          <Logo className="h-12" />
           <div className="flex items-baseline gap-1">
             <span className="text-headline-lg tracking-tight text-on-surface font-bold">{brandName}</span>
             <span className="w-2 h-2 rounded-full bg-primary-container" aria-hidden="true" />

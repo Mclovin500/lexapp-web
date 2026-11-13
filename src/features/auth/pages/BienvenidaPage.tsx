@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
-import { Icon } from '@/components/ui/Icon'
+import { Logo } from '@/components/ui/Logo'
 import { MarcoAcceso } from '../components/MarcoAcceso'
 import { bienvenidaContent } from '../content/bienvenida.content'
 import { useVerificarSesion } from '../hooks/useVerificarSesion'
@@ -56,9 +56,7 @@ export function BienvenidaPage() {
             className="absolute -inset-2 bg-linear-to-b from-primary-container/20 to-transparent rounded-[32px] blur-md opacity-70"
             aria-hidden="true"
           />
-          <div className="relative w-28 h-28 bg-surface-container-lowest rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,184,123,0.18),0_4px_16px_rgba(11,28,48,0.04)] border border-surface-container flex items-center justify-center transition duration-300 hover:scale-105">
-            <Icon name="balance" size={56} className="text-primary-container" />
-          </div>
+          <Logo className="relative h-32 drop-shadow-[0_18px_30px_rgba(16,31,47,0.22)] transition duration-300 hover:scale-105 motion-reduce:transition-none" />
         </div>
 
         <h1 className="text-4xl font-extrabold tracking-tight text-on-surface mb-3">

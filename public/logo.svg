@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1160" width="1000" height="1160">
+  <defs>
+    <!-- Degradado superior azul medio -->
+    <linearGradient id="blueTopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#237BC2" />
+      <stop offset="100%" stop-color="#1D5C96" />
+    </linearGradient>
+    <!-- Degradado inferior azul marino oscuro -->
+    <linearGradient id="blueBottomGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D3270" />
+      <stop offset="100%" stop-color="#091E4A" />
+    </linearGradient>
+    <!-- Degradado dorado -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2BE6F" />
+      <stop offset="50%" stop-color="#D4AE5C" />
+      <stop offset="100%" stop-color="#C19847" />
+    </linearGradient>
+    <!-- Clip del hexágono principal -->
+    <clipPath id="hexClip">
+      <polygon points="500,15 955,265 955,895 500,1145 45,895 45,265" />
+    </clipPath>
+  </defs>
+
+  <!-- CAPA 1: FONDO HEXAGONAL -->
+  <g id="Hexagono_Fondo">
+    <!-- Base azul superior -->
+    <polygon points="500,15 955,265 955,895 500,1145 45,895 45,265" fill="url(#blueTopGrad)" />
+    <!-- Corte diagonal azul oscuro -->
+    <polygon points="955,265 955,895 500,1145 45,895" fill="url(#blueBottomGrad)" clip-path="url(#hexClip)" />
+    <!-- Borde sutil exterior -->
+    <polygon points="500,15 955,265 955,895 500,1145 45,895 45,265" fill="none" stroke="#2B86D1" stroke-width="6" stroke-linejoin="round" opacity="0.45" />
+  </g>
+
+  <!-- CAPA 2: BALANZA DE LA JUSTICIA -->
+  <g id="Balanza" fill="url(#goldGrad)">
+    <!-- Remate superior y pilar central -->
+    <path d="M500,185 C512,198 522,212 522,226 C522,237 514,246 508,252 L508,288 C525,274 548,274 574,284 C612,299 645,308 674,288 C678,285 683,288 682,294 C680,312 664,324 640,324 C612,324 585,306 555,306 C532,306 516,324 500,324 C484,324 468,306 445,306 C415,306 388,324 360,324 C336,324 320,312 318,294 C317,288 322,285 326,288 C355,308 388,299 426,284 C452,274 475,274 492,288 L492,252 C486,246 478,237 478,226 C478,212 488,198 500,185 Z" />
+    
+    <!-- Columna vertical de la balanza (con corte limpio para el mango del mazo) -->
+    <path d="M486,338 L514,338 L514,725 L486,738 Z" />
+    <!-- Base inferior de la balanza -->
+    <path d="M486,798 L514,785 L514,845 C532,845 546,858 552,874 L585,874 C598,874 606,885 606,898 L606,912 L394,912 L394,898 C394,885 402,874 415,874 L448,874 C454,858 468,845 486,845 Z" />
+
+    <!-- Platillo izquierdo y cadenas -->
+    <path d="M358,322 L368,322 L442,528 L430,528 L363,342 L296,528 L284,528 Z" />
+    <path d="M262,535 L464,535 C464,598 418,642 363,642 C308,642 262,598 262,535 Z" />
+
+    <!-- Platillo derecho (parcialmente detrás del mazo) y cadenas -->
+    <path d="M632,322 L642,322 L706,498 L694,502 L637,342 L570,528 L558,528 Z" />
+    <path d="M536,535 L580,535 C583,562 598,582 622,592 L606,612 C565,602 536,574 536,535 Z" />
+  </g>
+
+  <!-- CAPA 3: MAZO DE JUEZ Y BASE -->
+  <g id="Mazo" fill="url(#goldGrad)">
+    <!-- Cabeza y mango del mazo inclinados -->
+    <g transform="translate(680, 620) rotate(-22)">
+      <!-- Borde superior cabeza -->
+      <rect x="-82" y="-115" width="164" height="14" rx="7" />
+      <!-- Cuerpo cilíndrico principal -->
+      <path d="M-92,-92 L92,-92 C102,-92 108,-84 108,-74 C108,-65 102,-58 94,-56 L94,48 C102,50 108,57 108,66 C108,76 102,84 92,84 L-92,84 C-102,84 -108,76 -108,66 C-108,57 -102,50 -94,48 L-94,-56 C-102,-58 -108,-65 -108,-74 C-108,-84 -102,-92 -92,-92 Z" />
+      <!-- Borde inferior cabeza -->
+      <rect x="-82" y="92" width="164" height="14" rx="7" />
+      <!-- Collarín del mango -->
+      <rect x="-126" y="-22" width="16" height="44" rx="6" />
+      <!-- Mango largo -->
+      <path d="M-132,-14 L-230,-11 C-238,-17 -250,-17 -258,-9 L-455,-5 C-472,-5 -482,5 -482,16 C-482,27 -472,36 -455,34 L-258,15 C-250,22 -238,22 -230,14 L-132,14 Z" />
+    </g>
+
+    <!-- Base de impacto del mazo (inferior derecha) -->
+    <path d="M675,825 L915,825 C928,825 936,834 938,846 L652,846 C654,834 662,825 675,825 Z" />
+    <path d="M645,860 L945,860 C962,860 972,872 972,890 L972,912 L618,912 L618,890 C618,872 628,860 645,860 Z" />
+  </g>
+</svg>

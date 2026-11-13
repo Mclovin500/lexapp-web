@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { BotonTema } from '@/components/ui/BotonTema'
 import { Icon } from '@/components/ui/Icon'
+import { Logo } from '@/components/ui/Logo'
 import { FormularioLogin } from '../components/FormularioLogin'
 import { PanelInstitucional } from '../components/PanelInstitucional'
 import { loginContent } from '../content/login.content'
@@ -34,9 +35,7 @@ export function LoginPage() {
 
             {/* Logotipo */}
             <div className="flex items-center gap-3 mb-10">
-              <div className="w-10 h-10 rounded-xl bg-inverse-surface flex items-center justify-center text-primary-fixed shadow-sm">
-                <Icon name="balance" size={24} />
-              </div>
+              <Logo className="h-12" />
               <div className="flex flex-col">
                 <span className="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">
                   {loginContent.header.brandName}

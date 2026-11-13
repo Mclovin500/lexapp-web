@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ROUTES } from '@/app/routes'
 import { Container } from '@/components/ui/Container'
 import { Icon } from '@/components/ui/Icon'
+import { Logo } from '@/components/ui/Logo'
 import { Button } from '@/components/ui/Button'
 import { BotonTema } from '@/components/ui/BotonTema'
 import { navItems } from '../content/inicio-publico.content'
@@ -22,9 +23,7 @@ export function PublicHeader() {
       <Container className="flex h-20 items-center justify-between gap-2 sm:gap-space-lg">
         {/* Logotipo */}
         <a href="#inicio" className="group flex shrink-0 items-center gap-space-xs sm:gap-space-sm text-left">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-low text-primary transition-colors group-hover:bg-primary-container group-hover:text-on-primary-container">
-            <Icon name="balance" size={24} />
-          </div>
+          <Logo className="h-11 transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" />
           <div className="flex flex-col">
             <span className="text-headline-sm font-semibold tracking-tight leading-none text-on-surface">
               LexApp

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { Icon } from '@/components/ui/Icon'
+import { Logo } from '@/components/ui/Logo'
 import type { CuentaAbogado } from '@/features/dashboard/types/cuenta.types'
 import { etiquetasShell, opcionesNavegacion } from './navegacion'
 
@@ -28,9 +29,7 @@ export function Sidebar({ contadores, abierto, onCerrar }: SidebarProps) {
         }`}
       >
         <div className="h-16 px-6 flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm">
-            <Icon name="balance" size={22} />
-          </div>
+          <Logo className="h-10" />
           <div className="flex flex-col">
             <span className="text-headline-sm font-bold tracking-tight text-on-surface leading-none">
               {etiquetasShell.brand}

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { BotonTema } from '@/components/ui/BotonTema'
 import { Icon } from '@/components/ui/Icon'
+import { Logo } from '@/components/ui/Logo'
 import { seleccionPerfilContent } from '../content/seleccion-perfil.content'
 
 export function CabeceraSeleccionPerfil() {
@@ -26,9 +27,7 @@ export function CabeceraSeleccionPerfil() {
 
         {/* Logotipo */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-on-surface flex items-center justify-center shadow-sm">
-            <Icon name="balance" size={20} filled className="text-primary-container" />
-          </div>
+          <Logo className="h-10" />
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
               <span className="text-headline-sm font-bold tracking-tight text-on-surface">
