@@ -43,14 +43,11 @@ export const solicitudesContent = {
   filtros: {
     ariaLabel: 'Filtrar por estado',
     estados: [
-      { valor: 'todas', label: 'Todas' },
+      // La bandeja del backend solo devuelve solicitudes pendientes de respuesta.
       { valor: 'nueva', label: 'Nuevas' },
-      { valor: 'en_revision', label: 'En revisión' },
-      { valor: 'convertida_propuesta', label: 'Convertidas en propuesta' },
-      { valor: 'atendida', label: 'Atendidas' },
     ] satisfies { valor: FiltroEstadoSolicitud; label: string }[],
     searchLabel: 'Buscar solicitudes',
-    searchPlaceholder: 'Buscar por nombre del cliente o área jurídica',
+    searchPlaceholder: 'Buscar por nombre del cliente, asunto o folio',
     areaLabel: 'Área jurídica',
     areaAll: 'Todas las áreas',
     clear: 'Limpiar filtros',
@@ -71,7 +68,7 @@ export const solicitudesContent = {
   porPagina: 8,
   loading: 'Cargando solicitudes…',
   empty: {
-    title: 'No hay solicitudes con estos filtros',
-    description: 'Prueba con otro estado, área o búsqueda.',
+    title: 'No tienes solicitudes pendientes',
+    description: 'Cuando un cliente te envíe una solicitud desde su aplicación aparecerá aquí.',
   },
 }

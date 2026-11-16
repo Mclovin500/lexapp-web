@@ -5,6 +5,7 @@ import { EstadoError } from '@/components/ui/EstadoError'
 import { Icon } from '@/components/ui/Icon'
 import { EncabezadoPerfil } from '../components/EncabezadoPerfil'
 import { FormularioPerfil } from '../components/FormularioPerfil'
+import { SolicitudesCambio } from '../components/SolicitudesCambio'
 import { VistaPerfil } from '../components/VistaPerfil'
 import { perfilContent } from '../content/perfil.content'
 import { usePerfil } from '../hooks/usePerfil'
@@ -68,6 +69,8 @@ export function MiPerfilPage() {
           )}
         </>
       )}
+
+      {!editando && <SolicitudesCambio />}
     </div>
   )
 }

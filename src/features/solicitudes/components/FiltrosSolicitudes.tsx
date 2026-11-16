@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Icon } from '@/components/ui/Icon'
-import { areasJuridicas, solicitudesContent } from '../content/solicitudes.content'
+import { solicitudesContent } from '../content/solicitudes.content'
 import type {
   FiltroEstadoSolicitud,
   FiltrosSolicitudes as Filtros,
@@ -13,11 +13,11 @@ interface FiltrosSolicitudesProps {
   onCambiar: (cambios: Partial<Filtros>) => void
 }
 
-/** Filtros de C1: estado (Todas/Nuevas/En revisión/Atendidas), área jurídica y búsqueda. */
+/** Filtros de C1: estado y búsqueda (el backend no clasifica las solicitudes por área jurídica). */
 export function FiltrosSolicitudes({ filtros, totales, onCambiar }: FiltrosSolicitudesProps) {
   const { filtros: textos } = solicitudesContent
   const [busqueda, setBusqueda] = useState(filtros.busqueda)
-  const hayFiltros = filtros.estado !== 'todas' || filtros.area !== null || filtros.busqueda !== ''
+  const hayFiltros = filtros.busqueda !== ''
 
   const buscar = (evento: FormEvent<HTMLFormElement>) => {
     evento.preventDefault()
@@ -26,7 +26,7 @@ export function FiltrosSolicitudes({ filtros, totales, onCambiar }: FiltrosSolic
 
   const limpiar = () => {
     setBusqueda('')
-    onCambiar({ estado: 'todas', area: null, busqueda: '' })
+    onCambiar({ area: null, busqueda: '' })
   }
 
   return (
@@ -77,26 +77,6 @@ export function FiltrosSolicitudes({ filtros, totales, onCambiar }: FiltrosSolic
             Buscar
           </button>
         </form>
-
-        <div className="relative md:w-72">
-          <label htmlFor="solicitudes-area" className="sr-only">
-            {textos.areaLabel}
-          </label>
-          <select
-            id="solicitudes-area"
-            value={filtros.area ?? ''}
-            onChange={(evento) => onCambiar({ area: evento.target.value || null })}
-            className="w-full h-11 pl-3 pr-10 appearance-none rounded-lg bg-surface-container-lowest shadow-sm text-body-md text-on-surface cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-container"
-          >
-            <option value="">{textos.areaAll}</option>
-            {areasJuridicas.map((area) => (
-              <option key={area} value={area}>
-                {area}
-              </option>
-            ))}
-          </select>
-          <Icon name="expand_more" size={20} className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
-        </div>
 
         {hayFiltros && (
           <button

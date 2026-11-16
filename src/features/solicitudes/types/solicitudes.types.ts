@@ -94,3 +94,24 @@ export interface EstadoNuevaPropuesta {
 export interface PeticionRechazoSolicitud {
   motivo: string
 }
+
+// ---- Respuestas de Back_Lexapp (SolicitudCasoDtos.cs) ----
+
+/** `BandejaSolicitudCasoResponse` (`GET /solicitudes-caso/abogado/bandeja`): solo pendientes. */
+export interface BandejaSolicitudApi {
+  idSolicitud: number
+  idCliente: number
+  nombreCliente: string
+  emailCliente: string | null
+  telefonoCliente: string | null
+  titulo: string
+  descripcionProblema: string
+  fechaCreacion: string
+}
+
+/** `SolicitudCasoResponse` (respuesta de rechazar). */
+export interface RespuestaRechazoApi {
+  idSolicitud: number
+  estadoSolicitud: 'pendiente' | 'revisada' | 'propuesta_enviada' | 'rechazada_por_abogado'
+  motivoRechazo: string | null
+}

@@ -2,7 +2,9 @@ import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tansta
 import type { ErrorApi } from '@/api/errores'
 import { CLAVE_CUENTA } from '@/features/dashboard/hooks/useCuentaAbogado'
 import { CLAVE_RESUMEN_DASHBOARD } from '@/features/dashboard/hooks/useResumenDashboard'
+import type { OpcionCliente } from '@/features/clientes/types/clientes.types'
 import {
+  listarClientesConSolicitud,
   listarOpcionesSolicitudes,
   obtenerUrlDocumentoSolicitud,
   listarSolicitudes,
@@ -37,6 +39,15 @@ export function useOpcionesSolicitudes(clienteId: string) {
     queryKey: [...CLAVE_SOLICITUDES, 'opciones', clienteId],
     queryFn: () => listarOpcionesSolicitudes(clienteId),
     enabled: clienteId !== '',
+    retry: false,
+  })
+}
+
+/** D1: clientes que tienen solicitudes pendientes (las propuestas siempre nacen de una). */
+export function useClientesConSolicitud() {
+  return useQuery<OpcionCliente[], ErrorApi>({
+    queryKey: [...CLAVE_SOLICITUDES, 'clientes'],
+    queryFn: listarClientesConSolicitud,
     retry: false,
   })
 }
@@ -87,10 +98,25 @@ export function useRevisarSolicitud(id: string) {
   })
 }
 
+/**
+ * Tras rechazar, la solicitud sale de la bandeja del backend: el detalle abierto se actualiza
+ * en caché (sin volver a consultarlo, daría 404) y se refresca todo lo demás.
+ */
 export function useRechazarSolicitud(id: string) {
-  const invalidar = useInvalidarSolicitudes()
+  const queryClient = useQueryClient()
+  const claveDetalle = [...CLAVE_SOLICITUDES, 'detalle', id]
   return useMutation<void, ErrorApi, PeticionRechazoSolicitud>({
     mutationFn: (peticion) => rechazarSolicitud(id, peticion),
-    onSuccess: invalidar,
+    onSuccess: (_, peticion) => {
+      queryClient.setQueryData<SolicitudDetalle>(claveDetalle, (actual) =>
+        actual ? { ...actual, estado: 'rechazada', motivoRechazo: peticion.motivo } : actual,
+      )
+      void queryClient.invalidateQueries({
+        queryKey: CLAVE_SOLICITUDES,
+        predicate: (consulta) => consulta.queryKey[1] !== 'detalle',
+      })
+      void queryClient.invalidateQueries({ queryKey: CLAVE_RESUMEN_DASHBOARD })
+      void queryClient.invalidateQueries({ queryKey: CLAVE_CUENTA })
+    },
   })
 }

@@ -148,10 +148,7 @@ export function DetalleSolicitudPage() {
               <AccionesSolicitud
                 solicitud={solicitud}
                 onRechazar={() => setDialogoAbierto(true)}
-                onIrAInformacion={() => {
-                  irAInformacion()
-                  if (solicitud.estado === 'nueva') setAviso(contenido.actions.reviewDone)
-                }}
+                onIrAInformacion={irAInformacion}
               />
             </div>
           </div>

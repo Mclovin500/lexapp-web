@@ -15,8 +15,9 @@ export function descargarUrl(url: string, nombre: string): void {
   enlace.remove()
 }
 
-/** "1.4 MB", "420 KB" */
+/** "1.4 MB", "420 KB"; "—" si se desconoce (0). */
 export function formatearTamano(bytes: number): string {
+  if (bytes <= 0) return '—'
   if (bytes < 1024) return `${bytes} B`
   const kb = bytes / 1024
   if (kb < 1024) return `${Math.round(kb)} KB`

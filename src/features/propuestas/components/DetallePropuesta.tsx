@@ -25,9 +25,9 @@ export function DetallePropuesta({ propuestaId }: { propuestaId: string }) {
 
   const filas = [
     { etiqueta: detail.client, valor: p.cliente.organizacion ? `${p.cliente.nombre} · ${p.cliente.organizacion}` : p.cliente.nombre },
-    { etiqueta: detail.request, valor: p.solicitud ? `${p.solicitud.folio} · ${p.solicitud.asunto}` : detail.noRequest },
+    { etiqueta: detail.request, valor: p.solicitud ? [p.solicitud.folio, p.solicitud.asunto].filter(Boolean).join(' · ') : detail.noRequest },
     { etiqueta: detail.estimatedTime, valor: p.tiempoEstimado },
-    { etiqueta: detail.validUntil, valor: formatearFechaCorta(p.fechaVigencia) },
+    { etiqueta: detail.validUntil, valor: p.fechaVigencia ? formatearFechaCorta(p.fechaVigencia) : '—' },
     { etiqueta: detail.sentAt, valor: p.fechaEnvio ? formatearFechaHora(p.fechaEnvio) : detail.notSent },
   ]
 
@@ -82,12 +82,6 @@ export function DetallePropuesta({ propuestaId }: { propuestaId: string }) {
         ))}
 
       <div className="flex flex-wrap gap-2 pt-1">
-        {p.solicitud && (
-          <Link to={generatePath(ROUTES.requestDetail, { solicitudId: p.solicitud.id })} className={enlace}>
-            <Icon name="inbox" size={18} />
-            {actions.viewRequest}
-          </Link>
-        )}
         {p.expedienteId && (
           <Link to={generatePath(ROUTES.caseDetail, { expedienteId: p.expedienteId })} className={enlace}>
             <Icon name="folder_open" size={18} />

@@ -10,17 +10,22 @@ export const MAX_CONCEPTOS = 10
 export const propuestaSchema = z
   .object({
     clienteId: z.string().min(1, 'Selecciona un cliente.'),
-    /** '' = sin solicitud relacionada. */
-    solicitudId: z.string(),
-    servicio: z.string().trim().min(3, 'Escribe el nombre del servicio.').max(150, 'Máximo 150 caracteres.'),
-    descripcion: z.string().trim().min(10, 'Describe el servicio en al menos 10 caracteres.').max(2000, 'Máximo 2000 caracteres.'),
-    alcance: z.string().trim().max(2000, 'Máximo 2000 caracteres.'),
+    /** El backend exige una solicitud: toda propuesta responde a una. */
+    solicitudId: z.string().min(1, 'Selecciona la solicitud a la que respondes.'),
+    servicio: z.string().trim().min(5, 'Escribe el nombre del servicio (mínimo 5 caracteres).').max(150, 'Máximo 150 caracteres.'),
+    descripcion: z.string().trim().min(20, 'Describe el servicio en al menos 20 caracteres.').max(2000, 'Máximo 2000 caracteres.'),
+    alcance: z.string().trim().max(1000, 'Máximo 1000 caracteres.'),
     honorarios: importe,
     conceptos: z
       .array(z.object({ concepto: z.string().trim().min(1, 'Escribe el concepto.').max(120, 'Máximo 120 caracteres.'), importe }))
       .max(MAX_CONCEPTOS, `Máximo ${MAX_CONCEPTOS} conceptos.`),
-    condiciones: z.string().trim().min(10, 'Escribe las condiciones en al menos 10 caracteres.').max(3000, 'Máximo 3000 caracteres.'),
-    tiempoEstimado: z.string().trim().min(1, 'Indica el tiempo estimado.').max(100, 'Máximo 100 caracteres.'),
+    condiciones: z.string().trim().min(10, 'Escribe las condiciones en al menos 10 caracteres.').max(1500, 'Máximo 1500 caracteres.'),
+    /** Días (el backend acepta de 1 a 3650). */
+    tiempoEstimado: z
+      .string()
+      .trim()
+      .regex(/^\d{1,4}$/, 'Indica el tiempo estimado en días, p. ej. 30.')
+      .refine((dias) => Number(dias) >= 1 && Number(dias) <= 3650, 'Entre 1 y 3650 días.'),
     fechaVigencia: z
       .string()
       .regex(/^\d{4}-\d{2}-\d{2}$/, 'Selecciona la fecha de vigencia.')

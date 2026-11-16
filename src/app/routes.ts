@@ -17,7 +17,6 @@ export const ROUTES = {
   requests: '/solicitudes',                // C1
   requestDetail: '/solicitudes/:solicitudId', // C2
   newProposal: '/propuestas/nueva',        // D1
-  editProposal: '/propuestas/:propuestaId/editar', // D1 (editar borrador)
   proposals: '/propuestas',                // D2
   fees: '/honorarios',                     // D3
   newCharge: '/honorarios/cobros/nuevo',   // D4

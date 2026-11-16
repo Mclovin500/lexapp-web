@@ -3,9 +3,6 @@ import type { ErrorApi } from '@/api/errores'
 import { CLAVE_CUENTA } from '@/features/dashboard/hooks/useCuentaAbogado'
 import { CLAVE_RESUMEN_DASHBOARD } from '@/features/dashboard/hooks/useResumenDashboard'
 import {
-  actualizarPropuesta,
-  cancelarPropuesta,
-  crearExpedienteDePropuesta,
   crearPropuesta,
   listarPropuestas,
   obtenerPropuesta,
@@ -14,7 +11,6 @@ import type {
   FiltrosPropuestas,
   PeticionPropuesta,
   PropuestaDetalle,
-  RespuestaCrearExpediente,
   RespuestaGuardarPropuesta,
   RespuestaPropuestas,
 } from '../types/propuestas.types'
@@ -53,27 +49,11 @@ function useInvalidarPropuestas() {
   }
 }
 
-/** D1: crea (sin `id`) o actualiza un borrador (con `id`). */
-export function useGuardarPropuesta(id: string | null) {
+/** D1: crea y envía la propuesta (el backend no maneja borradores). */
+export function useGuardarPropuesta() {
   const invalidar = useInvalidarPropuestas()
   return useMutation<RespuestaGuardarPropuesta, ErrorApi, PeticionPropuesta>({
-    mutationFn: (peticion) => (id ? actualizarPropuesta(id, peticion) : crearPropuesta(peticion)),
-    onSuccess: invalidar,
-  })
-}
-
-export function useCancelarPropuesta() {
-  const invalidar = useInvalidarPropuestas()
-  return useMutation<void, ErrorApi, string>({
-    mutationFn: cancelarPropuesta,
-    onSuccess: invalidar,
-  })
-}
-
-export function useCrearExpedienteDePropuesta() {
-  const invalidar = useInvalidarPropuestas()
-  return useMutation<RespuestaCrearExpediente, ErrorApi, string>({
-    mutationFn: crearExpedienteDePropuesta,
+    mutationFn: crearPropuesta,
     onSuccess: invalidar,
   })
 }

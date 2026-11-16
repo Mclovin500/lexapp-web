@@ -13,43 +13,29 @@ import { Paginacion } from '@/components/ui/Paginacion'
 import { DetallePropuesta } from '../components/DetallePropuesta'
 import { TablaPropuestas } from '../components/TablaPropuestas'
 import { propuestasContent } from '../content/propuestas.content'
-import { useCancelarPropuesta, useListadoPropuestas } from '../hooks/usePropuestas'
+import { useListadoPropuestas } from '../hooks/usePropuestas'
 import { filtrosAUrl, filtrosDesdeUrl } from '../lib/filtros-url'
-import type { EstadoPropuestaGuardada, FiltrosPropuestas, PropuestaResumen } from '../types/propuestas.types'
+import type { EstadoPropuestaGuardada, FiltrosPropuestas } from '../types/propuestas.types'
 
 function esEstadoGuardada(valor: unknown): valor is EstadoPropuestaGuardada {
   if (typeof valor !== 'object' || valor === null) return false
-  const guardada = (valor as Record<string, unknown>).propuestaGuardada
-  return guardada === 'borrador' || guardada === 'enviada'
+  return (valor as Record<string, unknown>).propuestaGuardada === 'enviada'
 }
 
-/** D2: seguimiento de propuestas (D1 → D2; aceptada → E2, flujo 6.6). */
+/** D2: seguimiento de propuestas (`GET /propuestas/abogado/seguimiento`). */
 export function PropuestasPage() {
   const contenido = propuestasContent
   const { state } = useLocation()
   const [parametros, setParametros] = useSearchParams()
   const filtros = filtrosDesdeUrl(parametros)
   const listado = useListadoPropuestas(filtros)
-  const cancelar = useCancelarPropuesta()
   const datos = listado.data
 
   const [verId, setVerId] = useState<string | null>(null)
-  const [porCancelar, setPorCancelar] = useState<PropuestaResumen | null>(null)
-  const [cancelada, setCancelada] = useState(false)
-  const aviso = cancelada ? contenido.cancelled : esEstadoGuardada(state) ? contenido.saved[state.propuestaGuardada] : null
+  const aviso = esEstadoGuardada(state) ? contenido.saved[state.propuestaGuardada] : null
 
   const cambiar = (cambios: Partial<FiltrosPropuestas>) => {
     setParametros(filtrosAUrl({ ...filtros, ...cambios, pagina: cambios.pagina ?? 1 }))
-  }
-
-  const confirmarCancelacion = () => {
-    if (!porCancelar) return
-    cancelar.mutate(porCancelar.id, {
-      onSuccess: () => {
-        setPorCancelar(null)
-        setCancelada(true)
-      },
-    })
   }
 
   return (
@@ -101,7 +87,7 @@ export function PropuestasPage() {
           </div>
         ) : (
           <div className={`flex flex-col gap-4 transition-opacity ${listado.isPlaceholderData ? 'opacity-60' : ''}`} aria-busy={listado.isFetching}>
-            <TablaPropuestas propuestas={datos.propuestas} onVer={setVerId} onCancelar={setPorCancelar} />
+            <TablaPropuestas propuestas={datos.propuestas} onVer={setVerId} />
             <Paginacion
               pagina={filtros.pagina}
               porPagina={filtros.porPagina}
@@ -119,46 +105,6 @@ export function PropuestasPage() {
         ancho="lg"
       >
         {verId && <DetallePropuesta propuestaId={verId} />}
-      </Dialogo>
-
-      <Dialogo
-        abierto={porCancelar !== null}
-        onCerrar={() => {
-          setPorCancelar(null)
-          cancelar.reset()
-        }}
-        titulo={contenido.cancelDialog.title}
-        descripcion={contenido.cancelDialog.description}
-      >
-        {porCancelar && (
-          <div className="flex flex-col gap-4">
-            <p className="text-body-md text-on-surface">
-              <strong>{porCancelar.folio}</strong> · {porCancelar.servicio} · {porCancelar.cliente.nombre}
-            </p>
-            {cancelar.isError && (
-              <EstadoError
-                mensaje={cancelar.error.tipo === 'conflicto' ? contenido.errors.conflicto : MENSAJES_ERROR_API[cancelar.error.tipo]}
-              />
-            )}
-            <div className="flex flex-col-reverse sm:flex-row justify-end gap-2">
-              <button
-                type="button"
-                onClick={() => setPorCancelar(null)}
-                className="h-10 px-4 rounded-lg bg-surface-container text-label-md font-semibold hover:bg-surface-container-high cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              >
-                {contenido.cancelDialog.keep}
-              </button>
-              <button
-                type="button"
-                onClick={confirmarCancelacion}
-                disabled={cancelar.isPending}
-                className="h-10 px-4 rounded-lg bg-error text-on-error text-label-md font-semibold hover:opacity-90 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-error"
-              >
-                {cancelar.isPending ? contenido.cancelDialog.confirming : contenido.cancelDialog.confirm}
-              </button>
-            </div>
-          </div>
-        )}
       </Dialogo>
     </div>
   )

@@ -1,7 +1,7 @@
 import { propuestasContent } from '../content/propuestas.content'
 import type { FiltroPropuestas, FiltrosPropuestas } from '../types/propuestas.types'
 
-const ESTADOS: FiltroPropuestas[] = ['todas', 'borrador', 'enviada', 'pendiente_respuesta', 'aceptada', 'rechazada', 'cancelada']
+const ESTADOS: FiltroPropuestas[] = ['todas', 'enviada', 'aceptada', 'rechazada', 'expirada']
 
 export function filtrosDesdeUrl(parametros: URLSearchParams): FiltrosPropuestas {
   const pagina = Number.parseInt(parametros.get('pagina') ?? '1', 10)

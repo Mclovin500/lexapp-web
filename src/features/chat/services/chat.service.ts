@@ -1,9 +1,22 @@
-// PROVISIONAL: endpoints y nombres de campos por confirmar con el backend (docs/contrato-api-agenda-chat.md)
+// H1: chat sobre `/api/casos/{id}/mensajes` (CasosController). Cada caso es una conversación:
+// el id de la conversación es el id del caso. Aún no hay conversaciones sin caso, marcado de
+// leído ni carga de adjuntos (el backend solo acepta una URL ya subida).
 import { api } from '@/api/cliente'
 import { ENDPOINTS } from '@/api/endpoints'
-import { aErrorApi } from '@/api/errores'
+import { aErrorApi, ErrorApi } from '@/api/errores'
 import { USAR_MOCKS } from '@/api/mocks'
+import {
+  folioExpediente,
+  listarCasosApi,
+  listarMensajesApi,
+  noDisponible,
+  normalizarTexto,
+  obtenerIdUsuarioActual,
+  type CasoResumenApi,
+  type MensajeChatApi,
+} from '@/features/expedientes/services/casos.api'
 import type {
+  ConversacionResumen,
   FiltroConversaciones,
   Mensaje,
   PeticionAbrirConversacion,
@@ -12,7 +25,31 @@ import type {
   RespuestaMensajes,
 } from '../types/chat.types'
 
-const { conversaciones } = ENDPOINTS
+function aMensaje(m: MensajeChatApi, idUsuario: number): Mensaje {
+  return {
+    id: String(m.idMensaje),
+    autor: m.idRemitente === idUsuario ? 'abogado' : 'cliente',
+    texto: m.mensajeTexto,
+    fecha: m.fechaHora,
+    adjunto: m.archivoUrl ? { id: String(m.idMensaje), nombre: m.archivoNombre ?? 'Archivo', tipoArchivo: '', tamanoBytes: 0 } : null,
+    leido: m.leido,
+  }
+}
+
+function aConversacion(caso: CasoResumenApi, mensajes: Mensaje[]): ConversacionResumen {
+  const ultimo = mensajes.at(-1)
+  return {
+    id: String(caso.idCaso),
+    cliente: { id: String(caso.idCliente), nombre: caso.nombreCliente, organizacion: null, enDirectorio: true },
+    expediente: { id: String(caso.idCaso), folio: folioExpediente(caso.idCaso), asunto: caso.titulo },
+    ultimoMensaje: ultimo ? { texto: ultimo.texto, fecha: ultimo.fecha, autor: ultimo.autor } : null,
+    noLeidos: mensajes.filter((m) => m.autor === 'cliente' && !m.leido).length,
+  }
+}
+
+async function mensajesDe(idCaso: string, idUsuario: number): Promise<Mensaje[]> {
+  return (await listarMensajesApi(idCaso)).map((m) => aMensaje(m, idUsuario)).sort((a, b) => a.fecha.localeCompare(b.fecha))
+}
 
 export async function listarConversaciones(filtro: FiltroConversaciones, busqueda: string): Promise<RespuestaConversaciones> {
   if (import.meta.env.DEV && USAR_MOCKS) {
@@ -20,28 +57,33 @@ export async function listarConversaciones(filtro: FiltroConversaciones, busqued
     return listarConversacionesMock(filtro, busqueda)
   }
 
-  try {
-    const respuesta = await api.get<RespuestaConversaciones>(conversaciones.listado, {
-      params: { filtro: filtro === 'todas' ? undefined : filtro, busqueda: busqueda || undefined },
-    })
-    return respuesta.data
-  } catch (error: unknown) {
-    throw aErrorApi(error)
+  const [casos, idUsuario] = await Promise.all([listarCasosApi(), obtenerIdUsuarioActual()])
+  const conversaciones = await Promise.all(casos.map(async (caso) => aConversacion(caso, await mensajesDe(String(caso.idCaso), idUsuario))))
+
+  const texto = normalizarTexto(busqueda.trim())
+  const base = conversaciones
+    .filter((c) => !texto || normalizarTexto(`${c.cliente.nombre} ${c.expediente?.folio ?? ''} ${c.expediente?.asunto ?? ''}`).includes(texto))
+    .sort((a, b) => (b.ultimoMensaje?.fecha ?? '').localeCompare(a.ultimoMensaje?.fecha ?? ''))
+
+  return {
+    conversaciones: filtro === 'no_leidas' ? base.filter((c) => c.noLeidos > 0) : base,
+    totales: { todas: base.length, no_leidas: base.filter((c) => c.noLeidos > 0).length },
   }
 }
 
+/** Busca el caso del cliente (el indicado o el más reciente). Sin caso no hay chat todavía. */
 export async function abrirConversacion(peticion: PeticionAbrirConversacion): Promise<{ id: string }> {
   if (import.meta.env.DEV && USAR_MOCKS) {
     const { abrirConversacionMock } = await import('./chat.mock')
     return abrirConversacionMock(peticion)
   }
 
-  try {
-    const respuesta = await api.post<{ id: string }>(conversaciones.listado, peticion)
-    return respuesta.data
-  } catch (error: unknown) {
-    throw aErrorApi(error)
-  }
+  const casos = (await listarCasosApi())
+    .filter((c) => String(c.idCliente) === peticion.clienteId)
+    .sort((a, b) => b.fechaCreacion.localeCompare(a.fechaCreacion))
+  const caso = peticion.expedienteId ? casos.find((c) => String(c.idCaso) === peticion.expedienteId) : casos[0]
+  if (!caso) throw new ErrorApi('no_encontrado', undefined, 'El chat se habilita cuando el cliente tiene un expediente contigo.')
+  return { id: String(caso.idCaso) }
 }
 
 export async function obtenerMensajes(id: string): Promise<RespuestaMensajes> {
@@ -50,57 +92,46 @@ export async function obtenerMensajes(id: string): Promise<RespuestaMensajes> {
     return obtenerMensajesMock(id)
   }
 
-  try {
-    const respuesta = await api.get<RespuestaMensajes>(conversaciones.mensajes(id))
-    return respuesta.data
-  } catch (error: unknown) {
-    throw aErrorApi(error)
-  }
+  const [casos, idUsuario] = await Promise.all([listarCasosApi(), obtenerIdUsuarioActual()])
+  const caso = casos.find((c) => String(c.idCaso) === id)
+  if (!caso) throw new ErrorApi('no_encontrado')
+  const mensajes = await mensajesDe(id, idUsuario)
+  return { conversacion: aConversacion(caso, mensajes), mensajes }
 }
 
+/** El backend aún no marca mensajes como leídos: no hace nada. */
 export async function marcarConversacionLeida(id: string): Promise<void> {
   if (import.meta.env.DEV && USAR_MOCKS) {
     const { marcarConversacionLeidaMock } = await import('./chat.mock')
     return marcarConversacionLeidaMock(id)
   }
-
-  try {
-    await api.post(conversaciones.leida(id))
-  } catch (error: unknown) {
-    throw aErrorApi(error)
-  }
 }
 
-/** Texto y archivo opcional como multipart/form-data. */
+/** `POST /casos/{id}/mensajes` con `{ mensajeTexto }`. Los adjuntos aún no se pueden subir. */
 export async function enviarMensaje(id: string, peticion: PeticionMensaje): Promise<Mensaje> {
   if (import.meta.env.DEV && USAR_MOCKS) {
     const { enviarMensajeMock } = await import('./chat.mock')
     return enviarMensajeMock(id, peticion)
   }
 
-  const datos = new FormData()
-  datos.append('texto', peticion.texto)
-  if (peticion.archivo) datos.append('archivo', peticion.archivo)
+  if (peticion.archivo) throw new ErrorApi('no_disponible', undefined, 'Por ahora solo se pueden enviar mensajes de texto.')
 
   try {
-    const respuesta = await api.post<Mensaje>(conversaciones.mensajes(id), datos)
-    return respuesta.data
+    const [respuesta, idUsuario] = await Promise.all([
+      api.post<MensajeChatApi>(ENDPOINTS.casos.mensajes(id), { mensajeTexto: peticion.texto, tipoMensaje: 'texto' }),
+      obtenerIdUsuarioActual(),
+    ])
+    return aMensaje(respuesta.data, idUsuario)
   } catch (error: unknown) {
     throw aErrorApi(error)
   }
 }
 
-/** URL temporal firmada del adjunto (se pide en cada descarga). */
+/** El backend guarda la URL del adjunto pero no la firma. */
 export async function obtenerUrlAdjunto(id: string, adjuntoId: string): Promise<{ url: string; expiraEn: string }> {
   if (import.meta.env.DEV && USAR_MOCKS) {
     const { obtenerUrlAdjuntoMock } = await import('./chat.mock')
     return obtenerUrlAdjuntoMock(id, adjuntoId)
   }
-
-  try {
-    const respuesta = await api.get<{ url: string; expiraEn: string }>(conversaciones.adjunto(id, adjuntoId))
-    return respuesta.data
-  } catch (error: unknown) {
-    throw aErrorApi(error)
-  }
+  noDisponible()
 }

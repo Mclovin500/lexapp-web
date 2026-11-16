@@ -1,5 +1,6 @@
 // Todas son relativas a VITE_API_URL. Cambiar aquí actualiza todos los servicios.
-// Sección A (P02, A1–A5A): rutas reales del backend (Back_Lexapp/controllers).
+// Rutas reales del backend (Back_Lexapp/controllers): auth, registro, verificación,
+// recuperación, abogado.validacion, solicitudes, propuestas, perfilCambios y casos.
 // El resto siguen siendo PROPUESTA (ver docs/contrato-api-*.md).
 export const ENDPOINTS = {
   auth: {
@@ -42,59 +43,31 @@ export const ENDPOINTS = {
     marcarTodasLeidas: '/notificaciones/marcar-todas-leidas', // B1A
   },
   solicitudes: {
-    listado: '/solicitudes', // C1
-    opciones: '/solicitudes/opciones', // D1 "Solicitud relacionada" (?clienteId=)
-    detalle: (id: string) => `/solicitudes/${encodeURIComponent(id)}`, // C2
-    revisar: (id: string) => `/solicitudes/${encodeURIComponent(id)}/revisar`, // C2 "Revisar información"
-    rechazar: (id: string) => `/solicitudes/${encodeURIComponent(id)}/rechazar`, // C2
-    urlDocumento: (id: string, documentoId: string) =>
-      `/solicitudes/${encodeURIComponent(id)}/documentos/${encodeURIComponent(documentoId)}/url`, // C2 vista previa y descarga
+    bandeja: '/solicitudes-caso/abogado/bandeja', // C1, C2, B1 (solo las pendientes del abogado)
+    rechazar: (id: string) => `/solicitudes-caso/abogado/${encodeURIComponent(id)}/rechazar`, // C2
+    propuesta: (id: string) => `/solicitudes-caso/abogado/${encodeURIComponent(id)}/propuesta`, // D1 (AbogadoVerificado)
   },
   propuestas: {
-    listado: '/propuestas', // D2 (GET) y D1 (POST crear)
-    detalle: (id: string) => `/propuestas/${encodeURIComponent(id)}`, // D2 ver / D1 editar (GET, PUT)
-    cancelar: (id: string) => `/propuestas/${encodeURIComponent(id)}/cancelar`, // D2
-    crearExpediente: (id: string) => `/propuestas/${encodeURIComponent(id)}/expediente`, // D2 (aceptada)
+    seguimiento: '/propuestas/abogado/seguimiento', // D2 (?estado=&buscar=)
+    seguimientoDetalle: (id: string) => `/propuestas/abogado/seguimiento/${encodeURIComponent(id)}`, // D2 ver
+    detalle: (id: string) => `/propuestas/${encodeURIComponent(id)}`, // D2 ver (id de la solicitud de origen)
   },
-  honorarios: {
-    resumen: '/honorarios/resumen', // D3
-    movimientos: '/honorarios/movimientos', // D3 listado
-    movimiento: (id: string) => `/honorarios/movimientos/${encodeURIComponent(id)}`, // D5
-    cobros: '/honorarios/cobros', // D4 (POST crear cobro adicional)
+  perfilCambios: {
+    listado: '/perfil/solicitudes', // I1 historial de solicitudes de cambio
+    cedula: '/perfil/abogado/solicitudes/cedula', // I1 (multipart)
+    tarifa: '/perfil/abogado/solicitudes/tarifa', // I1
+    experiencia: '/perfil/abogado/solicitudes/experiencia', // I1
   },
-  clientes: {
-    opciones: '/clientes/opciones', // D1, D4 (selectores)
-    listado: '/clientes', // F1
-    detalle: (id: string) => `/clientes/${encodeURIComponent(id)}`, // F2
-  },
-  expedientes: {
-    opciones: '/expedientes/opciones', // D4 (?clienteId=)
-    listado: '/expedientes', // E1
-    detalle: (id: string) => `/expedientes/${encodeURIComponent(id)}`, // E2
-    actualizaciones: (id: string) => `/expedientes/${encodeURIComponent(id)}/actualizaciones`, // E2 (POST)
-    estado: (id: string) => `/expedientes/${encodeURIComponent(id)}/estado`, // E2 (PATCH)
-    documentos: (id: string) => `/expedientes/${encodeURIComponent(id)}/documentos`, // E3 (GET listado, POST cargar)
-    documento: (id: string, documentoId: string) =>
-      `/expedientes/${encodeURIComponent(id)}/documentos/${encodeURIComponent(documentoId)}`, // E3 (PATCH revisar)
-    urlDocumento: (id: string, documentoId: string) =>
-      `/expedientes/${encodeURIComponent(id)}/documentos/${encodeURIComponent(documentoId)}/url`, // E3 vista previa y descarga
-  },
-  reuniones: {
-    listado: '/reuniones', // G1 (GET calendario/próximas/historial, POST programar)
-    inmediata: '/reuniones/inmediata', // H1 "Videollamada"
-    detalle: (id: string) => `/reuniones/${encodeURIComponent(id)}`, // G1 consultar, G1A
-    cancelar: (id: string) => `/reuniones/${encodeURIComponent(id)}/cancelar`, // G1
-    sala: (id: string) => `/reuniones/${encodeURIComponent(id)}/sala`, // G1A (credencial del proveedor de video)
-    finalizar: (id: string) => `/reuniones/${encodeURIComponent(id)}/finalizar`, // G1A
-  },
-  agenda: {
-    disponibilidad: '/agenda/disponibilidad', // G1 "Crear disponibilidad" (GET, PUT)
-  },
-  conversaciones: {
-    listado: '/conversaciones', // H1 (GET lista, POST abrir/crear)
-    mensajes: (id: string) => `/conversaciones/${encodeURIComponent(id)}/mensajes`, // H1 (GET historial, POST enviar)
-    leida: (id: string) => `/conversaciones/${encodeURIComponent(id)}/leida`, // H1 (POST marcar como leída)
-    adjunto: (id: string, adjuntoId: string) =>
-      `/conversaciones/${encodeURIComponent(id)}/adjuntos/${encodeURIComponent(adjuntoId)}/url`, // H1 descarga
+  casos: {
+    misCasos: '/casos/mis-casos', // E1, H1, G1, D3, F1 (CasosController)
+    detalle: (id: string) => `/casos/${encodeURIComponent(id)}`, // E2
+    documentos: (id: string) => `/casos/${encodeURIComponent(id)}/documentos`, // E3 (GET listado, POST multipart)
+    mensajes: (id: string) => `/casos/${encodeURIComponent(id)}/mensajes`, // H1 (GET historial, POST enviar)
+    citas: (id: string) => `/casos/${encodeURIComponent(id)}/citas`, // G1 (GET, POST agendar)
+    estadoCita: (id: string, citaId: string) =>
+      `/casos/${encodeURIComponent(id)}/citas/${encodeURIComponent(citaId)}/estado`, // G1 cancelar / finalizar (PATCH)
+    facturas: (id: string) => `/casos/${encodeURIComponent(id)}/facturas`, // D3 (GET), D4 (POST cobro)
+    factura: (id: string, facturaId: string) =>
+      `/casos/${encodeURIComponent(id)}/facturas/${encodeURIComponent(facturaId)}`, // D5
   },
 } as const

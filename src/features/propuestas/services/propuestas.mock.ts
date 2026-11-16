@@ -4,10 +4,8 @@
 import { esperar, haceMinutos, SIMULAR_ERROR_RED } from '@/api/mock-utils'
 import { ErrorApi } from '@/api/errores'
 import { buscarClienteMock } from '@/features/clientes/services/clientes.mock'
-import { agregarExpedienteMock } from '@/features/expedientes/services/expedientes.mock'
 import { tieneMovimientosDePropuestaMock } from '@/features/pagos/services/pagos.mock'
 import {
-  areaDeSolicitudMock,
   marcarSolicitudConvertidaMock,
   validarSolicitudDeClienteMock,
 } from '@/features/solicitudes/services/solicitudes.mock'
@@ -17,7 +15,6 @@ import type {
   PeticionPropuesta,
   PropuestaDetalle,
   PropuestaResumen,
-  RespuestaCrearExpediente,
   RespuestaGuardarPropuesta,
   RespuestaPropuestas,
 } from '../types/propuestas.types'
@@ -73,7 +70,7 @@ const propuestasMock: PropuestaMock[] = [
   {
     id: 'pro-086', folio: 'PRO-2026-086', cliente: { id: 'cli-105', nombre: 'Mariana Bosque Ortiz', organizacion: 'BioPharma Lab S.A.' },
     servicio: 'Registro de marca y estrategia de patentes', importe: 42000, fechaCreacion: haceMinutos(DIA * 1.5), fechaVigencia: fechaEnDias(20),
-    estado: 'borrador', expedienteId: null,
+    estado: 'enviada', expedienteId: null,
     solicitud: { id: 'sol-0838', folio: 'SOL-2026-0838', asunto: 'Registro de marca y estrategia de protección de patentes' },
     descripcion: 'Registro de la marca en dos clases y análisis de patentabilidad de la fórmula.',
     alcance: 'Búsqueda fonética, solicitud de registro y opinión de patentabilidad.',
@@ -91,7 +88,7 @@ const propuestasMock: PropuestaMock[] = [
   {
     id: 'pro-084', folio: 'PRO-2026-084', cliente: { id: 'cli-111', nombre: 'Lucía Hernández Prado', organizacion: null },
     servicio: 'Juicio por incumplimiento de arrendamiento', importe: 12000, fechaCreacion: haceMinutos(DIA * 6), fechaVigencia: fechaEnDias(8),
-    estado: 'cancelada', expedienteId: null, solicitud: null,
+    estado: 'expirada', expedienteId: null, solicitud: null,
     descripcion: 'Demanda de terminación de contrato y pago de rentas adeudadas.', alcance: 'Primera instancia.',
     condiciones: CONDICIONES, tiempoEstimado: '4 a 6 meses', conceptos: [], fechaEnvio: haceMinutos(DIA * 6), motivoRechazo: null,
   },
@@ -106,7 +103,7 @@ const propuestasMock: PropuestaMock[] = [
   {
     id: 'pro-082', folio: 'PRO-2026-082', cliente: { id: 'cli-103', nombre: 'Elena Santillán Ruiz', organizacion: null },
     servicio: 'Negociación de liquidación laboral', importe: 16000, fechaCreacion: haceMinutos(DIA * 2), fechaVigencia: fechaEnDias(5),
-    estado: 'pendiente_respuesta', expedienteId: null, solicitud: null,
+    estado: 'enviada', expedienteId: null, solicitud: null,
     descripcion: 'Revisión de la liquidación ofrecida y negociación con la empresa.', alcance: 'Hasta la firma del convenio de terminación.',
     condiciones: CONDICIONES, tiempoEstimado: '3 semanas', conceptos: [], fechaEnvio: haceMinutos(DIA * 2), motivoRechazo: null,
   },
@@ -120,7 +117,6 @@ const propuestasMock: PropuestaMock[] = [
 ]
 
 let consecutivo = 90
-let consecutivoExpediente = 330
 
 async function simularRed(): Promise<void> {
   await esperar()
@@ -151,7 +147,7 @@ export function propuestasDeClienteMock(clienteId: string): Pick<PropuestaMock, 
 
 /** Para el indicador "Propuestas pendientes" del Dashboard. */
 export function contarPropuestasPendientesMock(): number {
-  return propuestasMock.filter((p) => p.estado === 'enviada' || p.estado === 'pendiente_respuesta').length
+  return propuestasMock.filter((p) => p.estado === 'enviada').length
 }
 
 export async function listarPropuestasMock(filtros: FiltrosPropuestas): Promise<RespuestaPropuestas> {
@@ -170,9 +166,8 @@ export async function listarPropuestasMock(filtros: FiltrosPropuestas): Promise<
     propuestas: filtradas.slice(inicio, inicio + filtros.porPagina).map(aResumen),
     total: filtradas.length,
     totalesPorEstado: {
-      todas: contar('todas'), borrador: contar('borrador'), enviada: contar('enviada'),
-      pendiente_respuesta: contar('pendiente_respuesta'), aceptada: contar('aceptada'),
-      rechazada: contar('rechazada'), cancelada: contar('cancelada'),
+      todas: contar('todas'), enviada: contar('enviada'), aceptada: contar('aceptada'),
+      rechazada: contar('rechazada'), expirada: contar('expirada'),
     },
   }
 }
@@ -203,15 +198,13 @@ function aplicar(propuesta: PropuestaMock, peticion: PeticionPropuesta): void {
     importe: peticion.honorarios,
     conceptos: peticion.conceptos.map((c) => ({ ...c })),
     condiciones: peticion.condiciones,
-    tiempoEstimado: peticion.tiempoEstimado,
+    tiempoEstimado: `${peticion.tiempoEstimadoDias} días`,
     fechaVigencia: peticion.fechaVigencia,
   })
 
-  if (peticion.accion === 'enviar') {
-    propuesta.estado = 'enviada'
-    propuesta.fechaEnvio = new Date().toISOString()
-    if (solicitud) marcarSolicitudConvertidaMock(solicitud.id)
-  }
+  propuesta.estado = 'enviada'
+  propuesta.fechaEnvio = new Date().toISOString()
+  if (solicitud) marcarSolicitudConvertidaMock(solicitud.id)
 }
 
 export async function crearPropuestaMock(peticion: PeticionPropuesta): Promise<RespuestaGuardarPropuesta> {
@@ -219,7 +212,7 @@ export async function crearPropuestaMock(peticion: PeticionPropuesta): Promise<R
   const propuesta: PropuestaMock = {
     id: `pro-0${consecutivo}`, folio: `PRO-2026-0${consecutivo}`,
     cliente: { id: '', nombre: '', organizacion: null }, servicio: '', importe: 0,
-    fechaCreacion: new Date().toISOString(), fechaVigencia: '', estado: 'borrador', expedienteId: null,
+    fechaCreacion: new Date().toISOString(), fechaVigencia: '', estado: 'enviada', expedienteId: null,
     solicitud: null, descripcion: '', alcance: '', condiciones: '', tiempoEstimado: '', conceptos: [],
     fechaEnvio: null, motivoRechazo: null,
   }
@@ -227,43 +220,4 @@ export async function crearPropuestaMock(peticion: PeticionPropuesta): Promise<R
   propuestasMock.push(propuesta)
   consecutivo += 1
   return { id: propuesta.id, estado: propuesta.estado }
-}
-
-/** Solo se editan borradores (409 en otro estado). */
-export async function actualizarPropuestaMock(id: string, peticion: PeticionPropuesta): Promise<RespuestaGuardarPropuesta> {
-  await simularRed()
-  const propuesta = buscar(id)
-  if (propuesta.estado !== 'borrador') throw new ErrorApi('conflicto')
-  aplicar(propuesta, peticion)
-  return { id: propuesta.id, estado: propuesta.estado }
-}
-
-/** Se cancela un borrador o una propuesta enviada que el cliente aún no responde. */
-export async function cancelarPropuestaMock(id: string): Promise<void> {
-  await simularRed()
-  const propuesta = buscar(id)
-  if (!['borrador', 'enviada', 'pendiente_respuesta'].includes(propuesta.estado)) throw new ErrorApi('conflicto')
-  propuesta.estado = 'cancelada'
-}
-
-/** Flujo 6.6: propuesta aceptada → se crea o habilita el expediente. */
-export async function crearExpedienteMock(id: string): Promise<RespuestaCrearExpediente> {
-  await simularRed()
-  const propuesta = buscar(id)
-  if (propuesta.estado !== 'aceptada') throw new ErrorApi('conflicto')
-  if (propuesta.expedienteId) return { expedienteId: propuesta.expedienteId }
-
-  const expedienteId = `exp-${consecutivoExpediente}`
-  agregarExpedienteMock({
-    id: expedienteId,
-    folio: `Exp. ${consecutivoExpediente}/2026`,
-    asunto: propuesta.servicio,
-    clienteId: propuesta.cliente.id,
-    areaJuridica: (propuesta.solicitud && areaDeSolicitudMock(propuesta.solicitud.id)) ?? 'Por definir',
-    descripcion: propuesta.descripcion,
-    propuesta: { id: propuesta.id, folio: propuesta.folio },
-  })
-  consecutivoExpediente += 1
-  propuesta.expedienteId = expedienteId
-  return { expedienteId }
 }

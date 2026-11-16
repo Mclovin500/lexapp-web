@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
@@ -15,46 +14,36 @@ import { useOpcionesSolicitudes } from '@/features/solicitudes/hooks/useSolicitu
 import { nuevaPropuestaContent } from '../content/nueva-propuesta.content'
 import { useGuardarPropuesta } from '../hooks/usePropuestas'
 import { propuestaSchema, type PropuestaFormValues } from '../schemas/propuesta.schema'
-import type {
-  AccionGuardarPropuesta,
-  EstadoPropuestaGuardada,
-  PeticionPropuesta,
-} from '../types/propuestas.types'
+import type { EstadoPropuestaGuardada, PeticionPropuesta } from '../types/propuestas.types'
 import { ConceptosCobro } from './ConceptosCobro'
 import { SeccionFormulario } from './SeccionFormulario'
 import { VistaPreviaPropuesta } from './VistaPreviaPropuesta'
 
-function aPeticion(valores: PropuestaFormValues, accion: AccionGuardarPropuesta): PeticionPropuesta {
+function aPeticion(valores: PropuestaFormValues): PeticionPropuesta {
   return {
     clienteId: valores.clienteId,
-    solicitudId: valores.solicitudId || null,
+    solicitudId: valores.solicitudId,
     servicio: valores.servicio,
     descripcion: valores.descripcion,
     alcance: valores.alcance,
     honorarios: Number(valores.honorarios),
     conceptos: valores.conceptos.map((c) => ({ concepto: c.concepto, importe: Number(c.importe) })),
     condiciones: valores.condiciones,
-    tiempoEstimado: valores.tiempoEstimado,
+    tiempoEstimadoDias: Number(valores.tiempoEstimado),
     fechaVigencia: valores.fechaVigencia,
-    accion,
   }
 }
 
 interface FormularioPropuestaProps {
-  /** `null` = propuesta nueva; con id = edición de un borrador. */
-  propuestaId: string | null
   valoresIniciales: PropuestaFormValues
-  /** Solicitud ya ligada al borrador (puede no estar abierta). */
-  solicitudInicial: { valor: string; etiqueta: string } | null
   clientes: OpcionCliente[]
 }
 
-/** D1: secciones del formulario + vista previa. Guardar borrador o Enviar → D2. */
-export function FormularioPropuesta({ propuestaId, valoresIniciales, solicitudInicial, clientes }: FormularioPropuestaProps) {
+/** D1: secciones del formulario + vista previa. Enviar → D2. */
+export function FormularioPropuesta({ valoresIniciales, clientes }: FormularioPropuestaProps) {
   const navigate = useNavigate()
   const { sections, form, actions, errors: mensajes } = nuevaPropuestaContent
-  const guardar = useGuardarPropuesta(propuestaId)
-  const [accionEnCurso, setAccionEnCurso] = useState<AccionGuardarPropuesta | null>(null)
+  const guardar = useGuardarPropuesta()
 
   const {
     register,
@@ -69,36 +58,28 @@ export function FormularioPropuesta({ propuestaId, valoresIniciales, solicitudIn
     name: ['clienteId', 'descripcion', 'alcance', 'condiciones'],
   })
   const solicitudes = useOpcionesSolicitudes(clienteId)
-  // Al editar, la solicitud ya ligada puede no estar abierta: se conserva como opción.
-  const opcionesSolicitud = [
-    ...(solicitudes.data ?? []).map((s) => ({ valor: s.id, etiqueta: `${s.folio} · ${s.asunto}` })),
-  ]
-  if (solicitudInicial && clienteId === valoresIniciales.clienteId && !opcionesSolicitud.some((o) => o.valor === solicitudInicial.valor)) {
-    opcionesSolicitud.unshift(solicitudInicial)
-  }
+  const opcionesSolicitud = (solicitudes.data ?? []).map((s) => ({ valor: s.id, etiqueta: `${s.folio} · ${s.asunto}` }))
 
-  const guardarCon = (accion: AccionGuardarPropuesta) =>
-    handleSubmit((valores) => {
-      setAccionEnCurso(accion)
-      guardar.mutate(aPeticion(valores, accion), {
-        onSuccess: (respuesta) => {
-          const estado: EstadoPropuestaGuardada = {
-            propuestaGuardada: respuesta.estado === 'borrador' ? 'borrador' : 'enviada',
-          }
-          navigate(ROUTES.proposals, { state: estado })
-        },
-        onSettled: () => setAccionEnCurso(null),
-      })
+  const enviar = handleSubmit((valores) => {
+    guardar.mutate(aPeticion(valores), {
+      onSuccess: () => {
+        const estado: EstadoPropuestaGuardada = { propuestaGuardada: 'enviada' }
+        navigate(ROUTES.proposals, { state: estado })
+      },
     })
+  })
 
-  const mensajeError = guardar.error
-    ? guardar.error.tipo === 'datos_invalidos' || guardar.error.tipo === 'conflicto'
-      ? mensajes[guardar.error.tipo]
-      : MENSAJES_ERROR_API[guardar.error.tipo]
+  const error = guardar.error
+  const mensajeError = error
+    ? error.tipo === 'datos_invalidos'
+      ? (error.detalle ?? mensajes.datos_invalidos)
+      : error.tipo === 'sin_permiso' || error.tipo === 'no_encontrado'
+        ? mensajes[error.tipo]
+        : MENSAJES_ERROR_API[error.tipo]
     : null
 
   return (
-    <form onSubmit={guardarCon('enviar')} noValidate className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+    <form onSubmit={enviar} noValidate className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
       <div className="xl:col-span-8 flex flex-col gap-6">
         <SeccionFormulario numero={1} titulo={sections.client.title} descripcion={sections.client.description}>
           <CampoSelect
@@ -114,12 +95,11 @@ export function FormularioPropuesta({ propuestaId, valoresIniciales, solicitudIn
             <CampoSelect
               id="propuesta-solicitud"
               label={form.request}
-              labelHint={<span className="text-secondary font-normal">{form.optional}</span>}
               icon="inbox"
               opciones={opcionesSolicitud}
               placeholder={form.requestNone}
-              placeholderSeleccionable
               disabled={!clienteId}
+              error={errors.solicitudId?.message}
               {...register('solicitudId')}
             />
             <p className="text-body-sm text-secondary">{form.requestHint}</p>
@@ -182,7 +162,7 @@ export function FormularioPropuesta({ propuestaId, valoresIniciales, solicitudIn
             label={form.conditions}
             icon="contract"
             rows={4}
-            maxLength={3000}
+            maxLength={1500}
             longitud={condiciones.length}
             placeholder={form.conditionsPlaceholder}
             error={errors.condiciones?.message}
@@ -193,6 +173,7 @@ export function FormularioPropuesta({ propuestaId, valoresIniciales, solicitudIn
               id="propuesta-tiempo"
               label={form.estimatedTime}
               icon="schedule"
+              inputMode="numeric"
               placeholder={form.estimatedTimePlaceholder}
               error={errors.tiempoEstimado?.message}
               {...register('tiempoEstimado')}
@@ -213,21 +194,12 @@ export function FormularioPropuesta({ propuestaId, valoresIniciales, solicitudIn
 
         <div className="flex flex-col-reverse sm:flex-row justify-end gap-3">
           <button
-            type="button"
-            onClick={guardarCon('borrador')}
-            disabled={guardar.isPending}
-            className="inline-flex h-11 px-5 items-center justify-center gap-2 rounded-lg bg-surface-container text-on-surface text-label-lg font-semibold hover:bg-surface-container-high cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          >
-            <Icon name="bookmark" size={20} />
-            {accionEnCurso === 'borrador' ? actions.saving : actions.saveDraft}
-          </button>
-          <button
             type="submit"
             disabled={guardar.isPending}
             className="inline-flex h-11 px-5 items-center justify-center gap-2 rounded-lg bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold shadow-md cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <Icon name="send" size={20} />
-            {accionEnCurso === 'enviar' ? actions.sending : actions.send}
+            {guardar.isPending ? actions.sending : actions.send}
           </button>
         </div>
       </div>

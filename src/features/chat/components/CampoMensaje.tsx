@@ -10,9 +10,9 @@ import { useEnviarMensaje } from '../hooks/useChat'
 const MAXIMO_CARACTERES = 2000
 
 function validarArchivo(archivo: File): string | null {
-  if (!REGLAS_ARCHIVO.extensiones.includes(extensionArchivo(archivo.name))) return 'Formato no permitido. Usa PDF, Word, Excel, JPG o PNG.'
+  if (!REGLAS_ARCHIVO.extensiones.includes(extensionArchivo(archivo.name))) return 'Formato no permitido. Usa PDF, JPG o PNG.'
   if (archivo.size === 0) return 'El archivo está vacío.'
-  if (archivo.size > REGLAS_ARCHIVO.maximoBytes) return `El archivo pesa ${formatearTamano(archivo.size)}; el máximo es 20 MB.`
+  if (archivo.size > REGLAS_ARCHIVO.maximoBytes) return `El archivo pesa ${formatearTamano(archivo.size)}; el máximo es 10 MB.`
   return null
 }
 

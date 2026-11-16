@@ -109,7 +109,6 @@ export const router = createBrowserRouter([
       { path: ROUTES.requests, element: <SolicitudesPage /> },
       { path: ROUTES.requestDetail, element: <DetalleSolicitudPage /> },
       { path: ROUTES.newProposal, element: <NuevaPropuestaPage /> },
-      { path: ROUTES.editProposal, element: <NuevaPropuestaPage /> },
       { path: ROUTES.proposals, element: <PropuestasPage /> },
       { path: ROUTES.fees, element: <HonorariosPage /> },
       { path: ROUTES.newCharge, element: <NuevoCobroPage /> },

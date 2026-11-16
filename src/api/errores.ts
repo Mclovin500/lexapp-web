@@ -13,16 +13,36 @@ export type TipoErrorApi =
   | 'datos_invalidos'
   | 'demasiados_intentos'
   | 'red'
+  | 'no_disponible'
   | 'desconocido'
 
 export class ErrorApi extends Error {
   readonly tipo: TipoErrorApi
+  /** Mensaje que devolvió el backend (`{ error }` o `{ mensaje }`), si lo hubo. */
+  readonly detalle: string | null
 
-  constructor(tipo: TipoErrorApi, mensaje?: string) {
+  constructor(tipo: TipoErrorApi, mensaje?: string, detalle: string | null = null) {
     super(mensaje ?? tipo)
     this.name = 'ErrorApi'
     this.tipo = tipo
+    this.detalle = detalle
   }
+}
+
+/** Back_Lexapp responde los errores como `{ error: "..." }` o `{ mensaje: "..." }`. */
+function detalleDelServidor(datos: unknown): string | null {
+  if (typeof datos === 'string') return datos.trim() || null
+  if (typeof datos !== 'object' || datos === null) return null
+  const d = datos as Record<string, unknown>
+  // 400 de validación de ASP.NET: `{ title, errors: { Campo: ["mensaje"] } }` → primer mensaje en español.
+  if (typeof d.errors === 'object' && d.errors !== null) {
+    const primero = Object.values(d.errors as Record<string, unknown>).flat().find((m) => typeof m === 'string')
+    if (typeof primero === 'string') return primero
+  }
+  for (const clave of ['error', 'mensaje', 'title']) {
+    if (typeof d[clave] === 'string' && d[clave]) return d[clave] as string
+  }
+  return null
 }
 
 const POR_ESTADO: Record<number, TipoErrorApi> = {
@@ -40,7 +60,8 @@ export function aErrorApi(error: unknown): ErrorApi {
   if (error instanceof ErrorApi) return error
   if (!isAxiosError(error)) return new ErrorApi('desconocido')
   if (!error.response) return new ErrorApi('red')
-  return new ErrorApi(POR_ESTADO[error.response.status] ?? 'desconocido')
+  const tipo = POR_ESTADO[error.response.status] ?? 'desconocido'
+  return new ErrorApi(tipo, undefined, detalleDelServidor(error.response.data))
 }
 
 /** Mensajes genéricos por tipo; cada pantalla puede sobrescribirlos. */
@@ -52,5 +73,6 @@ export const MENSAJES_ERROR_API: Record<TipoErrorApi, string> = {
   datos_invalidos: 'Revisa los datos ingresados e inténtalo de nuevo.',
   demasiados_intentos: 'Demasiados intentos. Inténtalo más tarde.',
   red: 'No pudimos conectar con el servidor.',
+  no_disponible: 'Esta función estará disponible en una próxima actualización.',
   desconocido: 'Ocurrió un error inesperado.',
 }

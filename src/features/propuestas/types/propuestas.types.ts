@@ -1,5 +1,5 @@
-/** Estados de D2 (especificación). */
-export type EstadoPropuesta = 'borrador' | 'enviada' | 'pendiente_respuesta' | 'aceptada' | 'rechazada' | 'cancelada'
+/** `propuestas.estado_propuesta` de Back_Lexapp (la expiración la marca el backend al consultar). */
+export type EstadoPropuesta = 'enviada' | 'aceptada' | 'rechazada' | 'expirada'
 export type FiltroPropuestas = 'todas' | EstadoPropuesta
 
 /** "Conceptos de cobro, cuando corresponda": desglose opcional de los honorarios. */
@@ -36,22 +36,21 @@ export interface PropuestaDetalle extends PropuestaResumen {
   tieneMovimientos: boolean
 }
 
-export type AccionGuardarPropuesta = 'borrador' | 'enviar'
-
-/** `POST /propuestas` (crear) y `PUT /propuestas/{id}` (editar borrador). */
+/**
+ * Lo que captura D1. El backend no tiene borradores: la propuesta se envía al crearla
+ * (`POST /solicitudes-caso/abogado/{solicitudId}/propuesta`) y siempre nace de una solicitud.
+ */
 export interface PeticionPropuesta {
   clienteId: string
-  solicitudId: string | null
+  solicitudId: string
   servicio: string
   descripcion: string
   alcance: string
   honorarios: number
   conceptos: ConceptoCobro[]
   condiciones: string
-  tiempoEstimado: string
+  tiempoEstimadoDias: number
   fechaVigencia: string
-  /** `borrador` guarda; `enviar` guarda y envía al cliente. */
-  accion: AccionGuardarPropuesta
 }
 
 export interface RespuestaGuardarPropuesta {
@@ -74,12 +73,66 @@ export interface RespuestaPropuestas {
   totalesPorEstado: Record<FiltroPropuestas, number>
 }
 
-/** `POST /propuestas/{id}/expediente` (D2, propuesta aceptada). */
-export interface RespuestaCrearExpediente {
-  expedienteId: string
-}
-
 /** D1 → D2: aviso tras guardar. */
 export interface EstadoPropuestaGuardada {
-  propuestaGuardada: 'borrador' | 'enviada'
+  propuestaGuardada: 'enviada'
+}
+
+// ---- Respuestas de Back_Lexapp (PropuestaDtos.cs) ----
+
+type EstadoPropuestaApi = EstadoPropuesta
+
+/** `SeguimientoPropuestaItemResponse` */
+export interface SeguimientoPropuestaApi {
+  idPropuesta: number
+  idCliente: number
+  nombreCliente: string
+  emailCliente: string | null
+  telefonoCliente: string | null
+  titulo: string
+  descripcionServicios: string
+  costoEstimadoCentavos: number
+  tiempoEstimadoDias: number | null
+  estadoPropuesta: EstadoPropuestaApi
+  fechaCreacion: string
+  fechaExpiracion: string | null
+  diasRestantes: number | null
+  estaExpirada: boolean
+  mensajeEstado: string
+}
+
+/** `GET /propuestas/abogado/seguimiento?estado=&buscar=` */
+export interface ResumenSeguimientoApi {
+  totalPropuestas: number
+  totalEnviadas: number
+  totalAceptadas: number
+  totalRechazadas: number
+  totalExpiradas: number
+  propuestas: SeguimientoPropuestaApi[]
+}
+
+/** `PropuestaResponse` (`GET /propuestas/{id}` y respuesta al crear). */
+export interface PropuestaApi {
+  idPropuesta: number
+  idSolicitud: number | null
+  idAbogado: number
+  nombreAbogado: string
+  idCliente: number
+  nombreCliente: string
+  titulo: string
+  descripcionServicios: string
+  costoEstimadoCentavos: number
+  tiempoEstimadoDias: number | null
+  estadoPropuesta: EstadoPropuestaApi
+  fechaCreacion: string
+  fechaExpiracion: string | null
+}
+
+/** `GenerarPropuestaRequest` */
+export interface GenerarPropuestaApi {
+  titulo: string
+  descripcionServicios: string
+  costoEstimadoCentavos: number
+  tiempoEstimadoDias: number
+  fechaExpiracion: string | null
 }

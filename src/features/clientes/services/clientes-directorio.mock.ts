@@ -30,7 +30,7 @@ function normalizar(texto: string): string {
 
 function estadoCliente(clienteId: string): EstadoCliente {
   if (expedientesDeClienteMock(clienteId).some((e) => e.estado !== 'finalizado')) return 'activo'
-  if (propuestasDeClienteMock(clienteId).some((p) => p.estado === 'enviada' || p.estado === 'pendiente_respuesta')) return 'en_propuesta'
+  if (propuestasDeClienteMock(clienteId).some((p) => p.estado === 'enviada')) return 'en_propuesta'
   return 'inactivo'
 }
 
@@ -40,7 +40,7 @@ function interaccionesDe(clienteId: string): InteraccionCliente[] {
     lista.push({ id: `int-${s.id}`, tipo: 'solicitud', descripcion: `Envió la solicitud ${s.folio}: ${s.asunto}.`, fecha: s.fechaRecepcion, referenciaId: s.id })
   }
   for (const p of propuestasDeClienteMock(clienteId)) {
-    if (p.estado === 'borrador' || !p.fechaEnvio) continue
+    if (!p.fechaEnvio) continue
     lista.push({ id: `int-${p.id}`, tipo: 'propuesta', descripcion: `Recibió la propuesta ${p.folio}: ${p.servicio}.`, fecha: p.fechaEnvio, referenciaId: p.id })
   }
   for (const e of expedientesDeClienteMock(clienteId)) {

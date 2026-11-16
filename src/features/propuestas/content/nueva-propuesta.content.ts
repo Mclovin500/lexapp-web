@@ -1,6 +1,5 @@
 export const nuevaPropuestaContent = {
   title: 'Nueva propuesta de servicio',
-  editTitle: 'Editar propuesta',
   subtitle: 'Prepara la propuesta que el cliente revisará y podrá aceptar desde su aplicación.',
   back: 'Volver a propuestas',
   sections: {
@@ -13,8 +12,8 @@ export const nuevaPropuestaContent = {
     client: 'Cliente',
     clientPlaceholder: 'Selecciona un cliente',
     request: 'Solicitud relacionada',
-    requestNone: 'Sin solicitud relacionada',
-    requestHint: 'Solo aparecen las solicitudes nuevas o en revisión del cliente.',
+    requestNone: 'Selecciona una solicitud',
+    requestHint: 'Solo aparecen las solicitudes pendientes del cliente. Al enviar la propuesta, la solicitud sale de tu bandeja.',
     service: 'Servicio',
     servicePlaceholder: 'Ej. Revisión de pacto de socios',
     description: 'Descripción',
@@ -33,15 +32,13 @@ export const nuevaPropuestaContent = {
     conceptsTotal: 'Suma de conceptos',
     conditions: 'Condiciones',
     conditionsPlaceholder: 'Forma de pago, gastos no incluidos, responsabilidades de cada parte…',
-    estimatedTime: 'Tiempo estimado',
-    estimatedTimePlaceholder: 'Ej. 4 semanas',
+    estimatedTime: 'Tiempo estimado (días)',
+    estimatedTimePlaceholder: 'Ej. 30',
     validUntil: 'Vigencia de la propuesta',
     optional: '(opcional)',
   },
   actions: {
-    saveDraft: 'Guardar borrador',
     send: 'Enviar propuesta',
-    saving: 'Guardando…',
     sending: 'Enviando…',
   },
   preview: {
@@ -55,10 +52,10 @@ export const nuevaPropuestaContent = {
     pending: 'Por definir',
   },
   loadingClients: 'Cargando clientes…',
-  loadingProposal: 'Cargando propuesta…',
-  notEditable: 'Solo se pueden editar las propuestas en borrador.',
+  noClients: 'No tienes solicitudes pendientes. Las propuestas se crean en respuesta a la solicitud de un cliente.',
   errors: {
-    datos_invalidos: 'Revisa los datos: la solicitud debe ser del cliente y los conceptos deben sumar los honorarios.',
-    conflicto: 'Esta propuesta ya no es un borrador y no se puede editar.',
+    datos_invalidos: 'Revisa los datos de la propuesta.',
+    sin_permiso: 'Tu cédula profesional debe estar validada para enviar propuestas.',
+    no_encontrado: 'La solicitud ya no está disponible. Puede que ya la hayas respondido.',
   },
 }

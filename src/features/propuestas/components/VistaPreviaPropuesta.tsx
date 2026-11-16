@@ -64,7 +64,7 @@ export function VistaPreviaPropuesta({ control, clientes }: VistaPreviaPropuesta
           </div>
           <div>
             <dt className="text-secondary">{preview.estimatedTime}</dt>
-            <dd className="text-on-surface font-medium">{tiempoEstimado.trim() || preview.pending}</dd>
+            <dd className="text-on-surface font-medium">{tiempoEstimado.trim() ? `${tiempoEstimado.trim()} días` : preview.pending}</dd>
           </div>
         </dl>
       </div>

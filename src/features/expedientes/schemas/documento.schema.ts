@@ -16,11 +16,11 @@ export const cargaDocumentoSchema = z.object({
       return
     }
     if (!REGLAS_ARCHIVO.extensiones.includes(extensionArchivo(archivo.name))) {
-      ctx.addIssue({ code: 'custom', message: 'Formato no permitido. Usa PDF, Word, Excel, JPG o PNG.' })
+      ctx.addIssue({ code: 'custom', message: 'Formato no permitido. Usa PDF, JPG o PNG.' })
     }
     if (archivo.size === 0) ctx.addIssue({ code: 'custom', message: 'El archivo está vacío.' })
     if (archivo.size > REGLAS_ARCHIVO.maximoBytes) {
-      ctx.addIssue({ code: 'custom', message: `El archivo pesa ${formatearTamano(archivo.size)}; el máximo es 20 MB.` })
+      ctx.addIssue({ code: 'custom', message: `El archivo pesa ${formatearTamano(archivo.size)}; el máximo es 10 MB.` })
     }
     if (archivo.name.length > 150) ctx.addIssue({ code: 'custom', message: 'El nombre del archivo es demasiado largo (máximo 150 caracteres).' })
   }),

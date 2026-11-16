@@ -8,11 +8,10 @@ import { EtiquetaEstadoPropuesta } from './EtiquetaEstadoPropuesta'
 interface TablaPropuestasProps {
   propuestas: PropuestaResumen[]
   onVer: (id: string) => void
-  onCancelar: (propuesta: PropuestaResumen) => void
 }
 
 /** D2: número, cliente, servicio, importe, fechas y estado, con acciones por estado. */
-export function TablaPropuestas({ propuestas, onVer, onCancelar }: TablaPropuestasProps) {
+export function TablaPropuestas({ propuestas, onVer }: TablaPropuestasProps) {
   const { table } = propuestasContent
   const hoy = hoyIso()
 
@@ -34,8 +33,7 @@ export function TablaPropuestas({ propuestas, onVer, onCancelar }: TablaPropuest
         </thead>
         <tbody className="divide-y divide-surface-container">
           {propuestas.map((propuesta) => {
-            const vencida =
-              propuesta.fechaVigencia < hoy && (propuesta.estado === 'enviada' || propuesta.estado === 'pendiente_respuesta')
+            const vencida = propuesta.estado === 'expirada' || (propuesta.fechaVigencia !== '' && propuesta.fechaVigencia < hoy && propuesta.estado === 'enviada')
             return (
               <tr key={propuesta.id} className="hover:bg-surface-container-low/50 transition-colors">
                 <td className="px-4 py-4 text-label-md text-on-surface tabular-nums whitespace-nowrap">{propuesta.folio}</td>
@@ -47,14 +45,16 @@ export function TablaPropuestas({ propuestas, onVer, onCancelar }: TablaPropuest
                 <td className="px-4 py-4 text-right text-label-lg text-on-surface tabular-nums whitespace-nowrap">{formatearMonto(propuesta.importe)}</td>
                 <td className="px-4 py-4 text-body-sm text-secondary whitespace-nowrap">{formatearFechaHora(propuesta.fechaCreacion)}</td>
                 <td className="px-4 py-4 text-body-sm whitespace-nowrap">
-                  <span className={vencida ? 'text-error font-semibold' : 'text-secondary'}>{formatearFechaCorta(propuesta.fechaVigencia)}</span>
+                  <span className={vencida ? 'text-error font-semibold' : 'text-secondary'}>
+                    {propuesta.fechaVigencia ? formatearFechaCorta(propuesta.fechaVigencia) : '—'}
+                  </span>
                   {vencida && <span className="block text-[11px] text-error">{table.expired}</span>}
                 </td>
                 <td className="px-4 py-4">
                   <EtiquetaEstadoPropuesta estado={propuesta.estado} />
                 </td>
                 <td className="px-4 py-4">
-                  <AccionesPropuesta propuesta={propuesta} onVer={() => onVer(propuesta.id)} onCancelar={() => onCancelar(propuesta)} />
+                  <AccionesPropuesta propuesta={propuesta} onVer={() => onVer(propuesta.id)} />
                 </td>
               </tr>
             )

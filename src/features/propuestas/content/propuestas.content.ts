@@ -1,12 +1,10 @@
 import type { EstadoPropuesta, FiltroPropuestas } from '../types/propuestas.types'
 
 export const estadosPropuesta: Record<EstadoPropuesta, { label: string; icon: string; clases: string }> = {
-  borrador: { label: 'Borrador', icon: 'edit_note', clases: 'bg-surface-container text-secondary' },
-  enviada: { label: 'Enviada', icon: 'send', clases: 'bg-tertiary/10 text-tertiary' },
-  pendiente_respuesta: { label: 'Pendiente de respuesta', icon: 'hourglass_top', clases: 'bg-secondary-container text-on-secondary-container' },
+  enviada: { label: 'Pendiente de respuesta', icon: 'hourglass_top', clases: 'bg-secondary-container text-on-secondary-container' },
   aceptada: { label: 'Aceptada', icon: 'check_circle', clases: 'bg-primary-container/15 text-primary' },
   rechazada: { label: 'Rechazada', icon: 'cancel', clases: 'bg-error/10 text-error' },
-  cancelada: { label: 'Cancelada', icon: 'block', clases: 'bg-surface-container-highest text-on-surface-variant' },
+  expirada: { label: 'Expirada', icon: 'timer_off', clases: 'bg-surface-container-highest text-on-surface-variant' },
 }
 
 export const propuestasContent = {
@@ -17,15 +15,13 @@ export const propuestasContent = {
     ariaLabel: 'Filtrar por estado',
     options: [
       { valor: 'todas', label: 'Todas' },
-      { valor: 'borrador', label: 'Borrador' },
-      { valor: 'enviada', label: 'Enviada' },
-      { valor: 'pendiente_respuesta', label: 'Pendiente de respuesta' },
-      { valor: 'aceptada', label: 'Aceptada' },
-      { valor: 'rechazada', label: 'Rechazada' },
-      { valor: 'cancelada', label: 'Cancelada' },
+      { valor: 'enviada', label: 'Pendientes de respuesta' },
+      { valor: 'aceptada', label: 'Aceptadas' },
+      { valor: 'rechazada', label: 'Rechazadas' },
+      { valor: 'expirada', label: 'Expiradas' },
     ] satisfies { valor: FiltroPropuestas; label: string }[],
     searchLabel: 'Buscar propuestas',
-    searchPlaceholder: 'Buscar por cliente, servicio o número',
+    searchPlaceholder: 'Buscar por cliente o servicio',
   },
   table: {
     caption: 'Propuestas de servicio',
@@ -41,11 +37,7 @@ export const propuestasContent = {
   },
   actions: {
     view: 'Ver propuesta',
-    edit: 'Editar',
-    cancel: 'Cancelar',
     conversation: 'Conversación',
-    createCase: 'Crear expediente',
-    creatingCase: 'Creando…',
     viewCase: 'Ver expediente',
     viewMovements: 'Ver movimientos',
     viewRequest: 'Ver solicitud',
@@ -68,23 +60,11 @@ export const propuestasContent = {
     rejectionReason: 'Motivo del rechazo',
     loading: 'Cargando propuesta…',
   },
-  cancelDialog: {
-    title: 'Cancelar propuesta',
-    description: 'El cliente ya no podrá aceptarla. Esta acción no se puede deshacer.',
-    keep: 'Conservar propuesta',
-    confirm: 'Cancelar propuesta',
-    confirming: 'Cancelando…',
-  },
   saved: {
-    borrador: 'La propuesta se guardó como borrador.',
     enviada: 'La propuesta se envió al cliente. Te avisaremos cuando responda.',
   },
-  cancelled: 'La propuesta fue cancelada.',
   paginationLabel: 'propuestas',
   porPagina: 8,
   loading: 'Cargando propuestas…',
   empty: { title: 'No hay propuestas con estos filtros', description: 'Prueba con otro estado o búsqueda.' },
-  errors: {
-    conflicto: 'La propuesta cambió de estado. Actualiza la lista para ver su estado actual.',
-  },
 }

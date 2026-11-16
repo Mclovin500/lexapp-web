@@ -10,11 +10,11 @@ export const categoriasDocumento: Record<CategoriaDocumento, string> = {
   otros: 'Otros',
 }
 
-/** Formatos permitidos y tamaño máximo (por confirmar con el backend). */
+/** Formatos y tamaño que acepta Back_Lexapp (`Utilities/FileValidator.cs`). */
 export const REGLAS_ARCHIVO = {
-  extensiones: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'jpg', 'jpeg', 'png'],
-  maximoBytes: 20 * 1024 * 1024,
-  accept: '.pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png',
+  extensiones: ['pdf', 'jpg', 'jpeg', 'png'],
+  maximoBytes: 10 * 1024 * 1024,
+  accept: '.pdf,.jpg,.jpeg,.png',
 }
 
 export const documentosContent = {
@@ -71,7 +71,7 @@ export const documentosContent = {
     title: 'Cargar documento',
     description: 'El documento quedará asociado a este expediente y el cliente lo verá en su aplicación.',
     file: 'Archivo',
-    fileHint: 'PDF, Word, Excel, JPG o PNG. Máximo 20 MB.',
+    fileHint: 'PDF, JPG o PNG. Máximo 10 MB.',
     choose: 'Seleccionar archivo',
     change: 'Cambiar archivo',
     category: 'Categoría',
