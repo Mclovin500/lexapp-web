@@ -5,14 +5,8 @@ import { ErrorAutenticacion } from '../types/auth.types'
 const CODIGO_CORRECTO = '123456'
 const CODIGO_VENCIDO = '000000'
 
-/** Simula la validación de un código de 6 dígitos: 410 vencido, 400 incorrecto. */
+/** Simula la validación de un código de 6 dígitos: vencido o incorrecto. */
 export function validarCodigoMock(codigo: string): void {
   if (codigo === CODIGO_VENCIDO) throw new ErrorAutenticacion('codigo_vencido')
   if (codigo !== CODIGO_CORRECTO) throw new ErrorAutenticacion('codigo_incorrecto')
-}
-
-/** Tiempos que devuelve el mock al enviar o reenviar un código. */
-export const TIEMPOS_CODIGO_MOCK = {
-  reenviarEnSegundos: 30,
-  expiraEnSegundos: 600,
 }

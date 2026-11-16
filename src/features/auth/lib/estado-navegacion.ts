@@ -6,7 +6,6 @@ import type {
   EstadoContrasenaActualizada,
   EstadoNuevaContrasena,
   EstadoVerificacionCorreo,
-  EstadoVerificacionLogin,
 } from '../types/estado-navegacion.types'
 
 function esObjeto(valor: unknown): valor is Record<string, unknown> {
@@ -31,20 +30,8 @@ export function esEstadoCarga(valor: unknown): valor is EstadoCarga {
   return esObjeto(valor) && DESTINOS_CARGA.some((destino) => destino === valor.destino)
 }
 
-export function esEstadoVerificacionLogin(valor: unknown): valor is EstadoVerificacionLogin {
-  return (
-    esObjeto(valor) &&
-    esTexto(valor.correoEnmascarado) &&
-    esSegundos(valor.reenviarEnSegundos) &&
-    esSegundos(valor.expiraEnSegundos)
-  )
-}
-
-export function esEstadoVerificacionCorreo(valor: unknown): valor is EstadoVerificacionCorreo {
-  return esEstadoVerificacionLogin(valor)
-}
-
-export function esEstadoCodigoRecuperacion(valor: unknown): valor is EstadoCodigoRecuperacion {
+/** A3A y A2C comparten la misma forma: correo real, enmascarado y tiempos del código. */
+function esEstadoCodigoCorreo(valor: unknown): valor is EstadoVerificacionCorreo {
   return (
     esObjeto(valor) &&
     esTexto(valor.correo) &&
@@ -54,8 +41,16 @@ export function esEstadoCodigoRecuperacion(valor: unknown): valor is EstadoCodig
   )
 }
 
+export function esEstadoVerificacionCorreo(valor: unknown): valor is EstadoVerificacionCorreo {
+  return esEstadoCodigoCorreo(valor)
+}
+
+export function esEstadoCodigoRecuperacion(valor: unknown): valor is EstadoCodigoRecuperacion {
+  return esEstadoCodigoCorreo(valor)
+}
+
 export function esEstadoNuevaContrasena(valor: unknown): valor is EstadoNuevaContrasena {
-  return esObjeto(valor) && esTexto(valor.tokenRestablecimiento)
+  return esObjeto(valor) && esTexto(valor.correo) && esTexto(valor.codigo)
 }
 
 export function esEstadoContrasenaActualizada(

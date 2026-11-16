@@ -9,9 +9,10 @@ import { MarcoAcceso } from '../components/MarcoAcceso'
 import { codigoRecuperacionContent } from '../content/codigo-recuperacion.content'
 import { recuperacionContent } from '../content/recuperacion.content'
 import {
-  useReenviarCodigoRecuperacion,
+  useSolicitarRecuperacion,
   useVerificarCodigoRecuperacion,
 } from '../hooks/useRecuperacion'
+import { TIEMPOS_CODIGO } from '../lib/codigo-correo'
 import { esEstadoCodigoRecuperacion } from '../lib/estado-navegacion'
 import { mensajePorTipo } from '../lib/mapear-error'
 import type { ErrorAutenticacion } from '../types/auth.types'
@@ -20,7 +21,7 @@ import type {
   EstadoNuevaContrasena,
 } from '../types/estado-navegacion.types'
 
-/** A2C: valida el código de recuperación. Correcto → A2D con el token en memoria. */
+/** A2C: valida el código de recuperación. Correcto → A2D con el correo y el código en memoria. */
 export function CodigoRecuperacionPage() {
   const { state } = useLocation()
 
@@ -40,23 +41,24 @@ function CodigoRecuperacion({
   const navigate = useNavigate()
   const contenido = codigoRecuperacionContent
   const verificacion = useVerificarCodigoRecuperacion()
-  const reenvio = useReenviarCodigoRecuperacion()
+  // El backend reenvía con el mismo endpoint de A2B (invalida el código anterior).
+  const reenvio = useSolicitarRecuperacion()
 
   const error: ErrorAutenticacion | null = reenvio.error ?? verificacion.error
-  const vigencia = reenvio.data?.expiraEnSegundos ?? expiraEnSegundos
+  const vigencia = reenvio.isSuccess ? TIEMPOS_CODIGO.expiraEnSegundos : expiraEnSegundos
 
   const verificar = async (codigo: string) => {
     reenvio.reset()
-    const { tokenRestablecimiento } = await verificacion.mutateAsync({ correo, codigo })
-    const estado: EstadoNuevaContrasena = { tokenRestablecimiento }
-    // `replace`: el código es de un solo uso, no tiene sentido volver a esta pantalla.
+    await verificacion.mutateAsync({ correo, codigo })
+    const estado: EstadoNuevaContrasena = { correo, codigo }
+    // `replace`: el código ya se validó; A2D lo consume al guardar.
     navigate(ROUTES.newPassword, { replace: true, state: estado })
   }
 
   const reenviar = async () => {
     verificacion.reset()
-    const respuesta = await reenvio.mutateAsync({ correo })
-    return respuesta.reenviarEnSegundos
+    await reenvio.mutateAsync({ correo })
+    return TIEMPOS_CODIGO.reenviarEnSegundos
   }
 
   return (
@@ -91,7 +93,7 @@ function CodigoRecuperacion({
           segundosInicialesReenvio={reenviarEnSegundos}
           cargando={verificacion.isPending}
           reenviando={reenvio.isPending}
-          permitirReenvioInmediato={error?.tipo === 'codigo_vencido'}
+          permitirReenvioInmediato={error?.tipo === 'codigo_vencido' || error?.tipo === 'demasiados_intentos'}
           error={error && mensajePorTipo(error.tipo, contenido.errors)}
         />
 

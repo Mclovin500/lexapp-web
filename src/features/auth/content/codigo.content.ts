@@ -1,4 +1,4 @@
-/** Textos del bloque de código de 6 dígitos compartido (A2A, A2C y, después, A3A). */
+/** Textos del bloque de código de 6 dígitos compartido (A2C y A3A). */
 export const codigoContent = {
   digitAriaLabel: (posicion: number, total: number) => `Dígito ${posicion} de ${total}`,
   verifyingButton: 'Verificando…',

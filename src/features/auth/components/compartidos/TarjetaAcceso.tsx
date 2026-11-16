@@ -18,7 +18,7 @@ const anchos = {
   lg: 'max-w-5xl',
 } as const
 
-/** Tarjeta central de las pantallas de verificación y recuperación (A2A–A2C). */
+/** Tarjeta central de las pantallas de verificación y recuperación (A2B y A2C). */
 export function TarjetaAcceso({
   icon,
   title,

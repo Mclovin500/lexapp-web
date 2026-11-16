@@ -1,32 +1,26 @@
-// PROPUESTA: rutas por confirmar con el backend (ver docs/contrato-api-auth.md)
 // Todas son relativas a VITE_API_URL. Cambiar aquí actualiza todos los servicios.
+// Sección A (P02, A1–A5A): rutas reales del backend (Back_Lexapp/controllers).
+// El resto siguen siendo PROPUESTA (ver docs/contrato-api-*.md).
 export const ENDPOINTS = {
   auth: {
-    login: '/auth/login', // P02
-    cerrarSesion: '/auth/cerrar-sesion', // J1 "Cerrar sesión"
-    verificarCodigo: '/auth/verificar-codigo', // A2A
-    reenviarCodigo: '/auth/reenviar-codigo', // A2A
-    sesion: '/auth/sesion', // A1
-    registro: '/auth/registro', // A3
-    recuperacion: {
-      solicitar: '/auth/recuperacion/solicitar', // A2B
-      verificarCodigo: '/auth/recuperacion/verificar-codigo', // A2C
-      reenviarCodigo: '/auth/recuperacion/reenviar-codigo', // A2C
-      nuevaContrasena: '/auth/recuperacion/nueva-contrasena', // A2D
-    },
+    login: '/auth/login', // P02 (AuthController): devuelve el JWT
+    sesion: '/auth/sesion', // A1 y RutaProtegida (AuthController, requiere Bearer)
+    cerrarSesion: '/auth/cerrar-sesion', // J1 "Cerrar sesión" (PROPUESTA: no existe en el backend)
   },
   registro: {
-    verificarCorreo: '/registro/verificar-correo', // A3A
-    reenviarCodigo: '/registro/reenviar-codigo', // A3A
-    progreso: '/registro/progreso', // A4 y A5 (precarga)
-    credenciales: '/registro/credenciales', // A4
-    documentos: '/registro/documentos', // A4 (POST multipart: cédula o título)
-    foto: '/registro/foto', // A5 (POST multipart: fotografía profesional)
-    perfil: '/registro/perfil', // A5
-    enviar: '/registro/enviar', // A5
+    abogado: '/Registro/abogado', // A5 "Crear mi cuenta": POST multipart con lo capturado en A3, A4 y A5
+  },
+  verificacion: {
+    enviar: '/Verificacion/enviar', // A3A enviar / reenviar el código al correo
+    verificar: '/Verificacion/verificar', // A3A validar el código
+  },
+  recuperacion: {
+    solicitar: '/PasswordReset/solicitar', // A2B y "Reenviar" en A2C
+    verificar: '/PasswordReset/verificar', // A2C (valida sin consumir el código)
+    confirmar: '/PasswordReset/confirmar', // A2D (código + nueva contraseña)
   },
   abogado: {
-    validacion: '/abogado/validacion', // A5A
+    validacion: '/abogado/validacion', // A5A (AbogadosController, rol abogado)
     cuenta: '/abogado/cuenta', // Header y Sidebar (nombre y contadores)
     perfil: '/abogado/perfil', // I1 (GET, PUT)
     foto: '/abogado/perfil/foto', // I1 (POST multipart, DELETE)

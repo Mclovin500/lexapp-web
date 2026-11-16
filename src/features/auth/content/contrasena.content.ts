@@ -7,8 +7,8 @@ export const contrasenaContent = {
   strength: ['Incompleta', 'Débil', 'Débil', 'Media', 'Media', 'Segura'],
   rules: {
     longitud: 'Mínimo 10 caracteres',
-    mayuscula: 'Una mayúscula',
-    minuscula: 'Una minúscula',
+    mayuscula: 'Una mayúscula (A-Z)',
+    minuscula: 'Una minúscula (a-z)',
     numero: 'Un número (0-9)',
     especial: 'Un carácter especial (@, $, !, %, *, #, ?, &)',
   } satisfies Record<IdReglaContrasena, string>,

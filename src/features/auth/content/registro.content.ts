@@ -2,10 +2,10 @@ export const registroContent = {
   brandName: 'LexApp',
   title: 'Crea tu cuenta profesional',
   subtitle: 'Paso inicial para habilitar tu despacho digital y colegiación en la plataforma.',
-  /** Etapas visibles del registro: A3 (datos básicos), A4 (credenciales), A5 (área de práctica). */
+  /** Etapas visibles del registro: A3 (datos básicos), A4 (credenciales), A5 (perfil). A3A va al final. */
   steps: {
     ariaLabel: 'Progreso del registro',
-    items: ['Datos básicos', 'Credenciales', 'Área de práctica'],
+    items: ['Datos básicos', 'Credenciales', 'Perfil profesional'],
     status: {
       current: 'En curso',
       pending: 'Pendiente',
@@ -31,8 +31,7 @@ export const registroContent = {
     passwordLabel: 'Contraseña maestra',
     confirmPasswordLabel: 'Confirmar contraseña',
     passwordPlaceholder: '••••••••••••',
-    submitButton: 'Siguiente: verificar correo',
-    submittingButton: 'Creando cuenta…',
+    submitButton: 'Siguiente: credenciales',
   },
   terms: {
     // PLACEHOLDER: validar antes de publicar y asignar rutas a los documentos legales
@@ -41,13 +40,6 @@ export const registroContent = {
     middle: ', el ',
     confidentiality: 'Tratamiento Confidencial de Expedientes',
     suffix: ' y el acuerdo de secreto profesional conforme a la LFPDPPP.',
-  },
-  errors: {
-    correo_registrado: 'Ya existe una cuenta con este correo. Inicia sesión o usa otro correo.',
-    datos_invalidos: 'Revisa los datos ingresados e inténtalo de nuevo.',
-    demasiados_intentos: 'Demasiados intentos. Inténtalo de nuevo más tarde.',
-    red: 'No pudimos conectar con el servidor. Inténtalo de nuevo.',
-    desconocido: 'Ocurrió un error inesperado. Inténtalo de nuevo.',
   },
   reassurance: 'Tus datos solo se usan para crear tu cuenta y validar tu perfil profesional',
   links: {

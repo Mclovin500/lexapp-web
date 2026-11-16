@@ -59,14 +59,11 @@ function AccionEnlace({ to, ...props }: AccionProps & { to: string }) {
 /**
  * "Acciones disponibles" de A5A según el estado real:
  * - validado → B1.
- * - requiere_correccion y rechazado → corregir en A4 / A5 y reenviar desde A5.
- * - pendiente → consultar o actualizar A4 / A5.
- *   PENDIENTE backend: qué pasa con la revisión en curso si el abogado edita sus datos.
  * - En todos: actualizar estado.
+ * El backend no expone edición del registro (A4/A5) tras crearlo, por eso no hay enlaces a esos pasos.
  */
 export function AccionesValidacion({ estado, onActualizar, actualizando }: AccionesValidacionProps) {
   const { actions } = validacionProfesionalContent
-  const debeCorregir = estado === 'requiere_correccion' || estado === 'rechazado'
 
   return (
     <section aria-labelledby="acciones-validacion-titulo" className="rounded-xl bg-surface-container-low p-6">
@@ -84,45 +81,6 @@ export function AccionesValidacion({ estado, onActualizar, actualizando }: Accio
             detail={actions.enterOfficeDetail}
             destacada
           />
-        )}
-
-        {debeCorregir && (
-          <>
-            <AccionEnlace
-              to={ROUTES.registerCredentials}
-              icon="badge"
-              label={actions.fixCredentials}
-              detail={actions.fixCredentialsDetail}
-              destacada
-            />
-            <AccionEnlace
-              to={ROUTES.registerProfile}
-              icon="psychology"
-              label={actions.editProfile}
-              detail={actions.editProfileDetail}
-            />
-            <p className="flex items-start gap-1.5 px-1 text-body-sm text-secondary">
-              <Icon name="info" size={16} className="shrink-0 mt-0.5" />
-              {actions.resubmitNote}
-            </p>
-          </>
-        )}
-
-        {estado === 'pendiente' && (
-          <>
-            <AccionEnlace
-              to={ROUTES.registerCredentials}
-              icon="badge"
-              label={actions.reviewCredentials}
-              detail={actions.reviewCredentialsDetail}
-            />
-            <AccionEnlace
-              to={ROUTES.registerProfile}
-              icon="psychology"
-              label={actions.reviewProfile}
-              detail={actions.reviewProfileDetail}
-            />
-          </>
         )}
 
         <button

@@ -1,21 +1,29 @@
 // MOCK: eliminar al conectar el backend
-import { type DatosRegistro, type RespuestaRegistro, ErrorRegistro } from '../types/registro.types'
-import { TIEMPOS_CODIGO_MOCK } from './codigo.mock'
+import { esperar, SIMULAR_ERROR_RED } from '@/api/mock-utils'
+import { ErrorAutenticacion } from '../types/auth.types'
+import type { DatosRegistroAbogado, RespuestaRegistro } from '../types/registro.types'
 
-function enmascararCorreo(correo: string): string {
-  const [usuario, dominio] = correo.split('@')
-  return `${usuario.charAt(0)}***@${dominio}`
-}
+/** Correo y cédula que el mock trata como ya registrados (409). */
+const CORREO_REGISTRADO = 'registrado@demo.com'
+const CEDULA_REGISTRADA = '1234567'
 
-export async function registrarAbogadoMock(datos: DatosRegistro): Promise<RespuestaRegistro> {
-  await new Promise((resolve) => setTimeout(resolve, 800))
+export async function registrarAbogadoMock(datos: DatosRegistroAbogado): Promise<RespuestaRegistro> {
+  await esperar()
+  if (SIMULAR_ERROR_RED) throw new ErrorAutenticacion('red')
 
-  if (datos.correo.trim().toLowerCase() === 'registrado@demo.com') {
-    throw new ErrorRegistro('correo_registrado', 'El correo ya está registrado.')
+  if (datos.correo === CORREO_REGISTRADO) {
+    throw new ErrorAutenticacion('conflicto', undefined, 'Ya existe un usuario con ese email.')
+  }
+  if (datos.cedulaProfesional === CEDULA_REGISTRADA) {
+    throw new ErrorAutenticacion('conflicto', undefined, 'Ya existe un abogado con esa cédula profesional.')
   }
 
   return {
-    correoEnmascarado: enmascararCorreo(datos.correo.trim().toLowerCase()),
-    ...TIEMPOS_CODIGO_MOCK,
+    idUsuario: 1,
+    idPerfil: 1,
+    tipoUsuario: 'abogado',
+    email: datos.correo,
+    mensaje: 'Abogado registrado correctamente. Queda pendiente de verificación.',
+    estadoDocumento: 'PENDIENTE',
   }
 }

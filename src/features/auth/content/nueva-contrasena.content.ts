@@ -14,7 +14,7 @@ export const nuevaContrasenaContent = {
     submitButton: 'Guardar nueva contraseña',
     submittingButton: 'Guardando…',
     // PLACEHOLDER: validar antes de publicar (depende de lo que haga el backend)
-    revocationNote: 'Al guardar, se cerrarán las sesiones activas en otros dispositivos.',
+    revocationNote: 'Al guardar, el código de recuperación deja de ser válido.',
   },
   criteria: {
     title: 'Requisitos de seguridad',
@@ -27,11 +27,11 @@ export const nuevaContrasenaContent = {
     title: 'Tu contraseña fue actualizada',
     // PLACEHOLDER: validar antes de publicar (depende de lo que haga el backend)
     description:
-      'Ya puedes iniciar sesión con tu nueva contraseña. Por seguridad, las sesiones activas en otros navegadores fueron cerradas.',
+      'Ya puedes iniciar sesión con tu nueva contraseña.',
     loginButton: 'Ir a iniciar sesión',
   },
   errors: {
-    tokenInvalid: 'El enlace de restablecimiento ya no es válido. Solicita un nuevo código.',
+    tokenInvalid: 'El código de recuperación venció o ya no es válido. Solicita uno nuevo.',
     tokenInvalidLink: 'Reiniciar recuperación',
     datos_invalidos: 'La contraseña no cumple las políticas de seguridad. Elige otra.',
     demasiados_intentos: 'Demasiados intentos. Inténtalo más tarde.',

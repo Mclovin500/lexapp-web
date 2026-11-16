@@ -10,7 +10,7 @@ import { recuperacionContent } from '../content/recuperacion.content'
 import { esEstadoContrasenaActualizada, esEstadoNuevaContrasena } from '../lib/estado-navegacion'
 
 /**
- * A2D: nueva contraseña. Sin token en el estado → A2B.
+ * A2D: nueva contraseña. Sin correo y código validado en el estado → A2B.
  * El regreso va a P02 (no a A2C): el código ya se usó.
  */
 export function NuevaContrasenaPage() {
@@ -51,7 +51,7 @@ export function NuevaContrasenaPage() {
                 </div>
               </div>
               {esEstadoNuevaContrasena(state) && (
-                <FormularioNuevaContrasena tokenRestablecimiento={state.tokenRestablecimiento} />
+                <FormularioNuevaContrasena correo={state.correo} codigo={state.codigo} />
               )}
             </>
           )}

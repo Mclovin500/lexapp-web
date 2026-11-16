@@ -5,39 +5,63 @@ import { ROUTES } from '@/app/routes'
 import { Icon } from '@/components/ui/Icon'
 import { loginSchema, type LoginFormValues } from '../schemas/login.schema'
 import { useIniciarSesion } from '../hooks/useIniciarSesion'
+import { useEnviarCodigoCorreo } from '../hooks/useVerificarCorreo'
+import { recordarCredencialesPendientes } from '../lib/borrador-registro'
+import { enmascararCorreo, TIEMPOS_CODIGO } from '../lib/codigo-correo'
+import { destinoPorValidacion } from '../lib/destino-por-validacion'
 import { CampoContrasena } from './CampoContrasena'
 import { loginContent } from '../content/login.content'
-import type { EstadoVerificacionLogin } from '../types/estado-navegacion.types'
+import type { EstadoCarga, EstadoVerificacionCorreo } from '../types/estado-navegacion.types'
 
+/** P02: POST /auth/login → A1 (carga) → B1 (validado) o A5A. Correo sin verificar → A3A. */
 export function FormularioLogin() {
   const navigate = useNavigate()
   const { mutate: ejecutarLogin, isPending, error } = useIniciarSesion()
+  const envioCodigo = useEnviarCodigoCorreo()
 
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       correo: '',
       contrasena: '',
-      recordarEquipo: false,
     },
   })
 
   const onSubmit = (valores: LoginFormValues) => {
-    ejecutarLogin(valores, {
-      onSuccess: (respuesta) => {
-        navigate(ROUTES.verifyCode, {
-          state: {
-            correoEnmascarado: respuesta.correoEnmascarado,
-            reenviarEnSegundos: respuesta.reenviarEnSegundos,
-            expiraEnSegundos: respuesta.expiraEnSegundos,
-          } satisfies EstadoVerificacionLogin,
-        })
+    envioCodigo.reset()
+    ejecutarLogin(
+      { correo: valores.correo.toLowerCase(), contrasena: valores.contrasena },
+      {
+        onSuccess: (respuesta) => {
+          const estado: EstadoCarga = { destino: destinoPorValidacion(respuesta.estadoValidacion) }
+          navigate(ROUTES.welcome, { replace: true, state: estado })
+        },
       },
-    })
+    )
+  }
+
+  /** El backend no deja iniciar sesión sin verificar el correo: se envía el código y se va a A3A. */
+  const verificarCorreo = () => {
+    const correo = getValues('correo').trim().toLowerCase()
+    envioCodigo.mutate(
+      { correo },
+      {
+        onSuccess: () => {
+          recordarCredencialesPendientes(correo, getValues('contrasena'))
+          const estado: EstadoVerificacionCorreo = {
+            correo,
+            correoEnmascarado: enmascararCorreo(correo),
+            ...TIEMPOS_CODIGO,
+          }
+          navigate(ROUTES.verifyEmail, { state: estado })
+        },
+      },
+    )
   }
 
   return (
@@ -121,20 +145,6 @@ export function FormularioLogin() {
           )}
         </div>
 
-        {/* Recordar este equipo */}
-        <div className="flex items-center justify-between pt-1">
-          <label className="flex items-center gap-2 cursor-pointer select-none">
-            <input
-              type="checkbox"
-              className="w-4 h-4 rounded text-primary-container focus:ring-2 focus:ring-primary-container bg-surface-container accent-primary-container cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
-              {...register('recordarEquipo')}
-            />
-            <span className="font-body-sm text-body-sm text-secondary">
-              {loginContent.form.rememberDevice}
-            </span>
-          </label>
-        </div>
-
         {/* Caja de Error del Servidor */}
         {error && (
           <div
@@ -154,6 +164,28 @@ export function FormularioLogin() {
                   </Link>
                   {loginContent.errors.cuentaNoAbogadoSuffix}
                 </span>
+              ) : error.tipo === 'correo_no_verificado' ? (
+                <span className="flex flex-col items-start gap-2">
+                  <span>
+                    {envioCodigo.error
+                      ? envioCodigo.error.tipo === 'red'
+                        ? loginContent.errors.red
+                        : (envioCodigo.error.mensajeServidor ?? loginContent.errors.desconocido)
+                      : loginContent.errors.correoNoVerificado}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={verificarCorreo}
+                    disabled={envioCodigo.isPending}
+                    className="font-semibold underline hover:opacity-80 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
+                  >
+                    {envioCodigo.isPending
+                      ? loginContent.errors.correoNoVerificadoEnviando
+                      : loginContent.errors.correoNoVerificadoBoton}
+                  </button>
+                </span>
+              ) : error.tipo === 'cuenta_desactivada' ? (
+                <span>{loginContent.errors.cuentaDesactivada}</span>
               ) : error.tipo === 'credenciales' ? (
                 <span>{loginContent.errors.credenciales}</span>
               ) : error.tipo === 'demasiados_intentos' ? (

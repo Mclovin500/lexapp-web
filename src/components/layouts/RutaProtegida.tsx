@@ -6,14 +6,14 @@ import { EstadoError } from '@/components/ui/EstadoError'
 import { useVerificarSesion } from '@/features/auth/hooks/useVerificarSesion'
 
 /**
- * Criterio 11.26: el panel solo se abre con sesión activa (`GET /auth/sesion`, cookie httpOnly).
+ * Criterio 11.26: el panel solo se abre con sesión activa (`GET /auth/sesion` con el JWT de P02).
  * Sin sesión → P02 · con sesión pero sin validación aprobada → A5A (regla 9.5).
  * Un error de red no expulsa al abogado: se muestra el error con "Reintentar".
  */
 export function RutaProtegida({ children }: { children: ReactNode }) {
   const sesion = useVerificarSesion()
 
-  // Si el dato en caché dice "sin sesión" pero se está volviendo a consultar (p. ej. justo después de A2A),
+  // Si el dato en caché dice "sin sesión" pero se está volviendo a consultar (p. ej. justo después del login),
   // se espera la respuesta nueva en lugar de expulsar con un dato viejo.
   if (sesion.isPending || (sesion.isFetching && !sesion.data?.activa)) {
     return (

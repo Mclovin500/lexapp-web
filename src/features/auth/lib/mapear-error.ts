@@ -17,6 +17,28 @@ const POR_ESTADO: Record<number, TipoErrorAuth> = {
   429: 'demasiados_intentos',
 }
 
+/** Lee el `mensaje` que el backend devuelve en `{ mensaje }` o en `ApiResponse`. */
+export function mensajeDelServidor(error: unknown): string | undefined {
+  if (!isAxiosError(error)) return undefined
+  const datos: unknown = error.response?.data
+  if (typeof datos === 'object' && datos !== null && 'mensaje' in datos) {
+    const mensaje = (datos as { mensaje: unknown }).mensaje
+    if (typeof mensaje === 'string' && mensaje.length > 0) return mensaje
+  }
+  return undefined
+}
+
+/**
+ * Los códigos de 6 dígitos del backend responden con texto ("Código inválido.",
+ * "El código ha expirado…", "Demasiados intentos…"). Se distinguen por su contenido.
+ */
+export function tipoPorMensajeCodigo(mensaje: string | undefined): TipoErrorAuth {
+  const texto = mensaje?.toLowerCase() ?? ''
+  if (texto.includes('demasiados')) return 'demasiados_intentos'
+  if (texto.includes('expirado')) return 'codigo_vencido'
+  return 'codigo_incorrecto'
+}
+
 /** Traduce cualquier error de una petición a un `ErrorAutenticacion` con su tipo. */
 export function mapearErrorApi(
   error: unknown,
@@ -29,14 +51,16 @@ export function mapearErrorApi(
   if (!error.response) return new ErrorAutenticacion('red')
 
   const status = error.response.status
+  const servidor = mensajeDelServidor(error)
   const sobrescrito = sobrescrituras[status]
-  if (sobrescrito) return new ErrorAutenticacion(sobrescrito)
+  if (sobrescrito) return new ErrorAutenticacion(sobrescrito, undefined, servidor)
 
   if (status === 400 || status === 422) {
-    return new ErrorAutenticacion(contexto === 'codigo' ? 'codigo_incorrecto' : 'datos_invalidos')
+    const tipo = contexto === 'codigo' ? tipoPorMensajeCodigo(servidor) : 'datos_invalidos'
+    return new ErrorAutenticacion(tipo, undefined, servidor)
   }
 
-  return new ErrorAutenticacion(POR_ESTADO[status] ?? 'desconocido')
+  return new ErrorAutenticacion(POR_ESTADO[status] ?? 'desconocido', undefined, servidor)
 }
 
 /** Elige el mensaje de un mapa por tipo de error, con respaldo en `desconocido`. */

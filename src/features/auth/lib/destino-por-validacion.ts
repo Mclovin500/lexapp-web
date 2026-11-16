@@ -5,7 +5,7 @@ import type { EstadoValidacion } from '../types/sesion.types'
 /**
  * Regla del flujo (docs/flujo-navegacion.md):
  * `validado` → B1 Dashboard; cualquier otro estado → A5A.
- * La reutilizan A1 y, más adelante, A2A.
+ * La reutilizan A1, P02 y A3A.
  */
 export function destinoPorValidacion(estado: EstadoValidacion): DestinoCarga {
   return estado === 'validado' ? ROUTES.dashboard : ROUTES.validationStatus

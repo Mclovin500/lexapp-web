@@ -1,35 +1,34 @@
 import { useForm, useWatch } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ROUTES } from '@/app/routes'
 import { Icon } from '@/components/ui/Icon'
 import { registroContent } from '../content/registro.content'
-import { useRegistrarAbogado } from '../hooks/useRegistrarAbogado'
+import { guardarPasoRegistro, leerBorradorRegistro } from '../lib/borrador-registro'
 import { registroSchema, type RegistroFormValues } from '../schemas/registro.schema'
-import type { EstadoVerificacionCorreo } from '../types/estado-navegacion.types'
-import type { DatosRegistro } from '../types/registro.types'
 import { CampoContrasena } from './CampoContrasena'
 import { CampoTexto, MensajeCampo } from './CampoTexto'
 import { IndicadorContrasena } from './IndicadorContrasena'
 
-/** Convierte los valores del formulario al cuerpo que espera el backend. */
-function aDatosRegistro(valores: RegistroFormValues): DatosRegistro {
-  return {
-    primerNombre: valores.primerNombre,
-    segundoNombre: valores.segundoNombre === '' ? null : valores.segundoNombre,
-    apellidoPaterno: valores.apellidoPaterno,
-    apellidoMaterno: valores.apellidoMaterno,
-    correo: valores.correo.toLowerCase(),
-    telefono: valores.telefono === '' ? null : valores.telefono,
-    contrasena: valores.contrasena,
-    aceptaTerminos: true,
-  }
+const VALORES_INICIALES: RegistroFormValues = {
+  primerNombre: '',
+  segundoNombre: '',
+  apellidoPaterno: '',
+  apellidoMaterno: '',
+  correo: '',
+  telefono: '',
+  contrasena: '',
+  confirmarContrasena: '',
+  aceptaTerminos: false,
 }
 
+/**
+ * A3: datos básicos. El backend crea la cuenta en una sola petición al final (A5),
+ * así que aquí solo se validan y se guardan en el borrador en memoria → A4.
+ */
 export function FormularioRegistro() {
   const navigate = useNavigate()
-  const { form, terms, errors: mensajesError } = registroContent
-  const { mutate: registrar, isPending, error } = useRegistrarAbogado()
+  const { form, terms } = registroContent
 
   const {
     register,
@@ -38,33 +37,14 @@ export function FormularioRegistro() {
     formState: { errors },
   } = useForm<RegistroFormValues>({
     resolver: zodResolver(registroSchema),
-    defaultValues: {
-      primerNombre: '',
-      segundoNombre: '',
-      apellidoPaterno: '',
-      apellidoMaterno: '',
-      correo: '',
-      telefono: '',
-      contrasena: '',
-      confirmarContrasena: '',
-      aceptaTerminos: false,
-    },
+    defaultValues: leerBorradorRegistro().datosBasicos ?? VALORES_INICIALES,
   })
 
   const contrasena = useWatch({ control, name: 'contrasena' })
 
   const onSubmit = (valores: RegistroFormValues) => {
-    registrar(aDatosRegistro(valores), {
-      onSuccess: (respuesta) => {
-        navigate(ROUTES.verifyEmail, {
-          state: {
-            correoEnmascarado: respuesta.correoEnmascarado,
-            reenviarEnSegundos: respuesta.reenviarEnSegundos,
-            expiraEnSegundos: respuesta.expiraEnSegundos,
-          } satisfies EstadoVerificacionCorreo,
-        })
-      },
-    })
+    guardarPasoRegistro('datosBasicos', { ...valores, correo: valores.correo.toLowerCase() })
+    navigate(ROUTES.registerCredentials)
   }
 
   return (
@@ -206,48 +186,14 @@ export function FormularioRegistro() {
         )}
       </div>
 
-      {/* Error del servidor */}
-      {error && (
-        <div
-          role="alert"
-          className="p-3.5 rounded-lg bg-error-container text-on-error-container text-body-sm flex items-start gap-2.5 border border-error/20"
-        >
-          <Icon name="error" size={20} className="text-error shrink-0 mt-0.5" />
-          <span className="leading-snug">
-            {mensajesError[error.tipo] ?? mensajesError.desconocido}
-            {error.tipo === 'correo_registrado' && (
-              <>
-                {' '}
-                <Link
-                  to={ROUTES.login}
-                  className="font-semibold underline hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
-                >
-                  {registroContent.links.loginLinkText}
-                </Link>
-              </>
-            )}
-          </span>
-        </div>
-      )}
-
       {/* Acción principal */}
       <div className="pt-3">
         <button
           type="submit"
-          disabled={isPending}
           className="w-full h-11 bg-primary-container hover:bg-primary-hover text-on-primary-container hover:text-on-primary text-label-lg font-semibold rounded-lg shadow-md shadow-primary-container/20 flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
-          {isPending ? (
-            <>
-              <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-              <span>{form.submittingButton}</span>
-            </>
-          ) : (
-            <>
-              <span>{form.submitButton}</span>
-              <Icon name="arrow_forward" size={18} />
-            </>
-          )}
+          <span>{form.submitButton}</span>
+          <Icon name="arrow_forward" size={18} />
         </button>
       </div>
     </form>

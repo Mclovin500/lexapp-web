@@ -1,42 +1,27 @@
 import { useMutation } from '@tanstack/react-query'
 import {
   guardarNuevaContrasena,
-  reenviarCodigoRecuperacion,
   solicitarRecuperacion,
   verificarCodigoRecuperacion,
 } from '../services/recuperacion.service'
-import type { ErrorAutenticacion, RespuestaReenvio } from '../types/auth.types'
+import type { ErrorAutenticacion } from '../types/auth.types'
 import type {
   PeticionNuevaContrasena,
-  PeticionReenviarCodigoRecuperacion,
   PeticionSolicitarRecuperacion,
   PeticionVerificarCodigoRecuperacion,
-  RespuestaSolicitarRecuperacion,
-  RespuestaVerificarCodigoRecuperacion,
 } from '../types/recuperacion.types'
 
-/** A2B */
+/** A2B y "Reenviar" en A2C (el backend reenvía con el mismo endpoint). */
 export function useSolicitarRecuperacion() {
-  return useMutation<RespuestaSolicitarRecuperacion, ErrorAutenticacion, PeticionSolicitarRecuperacion>({
+  return useMutation<void, ErrorAutenticacion, PeticionSolicitarRecuperacion>({
     mutationFn: solicitarRecuperacion,
   })
 }
 
 /** A2C */
 export function useVerificarCodigoRecuperacion() {
-  return useMutation<
-    RespuestaVerificarCodigoRecuperacion,
-    ErrorAutenticacion,
-    PeticionVerificarCodigoRecuperacion
-  >({
+  return useMutation<void, ErrorAutenticacion, PeticionVerificarCodigoRecuperacion>({
     mutationFn: verificarCodigoRecuperacion,
-  })
-}
-
-/** A2C */
-export function useReenviarCodigoRecuperacion() {
-  return useMutation<RespuestaReenvio, ErrorAutenticacion, PeticionReenviarCodigoRecuperacion>({
-    mutationFn: reenviarCodigoRecuperacion,
   })
 }
 

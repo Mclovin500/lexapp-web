@@ -2,21 +2,21 @@
 import type { EstadoSesion, EstadoValidacion } from '../types/sesion.types'
 
 /**
- * Estado de validación del abogado en todos los mocks (A1, A2A y, más adelante, A5A).
+ * Estado de validación del abogado en todos los mocks (A1, P02 y A5A).
  * `validado` → B1. Cualquier otro → A5A.
  */
 export const ESTADO_VALIDACION_MOCK: EstadoValidacion = 'validado'
 
 /**
  * Sesión al cargar la página. `true`: el panel se abre directo (cómodo para probar con las URLs);
- * `false`: el panel redirige a P02 hasta iniciar sesión (P02 → A2A).
- * En memoria: "Cerrar sesión" (J1) la termina y A2A la inicia; al recargar vuelve a este valor.
+ * `false`: el panel redirige a P02 hasta iniciar sesión.
+ * En memoria: "Cerrar sesión" (J1) la termina y P02 la inicia; al recargar vuelve a este valor.
  */
 const SESION_ACTIVA_MOCK = true
 
 let sesionActiva = SESION_ACTIVA_MOCK
 
-/** A2A con código correcto. */
+/** P02 con credenciales correctas. */
 export function iniciarSesionMock(): void {
   sesionActiva = true
 }

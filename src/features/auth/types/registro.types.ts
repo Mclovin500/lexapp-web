@@ -1,39 +1,34 @@
-/** Cuerpo de `POST /auth/registro` (A3). La confirmación de contraseña no se envía. */
-export interface DatosRegistro {
+/**
+ * `RegistroAbogadoRequest` del backend (`POST /Registro/abogado`, multipart/form-data).
+ * Se arma en A5 con lo capturado en A3 (datos básicos), A4 (credenciales) y A5 (perfil).
+ */
+export interface DatosRegistroAbogado {
+  // A3
   primerNombre: string
-  /** Opcional; `null` si no se captura. */
   segundoNombre: string | null
   apellidoPaterno: string
   apellidoMaterno: string
   correo: string
   telefono: string | null
   contrasena: string
-  aceptaTerminos: true
+  // A4
+  cedulaProfesional: string
+  archivoCedula: File
+  experienciaAnios: number
+  /** IDs de la tabla `especialidades`. */
+  especialidadesIds: number[]
+  // A5
+  bio: string
+  direccionOficina: string | null
+  tarifaPorHoraCentavos: number | null
 }
 
-import type { RespuestaReenvio } from './auth.types'
-
-/**
- * El backend envía el código de verificación al correo y responde con el correo
- * enmascarado y los tiempos del código (para A3A).
- */
-export interface RespuestaRegistro extends RespuestaReenvio {
-  correoEnmascarado: string
-}
-
-export type TipoErrorRegistro =
-  | 'correo_registrado'
-  | 'datos_invalidos'
-  | 'demasiados_intentos'
-  | 'red'
-  | 'desconocido'
-
-export class ErrorRegistro extends Error {
-  readonly tipo: TipoErrorRegistro
-
-  constructor(tipo: TipoErrorRegistro, mensaje?: string) {
-    super(mensaje ?? tipo)
-    this.name = 'ErrorRegistro'
-    this.tipo = tipo
-  }
+/** `RegistroResponse` del backend (201). */
+export interface RespuestaRegistro {
+  idUsuario: number
+  idPerfil: number
+  tipoUsuario: string
+  email: string
+  mensaje: string
+  estadoDocumento: string | null
 }

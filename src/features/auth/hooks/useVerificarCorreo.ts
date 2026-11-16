@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
-import { reenviarCodigoCorreo, verificarCorreo } from '../services/verificacion-correo.service'
-import type { ErrorAutenticacion, RespuestaReenvio } from '../types/auth.types'
-import type { PeticionVerificarCorreo } from '../types/verificacion-correo.types'
+import { enviarCodigoCorreo, verificarCorreo } from '../services/verificacion-correo.service'
+import type { ErrorAutenticacion } from '../types/auth.types'
+import type { PeticionEnviarCodigoCorreo, PeticionVerificarCorreo } from '../types/verificacion-correo.types'
 
 export function useVerificarCorreo() {
   return useMutation<void, ErrorAutenticacion, PeticionVerificarCorreo>({
@@ -9,8 +9,9 @@ export function useVerificarCorreo() {
   })
 }
 
-export function useReenviarCodigoCorreo() {
-  return useMutation<RespuestaReenvio, ErrorAutenticacion, void>({
-    mutationFn: reenviarCodigoCorreo,
+/** Envío y reenvío del código (A3A, y P02 cuando el correo no está verificado). */
+export function useEnviarCodigoCorreo() {
+  return useMutation<void, ErrorAutenticacion, PeticionEnviarCodigoCorreo>({
+    mutationFn: enviarCodigoCorreo,
   })
 }

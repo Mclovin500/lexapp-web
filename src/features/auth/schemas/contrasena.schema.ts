@@ -4,11 +4,13 @@ import { z } from 'zod'
  * Reglas únicas de contraseña (A3 y A2D). Las usan la validación y el indicador visual.
  * Sus textos viven en content/contrasena.content.ts con el mismo id.
  * "Sin datos personales obvios" NO está aquí: el backend es quien la valida.
+ * Son iguales o más estrictas que el regex del backend (RegistroBaseRequest / ConfirmarResetRequest):
+ * 8–128 caracteres, A-Z, a-z, dígito y un carácter que no sea letra ni dígito.
  */
 export const REGLAS_CONTRASENA = [
-  { id: 'longitud', cumple: (valor: string) => valor.length >= 10 },
-  { id: 'mayuscula', cumple: (valor: string) => /\p{Lu}/u.test(valor) },
-  { id: 'minuscula', cumple: (valor: string) => /\p{Ll}/u.test(valor) },
+  { id: 'longitud', cumple: (valor: string) => valor.length >= 10 && valor.length <= 128 },
+  { id: 'mayuscula', cumple: (valor: string) => /[A-Z]/.test(valor) },
+  { id: 'minuscula', cumple: (valor: string) => /[a-z]/.test(valor) },
   { id: 'numero', cumple: (valor: string) => /\d/.test(valor) },
   { id: 'especial', cumple: (valor: string) => /[^\p{L}\d\s]/u.test(valor) },
 ] as const

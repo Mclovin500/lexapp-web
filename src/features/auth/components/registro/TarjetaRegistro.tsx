@@ -7,7 +7,7 @@ import { registroContent } from '../../content/registro.content'
 import { PasosRegistro } from '../PasosRegistro'
 
 interface TarjetaRegistroProps {
-  /** Índice de la etapa actual (0 = Datos básicos, 1 = Credenciales, 2 = Área de práctica). */
+  /** Índice de la etapa actual (0 = Datos básicos, 1 = Credenciales, 2 = Perfil; 3 = todas completas, A3A). */
   pasoActual: number
   subtitle: string
   children: ReactNode
@@ -45,7 +45,7 @@ export function TarjetaRegistro({ pasoActual, subtitle, children }: TarjetaRegis
           <span className="text-[11px] leading-tight">{reassurance}</span>
         </div>
         <span className="text-[11px] text-outline font-medium shrink-0">
-          {steps.counter(pasoActual + 1, steps.items.length)}
+          {steps.counter(Math.min(pasoActual + 1, steps.items.length), steps.items.length)}
         </span>
       </div>
 

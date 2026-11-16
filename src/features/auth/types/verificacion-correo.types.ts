@@ -1,4 +1,10 @@
-/** `POST /registro/verificar-correo` (A3A). Responde 204 y el backend abre la sesión (cookie httpOnly). */
+/** `POST /Verificacion/enviar` (A3A). */
+export interface PeticionEnviarCodigoCorreo {
+  correo: string
+}
+
+/** `POST /Verificacion/verificar` (A3A). 200 = correo verificado · 400 = código inválido o vencido. */
 export interface PeticionVerificarCorreo {
+  correo: string
   codigo: string
 }

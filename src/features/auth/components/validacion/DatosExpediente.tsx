@@ -1,4 +1,3 @@
-import { etiquetaDe, especialidades } from '../../content/catalogos.content'
 import {
   formatearFechaEnvio,
   validacionProfesionalContent,
@@ -16,7 +15,7 @@ export function DatosExpediente({ validacion }: DatosExpedienteProps) {
   const filas = [
     { etiqueta: details.name, valor: validacion.nombreCompleto },
     { etiqueta: details.cedula, valor: validacion.cedulaEnmascarada },
-    { etiqueta: details.specialty, valor: etiquetaDe(especialidades, validacion.especialidad) },
+    { etiqueta: details.specialty, valor: validacion.especialidad ?? details.noSpecialty },
     { etiqueta: details.status, valor: states[validacion.estado].badge },
     { etiqueta: details.submittedAt, valor: formatearFechaEnvio(validacion.fechaEnvio) },
     { etiqueta: details.folio, valor: validacion.folio },

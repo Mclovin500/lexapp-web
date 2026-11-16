@@ -4,7 +4,6 @@ export const ROUTES = {
   login: '/login',                         // P02
   profileSelection: '/seleccion-perfil',   // P03
   mobileApp: '/app-movil',                 // P04
-  verifyCode: '/verificar-codigo',         // A2A
   recoverPassword: '/recuperar-contrasena',// A2B
   recoveryCode: '/codigo-recuperacion',    // A2C
   newPassword: '/nueva-contrasena',        // A2D

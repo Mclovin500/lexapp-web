@@ -11,20 +11,18 @@ export type DestinoCarga =
   | typeof ROUTES.validationStatus
   | typeof ROUTES.register
 
-/** A2A → A1 (→ B1 o A5A) y P03 → A1 (→ A3). */
+/** P02 → A1 (→ B1 o A5A) y P03 → A1 (→ A3). */
 export interface EstadoCarga {
   destino: DestinoCarga
 }
 
-/** P02 → A2A */
-export interface EstadoVerificacionLogin {
+/** A5 (registro creado) o P02 (correo sin verificar) → A3A. */
+export interface EstadoVerificacionCorreo {
+  correo: string
   correoEnmascarado: string
   reenviarEnSegundos: number
   expiraEnSegundos: number
 }
-
-/** A3 → A3A (mismos datos que P02 → A2A). */
-export type EstadoVerificacionCorreo = EstadoVerificacionLogin
 
 /** A2B → A2C */
 export interface EstadoCodigoRecuperacion {
@@ -34,12 +32,13 @@ export interface EstadoCodigoRecuperacion {
   expiraEnSegundos: number
 }
 
-/** A2C → A2D (el token es de un solo uso y solo se usa en A2D). */
+/** A2C → A2D: el backend no emite token; A2D confirma con el correo y el código validado. */
 export interface EstadoNuevaContrasena {
-  tokenRestablecimiento: string
+  correo: string
+  codigo: string
 }
 
-/** A2D tras guardar: se reemplaza la entrada del historial para descartar el token. */
+/** A2D tras guardar: se reemplaza la entrada del historial para descartar el código. */
 export interface EstadoContrasenaActualizada {
   contrasenaActualizada: true
 }

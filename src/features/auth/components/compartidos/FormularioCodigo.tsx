@@ -25,7 +25,7 @@ export interface FormularioCodigoProps {
   permitirReenvioInmediato?: boolean
 }
 
-/** Casillas de código + verificar + reenvío con cuenta regresiva + error. Lo usan A2A y A2C. */
+/** Casillas de código + verificar + reenvío con cuenta regresiva + error. Lo usan A2C y A3A. */
 export function FormularioCodigo({
   etiqueta,
   textoBoton,

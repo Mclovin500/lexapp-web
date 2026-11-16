@@ -30,11 +30,11 @@ export async function obtenerValidacionMock(): Promise<RespuestaValidacion> {
   const estado = estadoMock()
   return {
     estado,
-    folio: 'LEX-MOCK-000123',
+    folio: 'EXP-000123',
     fechaEnvio: '2026-11-03T17:42:00.000Z',
     nombreCompleto: 'Alejandro Morales Vega',
-    cedulaEnmascarada: '849•••••',
-    especialidad: 'corporativo',
+    cedulaEnmascarada: '****5678',
+    especialidad: 'Derecho Corporativo',
     motivo: MOTIVOS[estado] ?? null,
   }
 }

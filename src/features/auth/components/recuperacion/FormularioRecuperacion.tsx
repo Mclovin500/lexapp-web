@@ -5,6 +5,7 @@ import { ROUTES } from '@/app/routes'
 import { Icon } from '@/components/ui/Icon'
 import { recuperarContrasenaContent } from '../../content/recuperar-contrasena.content'
 import { useSolicitarRecuperacion } from '../../hooks/useRecuperacion'
+import { enmascararCorreo, TIEMPOS_CODIGO } from '../../lib/codigo-correo'
 import { mensajePorTipo } from '../../lib/mapear-error'
 import { recuperacionSchema, type RecuperacionFormValues } from '../../schemas/recuperacion.schema'
 import type { EstadoCodigoRecuperacion } from '../../types/estado-navegacion.types'
@@ -32,13 +33,12 @@ export function FormularioRecuperacion() {
     solicitar(
       { correo: correoNormalizado },
       {
-        onSuccess: (respuesta) => {
+        onSuccess: () => {
           reset()
           const estado: EstadoCodigoRecuperacion = {
             correo: correoNormalizado,
-            correoEnmascarado: respuesta.correoEnmascarado,
-            reenviarEnSegundos: respuesta.reenviarEnSegundos,
-            expiraEnSegundos: respuesta.expiraEnSegundos,
+            correoEnmascarado: enmascararCorreo(correoNormalizado),
+            ...TIEMPOS_CODIGO,
           }
           navigate(ROUTES.recoveryCode, { state: estado })
         },

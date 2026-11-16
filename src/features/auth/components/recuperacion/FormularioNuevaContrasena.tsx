@@ -17,11 +17,12 @@ import { AlertaError } from '../compartidos/AlertaError'
 import { IndicadorContrasena } from '../IndicadorContrasena'
 
 interface FormularioNuevaContrasenaProps {
-  tokenRestablecimiento: string
+  correo: string
+  codigo: string
 }
 
-/** A2D: nueva contraseña + confirmación, con el indicador de requisitos compartido. */
-export function FormularioNuevaContrasena({ tokenRestablecimiento }: FormularioNuevaContrasenaProps) {
+/** A2D: nueva contraseña + confirmación (POST /PasswordReset/confirmar con el código de A2C). */
+export function FormularioNuevaContrasena({ correo, codigo }: FormularioNuevaContrasenaProps) {
   const navigate = useNavigate()
   const { form, criteria, errors: mensajes } = nuevaContrasenaContent
   const { mutate: guardar, isPending, error } = useGuardarNuevaContrasena()
@@ -42,15 +43,17 @@ export function FormularioNuevaContrasena({ tokenRestablecimiento }: FormularioN
     name: ['contrasena', 'confirmarContrasena'],
   })
   const coincide = confirmacion.length > 0 && contrasena === confirmacion
-  const tokenInvalido = error?.tipo === 'sesion_expirada' || error?.tipo === 'codigo_vencido'
+  // El backend responde 401 si el código venció, ya se usó o se agotaron los intentos.
+  const tokenInvalido =
+    error?.tipo === 'codigo_incorrecto' || error?.tipo === 'codigo_vencido' || error?.tipo === 'demasiados_intentos'
 
   const onSubmit = ({ contrasena: nueva }: NuevaContrasenaFormValues) => {
     guardar(
-      { tokenRestablecimiento, contrasena: nueva },
+      { correo, codigo, contrasena: nueva },
       {
         onSuccess: () => {
           reset()
-          // Se reemplaza la entrada del historial para descartar el token.
+          // Se reemplaza la entrada del historial para descartar el código.
           const estado: EstadoContrasenaActualizada = { contrasenaActualizada: true }
           navigate(ROUTES.newPassword, { replace: true, state: estado })
         },

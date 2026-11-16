@@ -9,7 +9,6 @@ export const loginSchema = z.object({
   contrasena: z
     .string()
     .min(1, 'La contraseña es requerida.'),
-  recordarEquipo: z.boolean(),
 })
 
 export type LoginFormValues = z.infer<typeof loginSchema>

@@ -7,7 +7,6 @@ import { SeleccionPerfilPage } from '@/features/auth/pages/SeleccionPerfilPage'
 import { AppMovilPage } from '@/features/app-movil/pages/AppMovilPage'
 import { BienvenidaPage } from '@/features/auth/pages/BienvenidaPage'
 import { RegistroPage } from '@/features/auth/pages/RegistroPage'
-import { VerificarCodigoPage } from '@/features/auth/pages/VerificarCodigoPage'
 import { RecuperarContrasenaPage } from '@/features/auth/pages/RecuperarContrasenaPage'
 import { CodigoRecuperacionPage } from '@/features/auth/pages/CodigoRecuperacionPage'
 import { NuevaContrasenaPage } from '@/features/auth/pages/NuevaContrasenaPage'
@@ -63,10 +62,6 @@ export const router = createBrowserRouter([
   {
     path: ROUTES.mobileApp,
     element: <AppMovilPage />,
-  },
-  {
-    path: ROUTES.verifyCode,
-    element: <VerificarCodigoPage />,
   },
   {
     path: ROUTES.recoverPassword,

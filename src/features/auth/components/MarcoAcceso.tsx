@@ -8,14 +8,14 @@ interface MarcoAccesoProps {
   children: ReactNode
   /** Brillo central animado (A1) o estático (A3). */
   brilloAnimado?: boolean
-  /** Enlace de regreso en la cabecera (sustituye al lema). Lo usan A2A–A2D. */
+  /** Enlace de regreso en la cabecera (sustituye al lema). Lo usan A2B–A2D. */
   regreso?: {
     to: string
     label: string
   }
 }
 
-/** Marco visual compartido por A1, A2A–A2D y A3: fondo, cabecera y pie institucional. */
+/** Marco visual compartido por A1, A2B–A2D y A3–A5A: fondo, cabecera y pie institucional. */
 export function MarcoAcceso({ children, brilloAnimado = false, regreso }: MarcoAccesoProps) {
   const { header, footer } = accesoContent
 

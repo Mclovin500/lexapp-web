@@ -1,27 +1,45 @@
+import type { EstadoValidacion } from './sesion.types'
+
+/** Valores del formulario P02. */
 export interface CredencialesLogin {
   correo: string
   contrasena: string
-  recordarEquipo: boolean
 }
 
+/** `LoginResponse` del backend (`POST /auth/login`). */
+export interface RespuestaLoginApi {
+  token: string
+  expira: string
+  idUsuario: number
+  email: string
+  tipoUsuario: string
+  idPerfil: number
+  /** Solo para abogados: pendiente | verificado | rechazado | requiere_correccion. */
+  estadoVerificacion: string | null
+}
+
+/** Lo que la UI necesita tras iniciar sesión (el token ya quedó guardado). */
 export interface RespuestaLogin {
-  requiereCodigo: boolean
-  correoEnmascarado: string
-  /** Segundos que faltan para poder reenviar el código (los decide el backend). */
-  reenviarEnSegundos: number
-  /** Vigencia del código enviado, en segundos. */
-  expiraEnSegundos: number
+  estadoValidacion: EstadoValidacion
 }
 
-/** Tiempos que devuelve el backend cada vez que envía o reenvía un código. */
+/** Tiempos de un código enviado por correo (los fija el front con los valores del backend). */
 export interface RespuestaReenvio {
   reenviarEnSegundos: number
   expiraEnSegundos: number
 }
 
+/** `ApiResponse` del backend (`/Verificacion/*`). */
+export interface RespuestaApi {
+  exito: boolean
+  mensaje: string
+}
+
 export type TipoErrorAuth =
   | 'credenciales'
   | 'cuenta_no_abogado'
+  | 'correo_no_verificado'
+  | 'cuenta_desactivada'
   | 'codigo_incorrecto'
   | 'codigo_vencido'
   | 'conflicto'
@@ -33,11 +51,13 @@ export type TipoErrorAuth =
 
 export class ErrorAutenticacion extends Error {
   readonly tipo: TipoErrorAuth
+  /** Texto `mensaje` que devolvió el backend, si lo hubo. */
+  readonly mensajeServidor?: string
 
-  constructor(tipo: TipoErrorAuth, mensaje?: string) {
+  constructor(tipo: TipoErrorAuth, mensaje?: string, mensajeServidor?: string) {
     super(mensaje ?? tipo)
     this.name = 'ErrorAutenticacion'
     this.tipo = tipo
+    this.mensajeServidor = mensajeServidor
   }
 }
-

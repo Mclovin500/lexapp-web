@@ -10,7 +10,7 @@ import { esEstadoCarga } from '../lib/estado-navegacion'
 
 /**
  * A1: pantalla de carga de transición.
- * - Con destino en el estado (A2A → B1/A5A, P03 → A3): espera el tiempo mínimo y continúa.
+ * - Con destino en el estado (P02/A3A → B1 o A5A, P03 → A3): espera el tiempo mínimo y continúa.
  * - Sin destino (acceso directo a /bienvenida): consulta la sesión →
  *   activa: B1 o A5A · sin sesión o error: P02.
  * Siempre navega con `replace`, para que "Atrás" no regrese a la carga.

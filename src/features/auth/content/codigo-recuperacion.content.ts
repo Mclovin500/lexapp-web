@@ -14,7 +14,7 @@ export const codigoRecuperacionContent = {
   trustSeal: 'El código es temporal y de un solo uso',
   trustReference: 'Nunca compartas este código con nadie.',
   errors: {
-    codigo_incorrecto: 'Código incorrecto. Verifica e inténtalo de nuevo.',
+    codigo_incorrecto: 'Código incorrecto o vencido. Verifícalo o solicita uno nuevo.',
     codigo_vencido: 'El código venció. Solicita uno nuevo.',
     demasiados_intentos: 'Demasiados intentos. Inténtalo más tarde.',
     red: 'No pudimos conectar con el servidor. Inténtalo de nuevo.',
