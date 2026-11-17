@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import { Asistente } from '@/features/asistente/Asistente'
 import { useCuentaAbogado } from '@/features/dashboard/hooks/useCuentaAbogado'
 import { EncabezadoApp } from './app/EncabezadoApp'
 import { etiquetasShell } from './app/navegacion'
@@ -28,6 +29,7 @@ export function AppLayout() {
           <Outlet />
         </main>
       </div>
+      <Asistente />
     </div>
   )
 }
