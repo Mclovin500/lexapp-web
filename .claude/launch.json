@@ -7,19 +7,6 @@
       "runtimeArgs": ["/c", "set VITE_USAR_MOCKS=true&& npm run dev"],
       "port": 5173,
       "url": "http://127.0.0.1:5173"
-    },
-    {
-      "name": "lexapp-web",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 5173,
-      "url": "http://127.0.0.1:5173"
-    },
-    {
-      "name": "back-lexapp",
-      "runtimeExecutable": "dotnet",
-      "runtimeArgs": ["run", "--project", "../Back_Lexapp/Lexapp.csproj", "--launch-profile", "https"],
-      "port": 5078
     }
   ]
 }
