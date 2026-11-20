@@ -1,6 +1,6 @@
 // H1: chat sobre `/api/casos/{id}/mensajes` (CasosController). Cada caso es una conversación:
-// el id de la conversación es el id del caso. Aún no hay conversaciones sin caso, marcado de
-// leído ni carga de adjuntos (el backend solo acepta una URL ya subida).
+// el id de la conversación es el id del caso. Aún no hay conversaciones sin caso ni
+// carga de adjuntos (el backend solo acepta una URL ya subida).
 import { api } from '@/api/cliente'
 import { ENDPOINTS } from '@/api/endpoints'
 import { aErrorApi, ErrorApi } from '@/api/errores'
@@ -99,11 +99,17 @@ export async function obtenerMensajes(id: string): Promise<RespuestaMensajes> {
   return { conversacion: aConversacion(caso, mensajes), mensajes }
 }
 
-/** El backend aún no marca mensajes como leídos: no hace nada. */
+/** `PATCH /casos/{id}/mensajes/marcar-leidos`: marca como leídos los mensajes recibidos en el caso. */
 export async function marcarConversacionLeida(id: string): Promise<void> {
   if (import.meta.env.DEV && USAR_MOCKS) {
     const { marcarConversacionLeidaMock } = await import('./chat.mock')
     return marcarConversacionLeidaMock(id)
+  }
+
+  try {
+    await api.patch(ENDPOINTS.casos.marcarMensajesLeidos(id))
+  } catch (error: unknown) {
+    throw aErrorApi(error)
   }
 }
 

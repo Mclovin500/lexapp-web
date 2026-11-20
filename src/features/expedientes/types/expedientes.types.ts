@@ -48,7 +48,7 @@ export interface RespuestaExpedientes {
   totalesPorEstado: Record<FiltroExpedientes, number>
 }
 
-export type TipoEventoExpediente = 'apertura' | 'estado' | 'documento' | 'pago' | 'reunion'
+export type TipoEventoExpediente = 'apertura' | 'estado' | 'documento' | 'pago' | 'reunion' | 'mensaje'
 
 /** "Historial": eventos que registra el sistema. */
 export interface EventoExpediente {

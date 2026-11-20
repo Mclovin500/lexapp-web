@@ -11,6 +11,7 @@ export const tiposNotificacion: Record<TipoNotificacion, { label: string; icon: 
   pago_realizado: { label: 'Pago realizado', icon: 'payments', accion: 'Ver pago' },
   actualizacion_expediente: { label: 'Actualización de expediente', icon: 'folder_open', accion: 'Ver expediente' },
   proxima_videollamada: { label: 'Próxima videollamada', icon: 'videocam', accion: 'Ingresar a la sala' },
+  general: { label: 'Aviso', icon: 'notifications', accion: 'Ir al panel' },
 }
 
 export const notificacionesContent = {

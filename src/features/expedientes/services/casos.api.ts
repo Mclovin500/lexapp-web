@@ -87,6 +87,82 @@ export interface FacturaCasoApi {
   esCobroAdicional: boolean
 }
 
+// ---------- ExpedientesController (`/api/expedientes`) ----------
+
+export interface CitaProximaApi {
+  idCita: number
+  fechaHoraInicio: string
+  modalidad: string | null
+  estadoCita: EstadoCitaApi
+}
+
+/** Tarjeta del dashboard. No trae `idCliente`: se cruza con `mis-casos` cuando hace falta. */
+export interface ExpedienteDashboardApi {
+  idCaso: number
+  titulo: string
+  estadoCaso: EstadoCasoApi
+  progresoPorcentaje: number
+  /** Cliente (si la sesión es de abogado) o abogado (si es de cliente). */
+  nombreContraparte: string
+  fechaCreacion: string
+  ultimaActualizacion: string
+  mensajesNoLeidos: number
+  totalDocumentos: number
+  totalCitas: number
+  proximaCita: CitaProximaApi | null
+  costoTotalCentavos: number
+  facturasPendientesCentavos: number
+}
+
+export interface DashboardExpedientesApi {
+  total: number
+  pagina: number
+  tamanoPagina: number
+  totalPaginas: number
+  expedientes: ExpedienteDashboardApi[]
+  totalAbiertos: number
+  totalEnProgreso: number
+  totalCerrados: number
+  totalCancelados: number
+}
+
+export interface EventoExpedienteApi {
+  /** "mensaje" | "cita" | "documento" | "factura" */
+  tipoEvento: string
+  idEvento: number
+  fechaHora: string
+  descripcion: string
+  metadata: Record<string, unknown> | null
+}
+
+export interface LineaTiempoApi {
+  idCaso: number
+  tituloCaso: string
+  eventos: EventoExpedienteApi[]
+}
+
+export interface ResumenFinancieroApi {
+  idCaso: number
+  costoTotalCentavos: number
+  totalFacturadoCentavos: number
+  totalPagadoCentavos: number
+  totalPendienteCentavos: number
+  totalVencidoCentavos: number
+  totalFacturas: number
+  facturasPagadas: number
+  facturasPendientes: number
+  facturasVencidas: number
+}
+
+/** `PATCH /expedientes/{id}`: solo se aplican los campos presentes. */
+export interface ActualizarExpedienteApi {
+  titulo?: string
+  descripcion?: string
+  estadoCaso?: EstadoCasoApi
+  progresoPorcentaje?: number
+  costoTotalCentavos?: number
+}
+
 // ---------- Peticiones ----------
 
 const { casos } = ENDPOINTS
@@ -107,6 +183,37 @@ export const listarMensajesApi = (idCaso: string) => obtener<MensajeChatApi[]>(c
 export const listarCitasApi = (idCaso: string) => obtener<CitaCasoApi[]>(casos.citas(idCaso))
 export const listarFacturasApi = (idCaso: string) => obtener<FacturaCasoApi[]>(casos.facturas(idCaso))
 export const obtenerFacturaApi = (idCaso: string, idFactura: string) => obtener<FacturaCasoApi>(casos.factura(idCaso, idFactura))
+
+export const obtenerLineaTiempoApi = (idCaso: string) => obtener<LineaTiempoApi>(ENDPOINTS.expedientes.timeline(idCaso))
+export const obtenerFinanzasApi = (idCaso: string) => obtener<ResumenFinancieroApi>(ENDPOINTS.expedientes.finanzas(idCaso))
+
+/** Tamaño máximo de página que acepta `GET /expedientes/dashboard`. */
+const TAMANO_PAGINA_DASHBOARD = 50
+
+/** Todas las páginas del dashboard de expedientes (los contadores son globales y vienen en cada página). */
+export async function obtenerDashboardExpedientesApi(): Promise<DashboardExpedientesApi> {
+  const pedir = (pagina: number) =>
+    api
+      .get<DashboardExpedientesApi>(ENDPOINTS.expedientes.dashboard, { params: { pagina, tamanoPagina: TAMANO_PAGINA_DASHBOARD } })
+      .then((r) => r.data)
+  try {
+    const primera = await pedir(1)
+    if (primera.totalPaginas <= 1) return primera
+    const resto = await Promise.all(Array.from({ length: primera.totalPaginas - 1 }, (_, i) => pedir(i + 2)))
+    return { ...primera, expedientes: [primera, ...resto].flatMap((p) => p.expedientes) }
+  } catch (error: unknown) {
+    throw aErrorApi(error)
+  }
+}
+
+export async function actualizarExpedienteApi(idCaso: string, cambios: ActualizarExpedienteApi): Promise<CasoDetalleApi> {
+  try {
+    const respuesta = await api.patch<CasoDetalleApi>(ENDPOINTS.expedientes.actualizar(idCaso), cambios)
+    return respuesta.data
+  } catch (error: unknown) {
+    throw aErrorApi(error)
+  }
+}
 
 /** Ejecuta `consulta` en cada caso y junta los resultados (citas y facturas no tienen listado global). */
 export async function enCadaCaso<T>(consulta: (idCaso: string) => Promise<T[]>, lista?: CasoResumenApi[]) {

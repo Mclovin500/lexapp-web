@@ -1,6 +1,8 @@
-// E1/E2: expedientes sobre `GET /api/casos/mis-casos` y `GET /api/casos/{id}` (CasosController).
-// El caso no guarda área jurídica, propuesta de origen ni actualizaciones; el historial se arma
-// con la apertura, los documentos, las facturas y las citas del caso.
+// E1/E2: expedientes sobre CasosController (`/api/casos`) y ExpedientesController (`/api/expedientes`).
+// El caso no guarda área jurídica, propuesta de origen ni actualizaciones de seguimiento. El historial
+// viene de `GET /expedientes/{id}/timeline` (mensajes, citas, documentos y facturas) más la apertura.
+// El estado se cambia con `PATCH /expedientes/{id}`; la nota del cambio todavía no se guarda.
+import { ErrorApi } from '@/api/errores'
 import { USAR_MOCKS } from '@/api/mocks'
 import { aMovimiento } from '@/features/pagos/services/pagos.service'
 import { aReunion } from '@/features/agenda/services/agenda.service'
@@ -16,6 +18,7 @@ import type {
   RespuestaExpedientes,
 } from '../types/expedientes.types'
 import {
+  actualizarExpedienteApi,
   AREA_SIN_ESPECIFICAR,
   estadoExpediente,
   folioExpediente,
@@ -26,7 +29,11 @@ import {
   noDisponible,
   normalizarTexto,
   obtenerCasoApi,
+  obtenerDashboardExpedientesApi,
+  obtenerLineaTiempoApi,
   type CasoResumenApi,
+  type EstadoCasoApi,
+  type EventoExpedienteApi,
 } from './casos.api'
 import { aDocumentoExpediente } from './documentos.service'
 
@@ -55,7 +62,20 @@ export async function listarOpcionesExpedientes(clienteId: string): Promise<Opci
     .map((c) => ({ id: String(c.idCaso), folio: folioExpediente(c.idCaso), asunto: c.titulo, clienteId: String(c.idCliente) }))
 }
 
-/** E1: filtro, búsqueda y paginación en el navegador (el backend devuelve todos los casos). */
+/** `ultimaActualizacion` de cada caso según el dashboard (si falla, se usa la fecha de apertura). */
+async function ultimasActualizaciones(): Promise<Map<number, string>> {
+  try {
+    const { expedientes } = await obtenerDashboardExpedientesApi()
+    return new Map(expedientes.map((e) => [e.idCaso, e.ultimaActualizacion]))
+  } catch {
+    return new Map()
+  }
+}
+
+/**
+ * E1: filtro, búsqueda y paginación en el navegador. El dashboard del backend filtra por un solo
+ * estado y la web agrupa dos ("activo" = abierto + en progreso), así que se piden todos los casos.
+ */
 export async function listarExpedientes(filtros: FiltrosExpedientes): Promise<RespuestaExpedientes> {
   if (import.meta.env.DEV && USAR_MOCKS) {
     const { listarExpedientesMock } = await import('./expedientes.mock')
@@ -63,8 +83,10 @@ export async function listarExpedientes(filtros: FiltrosExpedientes): Promise<Re
   }
 
   const busqueda = normalizarTexto(filtros.busqueda.trim())
-  const base = (await listarCasosApi())
-    .map(aExpedienteResumen)
+  const [casos, actualizaciones] = await Promise.all([listarCasosApi(), ultimasActualizaciones()])
+  const base = casos
+    .map((c) => aExpedienteResumen({ ...c, updatedAt: actualizaciones.get(c.idCaso) }))
+    .sort((a, b) => b.ultimaActualizacion.localeCompare(a.ultimaActualizacion))
     .filter(
       (e) =>
         (!filtros.area || e.areaJuridica === filtros.area) &&
@@ -86,18 +108,37 @@ export async function listarExpedientes(filtros: FiltrosExpedientes): Promise<Re
   }
 }
 
-/** E2: detalle del caso + documentos, facturas y citas (cuatro consultas en paralelo). */
+const TIPOS_EVENTO: Record<string, EventoExpediente['tipo']> = {
+  mensaje: 'mensaje',
+  cita: 'reunion',
+  documento: 'documento',
+  factura: 'pago',
+}
+
+function aEvento(e: EventoExpedienteApi, autorPorDefecto: string): EventoExpediente {
+  const remitente = e.metadata?.remitente
+  return {
+    id: `${e.tipoEvento}-${e.idEvento}`,
+    tipo: TIPOS_EVENTO[e.tipoEvento] ?? 'estado',
+    descripcion: e.descripcion,
+    fecha: e.fechaHora,
+    autor: typeof remitente === 'string' ? remitente : autorPorDefecto,
+  }
+}
+
+/** E2: detalle del caso + documentos, facturas, citas y línea de tiempo (cinco consultas en paralelo). */
 export async function obtenerExpediente(id: string): Promise<ExpedienteDetalle> {
   if (import.meta.env.DEV && USAR_MOCKS) {
     const { obtenerExpedienteMock } = await import('./expediente-detalle.mock')
     return obtenerExpedienteMock(id)
   }
 
-  const [caso, documentosApi, facturas, citas] = await Promise.all([
+  const [caso, documentosApi, facturas, citas, lineaTiempo] = await Promise.all([
     obtenerCasoApi(id),
     listarDocumentosApi(id),
     listarFacturasApi(id),
     listarCitasApi(id),
+    obtenerLineaTiempoApi(id),
   ])
 
   const documentos = documentosApi.map((d) => aDocumentoExpediente(d, caso.nombreAbogado)).sort((a, b) => b.fechaCarga.localeCompare(a.fechaCarga))
@@ -109,10 +150,8 @@ export async function obtenerExpediente(id: string): Promise<ExpedienteDetalle> 
 
   const historial: EventoExpediente[] = [
     { id: `apertura-${caso.idCaso}`, tipo: 'apertura' as const, descripcion: 'Expediente abierto al aceptar la propuesta.', fecha: caso.fechaCreacion, autor: 'Sistema' },
-    ...documentos.map((d) => ({ id: `doc-${d.id}`, tipo: 'documento' as const, descripcion: `Documento cargado: ${d.nombre}`, fecha: d.fechaCarga, autor: d.cargadoPor.nombre })),
-    ...pagos.map((p) => ({ id: `pago-${p.id}`, tipo: 'pago' as const, descripcion: `Cobro ${p.folio}: ${p.concepto}`, fecha: p.fecha, autor: caso.nombreAbogado })),
-    ...reuniones.map((r) => ({ id: `reunion-${r.id}`, tipo: 'reunion' as const, descripcion: 'Reunión agendada', fecha: r.inicio, autor: caso.nombreAbogado })),
-  ].sort((a, b) => b.fecha.localeCompare(a.fecha))
+    ...lineaTiempo.eventos.map((e) => aEvento(e, caso.nombreAbogado)),
+].sort((a, b) => b.fecha.localeCompare(a.fecha))
 
   return {
     ...aExpedienteResumen(caso),
@@ -154,11 +193,20 @@ export async function registrarActualizacion(id: string, peticion: PeticionActua
   noDisponible()
 }
 
-/** Aún no hay endpoint para cambiar el estado del caso. */
+/** Estado del backend para cada estado de la web. "En espera" todavía no existe en `estado_caso_enum`. */
+const ESTADO_API: Partial<Record<PeticionCambioEstado['estado'], EstadoCasoApi>> = {
+  activo: 'en_progreso',
+  finalizado: 'cerrado',
+}
+
+/** `PATCH /expedientes/{id}` con `{ estadoCaso }` (solo el abogado del caso). */
 export async function cambiarEstadoExpediente(id: string, peticion: PeticionCambioEstado): Promise<void> {
   if (import.meta.env.DEV && USAR_MOCKS) {
     const { cambiarEstadoExpedienteMock } = await import('./expedientes.mock')
     return cambiarEstadoExpedienteMock(id, peticion)
   }
-  noDisponible()
+
+  const estadoCaso = ESTADO_API[peticion.estado]
+  if (!estadoCaso) throw new ErrorApi('no_disponible', undefined, 'El estado "En espera" aún no está disponible.')
+  await actualizarExpedienteApi(id, { estadoCaso })
 }

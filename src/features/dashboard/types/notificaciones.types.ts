@@ -10,6 +10,8 @@ export type TipoNotificacion =
   | 'pago_realizado'
   | 'actualizacion_expediente'
   | 'proxima_videollamada'
+  /** Tipos que el backend envía y la web aún no distingue. */
+  | 'general'
 
 export type FiltroNotificaciones = 'todas' | 'no_leidas' | 'leidas'
 
@@ -35,7 +37,7 @@ export interface Notificacion {
   destino: DestinoNotificacion
 }
 
-/** `GET /notificaciones?filtro=todas|no_leidas|leidas` */
+/** Listado ya filtrado (el backend devuelve todas; ver notificaciones.service). */
 export interface RespuestaNotificaciones {
   notificaciones: Notificacion[]
   totales: Record<FiltroNotificaciones, number>

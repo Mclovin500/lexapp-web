@@ -3,6 +3,7 @@ import { api } from '@/api/cliente'
 import { ENDPOINTS } from '@/api/endpoints'
 import { aErrorApi } from '@/api/errores'
 import { USAR_MOCKS } from '@/api/mocks'
+import { borrarToken } from '@/api/token'
 import type {
   CuentaDeposito,
   DatosPersonales,
@@ -197,9 +198,6 @@ export async function cerrarSesion(): Promise<void> {
     return cerrarSesionMock()
   }
 
-  try {
-    await api.post(ENDPOINTS.auth.cerrarSesion)
-  } catch (error: unknown) {
-    throw aErrorApi(error)
-  }
+  // El backend no tiene endpoint de cierre de sesión (el JWT no se revoca): basta con borrar el token local.
+  borrarToken()
 }

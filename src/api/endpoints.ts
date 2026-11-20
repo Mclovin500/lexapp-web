@@ -1,12 +1,12 @@
 // Todas son relativas a VITE_API_URL. Cambiar aquí actualiza todos los servicios.
 // Rutas reales del backend (Back_Lexapp/controllers): auth, registro, verificación,
-// recuperación, abogado.validacion, solicitudes, propuestas, perfilCambios y casos.
+// recuperación, abogado.validacion, notificaciones, solicitudes, propuestas, perfilCambios, casos
+// y expedientes. Las notas de expediente no se usan: la tabla `notas_expediente` aún no existe.
 // El resto siguen siendo PROPUESTA (ver docs/contrato-api-*.md).
 export const ENDPOINTS = {
   auth: {
     login: '/auth/login', // P02 (AuthController): devuelve el JWT
     sesion: '/auth/sesion', // A1 y RutaProtegida (AuthController, requiere Bearer)
-    cerrarSesion: '/auth/cerrar-sesion', // J1 "Cerrar sesión" (PROPUESTA: no existe en el backend)
   },
   registro: {
     abogado: '/Registro/abogado', // A5 "Crear mi cuenta": POST multipart con lo capturado en A3, A4 y A5
@@ -38,9 +38,11 @@ export const ENDPOINTS = {
     resumen: '/dashboard/resumen', // B1
   },
   notificaciones: {
-    listado: '/notificaciones', // B1A
-    detalle: (id: string) => `/notificaciones/${encodeURIComponent(id)}`, // B1A (marcar como leída)
-    marcarTodasLeidas: '/notificaciones/marcar-todas-leidas', // B1A
+    listado: '/notificaciones', // B1A (NotificacionesController, ?soloNoLeidas=true)
+    conteo: '/notificaciones/conteo', // Header: badge de no leídas
+    leer: (id: string) => `/notificaciones/${encodeURIComponent(id)}/leer`, // B1A marcar como leída (PATCH)
+    detalle: (id: string) => `/notificaciones/${encodeURIComponent(id)}`, // B1A eliminar (DELETE)
+    marcarTodasLeidas: '/notificaciones/leer-todas', // B1A (PATCH)
   },
   solicitudes: {
     bandeja: '/solicitudes-caso/abogado/bandeja', // C1, C2, B1 (solo las pendientes del abogado)
@@ -63,11 +65,19 @@ export const ENDPOINTS = {
     detalle: (id: string) => `/casos/${encodeURIComponent(id)}`, // E2
     documentos: (id: string) => `/casos/${encodeURIComponent(id)}/documentos`, // E3 (GET listado, POST multipart)
     mensajes: (id: string) => `/casos/${encodeURIComponent(id)}/mensajes`, // H1 (GET historial, POST enviar)
+    mensajesNoLeidos: (id: string) => `/casos/${encodeURIComponent(id)}/mensajes/no-leidos`, // H1 (GET)
+    marcarMensajesLeidos: (id: string) => `/casos/${encodeURIComponent(id)}/mensajes/marcar-leidos`, // H1 (PATCH)
     citas: (id: string) => `/casos/${encodeURIComponent(id)}/citas`, // G1 (GET, POST agendar)
     estadoCita: (id: string, citaId: string) =>
       `/casos/${encodeURIComponent(id)}/citas/${encodeURIComponent(citaId)}/estado`, // G1 cancelar / finalizar (PATCH)
     facturas: (id: string) => `/casos/${encodeURIComponent(id)}/facturas`, // D3 (GET), D4 (POST cobro)
     factura: (id: string, facturaId: string) =>
       `/casos/${encodeURIComponent(id)}/facturas/${encodeURIComponent(facturaId)}`, // D5
+  },
+  expedientes: {
+    dashboard: '/expedientes/dashboard', // E1, B1 (ExpedientesController, máx. 50 por página)
+    actualizar: (id: string) => `/expedientes/${encodeURIComponent(id)}`, // E2 cambiar estado (PATCH, abogado)
+    timeline: (id: string) => `/expedientes/${encodeURIComponent(id)}/timeline`, // E2 historial
+    finanzas: (id: string) => `/expedientes/${encodeURIComponent(id)}/finanzas`, // E2 resumen de cobros
   },
 } as const

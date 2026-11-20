@@ -9,6 +9,7 @@ const iconos: Record<TipoEventoExpediente, string> = {
   documento: 'description',
   pago: 'payments',
   reunion: 'videocam',
+  mensaje: 'chat',
 }
 
 /** Línea de tiempo del expediente, del evento más reciente al más antiguo. */

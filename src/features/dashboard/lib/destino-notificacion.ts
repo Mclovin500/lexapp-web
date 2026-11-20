@@ -39,5 +39,7 @@ export function rutaDeNotificacion({ tipo, destino }: Notificacion): string {
       return destino.reunionId
         ? generatePath(ROUTES.videoRoom, { reunionId: destino.reunionId })
         : ROUTES.agenda
+    case 'general':
+      return ROUTES.dashboard
   }
 }
